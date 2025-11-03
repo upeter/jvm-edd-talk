@@ -24,10 +24,11 @@ data class TranscribedMessageReply(val transcribedInputText: String, val outputT
 internal class AIController(
     val openAiAudioSpeechModel: OpenAiAudioSpeechModel,
     val openAiAudioTranscriptionModel: OpenAiAudioTranscriptionModel,
-    val mcpToolProvider: ToolCallbackProvider,
     @Lazy val  chatClient: ChatClient,
-    private val conferenceTools: ConferenceTools
+    val mcpToolProvider: ToolCallbackProvider,
+    val conferenceTools: ConferenceTools
 ) {
+
 
     @PostMapping("/chat")
     fun chat(@RequestBody chatMessage: ChatMessage): String? {
@@ -35,16 +36,26 @@ internal class AIController(
             .prompt()
             .system(SYSTEM_PROMPT)
             .user(chatMessage.message)
+//            .toolContext(mapOf("conversationId" to chatMessage.conversationId))
             .toolContext(mapOf("progressToken" to "token-${nextInt()}", "conversationId" to chatMessage.conversationId))
-            .toolCallbacks(mcpToolProvider)
 //            .tools(conferenceTools)
-            //.toolContext(mapOf("conversationId" to chatMessage.conversationId))
+            .toolCallbacks(mcpToolProvider)
             .advisors {
                 it.param(CONVERSATION_ID, chatMessage.conversationId)
             }
             .call()
             .content()
     }
+
+
+
+
+
+
+
+
+
+
 
     @PostMapping("/audio-in-text-out-chat", consumes = ["multipart/form-data"])
     @ResponseBody
