@@ -62,43 +62,43 @@ class ConferenceMcpServer(
 
 
 
-
-
-    @McpTool(
-        name = "get-preferred-sessions",
-        description = "Get all preferred sessions of the user."
-    )
-    fun getPreferredSessionsBy(exchange: McpSyncServerExchange): Set<ConferenceSession> {
-        val id = exchange.sessionId()
-        return sessionPreferenceRepository.getPreferredSessionsBy(id)
-            .also { logger.info("Found ${it.size} preferred sessions for conversationId: $id") }
-    }
-
-    @McpTool(
-        name = "add-preferred-sessions",
-        description = "Add a session to preferences for the user"
-    )
-    fun addPreferenceSessions(
-        @McpToolParam(description = "the session title of the session to add") sessionTitle: String,
-        exchange: McpSyncServerExchange
-    ) {
-        val id = exchange.sessionId()
-        return sessionPreferenceRepository.addToPreferenceSessions(id, sessionTitle)
-            .also { logger.info("Added session: $sessionTitle to preferences for conversationId: $id") }
-    }
-
-    @McpTool(
-        name = "remove-preferred-sessions",
-        description = "Remove a session from preferences for the user."
-    )
-    fun removePreferredSession(
-        @McpToolParam(description = "the session title of the session to remove") sessionTitle: String,
-        exchange: McpSyncServerExchange
-    ) {
-        val id = exchange.sessionId()
-        return sessionPreferenceRepository.removePreferredSession(id, sessionTitle)
-            .also { logger.info("Removed session: $sessionTitle from preferences for conversationId: $id") }
-    }
+//
+//
+//    @McpTool(
+//        name = "get-preferred-sessions",
+//        description = "Get all preferred sessions of the user."
+//    )
+//    fun getPreferredSessionsBy(exchange: McpSyncServerExchange): Set<ConferenceSession> {
+//        val id = exchange.sessionId()
+//        return sessionPreferenceRepository.getPreferredSessionsBy(id)
+//            .also { logger.info("Found ${it.size} preferred sessions for conversationId: $id") }
+//    }
+//
+//    @McpTool(
+//        name = "add-preferred-sessions",
+//        description = "Add a session to preferences for the user"
+//    )
+//    fun addPreferenceSessions(
+//        @McpToolParam(description = "the session title of the session to add") sessionTitle: String,
+//        exchange: McpSyncServerExchange
+//    ) {
+//        val id = exchange.sessionId()
+//        return sessionPreferenceRepository.addToPreferenceSessions(id, sessionTitle)
+//            .also { logger.info("Added session: $sessionTitle to preferences for conversationId: $id") }
+//    }
+//
+//    @McpTool(
+//        name = "remove-preferred-sessions",
+//        description = "Remove a session from preferences for the user."
+//    )
+//    fun removePreferredSession(
+//        @McpToolParam(description = "the session title of the session to remove") sessionTitle: String,
+//        exchange: McpSyncServerExchange
+//    ) {
+//        val id = exchange.sessionId()
+//        return sessionPreferenceRepository.removePreferredSession(id, sessionTitle)
+//            .also { logger.info("Removed session: $sessionTitle from preferences for conversationId: $id") }
+//    }
 
 
     fun McpSyncServerExchange.info(message: String) {
