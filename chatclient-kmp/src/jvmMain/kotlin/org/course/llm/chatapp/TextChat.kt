@@ -24,6 +24,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.animation.core.*
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.sp
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -44,6 +53,12 @@ data class ChatMessage(
 data class ChatInput(
     val message: String,
     val conversationId: String
+)
+
+data class MarkdownColors(
+    val text: Color,
+    val link: Color,
+    val code: Color
 )
 
 data class TranscribedMessageReply(
@@ -84,6 +99,26 @@ fun ChatBubble(message: ChatMessage) {
 }
 
 @Composable
+fun MarkdownText(content: String, style: ChatBubbleStyle) {
+    val markdownColors = MarkdownColors(
+        text = style.textColor,
+        link = style.textColor.copy(alpha = 0.85f),
+        code = style.textColor.copy(alpha = 0.9f)
+    )
+    val annotated = remember(content, style) { buildMarkdownAnnotatedString(content, markdownColors) }
+    CompositionLocalProvider(LocalContentColor provides style.textColor) {
+        SelectionContainer {
+            Text(
+                text = annotated,
+                modifier = Modifier.padding(12.dp),
+                color = style.textColor,
+                style = TextStyle.Default
+            )
+        }
+    }
+}
+
+@Composable
 fun ChatBubbleWithStyle(content: String, style: ChatBubbleStyle) {
     Box(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 5.dp),
@@ -108,15 +143,127 @@ fun ChatBubbleWithStyle(content: String, style: ChatBubbleStyle) {
                 color = style.backgroundColor,
                 modifier = Modifier.widthIn(max = 400.dp)
             ) {
-                SelectionContainer {
-                    Text(
-                        text = content,
-                        modifier = Modifier.padding(12.dp),
-                        color = style.textColor
-                    )
+                MarkdownText(content, style)
+            }
+        }
+    }
+}
+
+private fun buildMarkdownAnnotatedString(text: String, colors: MarkdownColors): AnnotatedString {
+    val builder = AnnotatedString.Builder()
+    var inCodeBlock = false
+
+    val lines = text.lines()
+    lines.forEachIndexed { index, rawLine ->
+        val line = rawLine.trimEnd()
+
+        if (line.startsWith("```")) {
+            inCodeBlock = !inCodeBlock
+            if (!inCodeBlock) {
+                builder.append('\n')
+            }
+        } else if (inCodeBlock) {
+            builder.pushStyle(SpanStyle(fontFamily = FontFamily.Monospace, color = colors.code))
+            builder.append(line)
+            builder.pop()
+            builder.append('\n')
+        } else {
+            when {
+                line.startsWith("# ") -> builder.appendStyledLine(line.removePrefix("# ").trim(), FontWeight.Bold, 20, colors)
+                line.startsWith("## ") -> builder.appendStyledLine(line.removePrefix("## ").trim(), FontWeight.Bold, 18, colors)
+                line.startsWith("### ") -> builder.appendStyledLine(line.removePrefix("### ").trim(), FontWeight.SemiBold, 16, colors)
+                line.startsWith("- ") || line.startsWith("* ") -> builder.appendBulletLine(line.drop(2).trim(), colors)
+                line.matches(Regex("\\d+\\. .*")) -> builder.appendNumberedLine(line, colors)
+                line.isBlank() -> builder.append('\n')
+                else -> builder.appendInlineText(line, colors)
+            }
+        }
+
+        if (index != lines.lastIndex) {
+            builder.append('\n')
+        }
+    }
+
+    return builder.toAnnotatedString()
+}
+
+private fun AnnotatedString.Builder.appendStyledLine(
+    content: String,
+    weight: FontWeight,
+    sizeSp: Int,
+    colors: MarkdownColors
+) {
+    pushStyle(SpanStyle(fontWeight = weight, fontSize = sizeSp.sp, color = colors.text))
+    appendInlineText(content, colors)
+    pop()
+}
+
+private fun AnnotatedString.Builder.appendBulletLine(content: String, colors: MarkdownColors) {
+    append("• ")
+    appendInlineText(content, colors)
+}
+
+private fun AnnotatedString.Builder.appendNumberedLine(line: String, colors: MarkdownColors) {
+    val numberEnd = line.indexOf('.')
+    val number = line.substring(0, numberEnd).trim()
+    val body = line.substring(numberEnd + 1).trim()
+    append("$number. ")
+    appendInlineText(body, colors)
+}
+
+private fun AnnotatedString.Builder.appendInlineText(text: String, colors: MarkdownColors) {
+    var index = 0
+    while (index < text.length) {
+        when {
+            text.startsWith("**", index) -> {
+                val end = text.indexOf("**", startIndex = index + 2)
+                if (end != -1) {
+                    pushStyle(SpanStyle(fontWeight = FontWeight.Bold, color = colors.text))
+                    appendInlineText(text.substring(index + 2, end), colors)
+                    pop()
+                    index = end + 2
+                    continue
+                }
+            }
+            text[index] == '*' -> {
+                val end = text.indexOf('*', startIndex = index + 1)
+                if (end != -1) {
+                    pushStyle(SpanStyle(fontStyle = FontStyle.Italic, color = colors.text))
+                    appendInlineText(text.substring(index + 1, end), colors)
+                    pop()
+                    index = end + 1
+                    continue
+                }
+            }
+            text[index] == '`' -> {
+                val end = text.indexOf('`', startIndex = index + 1)
+                if (end != -1) {
+                    pushStyle(SpanStyle(fontFamily = FontFamily.Monospace, color = colors.code))
+                    append(text.substring(index + 1, end))
+                    pop()
+                    index = end + 1
+                    continue
+                }
+            }
+            text[index] == '[' -> {
+                val endText = text.indexOf(']', startIndex = index + 1)
+                if (endText != -1 && endText + 1 < text.length && text[endText + 1] == '(') {
+                    val endLink = text.indexOf(')', startIndex = endText + 2)
+                    if (endLink != -1) {
+                        val label = text.substring(index + 1, endText)
+                        val url = text.substring(endText + 2, endLink)
+                        pushStyle(SpanStyle(color = colors.link, textDecoration = TextDecoration.Underline))
+                        append(label)
+                        pop()
+                        index = endLink + 1
+                        continue
+                    }
                 }
             }
         }
+
+        append(text[index])
+        index++
     }
 }
 
