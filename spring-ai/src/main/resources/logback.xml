@@ -16,6 +16,7 @@
     </logger>
 
     <logger name="io.netty.resolver.dns.DnsServerAddressStreamProviders" level="OFF"   > </logger>
+    <logger name="io.opentelemetry.exporter" level="ERROR"/>
 
 
 </configuration>

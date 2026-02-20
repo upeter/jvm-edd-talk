@@ -1,4 +1,4 @@
-package dev.example
+package dev.example.edd
 
 import dev.dokimos.core.ExperimentResult
 

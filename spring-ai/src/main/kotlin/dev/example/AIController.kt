@@ -55,6 +55,7 @@ val interceptedTools =  ToolCallbacks.from(conferenceTools).toList().map { Recor
                 .system(SYSTEM_PROMPT)
                 .user(chatMessage.message)
                 //.toolContext(mapOf("progressToken" to "token-${nextInt()}"))
+                .toolContext(mapOf(CONVERSATION_ID to  chatMessage.conversationId))
                 //.tools(conferenceTools)
                 .toolCallbacks(interceptedTools)
                 .advisors {
