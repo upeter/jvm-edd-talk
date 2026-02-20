@@ -7,7 +7,7 @@ import dev.dokimos.core.EvalTestCaseParam
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.evaluators.FaithfulnessEvaluator
 import dev.dokimos.kotlin.dsl.DokimosDsl
-import dev.dokimos.kotlin.dsl.EvaluatorsDsl
+import dev.dokimos.kotlin.dsl.evaluators.EvaluatorsDsl
 
 class ResponseLengthEvaluator(
     private val minLength: Int,
