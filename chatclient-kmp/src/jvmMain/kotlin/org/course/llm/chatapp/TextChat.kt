@@ -26,6 +26,7 @@ import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.animation.core.*
+import androidx.compose.material.icons.Icons
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -175,6 +176,82 @@ fun ChatBubbleWithStyle(content: String, style: ChatBubbleStyle) {
                 modifier = Modifier.widthIn(max = 400.dp)
             ) {
                 MarkdownText(content, style)
+            }
+        }
+    }
+}
+
+@Composable
+fun FeedbackRow(
+    message: ChatMessage,
+    onFeedback: (ChatMessage, Boolean) -> Unit
+) {
+    val isSending = message.feedbackStatus == FeedbackStatus.SENDING
+    val sentUp = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == true
+    val sentDown = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == false
+    val upColor = when {
+        isSending -> Color.Gray.copy(alpha = 0.6f)
+        sentUp -> Color(0xFF4CAF50)
+        else -> Color.Gray
+    }
+    val downColor = when {
+        isSending -> Color.Gray.copy(alpha = 0.6f)
+        sentDown -> Color(0xFFF44336)
+        else -> Color.Gray
+    }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 5.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        if (!message.isUserMessage) {
+            Spacer(modifier = Modifier.width(68.dp))
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconButton(
+                onClick = { onFeedback(message, true) },
+                enabled = !isSending,
+                modifier = Modifier.size(32.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.ThumbUp,
+                    contentDescription = "Thumb up",
+                    tint = upColor,
+                    modifier = Modifier.size(18.dp)
+                )
+            }
+            IconButton(
+                onClick = { onFeedback(message, false) },
+                enabled = !isSending,
+                modifier = Modifier.size(32.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.ThumbDown,
+                    contentDescription = "Thumb down",
+                    tint = downColor,
+                    modifier = Modifier.size(18.dp)
+                )
+            }
+
+            val statusLabel = when (message.feedbackStatus) {
+                FeedbackStatus.SENDING -> "Sending..."
+                FeedbackStatus.SENT -> "Thank you for your feedback!"
+                FeedbackStatus.ERROR -> "Send failed"
+                else -> null
+            }
+
+            statusLabel?.let {
+                Text(
+                    text = it,
+                    color = Color.Gray,
+                    style = MaterialTheme.typography.labelMedium
+                )
             }
         }
     }
@@ -333,6 +410,50 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
         }
     }
 
+    val sendFeedback: (ChatMessage, Boolean) -> Unit = feedback@{ targetMessage, isThumbsUp ->
+        if (targetMessage.feedbackStatus == FeedbackStatus.SENDING) return@feedback
+        val requestText = targetMessage.userRequest
+        val session = targetMessage.sessionId
+        if (requestText.isNullOrBlank() || session.isNullOrBlank()) return@feedback
+
+        messages = messages.map {
+            if (it.id == targetMessage.id) {
+                it.copy(
+                    feedbackStatus = FeedbackStatus.SENDING,
+                    lastFeedbackThumbsUp = isThumbsUp
+                )
+            } else it
+        }
+
+        scope.launch {
+            try {
+                httpClient.post("http://localhost:8082/feedback") {
+                    contentType(ContentType.Application.Json)
+                    setBody(
+                        FeedbackPayload(
+                            request = requestText,
+                            answer = targetMessage.content,
+                            sessionId = session,
+                            rating = if (isThumbsUp) "UP" else "DOWN"
+                        )
+                    )
+                }
+
+                withContext(Dispatchers.Main) {
+                    messages = messages.map {
+                        if (it.id == targetMessage.id) it.copy(feedbackStatus = FeedbackStatus.SENT) else it
+                    }
+                }
+            } catch (_: Exception) {
+                withContext(Dispatchers.Main) {
+                    messages = messages.map {
+                        if (it.id == targetMessage.id) it.copy(feedbackStatus = FeedbackStatus.ERROR) else it
+                    }
+                }
+            }
+        }
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
             Column(modifier = Modifier.fillMaxSize()) {
         // Progress bar
@@ -351,7 +472,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(messages) { message ->
-                ChatBubble(message)
+                ChatBubble(message, onFeedback = sendFeedback)
             }
         }
 
@@ -387,7 +508,12 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                             }
 
                             val responseText = response.body<String>()
-                            messages = messages + ChatMessage(responseText, false)
+                            messages = messages + ChatMessage(
+                                responseText,
+                                isUserMessage = false,
+                                sessionId = conversationId,
+                                userRequest = textToSend
+                            )
 
                             // Scroll to the bottom
                             listState.animateScrollToItem(messages.size - 1)
@@ -516,7 +642,9 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                                             )
                                             messages = messages + ChatMessage(
                                                 reply.outputText,
-                                                isUserMessage = false
+                                                isUserMessage = false,
+                                                sessionId = conversationId,
+                                                userRequest = reply.transcribedInputText
                                             )
 
                                             listState.animateScrollToItem(messages.size - 1)
