@@ -21,6 +21,8 @@ import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.*
 import androidx.compose.ui.res.painterResource
+import androidx.compose.material.icons.filled.ThumbDown
+import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.animation.core.*
@@ -42,17 +44,30 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.util.UUID
 
 data class ChatMessage(
     val content: String,
     val isUserMessage: Boolean,
     val timestamp: Long = System.currentTimeMillis(),
-    val customStyle: ChatBubbleStyle? = null
+    val customStyle: ChatBubbleStyle? = null,
+    val sessionId: String? = null,
+    val userRequest: String? = null,
+    val feedbackStatus: FeedbackStatus = FeedbackStatus.IDLE,
+    val lastFeedbackThumbsUp: Boolean? = null,
+    val id: String = UUID.randomUUID().toString()
 )
 
 data class ChatInput(
     val message: String,
     val conversationId: String
+)
+
+data class FeedbackPayload(
+    val request: String,
+    val answer: String,
+    val sessionId: String,
+    val rating: String
 )
 
 data class MarkdownColors(
@@ -91,11 +106,27 @@ sealed class ChatBubbleStyle {
     }
 }
 
+enum class FeedbackStatus {
+    IDLE,
+    SENDING,
+    SENT,
+    ERROR
+}
+
 @Composable
-fun ChatBubble(message: ChatMessage) {
+fun ChatBubble(
+    message: ChatMessage,
+    onFeedback: ((ChatMessage, Boolean) -> Unit)? = null
+) {
     val defaultStyle = if (message.isUserMessage) ChatBubbleStyle.User else ChatBubbleStyle.Agent
     val style = message.customStyle ?: defaultStyle
-    ChatBubbleWithStyle(message.content, style)
+
+    Column(modifier = Modifier.fillMaxWidth()) {
+        ChatBubbleWithStyle(message.content, style)
+        if (!message.isUserMessage && onFeedback != null) {
+            FeedbackRow(message = message, onFeedback = onFeedback)
+        }
+    }
 }
 
 @Composable
