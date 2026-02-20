@@ -280,6 +280,7 @@ private fun buildMarkdownAnnotatedString(text: String, colors: MarkdownColors): 
                 line.startsWith("# ") -> builder.appendStyledLine(line.removePrefix("# ").trim(), FontWeight.Bold, 20, colors)
                 line.startsWith("## ") -> builder.appendStyledLine(line.removePrefix("## ").trim(), FontWeight.Bold, 18, colors)
                 line.startsWith("### ") -> builder.appendStyledLine(line.removePrefix("### ").trim(), FontWeight.SemiBold, 16, colors)
+                line.matches(Regex("^-{3,}") ) -> builder.appendHorizontalRule(colors)
                 line.startsWith("- ") || line.startsWith("* ") -> builder.appendBulletLine(line.drop(2).trim(), colors)
                 line.matches(Regex("\\d+\\. .*")) -> builder.appendNumberedLine(line, colors)
                 line.isBlank() -> builder.append('\n')
@@ -373,6 +374,12 @@ private fun AnnotatedString.Builder.appendInlineText(text: String, colors: Markd
         append(text[index])
         index++
     }
+}
+
+private fun AnnotatedString.Builder.appendHorizontalRule(colors: MarkdownColors) {
+    pushStyle(SpanStyle(color = colors.text.copy(alpha = 0.6f)))
+    append("──────────")
+    pop()
 }
 
 @Composable
