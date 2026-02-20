@@ -1,11 +1,9 @@
-package dev.example
+package dev.example.edd
 
 import dev.dokimos.core.BaseEvaluator
 import dev.dokimos.core.EvalResult
 import dev.dokimos.core.EvalTestCase
 import dev.dokimos.core.EvalTestCaseParam
-import dev.dokimos.core.JudgeLM
-import dev.dokimos.core.evaluators.FaithfulnessEvaluator
 import dev.dokimos.kotlin.dsl.DokimosDsl
 import dev.dokimos.kotlin.dsl.evaluators.EvaluatorsDsl
 
@@ -38,10 +36,12 @@ class ResponseLengthEvaluator(
 class ToolCallEvaluator(
     evaluatorName: String = "ToolCallEvaluator",
     private val expectedToolName: String,
-    private val expectedToolInput: String? = null,
-    private val expectedToolOutput: String? = null,
+    /** If set, this key is used to look up an expected toolInput value from [EvalTestCase.expectedOutputs]. */
+    private val toolInputKey: String? = null,
+    /** If set, this key is used to look up an expected toolOutput value from [EvalTestCase.expectedOutputs]. */
+    private val toolOutputKey: String? = null
 
-    ) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.INPUT, EvalTestCaseParam.ACTUAL_OUTPUT)) {
+) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.INPUT, EvalTestCaseParam.ACTUAL_OUTPUT)) {
 
 
     override fun runEvaluation(testCase: EvalTestCase): EvalResult {
@@ -49,22 +49,37 @@ class ToolCallEvaluator(
 
         // Expected shape from the task():
         // "toolCalls" -> List<Map<String, Any>> where map contains keys like "toolName", "toolInput", "toolOutput"
-        val actualToolCalls = (outputs[PARAM_TOOL_CALLS] as? List<*>)
+        val actualToolCalls: List<Map<String, Any?>> = (outputs[PARAM_TOOL_CALLS] as? List<*>)
             .orEmpty()
             .mapNotNull { it as? Map<*, *> }
             .map { it.entries.associate { (k, v) -> k?.toString().orEmpty() to v } }
 
-        val matchingToolCall = actualToolCalls.firstOrNull { it[PARAM_TOOL_NAME]?.toString() == expectedToolName }
+        val expectedInput: String? = toolInputKey?.let { key ->
+            testCase.expectedOutputs()[key]?.toString()
+        }
+        val expectedOutput: String? = toolOutputKey?.let { key ->
+            testCase.expectedOutputs()[key]?.toString()
+        }
+
+        // Try to find the relevant tool call. If multiple match by name, prefer one that also matches input/output.
+        val matchingByName = actualToolCalls.filter { it[PARAM_TOOL_NAME]?.toString() == expectedToolName }
+        val matchingToolCall: Map<String, Any?>? = when {
+            matchingByName.isEmpty() -> null
+            expectedInput == null && expectedOutput == null -> matchingByName.first()
+            else -> matchingByName.firstOrNull { candidate ->
+                val inputOk = expectedInput?.let { candidate[PARAM_TOOL_INPUT]?.toString() == it } ?: true
+                val outputOk = expectedOutput?.let { candidate[PARAM_TOOL_OUTPUT]?.toString() == it } ?: true
+                inputOk && outputOk
+            } ?: matchingByName.first()
+        }
 
         val toolNameOk = matchingToolCall != null
 
-        val toolInputOk: Boolean? = expectedToolInput?.let { expected ->
-            // If user cares about input, require tool call to exist and match
+        val toolInputOk: Boolean? = expectedInput?.let { expected ->
             matchingToolCall?.get(PARAM_TOOL_INPUT)?.toString() == expected
         }
 
-        val toolOutputOk: Boolean? = expectedToolOutput?.let { expected ->
-            // If user cares about output, require tool call to exist and match
+        val toolOutputOk: Boolean? = expectedOutput?.let { expected ->
             matchingToolCall?.get(PARAM_TOOL_OUTPUT)?.toString() == expected
         }
 
@@ -84,30 +99,35 @@ class ToolCallEvaluator(
         val actualToolInput = matchingToolCall?.get(PARAM_TOOL_INPUT)?.toString()
         val actualToolOutput = matchingToolCall?.get(PARAM_TOOL_OUTPUT)?.toString()
 
+        val failedChecks = checks.filterNot { it.second }.map { it.first }
+
         val reason = buildString {
             append("checks=").append(passed).append("/").append(total)
+            if (failedChecks.isNotEmpty()) append(", failed=").append(failedChecks)
             append(", expectedToolName='").append(expectedToolName).append("'")
             append(", actualToolName='").append(actualToolName).append("'")
-            if (expectedToolInput != null) {
-                append(", expectedToolInput='").append(expectedToolInput).append("'")
+            if (expectedInput != null) {
+                append(", expectedToolInput='").append(expectedInput).append("'")
                 append(", actualToolInput='").append(actualToolInput).append("'")
             }
-            if (expectedToolOutput != null) {
-                append(", expectedToolOutput='").append(expectedToolOutput).append("'")
+            if (expectedOutput != null) {
+                append(", expectedToolOutput='").append(expectedOutput).append("'")
                 append(", actualToolOutput='").append(actualToolOutput).append("'")
             }
         }
 
-        val metadata: MutableMap<String, Any> = mutableMapOf(
-            "expectedToolName" to expectedToolName,
-            "actualToolName" to (actualToolName ?: ""),
-            "expectedToolInput" to (expectedToolInput ?: ""),
-            "actualToolInput" to (actualToolInput ?: ""),
-            "expectedToolOutput" to (expectedToolOutput ?: ""),
-            "actualToolOutput" to (actualToolOutput ?: ""),
-            "passedChecks" to passed,
-            "totalChecks" to total,
-        )
+        val metadata: Map<String, Any?> = buildMap {
+            put("expectedToolName", expectedToolName)
+            put("actualToolName", actualToolName)
+            expectedInput?.let { put("expectedToolInput", it) }
+            put("actualToolInput", actualToolInput)
+            expectedOutput?.let { put("expectedToolOutput", it) }
+            put("actualToolOutput", actualToolOutput)
+            put("passedChecks", passed)
+            put("totalChecks", total)
+            put("failedChecks", failedChecks)
+            put("toolCallsCount", total)
+        }
 
         return EvalResult(
             name(),
@@ -133,14 +153,9 @@ class ToolCallEvaluatorDsl {
 
     var name: String = "ToolCallEvaluator"
 
-    /** The tool name we expect to have been called. Required. */
     var expectedToolName: String? = null
-
-    /** If set, toolInput must match exactly. */
-    var expectedToolInput: String? = null
-
-    /** If set, toolOutput must match exactly. */
-    var expectedToolOutput: String? = null
+    var toolInputKey: String? = null
+    var toolOutputKey: String? = null
 
     fun build(): ToolCallEvaluator {
         val expectedName = requireNotNull(expectedToolName) {
@@ -150,8 +165,8 @@ class ToolCallEvaluatorDsl {
         return ToolCallEvaluator(
             evaluatorName = name,
             expectedToolName = expectedName,
-            expectedToolInput = expectedToolInput,
-            expectedToolOutput = expectedToolOutput,
+            toolInputKey = toolInputKey,
+            toolOutputKey = toolOutputKey
         )
     }
 }
@@ -160,18 +175,31 @@ class ToolCallEvaluatorDsl {
 fun EvaluatorsDsl.toolCallEvaluator(block: ToolCallEvaluatorDsl.() -> Unit) {
     val evaluator = ToolCallEvaluatorDsl().apply(block).build()
 
-    // Preferred path: use the public API if present.
-    runCatching {
+    // If EvaluatorsDsl has a public API for registering evaluators, prefer it.
+    val registeredViaPublicApi = runCatching {
         this.evaluator(evaluator)
-    }.onFailure {
-        // Fallback: add to the private mutable collection `evaluators` via reflection.
-        // This is useful when the DSL stores evaluators internally and only later iterates them.
-        runCatching {
-            val field = this::class.java.getDeclaredField("evaluators").apply { isAccessible = true }
-            @Suppress("UNCHECKED_CAST")
-            val list = field.get(this) as? MutableCollection<Any>
-                ?: error("EvaluatorsDsl.evaluators is not a MutableCollection")
-            list.add(evaluator)
-        }.getOrThrow()
+        true
+    }.getOrDefault(false)
+
+    if (registeredViaPublicApi) return
+
+    // Otherwise, add to the private mutable collection `evaluators` via reflection.
+    // This matches how other EvaluatorsDsl builders in dokimos store evaluators internally.
+    val field = generateSequence<Class<*>>(this::class.java) { it.superclass }
+        .mapNotNull { clazz ->
+            runCatching { clazz.getDeclaredField("evaluators") }.getOrNull()
+        }
+        .firstOrNull()
+        ?: error("Couldn't find private field 'evaluators' on ${this::class.java.name} or its superclasses")
+
+    field.isAccessible = true
+
+    @Suppress("UNCHECKED_CAST")
+    val collection = field.get(this) as? MutableCollection<Any?>
+        ?: error("EvaluatorsDsl.evaluators is not a MutableCollection")
+
+    // Avoid duplicates if called twice.
+    if (!collection.contains(evaluator)) {
+        collection.add(evaluator)
     }
 }
