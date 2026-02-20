@@ -5,7 +5,8 @@ import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.memory.ChatMemory.CONVERSATION_ID
 import org.springframework.ai.openai.OpenAiAudioSpeechModel
 import org.springframework.ai.openai.OpenAiAudioTranscriptionModel
-import org.springframework.ai.openai.audio.speech.SpeechPrompt
+import org.springframework.ai.support.ToolCallbacks
+import org.springframework.ai.tool.ToolCallback
 import org.springframework.ai.tool.ToolCallbackProvider
 import org.springframework.context.annotation.Lazy
 import org.springframework.core.io.InputStreamResource
@@ -21,14 +22,17 @@ import kotlin.random.Random.Default.nextInt
 data class ChatMessage(val message: String, val conversationId: String)
 data class TranscribedMessageReply(val transcribedInputText: String, val outputText: String)
 @RestController
-internal class AIController(
+class AIController(
     val openAiAudioSpeechModel: OpenAiAudioSpeechModel,
     val openAiAudioTranscriptionModel: OpenAiAudioTranscriptionModel,
     @Lazy val  chatClient: ChatClient,
-    val mcpToolProvider: ToolCallbackProvider,
+    //val toolCallbacks: List<ToolCallback>,
+    val toolCallbackRecorder: ToolCallRecorder,
+   // val mcpToolProvider: ToolCallbackProvider,
     val conferenceTools: ConferenceTools
 ) {
 
+val interceptedTools =  ToolCallbacks.from(conferenceTools).toList().map { RecordingToolCallback(it, toolCallbackRecorder) }
 
     @PostMapping("/chat")
     fun chat(@RequestBody chatMessage: ChatMessage): String? {
@@ -36,8 +40,9 @@ internal class AIController(
             .prompt()
             .system(SYSTEM_PROMPT)
             .user(chatMessage.message)
-            .toolContext(mapOf("progressToken" to "token-${nextInt()}"))
-            .toolCallbacks(mcpToolProvider)
+            //.toolContext(mapOf("progressToken" to "token-${nextInt()}"))
+            //.tools(conferenceTools)
+            .toolCallbacks(interceptedTools)
             .advisors {
                 it.param(CONVERSATION_ID, chatMessage.conversationId)
             }
@@ -88,7 +93,8 @@ internal class AIController(
             .prompt()
             .system(SYSTEM_PROMPT_AUDIO)
             .user(chatMessage.message)
-            .tools(conferenceTools)
+           // .tools(conferenceTools)
+            .toolCallbacks(interceptedTools)
             .toolContext(mapOf("conversationId" to chatMessage.conversationId))
             .advisors {
                 it.param(CONVERSATION_ID, chatMessage.conversationId)
