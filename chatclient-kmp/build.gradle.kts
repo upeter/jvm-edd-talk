@@ -1,8 +1,8 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
-    kotlin("multiplatform") version "2.1.21"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.1.21"
+    kotlin("multiplatform") version "2.3.10"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.3.10"
     id("org.jetbrains.compose") version "1.8.1"
 
 }
