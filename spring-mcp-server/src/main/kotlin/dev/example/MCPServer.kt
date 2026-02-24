@@ -15,7 +15,7 @@ class ConferenceMcpServer(
     // MCP Resource counterpart: expose the venue information as a retrievable blob
     @McpResource(
         name = "general-venue-information-jfall",
-        description = "Returns general JFall 2025 venue information including address, dates, hotels, and the detailed session schedule in JSON form.",
+        description = "Returns general JFall 2026 venue information including address, dates, hotels, and the detailed session schedule in JSON form.",
         uri = "static://data/dataset-jfall-venue.json"
     )
     fun getVenueInformation(): String = venueInformation.also { logger.info("Returning venue information.") }
@@ -107,7 +107,7 @@ class ConferenceMcpServer(
 
     companion object {
         private val MCP_PROMPT = """
-        You are a helpful and knowledgeable assistant for the JFall 2025 conference.
+        You are a helpful and knowledgeable assistant for the JFall 2026 conference.
     
         🎯 Your objective is to help the user:
         - Discover interesting sessions
@@ -141,7 +141,7 @@ class ConferenceMcpServer(
         - Keep answers short, friendly, and informative.
         - Don’t fabricate answers — prefer tool or resource calls when in doubt.
     
-        Always focus on providing value to the user in the context of the JFall 2025 conference.
+        Always focus on providing value to the user in the context of the JFall 2026 conference.
 """.trimIndent()
 
         val venueInformation: String =

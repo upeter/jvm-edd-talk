@@ -2,8 +2,8 @@
   "sessions":[
     {
       "title": "Revving Up with Java: A Beginner's Journey into Automotive Hacking",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -16,8 +16,8 @@
     },
     {
       "title": "Catching the 137-Killer: A Java Memory Forensics Investigation",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -30,8 +30,8 @@
     },
     {
       "title": "Documentation Is a Team Sport – Start Treating It That Way",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -44,8 +44,8 @@
     },
     {
       "title": "Be more productive with IntelliJ IDEA",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -58,8 +58,8 @@
     },
     {
       "title": "When ORM Becomes OMG: Performance Pitfalls in JPA and Friends",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -72,8 +72,8 @@
     },
     {
       "title": "From Utopia to Reality: The Hidden Challenges of Event-Driven Architecture",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -86,8 +86,8 @@
     },
     {
       "title": "Certificates and encryption; All you need to know, but...",
-      "startsAt": "2025-11-06T07:00:00.0000000Z",
-      "endsAt": "2025-11-06T07:50:00.0000000Z",
+      "startsAt": "2026-11-06T07:00:00.0000000Z",
+      "endsAt": "2026-11-06T07:50:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -100,8 +100,8 @@
     },
     {
       "title": "Opening",
-      "startsAt": "2025-11-06T08:00:00.0000000Z",
-      "endsAt": "2025-11-06T08:20:00.0000000Z",
+      "startsAt": "2026-11-06T08:00:00.0000000Z",
+      "endsAt": "2026-11-06T08:20:00.0000000Z",
       "category": [],
       "room": "Room 9",
       "speakers": [],
@@ -109,8 +109,8 @@
     },
     {
       "title": "Java; our personal career companion",
-      "startsAt": "2025-11-06T08:20:00.0000000Z",
-      "endsAt": "2025-11-06T08:45:00.0000000Z",
+      "startsAt": "2026-11-06T08:20:00.0000000Z",
+      "endsAt": "2026-11-06T08:45:00.0000000Z",
       "category": [
         "Keynote",
         "Beginner"
@@ -124,8 +124,8 @@
     },
     {
       "title": "Why You Should Build Agents on the JVM",
-      "startsAt": "2025-11-06T08:45:00.0000000Z",
-      "endsAt": "2025-11-06T09:10:00.0000000Z",
+      "startsAt": "2026-11-06T08:45:00.0000000Z",
+      "endsAt": "2026-11-06T09:10:00.0000000Z",
       "category": [
         "Keynote",
         "Intermediate"
@@ -138,8 +138,8 @@
     },
     {
       "title": "Coffee break",
-      "startsAt": "2025-11-06T09:10:00.0000000Z",
-      "endsAt": "2025-11-06T09:35:00.0000000Z",
+      "startsAt": "2026-11-06T09:10:00.0000000Z",
+      "endsAt": "2026-11-06T09:35:00.0000000Z",
       "category": [],
       "room": "Market floor",
       "speakers": [],
@@ -147,8 +147,8 @@
     },
     {
       "title": "Java 25 - Better Language, Better APIs, Better Runtime",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -161,8 +161,8 @@
     },
     {
       "title": "Next level persistence in Jakarta EE: Jakarta Data and Jakarta NoSQL",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -175,8 +175,8 @@
     },
     {
       "title": "Concurrency Crossroads: Choosing between Reactive Programming and Virtual Threads in Quarkus",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -189,8 +189,8 @@
     },
     {
       "title": "Level Up Your LangChain4j Apps for Production",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -203,8 +203,8 @@
     },
     {
       "title": "From Exceptions to Rich Errors: Rethinking Error Handling in Kotlin",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -217,8 +217,8 @@
     },
     {
       "title": "Making Sense of Vector Databases",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -231,8 +231,8 @@
     },
     {
       "title": "Migrating Petabytes of Heritage Data to S3: Lessons Learned from the Dutch Royal Library",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -246,8 +246,8 @@
     },
     {
       "title": "Work experiments - A test-driven approach to modern teamwork",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -260,8 +260,8 @@
     },
     {
       "title": "Accelerating Maven Builds: From Snail's Paceto Rocket Speed",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T10:25:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T10:25:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -274,8 +274,8 @@
     },
     {
       "title": "Offensive AI",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Hands-on Lab",
         "Beginner"
@@ -288,8 +288,8 @@
     },
     {
       "title": "The Mentorship Hub",
-      "startsAt": "2025-11-06T09:35:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T09:35:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Unconference",
         "Intermediate"
@@ -302,8 +302,8 @@
     },
     {
       "title": "Supercharge your LLM with Java: Model Context Protocol (MCP) in Action",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -316,8 +316,8 @@
     },
     {
       "title": "Less is more: reduce $ and CO₂ to improve performanceand joy",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T10:55:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T10:55:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Intermediate"
@@ -330,8 +330,8 @@
     },
     {
       "title": "Enterprise Gen AI with Embabel",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -344,8 +344,8 @@
     },
     {
       "title": "Supercharge your JVM performance with Project Leyden",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -358,8 +358,8 @@
     },
     {
       "title": "Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -372,8 +372,8 @@
     },
     {
       "title": "Technical Enshittification: Why Everything in IT is Horrible Right Now and How to Fix It",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -386,8 +386,8 @@
     },
     {
       "title": "A door with no locks? Let’s talk about threat modeling",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -400,8 +400,8 @@
     },
     {
       "title": "Your Brain Is Sabotaging Your Code, But We Can Outsmart It",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Advanced"
@@ -414,8 +414,8 @@
     },
     {
       "title": "The tech behind Buienradar: How technology keeps you ahead of the weather",
-      "startsAt": "2025-11-06T10:40:00.0000000Z",
-      "endsAt": "2025-11-06T11:30:00.0000000Z",
+      "startsAt": "2026-11-06T10:40:00.0000000Z",
+      "endsAt": "2026-11-06T11:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -428,8 +428,8 @@
     },
     {
       "title": "A Java Developer's Quest for I/O Performance",
-      "startsAt": "2025-11-06T10:55:00.0000000Z",
-      "endsAt": "2025-11-06T11:10:00.0000000Z",
+      "startsAt": "2026-11-06T10:55:00.0000000Z",
+      "endsAt": "2026-11-06T11:10:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Intermediate"
@@ -442,8 +442,8 @@
     },
     {
       "title": "Radicle: A better, peer-to-peer, home for Open Source",
-      "startsAt": "2025-11-06T11:10:00.0000000Z",
-      "endsAt": "2025-11-06T11:25:00.0000000Z",
+      "startsAt": "2026-11-06T11:10:00.0000000Z",
+      "endsAt": "2026-11-06T11:25:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Beginner"
@@ -456,8 +456,8 @@
     },
     {
       "title": "Lunch",
-      "startsAt": "2025-11-06T11:30:00.0000000Z",
-      "endsAt": "2025-11-06T12:30:00.0000000Z",
+      "startsAt": "2026-11-06T11:30:00.0000000Z",
+      "endsAt": "2026-11-06T12:30:00.0000000Z",
       "category": [],
       "room": "Market floor",
       "speakers": [],
@@ -465,8 +465,8 @@
     },
     {
       "title": "Ignite Sessions",
-      "startsAt": "2025-11-06T11:30:00.0000000Z",
-      "endsAt": "2025-11-06T12:30:00.0000000Z",
+      "startsAt": "2026-11-06T11:30:00.0000000Z",
+      "endsAt": "2026-11-06T12:30:00.0000000Z",
       "category": [],
       "room": "Room 1",
       "speakers": [],
@@ -474,8 +474,8 @@
     },
     {
       "title": "NLJUG Update",
-      "startsAt": "2025-11-06T12:30:00.0000000Z",
-      "endsAt": "2025-11-06T12:50:00.0000000Z",
+      "startsAt": "2026-11-06T12:30:00.0000000Z",
+      "endsAt": "2026-11-06T12:50:00.0000000Z",
       "category": [],
       "room": "Room 9",
       "speakers": [],
@@ -483,8 +483,8 @@
     },
     {
       "title": "xz: The day the internet (almost) died",
-      "startsAt": "2025-11-06T12:50:00.0000000Z",
-      "endsAt": "2025-11-06T13:20:00.0000000Z",
+      "startsAt": "2026-11-06T12:50:00.0000000Z",
+      "endsAt": "2026-11-06T13:20:00.0000000Z",
       "category": [
         "Keynote",
         "Beginner"
@@ -498,8 +498,8 @@
     },
     {
       "title": "Spring Boot: Chapter 4",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -512,8 +512,8 @@
     },
     {
       "title": "Sourcing Aliens and Lasers: An Eventful Journey Through Time and Space",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -525,9 +525,9 @@
       "description": "Using a retro Space Invaders game, this session demonstrates event sourcing: capturing every shot, alien and choice as an immutable stream of events. Learn how event sourcing enables time travel, replay, debugging and insights for building robust, auditable systems."
     },
     {
-      "title": "NLJUG Modern IT Leadership Summit 2025",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "title": "NLJUG Modern IT Leadership Summit 2026",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [],
       "room": "Room 7",
       "speakers": [
@@ -537,8 +537,8 @@
     },
     {
       "title": "The definitive guide to Java agents",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -551,8 +551,8 @@
     },
     {
       "title": "My code is faster than yours... let me prove it to you!",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -565,8 +565,8 @@
     },
     {
       "title": "Writing GPU-Ready AI Models in Pure Java with Babylon",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -580,8 +580,8 @@
     },
     {
       "title": "Innovation award (3 byte size sessions)",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [],
       "room": "Room 3",
       "speakers": [],
@@ -589,8 +589,8 @@
     },
     {
       "title": "curl | bash | hacked: The Unseen Dangers in Your Dev Lifecycle",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -603,8 +603,8 @@
     },
     {
       "title": "How to build your own fun and absurd pair programmer",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T14:30:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T14:30:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -617,8 +617,8 @@
     },
     {
       "title": "From Scratch to Scalable: Building Smarter AI Agents with Frameworks",
-      "startsAt": "2025-11-06T13:40:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T13:40:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Hands-on Lab",
         "Intermediate"
@@ -632,8 +632,8 @@
     },
     {
       "title": "Coffee Break",
-      "startsAt": "2025-11-06T14:30:00.0000000Z",
-      "endsAt": "2025-11-06T14:50:00.0000000Z",
+      "startsAt": "2026-11-06T14:30:00.0000000Z",
+      "endsAt": "2026-11-06T14:50:00.0000000Z",
       "category": [],
       "room": "Market floor",
       "speakers": [],
@@ -641,8 +641,8 @@
     },
     {
       "title": "Pushing Java to the Limits: Processing a Billion Rows in Under 2 Seconds",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -655,8 +655,8 @@
     },
     {
       "title": "The unexpected struggles of maintaining user facing APIs",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:05:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:05:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Intermediate"
@@ -669,8 +669,8 @@
     },
     {
       "title": "Benchmarking Project Valhalla",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -683,8 +683,8 @@
     },
     {
       "title": "Growing Beyond Senior: Build Influence and Reputation Through Java, Open Source, and Community",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -697,8 +697,8 @@
     },
     {
       "title": "Reduce LLM calls with Vector Search Design Patterns",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -711,8 +711,8 @@
     },
     {
       "title": "Teachers Unconference",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Unconference",
         "Intermediate"
@@ -726,8 +726,8 @@
     },
     {
       "title": "Building a Developer Chatbot with RAG: From Prototype to Production at Rabobank",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -740,8 +740,8 @@
     },
     {
       "title": "Platform Teams: Leveraging Spring and Kubernetes for DevEx as a service",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -754,8 +754,8 @@
     },
     {
       "title": "The C4 model - beyond the basics",
-      "startsAt": "2025-11-06T14:50:00.0000000Z",
-      "endsAt": "2025-11-06T15:40:00.0000000Z",
+      "startsAt": "2026-11-06T14:50:00.0000000Z",
+      "endsAt": "2026-11-06T15:40:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -768,8 +768,8 @@
     },
     {
       "title": "What's your favourite number of threads?",
-      "startsAt": "2025-11-06T15:05:00.0000000Z",
-      "endsAt": "2025-11-06T15:20:00.0000000Z",
+      "startsAt": "2026-11-06T15:05:00.0000000Z",
+      "endsAt": "2026-11-06T15:20:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Beginner"
@@ -782,8 +782,8 @@
     },
     {
       "title": "Can LLMs play text adventures?",
-      "startsAt": "2025-11-06T15:20:00.0000000Z",
-      "endsAt": "2025-11-06T15:35:00.0000000Z",
+      "startsAt": "2026-11-06T15:20:00.0000000Z",
+      "endsAt": "2026-11-06T15:35:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Beginner"
@@ -796,8 +796,8 @@
     },
     {
       "title": "Breaching LLM-Powered Applications: Overcoming Security and Privacy Challenges",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -810,8 +810,8 @@
     },
     {
       "title": "Stop Chasing Unicorns and Rainbows: The Dangers of Survivorship Bias in Tech",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:10:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:10:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Beginner"
@@ -824,8 +824,8 @@
     },
     {
       "title": "Optimizing Java on AWS Lambda",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -838,8 +838,8 @@
     },
     {
       "title": "Fixing time zones for fun - twenty programming puzzles to master internationalization.",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Intermediate"
@@ -852,8 +852,8 @@
     },
     {
       "title": "Essential programming jokes",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -867,8 +867,8 @@
     },
     {
       "title": "Incident Stories",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Unconference",
         "Beginner"
@@ -881,8 +881,8 @@
     },
     {
       "title": "The Wait is Over: Foreign Function & Memory (FFM) API brings modern Java to the Raspberry Pi",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -895,8 +895,8 @@
     },
     {
       "title": "Java developer-friendly frontends: Build UIs without the JavaScript hassle",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -909,8 +909,8 @@
     },
     {
       "title": "YOLO - moving straight to production",
-      "startsAt": "2025-11-06T15:55:00.0000000Z",
-      "endsAt": "2025-11-06T16:45:00.0000000Z",
+      "startsAt": "2026-11-06T15:55:00.0000000Z",
+      "endsAt": "2026-11-06T16:45:00.0000000Z",
       "category": [
         "Technical Session",
         "Beginner"
@@ -923,8 +923,8 @@
     },
     {
       "title": "Have you gone MADR?",
-      "startsAt": "2025-11-06T16:10:00.0000000Z",
-      "endsAt": "2025-11-06T16:25:00.0000000Z",
+      "startsAt": "2026-11-06T16:10:00.0000000Z",
+      "endsAt": "2026-11-06T16:25:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Beginner"
@@ -937,8 +937,8 @@
     },
     {
       "title": "Green AI with JobRunr: Sustainable training and inference on the JVM",
-      "startsAt": "2025-11-06T16:25:00.0000000Z",
-      "endsAt": "2025-11-06T16:40:00.0000000Z",
+      "startsAt": "2026-11-06T16:25:00.0000000Z",
+      "endsAt": "2026-11-06T16:40:00.0000000Z",
       "category": [
         "Byte size (16 min)",
         "Beginner"
@@ -951,8 +951,8 @@
     },
     {
       "title": "Drinks",
-      "startsAt": "2025-11-06T16:45:00.0000000Z",
-      "endsAt": "2025-11-06T18:00:00.0000000Z",
+      "startsAt": "2026-11-06T16:45:00.0000000Z",
+      "endsAt": "2026-11-06T18:00:00.0000000Z",
       "category": [],
       "room": "Market floor",
       "speakers": [],

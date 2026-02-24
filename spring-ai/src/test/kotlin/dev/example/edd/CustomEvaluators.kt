@@ -4,6 +4,7 @@ import dev.dokimos.core.BaseEvaluator
 import dev.dokimos.core.EvalResult
 import dev.dokimos.core.EvalTestCase
 import dev.dokimos.core.EvalTestCaseParam
+import dev.dokimos.kotlin.core.EvalResult
 import dev.dokimos.kotlin.dsl.DokimosDsl
 import dev.dokimos.kotlin.dsl.evaluators.EvaluatorsDsl
 
@@ -173,33 +174,49 @@ class ToolCallEvaluatorDsl {
 
 /** Convenience builder for creating a [ToolCallEvaluator] with a Kotlin DSL block. */
 fun EvaluatorsDsl.toolCallEvaluator(block: ToolCallEvaluatorDsl.() -> Unit) {
-    val evaluator = ToolCallEvaluatorDsl().apply(block).build()
+    evaluator(ToolCallEvaluatorDsl().apply(block).build())
+}
 
-    // If EvaluatorsDsl has a public API for registering evaluators, prefer it.
-    val registeredViaPublicApi = runCatching {
-        this.evaluator(evaluator)
-        true
-    }.getOrDefault(false)
+class ContainsEvaluator(
+    evaluatorName: String = "Contains",
+    private val containsTextKey: String? = null,
+    private val caseSensitive: Boolean = false,
+) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.ACTUAL_OUTPUT)) {
 
-    if (registeredViaPublicApi) return
+    override fun runEvaluation(testCase: EvalTestCase): EvalResult {
+        val output = testCase.actualOutput()
+        val containsText = containsTextKey?.let{testCase.expectedOutputs()[it]?.toString() } ?: testCase.expectedOutput()
+        val contains = if (caseSensitive) output.contains(containsText) else output.lowercase().contains(containsText.lowercase())
 
-    // Otherwise, add to the private mutable collection `evaluators` via reflection.
-    // This matches how other EvaluatorsDsl builders in dokimos store evaluators internally.
-    val field = generateSequence<Class<*>>(this::class.java) { it.superclass }
-        .mapNotNull { clazz ->
-            runCatching { clazz.getDeclaredField("evaluators") }.getOrNull()
-        }
-        .firstOrNull()
-        ?: error("Couldn't find private field 'evaluators' on ${this::class.java.name} or its superclasses")
+        val score = if (contains) 1.0 else 0.0
+        val reason = "Output text $containsText expected in $output"
 
-    field.isAccessible = true
-
-    @Suppress("UNCHECKED_CAST")
-    val collection = field.get(this) as? MutableCollection<Any?>
-        ?: error("EvaluatorsDsl.evaluators is not a MutableCollection")
-
-    // Avoid duplicates if called twice.
-    if (!collection.contains(evaluator)) {
-        collection.add(evaluator)
+        return EvalResult(
+            name = name(),
+            score = score,
+            threshold = threshold(),
+            reason = reason,
+        )
     }
+}
+
+
+@DokimosDsl
+class ContainsEvaluatorDsl {
+    var name: String = "ContainsEvaluator"
+    var containsTextKey: String? = null
+    var caseSensitive: Boolean = false
+
+    fun build(): ContainsEvaluator {
+        return ContainsEvaluator(
+            evaluatorName = name,
+            containsTextKey = containsTextKey,
+            caseSensitive = caseSensitive
+        )
+    }
+}
+
+/** Convenience builder for creating a [ContainsEvaluator] with a Kotlin DSL block. */
+fun EvaluatorsDsl.contains(block: ContainsEvaluatorDsl.() -> Unit) {
+    evaluator(ContainsEvaluatorDsl().apply(block).build())
 }

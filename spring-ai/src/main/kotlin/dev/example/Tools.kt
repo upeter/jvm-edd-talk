@@ -18,14 +18,14 @@ class ConferenceTools(
 
     @Tool(
         name = TOOL_GENERAL_VENUE_INFORMATION_JFALL,
-        description = "You provide general venue information about the JFall 2025 conference like location, address, ticket prices, hotels, date etc."
+        description = "You provide general venue information about the JFall 2026 conference like location, address, ticket prices, hotels, date etc."
     )
     fun getGeneralVenueInformation(): String = generalVenueInformation
 
 
     @Tool(
         name = TOOL_GENERAL_SESSION_INFORMATION_JFALL,
-        description = "You provide general session information about the JFall 2025 conference like title, speaker, category, room, start- and endtime "
+        description = "You provide general session information about the JFall 2026 conference like title, speaker, category, room, start- and endtime "
     )
     fun getVenueInformation(): String = generalSessionInformation
 
