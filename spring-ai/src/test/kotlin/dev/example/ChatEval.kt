@@ -1,9 +1,0 @@
-package dev.example
-
-
-//First-time attendee
-//Someone who’s new to JFall (and often new to the venue) and wants to feel oriented quickly. Their focus is practical: where to go, when to arrive, how the day is structured, and “what should I attend?” They tend to ask broad questions and appreciate guided suggestions, but will still want exact facts (address, times, rooms, dates, ticket types, nearby hotels). They’re likely to use session search with plain-language queries (“beginner Kotlin”, “intro to Java performance”) and may build a small shortlist of preferred sessions once they find a few interesting ones.
-//Java/Kotlin developer
-//A technical attendee optimizing for content quality and relevance. They look for sessions by topic, technology, and skill level (e.g., Kotlin, Java performance, Spring, architecture, testing, LLMs, tooling, IntelliJ). Their questions are more specific (“find sessions about memory forensics”, “what talks mention Kotlin coroutines?”), and they’ll compare options and tradeoffs. They’re a heavy user of semantic session search and preference management: adding/removing sessions, refining the shortlist, and potentially planning a personal schedule around rooms/times.
-//Speaker
-//A presenter at the conference who cares about their own session logistics and overall conference flow. They’ll ask for venue details (address, date/time boundaries), and session schedule/room information—often phrased as “where/when am I speaking?” or “what room is my talk in?” They may also explore related talks (to avoid overlap, find similar sessions, or recommend sessions to attendees). Preference management can represent “sessions I want to attend when I’m not speaking” or “sessions I want to recommend,” but their primary intent is confidence in time/room accuracy and quick answers.
