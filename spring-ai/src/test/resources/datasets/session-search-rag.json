@@ -1,0 +1,35 @@
+{
+  "name": "session-search-rag",
+  "examples": [
+    {
+      "input": "Are there any sessions about LLM or AI frameworks?",
+      "expectedOutput": "Level Up Your LangChain4j Apps for Production",
+      "metadata": { "category": "ai-sessions" }
+    },
+    {
+      "input": "I'm looking for Spring Boot sessions",
+      "expectedOutput": "Spring Boot: Chapter 4",
+      "metadata": { "category": "spring-sessions" }
+    },
+    {
+      "input": "Show me beginner-friendly sessions",
+      "expectedOutput": "Revving Up with Java: A Beginner's Journey into Automotive Hacking",
+      "metadata": { "category": "beginner-sessions" }
+    },
+    {
+      "input": "Are there any sessions about security or breaching AI applications?",
+      "expectedOutput": "Breaching LLM-Powered Applications: Overcoming Security and Privacy Challenges",
+      "metadata": { "category": "security-sessions" }
+    },
+    {
+      "input": "I want to learn about Model Context Protocol or MCP",
+      "expectedOutput": "Supercharge your LLM with Java: Model Context Protocol (MCP) in Action",
+      "metadata": { "category": "mcp-sessions" }
+    },
+    {
+      "input": "Do you have sessions about GPU or hardware acceleration for AI?",
+      "expectedOutput": "Writing GPU-Ready AI Models in Pure Java with Babylon",
+      "metadata": { "category": "gpu-sessions" }
+    }
+  ]
+}
