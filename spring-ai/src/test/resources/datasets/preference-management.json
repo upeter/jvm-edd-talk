@@ -1,0 +1,45 @@
+{
+  "name": "preference-management",
+  "examples": [
+    {
+      "input": "Add the session about Kotlin error handling to my preferred sessions",
+      "expectedOutput": "From Exceptions to Rich Errors: Rethinking Error Handling in Kotlin",
+      "metadata": {
+        "category": "add-session",
+        "expectedTool": "add-preferred-sessions"
+      }
+    },
+    {
+      "input": "I'd like to attend the session about building Gen AI agents, please add it to my schedule",
+      "expectedOutput": "Enterprise Gen AI with Embabel",
+      "metadata": {
+        "category": "add-session",
+        "expectedTool": "add-preferred-sessions"
+      }
+    },
+    {
+      "input": "What sessions have I saved so far?",
+      "expectedOutput": "",
+      "metadata": {
+        "category": "get-sessions",
+        "expectedTool": "get-preferred-sessions"
+      }
+    },
+    {
+      "input": "Remove the IntelliJ IDEA session from my preferences",
+      "expectedOutput": "Be more productive with IntelliJ IDEA",
+      "metadata": {
+        "category": "remove-session",
+        "expectedTool": "remove-preferred-sessions"
+      }
+    },
+    {
+      "input": "Can you add the Java memory forensics talk to my favorites?",
+      "expectedOutput": "Catching the 137-Killer: A Java Memory Forensics Investigation",
+      "metadata": {
+        "category": "add-session",
+        "expectedTool": "add-preferred-sessions"
+      }
+    }
+  ]
+}
