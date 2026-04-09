@@ -119,11 +119,11 @@ class ToolCallEvaluator(
 
         val metadata: Map<String, Any?> = buildMap {
             put("expectedToolName", expectedToolName)
-            put("actualToolName", actualToolName)
+            actualToolName?.let { put("actualToolName", actualToolName) }
             expectedInput?.let { put("expectedToolInput", it) }
-            put("actualToolInput", actualToolInput)
+            actualToolInput?.let { put("actualToolInput", actualToolInput) }
             expectedOutput?.let { put("expectedToolOutput", it) }
-            put("actualToolOutput", actualToolOutput)
+            actualToolOutput?.let { put("actualToolOutput", actualToolOutput) }
             put("passedChecks", passed)
             put("totalChecks", total)
             put("failedChecks", failedChecks)
