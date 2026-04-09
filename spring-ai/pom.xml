@@ -15,7 +15,7 @@
     <description>Simple AI Application using OpenAPI Service</description>
     <properties>
         <java.version>21</java.version>
-        <dokimos.version>0.13.0</dokimos.version>
+        <dokimos.version>0.14.2</dokimos.version>
         <otel.version>2.25.0</otel.version>
         <!-- Align Kotlin compiler with dependencies using newer Kotlin metadata -->
         <kotlin.version>2.2.0</kotlin.version>
@@ -168,6 +168,12 @@
             <groupId>org.jetbrains.kotlinx</groupId>
             <artifactId>dataframe-core</artifactId>
             <version>0.13.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>dev.dokimos</groupId>
+            <artifactId>dokimos-core</artifactId>
+            <version>${dokimos.version}</version>
         </dependency>
 
         <dependency>

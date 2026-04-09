@@ -1,0 +1,45 @@
+{
+  "name": "session-recommendation-eval",
+  "examples": [
+    {
+      "input": "I am a Kotlin developer and I want AI-focused sessions. Which talks should I prioritize?",
+      "expectedOutput": "Provide relevant JFall session recommendations for Kotlin and AI interests.",
+      "metadata": {
+        "category": "happy-path",
+        "persona": "kotlin-developer"
+      }
+    },
+    {
+      "input": "Can you suggest beginner-friendly sessions for someone new to Spring AI?",
+      "expectedOutput": "Recommend beginner-friendly sessions and briefly explain why they fit.",
+      "metadata": {
+        "category": "happy-path",
+        "persona": "first-time-attendee"
+      }
+    },
+    {
+      "input": "I only have the afternoon free. Give me a practical shortlist of sessions.",
+      "expectedOutput": "Return a concise shortlist that respects the afternoon constraint.",
+      "metadata": {
+        "category": "edge-case",
+        "persona": "time-constrained"
+      }
+    },
+    {
+      "input": "I care about architecture and production readiness for AI systems. What should I attend?",
+      "expectedOutput": "Recommend sessions that align with architecture and production-readiness goals.",
+      "metadata": {
+        "category": "happy-path",
+        "persona": "senior-engineer"
+      }
+    },
+    {
+      "input": "Can you recommend Python Django talks only?",
+      "expectedOutput": "If exact matches are unavailable, acknowledge uncertainty and suggest closest relevant JFall alternatives.",
+      "metadata": {
+        "category": "negative-case",
+        "persona": "mismatched-interest"
+      }
+    }
+  ]
+}
