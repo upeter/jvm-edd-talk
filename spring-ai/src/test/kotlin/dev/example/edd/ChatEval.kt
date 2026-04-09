@@ -18,6 +18,7 @@ import dev.dokimos.springai.SpringAiSupport
 import dev.example.AIController
 import dev.example.ChatMessage
 import dev.example.ConferenceTools
+import dev.example.ConferenceTools.Companion.TOOL_ADD_PREFERRED_SESSIONS
 import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
 import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_JFALL
 import dev.example.ToolCallRecorder
@@ -45,7 +46,7 @@ class ChatEval @Autowired constructor(
             dataset {
                 name = "first-time-attendee"
                 example {
-                    input = "What's the name of this conference?"
+                    input = "What's the name¢ of this conference?"
                     expected = "JFall 2026"
                 }
             }
@@ -165,6 +166,66 @@ class ChatEval @Autowired constructor(
 
     }
 
+
+
+    @Test
+    fun `should add a session to preferred sessions`() {
+        experiment {
+            name = "JFall Preferred Sessions Add Evals"
+            dataset {
+                name = "preferred-sessions-add"
+                example {
+                    input = "Please add 'Java 25 - Better Language, Better APIs, Better Runtime' to my preferred sessions."
+                    expected = "I've added 'Java 25 - Better Language, Better APIs, Better Runtime' to your preferred sessions."
+                    metadata("category", "exact-title")
+                }
+                example {
+                    input = "Save the Spring Boot: Chapter 4 session by Stéphane Nicoll for me."
+                    expected = "I've added 'Spring Boot: Chapter 4' to your preferred sessions."
+                    metadata("category", "by-speaker")
+                }
+                example {
+                    input = "I'd like to attend the session about building AI agents with frameworks, please add it to my schedule."
+                    expected = "I've added 'From Scratch to Scalable: Building Smarter AI Agents with Frameworks' to your preferred sessions."
+                    metadata("category", "fuzzy-topic")
+                }
+                example {
+                    input = "Add the Kotlin error handling talk to my preferences."
+                    expected = "I've added 'From Exceptions to Rich Errors: Rethinking Error Handling in Kotlin' to your preferred sessions."
+                    metadata("category", "fuzzy-topic")
+                }
+                example {
+                    input = "Can you put the MCP session on my list?"
+                    expected = "I've added 'Supercharge your LLM with Java: Model Context Protocol (MCP) in Action' to your preferred sessions."
+                    metadata("category", "abbreviation")
+                }
+            }
+            task { example ->
+                val sessionId = UUID.randomUUID().toString()
+                toolCallbackRecorder.clear()
+                val response = controller.chat(ChatMessage(example.input(), sessionId))!!
+
+                val toolCalls = toolCallbackRecorder.getCalls().map {
+                    mapOf("toolName" to it.toolName, "toolInput" to it.inputJson, "toolOutput" to it.output)
+                }
+                mapOf(
+                    "output" to response,
+                    "toolCalls" to toolCalls
+                )
+            }
+            evaluators {
+                toolCallEvaluator {
+                    expectedToolName = TOOL_ADD_PREFERRED_SESSIONS
+                }
+                llmJudge(judge) {
+                    name = "Add Confirmation"
+                    criteria = "Does the response confirm to the user that a session was added, and does it mention the session title that was added?"
+                    threshold = 0.8
+                }
+            }
+            reporter = serverReporter
+        }.run().print()
+    }
 
 
     @Test

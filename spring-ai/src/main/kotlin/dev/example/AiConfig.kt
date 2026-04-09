@@ -158,7 +158,7 @@ class AiConfig {
             val startTime = System.currentTimeMillis()
             if (count > 0) {
                 logger.info("${count} sessions embeddings already present in public.talks")
-            } else {
+            } else if (false) {
                 logger.info("Start ingesting sessions in public.talks...   ")
                 val df = DataFrame.readJson("spring-ai/src/main/resources/data/dataset-jfall.json")
                 val sessions = df.explode("sessions").select("sessions").rename("sessions").into("session").flatten()

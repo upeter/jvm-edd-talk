@@ -1,0 +1,30 @@
+{
+  "name": "preferred-sessions-add",
+  "examples": [
+    {
+      "input": "Please add 'Java 25 - Better Language, Better APIs, Better Runtime' to my preferred sessions.",
+      "expectedOutput": "I've added 'Java 25 - Better Language, Better APIs, Better Runtime' to your preferred sessions.",
+      "metadata": { "category": "exact-title" }
+    },
+    {
+      "input": "Save the Spring Boot: Chapter 4 session by Stéphane Nicoll for me.",
+      "expectedOutput": "I've added 'Spring Boot: Chapter 4' to your preferred sessions.",
+      "metadata": { "category": "by-speaker" }
+    },
+    {
+      "input": "I'd like to attend the session about building AI agents with frameworks, please add it to my schedule.",
+      "expectedOutput": "I've added 'From Scratch to Scalable: Building Smarter AI Agents with Frameworks' to your preferred sessions.",
+      "metadata": { "category": "fuzzy-topic" }
+    },
+    {
+      "input": "Add the Kotlin error handling talk to my preferences.",
+      "expectedOutput": "I've added 'From Exceptions to Rich Errors: Rethinking Error Handling in Kotlin' to your preferred sessions.",
+      "metadata": { "category": "fuzzy-topic" }
+    },
+    {
+      "input": "Can you put the MCP session on my list?",
+      "expectedOutput": "I've added 'Supercharge your LLM with Java: Model Context Protocol (MCP) in Action' to your preferred sessions.",
+      "metadata": { "category": "abbreviation" }
+    }
+  ]
+}
