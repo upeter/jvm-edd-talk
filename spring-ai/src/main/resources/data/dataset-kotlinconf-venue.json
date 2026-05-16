@@ -1,0 +1,83 @@
+{
+  "name": "KotlinConf 2026",
+  "address": "ICM – International Congress Center Messe München, Messegelände, 81823 München, Germany",
+  "venueName": "ICM – International Congress Center Messe München",
+  "dateFrom": "2026-05-21",
+  "dateTo": "2026-05-22",
+  "startTime": "09:00",
+  "endTime": "17:30",
+  "nearestPublicTransport": "Messestadt West (U2)",
+  "travelFromCentralStation": "Less than 20 minutes by U-Bahn U2 without changing lines",
+  "travelFromAirport": "About 35 minutes by taxi or 45-60 minutes by public transport",
+  "rooms": [
+    {
+      "name": "Keynote, Room 14",
+      "sort": 0
+    },
+    {
+      "name": "Auditorium, Room 1",
+      "sort": 1
+    },
+    {
+      "name": "Room 13a",
+      "sort": 2
+    },
+    {
+      "name": "Room 13b",
+      "sort": 3
+    },
+    {
+      "name": "Room 5, Lightning talks",
+      "sort": 4
+    },
+    {
+      "name": "Room 2",
+      "sort": 5
+    },
+    {
+      "name": "Room 3",
+      "sort": 6
+    },
+    {
+      "name": "Room 11a",
+      "sort": 7
+    },
+    {
+      "name": "Room 11b",
+      "sort": 8
+    },
+    {
+      "name": "Room 12a",
+      "sort": 9
+    },
+    {
+      "name": "Room 12b",
+      "sort": 10
+    }
+  ],
+  "price": {
+    "conference": "EUR 700.00",
+    "conferenceInclVat": "EUR 833.00 incl. VAT",
+    "workshop": "EUR 715.00 (add-on to conference pass)",
+    "workshopInclVat": "EUR 850.85 incl. VAT",
+    "academiaDiscount": "50% discount on Regular Admission tickets for students and teachers"
+  },
+  "officialWebsite": "https://kotlinconf.com/",
+  "venueWebsite": "https://locations.messe-muenchen.de/en/icm/",
+  "travelInformationWebsite": "https://messe-muenchen.de/en/services/plan-your-visit/travel-information/icm/",
+  "accommodationWebsite": "https://messe-muenchen.de/en/services/plan-your-visit/accommodation/",
+  "nearbyAccommodationOptions": [
+    {
+      "name": "München Tourismus hotel booking",
+      "website": "https://www.munich.travel/en-gb/accomodation"
+    },
+    {
+      "name": "TRADEFAIRS hotel booking",
+      "website": "https://messe-muenchen.tradefairs.com/index-i-1-1925-1.html"
+    },
+    {
+      "name": "CHECK-IN! rooms, apartments and holiday homes",
+      "website": "https://www.checkin-muenchen.de/?mms=1"
+    }
+  ]
+}

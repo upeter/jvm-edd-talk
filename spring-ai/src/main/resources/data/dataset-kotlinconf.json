@@ -1,0 +1,1714 @@
+{
+  "sessions": [
+    {
+      "id": "1148503",
+      "title": "Opening Keynote",
+      "startsAt": "2026-05-21T07:00:00.0000000Z",
+      "endsAt": "2026-05-21T08:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "Multiplatform",
+        "Android",
+        "Extensibility/Tooling",
+        "Language and best practices",
+        "AI",
+        "Other"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Sebastian Aigner",
+        "Michail Zarečenskij",
+        "Vsevolod Tolstopyatov",
+        "Svetlana Isakova",
+        "Jeffrey van Gogh",
+        "Márton Braun",
+        "Chantal Loncle",
+        "Josh Long",
+        "Christian Ryan"
+      ],
+      "description": "",
+      "recordingUrl": null
+    },
+    {
+      "id": "1067499",
+      "title": "Keeping Tabs on Your Data: AndroidX Storage for the Web",
+      "startsAt": "2026-05-21T08:15:00.0000000Z",
+      "endsAt": "2026-05-21T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Daniel Santiago Rivera",
+        "Elif Bilgin Morris"
+      ],
+      "description": "Join the AndroidX Team as they talk about the two Kotlin Multiplatform storage libraries - Room and DataStore - and their support for the Web platform!\r\n\r\nIn this talk, the team will introduce the API changes that made it possible to support Web for these libraries, as well as demonstrate how you can take an existing project that uses Room or DataStore and have it work on the Web. \r\n\r\nThey will also go over some of the challenges and complexities that were encountered to support WASM/JS and the technologies used such as Origin Private File System (OPFS) and Web Workers. ",
+      "recordingUrl": null
+    },
+    {
+      "id": "1126816",
+      "title": "Bootiful Kotlin",
+      "startsAt": "2026-05-21T08:15:00.0000000Z",
+      "endsAt": "2026-05-21T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Josh Long"
+      ],
+      "description": "Spring Boot marries Spring's flexibility with conventional, common sense defaults to make application development on the JVM not just fly, but pleasant! \r\n\r\nThe framework is as clean as it gets, wouldn't it be nice if the language with which you wielded it matched its elegance? \r\n\r\nKotlin, the productivity-focused language from our friends at JetBrains, takes up the productivity slack to make the experience leaner, cleaner and even more pleasant. \r\n\r\nThe Spring and Kotlin teams have worked hard to make sure that Kotlin and Spring Boot are a first-class experience for all developers trying to get to production, faster and safer. \r\n\r\nCome for the Spring and stay for the Bootiful Kotlin.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085720",
+      "title": "A tale of the Gradle DSLs",
+      "startsAt": "2026-05-21T08:15:00.0000000Z",
+      "endsAt": "2026-05-21T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Paul Merlin"
+      ],
+      "description": "Part of Gradle’s mission is to provide an elegant and extensible declarative build language that enables expressing any build in a clear and understandable way.\r\n\r\nGradle started with a dynamic Groovy DSL, then introduced a static Kotlin DSL, and is now moving towards a purely declarative configuration language inspired by Kotlin. We’ll discuss the evolution of Gradle DSLs and highlight the lessons learned and the tangible benefits enabled by each step of the journey.\r\n\r\nIn this talk, we will discuss the trade-offs between flexibility and other factors such as maintainability, user experience, and IDE support. We’ll explore the distinction between software definition and build logic and how separating them satisfies the distinct needs of software developers, build engineers, and plugin developers.\r\n\r\nFinally, we will also discuss how to make the most of the Kotlin DSL in the present, while preparing for the future.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1089408",
+      "title": "All platforms are unique but some platforms are more unique than others",
+      "startsAt": "2026-05-21T08:15:00.0000000Z",
+      "endsAt": "2026-05-21T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Konstantin Tskhovrebov"
+      ],
+      "description": "Compose Multiplatform supports all modern platforms for writing applications.\r\nTo achieve this, we at JetBrains devote a lot of time and attention to deep integration with each platform.\r\nEvery platform has its own unique challenges. In this talk, I want to focus on how I supported several features on the web target.\r\nWhat problems and peculiarities I encountered, and how I solved them. How the same problems were solved in other frameworks.\r\nAnd why there is not just one web target, but not even three, but six, if not more!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086800",
+      "title": "Tiny Models, Big Impact: On-Device AI for Real Apps",
+      "startsAt": "2026-05-21T08:15:00.0000000Z",
+      "endsAt": "2026-05-21T08:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Android",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Hammad Akram"
+      ],
+      "description": "AI features in mobile apps usually depend on cloud APIs, expensive to run, slow under poor connectivity, and limited by privacy concerns. But recent advances in model compression and mobile inference make it possible to run meaningful AI tasks directly on-device.\r\n\r\nThis talk demystifies on-device AI for Kotlin developers. We cover different models, quantization strategies, and Kotlin-friendly inference pipelines using coroutines. You’ll learn how to build features like summarization, classification, personalization, and intent extraction without needing a server.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086504",
+      "title": "Run, Kotlin, Run!",
+      "startsAt": "2026-05-21T08:45:00.0000000Z",
+      "endsAt": "2026-05-21T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Marc Reichelt"
+      ],
+      "description": "JVM, native, JS, WebAssembly - it's hard to keep track on the many ways where we can run Kotlin these days.\r\nSo here's a challenge: find as many ways to run Kotlin in a lightning talk as we can! The more exotic, the better!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1120234",
+      "title": "Kotlin/Wasm: Finally, the missing piece for a full stack Kotlin webapp!",
+      "startsAt": "2026-05-21T09:15:00.0000000Z",
+      "endsAt": "2026-05-21T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Dan Kim"
+      ],
+      "description": "Building a full stack webapp entirely using Jetbrains frameworks and Kotlin has long been a dream of mine. If you’re like me (a longtime Android and backend developer), you want to write everything in Kotlin including the front end, but doing that has historically been the hardest, trickiest part. While there are some frameworks that can help bridge the gap, it’s always felt a little disjointed when integrating them with the rest of the stack.\r\n\r\nBut no longer! With Kotlin/Wasm reaching Beta and having full support in modern browsers, we finally have the missing piece to do everything in our webapp using Kotlin and Jetbrains’ well-supported frameworks in a performant, pixel-perfect way. We’ll walk through building a full stack webapp from top to bottom using Kotlin/Wasm + Compose Multiplatform + Coroutines + Exposed + Ktor, finally uniting the UI, business logic, database, and server. Through code examples and contextual discussion you’ll get a solid introduction on how to use Kotlin and its frameworks at every level of the stack, why that’s so desirable, why Kotlin/Wasm is a key unlock, as well as an introduction to frameworks you might not have used yet but should consider (Exposed, Ktor). Let’s go spin up some fully Kotlinized webapps!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1073399",
+      "title": "Evolving Language Defaults",
+      "startsAt": "2026-05-21T09:15:00.0000000Z",
+      "endsAt": "2026-05-21T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Michail Zarečenskij"
+      ],
+      "description": "When designing a programming language, we decide what’s safe, what’s convenient, and what’s practical. These choices become our defaults, the way we believe most programs should be written in that language.\r\n\r\nHowever, defaults evolve over time. What once seemed like a good idea may later become a source of bugs and friction. In fact, wrong defaults are often one of the main reasons new programming languages emerge.\r\n\r\nIn this session, we’ll explore how programming languages deal with their defaults. What tools do they have at their disposal, and what are the costs of changing defaults? We’ll look at how languages transition from mutability to immutability, adopt null-safety, and add deeper analyses to track object locality and many more. Expect examples from C#, Java, Swift, Dart, and, of course, how we’re evolving defaults in Kotlin!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1066547",
+      "title": "Metro Under the Hood",
+      "startsAt": "2026-05-21T09:15:00.0000000Z",
+      "endsAt": "2026-05-21T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform",
+        "Extensibility/Tooling",
+        "Other"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Zac Sweers"
+      ],
+      "description": "Metro is, first and foremost, a multiplatform dependency injection framework. It’s also an advanced and complex Kotlin compiler plugin. In this talk, we’ll go under the hood and learn how much of Metro’s magic works in the compiler and what kind of code it’s generating. This is an advanced talk and assumes familiarity with DI frameworks like Metro, Dagger, etc. You don’t need to be familiar with compiler plugins, but we will be getting into the nitty gritty so come ready to learn!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1087289",
+      "title": "Opinionated Ktor Services",
+      "startsAt": "2026-05-21T09:15:00.0000000Z",
+      "endsAt": "2026-05-21T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Simon Vergauwen"
+      ],
+      "description": "Ktor is an unoppionionated framework with a plugin system, and coroutines based implementation. It can easily integrate with any existing framework or SDK. This allows you to freely architect your applications as desired, but might leave you with some questions about best practices, or trade-offs. In this talk I'll give an oppionated overview of building Ktor services. Discussing trade-offs between DI approaches, code organisation, integrating 3rd party SDKs, testing best practices, and automatically generating API documentation.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086544",
+      "title": "Breaking Frozen Frames: Phased Rendering for Feature Rich UIs",
+      "startsAt": "2026-05-21T09:15:00.0000000Z",
+      "endsAt": "2026-05-21T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Sinan Kozak"
+      ],
+      "description": "Feature rich Compose screens often produce frozen frames—any frame over 700 ms—when multiple heavy UI sections are composed in a single pass. Users are forced to wait for the entire screen to finish composing before seeing anything meaningful, creating slow and unresponsive first-load moments.\r\n\r\nThis talk presents Phased Compose, a phased rendering technique that splits a large composition into deterministic steps. Instead of generating one long frozen frame, each major section renders in its own phase, allowing meaningful content to appear immediately while remaining parts compose progressively. This approach reduced frozen frames by over 30% on complex screens—without delays, timers, or PausableComposition.\r\n\r\nI will explain why existing APIs like PausableComposition and lazy layouts don’t solve first-frame jank for non-scrolling UI, and how Phased Compose provides a general, predictable solution for Compose UI. Attendees will learn how to apply phased rendering to ship smoother startup experiences and eliminate long UI stalls in real apps.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1084890",
+      "title": "Bringing Native iOS Feel to Compose Multiplatform Apps",
+      "startsAt": "2026-05-21T09:45:00.0000000Z",
+      "endsAt": "2026-05-21T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Mohamed Ben Rejeb"
+      ],
+      "description": "Ever built a Compose Multiplatform app and wished it looked at home on every platform? This lightning talk introduces Calf (Compose Adaptive Look & Feel) an open-source library that makes your Compose UI adapt to each platform’s native design. We’ll start with a typical Material3 styled Android app and ask: can it feel native on iOS without a complete rewrite?\r\n\r\nWe’ll gradually replace Material components with Calf’s adaptive UI components (dialogs, bottom sheets, pickers, etc.). With just a few swaps, watch the app instantly adopt iOS’s familiar look while using the same codebase for both Android and iOS. You’ll see how Calf maps components to their native counterparts, Material on Android and Cupertino on iOS, so the UI truly feels native to each platform.\r\n\r\nThis talk is light, fast-paced, and inspirational. If you’re an Android developer curious about Kotlin Multiplatform, come see how a single Compose codebase can deliver beautiful, platform-native UIs with minimal effort.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085790",
+      "title": "How google.com/search builds on Kotlin coroutines for highly scalable, streaming, concurrent servers",
+      "startsAt": "2026-05-21T11:00:00.0000000Z",
+      "endsAt": "2026-05-21T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Sam Berlin",
+        "Alessio Della Motta"
+      ],
+      "description": "Learn how google.com/search routes every search through server-side Kotlin to enable low-latency highly asynchronous/streaming codepaths. With the advent of AI, streaming is more important than ever. This talk will explore how Google Search adopted Kotlin on the server to enable streaming fast, safe and massively scalable results. Learn about a data-graph interface description language we call “Qflow” that connects asynchronous data definitions, where developers implement business logic in Kotlin. Follow as we explore how we’ve instrumented coroutines to collect latency signals and surface usable critical paths with slack/drag support, removed sharp edges of coroutines, surfaced streams as Flows, and avoided common pitfalls. See mistakes we’ve made along the way and how we’ve fueled a revolution in server development by simplifying “asynchronous by default”.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1120097",
+      "title": "What's New in Compose Multiplatform: Better Shared UI for iOS and Beyond",
+      "startsAt": "2026-05-21T11:00:00.0000000Z",
+      "endsAt": "2026-05-21T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Sebastian Aigner",
+        "Márton Braun"
+      ],
+      "description": "Compose Multiplatform lets you build beautiful UI with idiomatic Kotlin for Android, iOS, Desktop, and Web apps! It’s stable, production-ready, constantly evolving, and it already powers the experiences of millions of users every day. Its declarative nature also makes it a perfect fit for building cross-platform apps in the age of agentic development.\r\n\r\nAs a framework that can be adopted incrementally rather than requiring a full rewrite, you can start using it risk-free even in existing apps. Your Android skills seamlessly transfer to other platforms, with tools like Navigation 3 already available for Compose Multiplatform.\r\n\r\nIn this talk, we’ll take a hands-on look at everything that’s new and exciting. iOS improvements like faster rendering, enhanced input handling, and better interop that enables the use of Liquid Glass elements. Web features including accessibility, interop, and other improvements.\r\n\r\nAnd of course, we’ll discuss the developer experience: with a unified @Preview system, a mature Hot Reload solution, and a thriving ecosystem that covers all important areas of modern app development.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1075549",
+      "title": "Real-World Data Science With Kotlin Notebook",
+      "startsAt": "2026-05-21T11:00:00.0000000Z",
+      "endsAt": "2026-05-21T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "AI",
+        "Other"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Adele Carpenter"
+      ],
+      "description": "Life can be messy, and so can your data set.\r\n\r\nAs developers, we are spoilt for choice when it comes to tooling that makes data science a breeze. These days, we don't even need to install Python!\r\n\r\nThe Kotlin ecosystem gives you everything you need to have you inspecting a data set within minutes.\r\n\r\nBut how do you know that your conclusions are the right ones? You can have your computer spit out a nice pretty answer, but is it pretty and correct? How can you be sure?\r\n\r\nIn this talk, I will use Kotlin tools to analyse a real-world dataset from the sport of powerlifting, taking you through the methods and pitfalls of data analysis.\r\n\r\nWe will cover\r\n- Understanding your data set\r\n- Principles of data analysis and verifying your results\r\n- Accessing and manipulating the dataset with Postgres and DataFrame\r\n- Selecting an appropriate plot and presenting your findings with the Kandy Library\r\n\r\nWith a solid mix of theory and practical application, you will leave this talk with the knowledge to inspect a data set, form a research question, collect the data and plot the result, all without ever leaving the comfort of your IDE.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1049249",
+      "title": "Kotlin Performance Tracing on Android: From Coroutines to Reality",
+      "startsAt": "2026-05-21T11:00:00.0000000Z",
+      "endsAt": "2026-05-21T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Android"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Akniyet Arysbayev"
+      ],
+      "description": "Kotlin’s coroutines and Flow APIs make asynchronous programming elegant — but when things get slow, they can also make performance opaque. What’s actually happening behind all those suspend functions and dispatchers?\r\n\r\nIn this talk, we’ll explore what Kotlin’s concurrency features really look like under the microscope of Perfetto — Android’s modern performance tracing tool. You’ll see how coroutine scopes, dispatchers, and suspending functions appear on the system trace, and how to interpret their behavior in real-world applications.\r\n\r\nWe’ll dive into how Kotlin constructs translate to threads, tasks, and context switches at runtime, revealing common bottlenecks like dispatcher overloads or nested coroutine hierarchies. Along the way, we’ll discuss techniques to instrument your own traces, correlate them with Kotlin runtime states, and visualize structured concurrency in action.\r\n\r\nBy the end, you’ll not only understand what your Kotlin code is really doing on the CPU — you’ll have practical strategies for profiling, debugging, and optimizing coroutines in production Android apps.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086698",
+      "title": "Kotlin Analysis API in Practice: Semantic Smarts for Code Migrations",
+      "startsAt": "2026-05-21T11:00:00.0000000Z",
+      "endsAt": "2026-05-21T11:15:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Idan Nakav"
+      ],
+      "description": "Code migrations are tedious: you need to rewrite syntax while preserving behavior, and one wrong assumption can break downstream consumers. PSI helps locate and transform code, but it can't answer the semantic questions that determine whether a transformation is actually safe.\r\n\r\nKotlin Analysis API fills that gap. We'll show how we leverage its semantic capabilities—types, symbols, call-site resolution, and diagnostics—to validate intent before we rewrite. This lets us tighten visibilities without breaking consumers, simplify nullability only when every code path stays safe, and confidently transform framework patterns.\r\n\r\nWe'll walk through real examples showing how to query types, resolve symbols, inspect visibility, and leverage diagnostics—the building blocks for safer automated rewrites.\r\n\r\nUsing Uber's Java-to-Kotlin migration as our running example, attendees will leave with a practical blueprint for combining PSI's syntactic power with Kotlin Analysis API's semantic insight—patterns that apply to any large-scale code transformation.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086933",
+      "title": "SwiftPM support for Kotlin Multiplatform",
+      "startsAt": "2026-05-21T11:30:00.0000000Z",
+      "endsAt": "2026-05-21T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Timofey Solonin"
+      ],
+      "description": "This year, the Kotlin team is working on Swift Package Manager support in Kotlin Multiplatform. Learn how to use this new feature to import SwiftPM dependencies such as FirebaseFirestore, Sentry and Google Maps in your KMP code with ease!\r\n\r\nIn this talk, we will go over the core features of SwiftPM import support in KMP:\r\n* Importing SwiftPM dependencies with Objective-C APIs in your Kotlin Multiplatform code\r\n* Configuring your Xcode project to make sure it works well with SwiftPM dependencies\r\n* Publishing KMP libraries with SwiftPM dependencies\r\n\r\nFinally, we will cover how SwiftPM dependencies work under the hood. You will learn how we:\r\n* Turn Swift and Objective-C source files into code accessible by Kotlin/Native compilations\r\n* Ensure that the machine code from SwiftPM dependencies is accessible to the linker everywhere it might be called in your KMP project",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086889",
+      "title": "Concurrency Patterns for Modern High Performance Kotlin Servers",
+      "startsAt": "2026-05-21T12:00:00.0000000Z",
+      "endsAt": "2026-05-21T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Bowen Feng"
+      ],
+      "description": "Kotlin Coroutines revolutionized asynchronous programming, but mastering them for high-performance server applications requires more than just launch and async. This session dives deep into battle-tested concurrency patterns, the reusable, structured solutions, that underpin fast, scalable Kotlin servers, particularly the ones making many RPC calls.\r\n\r\nWe will break down complex server problems into distinct concurrency challenges and show how Kotlin's rich async primitives provide elegant, structured answers. You will learn practical techniques for managing server-side RPC traffic:\r\n\r\n1. Unary RPC Patterns:\r\nImplementing robust features like efficient request Generator flows, optimizing resource usage with Fan-in techniques, and ensuring reliability through structured Timing out and Request Hedging.\r\n\r\n2. Streaming RPC Patterns:\r\nTackling the complexity of continuous data streams, from preventing memory overloads with effective Back-pressure handling and intelligent Buffering to maximizing throughput using concurrent Mapping & Merging. We will also explore advanced concepts like Reordering for improved client-side responsiveness.\r\n\r\nBy the end of this session, you won't just understand how to use Coroutines; you'll understand how to compose them into powerful, production-ready concurrency patterns, exemplified by a live demo of building a pretty complex Google search clone. Equip yourself with the patterns necessary to build your next high-performance, concurrent Kotlin services.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1077477",
+      "title": "Local Lifetimes for Kotlin",
+      "startsAt": "2026-05-21T12:00:00.0000000Z",
+      "endsAt": "2026-05-21T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Ross Tate"
+      ],
+      "description": "Many objects are meant to be used only \"locally\", in the sense that they should not escape from the current function into the \"global\" world. For example, buildList is given a function that is meant to be used solely by buildList, and buildList calls that function with a MutableList that is meant to be used only by that function. Kotlin's experimental CallsInPlace contract can enforce the former, but currently there is nothing for the latter.\r\n\r\nIn this talk, I will present a preliminary design we have developed for adding enforceable \"locality\" to Kotlin as a lightweight form of limited-lifetime objects. With it, library designers can let users write blocks that are guaranteed to have only temporary access to privileged objects. Those objects can be mutable views for building collections, or they can be capabilities indicating that code is executing within the critical section of some lock. Similarly, developers can use locality to prevent accidentally leaking temporary internal objects.\r\n\r\nBeyond preventing bugs, locality enables more advanced forms of control. Because local objects cannot outlive the function call that created them, they can safely break to or return from that function, in addition to accessing the current state of its local variables. They can even suspend computation when called within a suspendable function. So locality provides a surprisingly lightweight form of (algebraic) effect polymorphism, with which one can build systems that can work in both synchronous and asynchronous settings.\r\n\r\nBesides new functionality, I will cover how this design integrates into the existing Kotlin ecosystem. The design has an \"opt-in\" nature that lets libraries adopt it as the need arises. At the same time, it is highly backwards compatible, so such adoption can be guaranteed to not break existing users (except where intended to disallow misusages of the library). And while some of the design enables platform-specific optimizations, like stack-allocating objects in Kotlin/Native, overall it can integrate well with existing interopability across platforms. Finally, type-outference enables this new functionality to be checked reliably and efficiently.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086954",
+      "title": "RemoteCompose: Building for remote surfaces with Compose",
+      "startsAt": "2026-05-21T12:00:00.0000000Z",
+      "endsAt": "2026-05-21T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Android"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Yuri Schimke"
+      ],
+      "description": "An introduction to RemoteCompose.\r\n\r\nFocusing on the Compose & Kotlin frontend for the RemoteCompose technology. A guided walk through State, Expressions, Actions and Components.\r\n\r\nBuilding up to examples of typical use cases and how to implement amazing UIs reaching to different remote surfaces. And the many possible meanings of Remote on Android platforms and otherwise.\r\n\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086934",
+      "title": "Kotlin/JS: Past, Present and Future",
+      "startsAt": "2026-05-21T12:00:00.0000000Z",
+      "endsAt": "2026-05-21T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Artem Kobzar"
+      ],
+      "description": "In this talk, as the team lead and product owner of the JS target, I will share the past vision of Kotlin/JS as a competitor to TypeScript, and the new one as a great addition to KMP projects with native UI.\r\n\r\nI will describe to you my team and the major projects we are currently working on, which the community has been inquiring about extensively: an unlimited JsExport (codename, project \"All Might\") and modern JS support (codename, project \"Luffy\") that should be available on some stages in the fall of 2026.\r\n\r\nI will also share my mid-term vision for the compilation target and our next big focuses.\r\n\r\nIt will be a deep dive and extension for this blog post: https://blog.jetbrains.com/kotlin/2025/05/present-and-future-kotlin-for-web/",
+      "recordingUrl": null
+    },
+    {
+      "id": "1197192",
+      "title": "Codex for Kotlin Engineers",
+      "startsAt": "2026-05-21T12:00:00.0000000Z",
+      "endsAt": "2026-05-21T12:15:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Benedict Kerres"
+      ],
+      "description": "Kotlin is a great match for AI-assisted coding: its strong type system, clear domain models, and testable structure make it easier to generate, refactor, and review code with confidence. In this session, we’ll look at Codex and how to use it most effectively.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1087039",
+      "title": "Building AI‑Powered Web Apps in Kotlin/Wasm",
+      "startsAt": "2026-05-21T12:30:00.0000000Z",
+      "endsAt": "2026-05-21T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Zalim Bashorov"
+      ],
+      "description": "Modern browsers are starting to ship native AI capabilities as standardized Web APIs, enabling fully client‑side AI‑powered web apps without any server infrastructure.\r\nUsing built-in Web AI allows sensitive data to be processed locally, improves the responsiveness of AI-driven features, and enables offline usage. At the same time, these new APIs come with limitations that may affect performance, availability, and real-world applicability.\r\n\r\nIn this talk, we take a look at the current state of Web AI: what capabilities are already available, how these APIs work, and where they fall short. We discuss the practical advantages and trade-offs of adopting browser-native AI to help you make informed decisions.\r\n\r\nTo make this more concrete, we'll walk through some examples demonstrating how to invoke Web AI APIs to build features such as real-time text summarization, translation, and other AI-powered functionalities. All run directly in the user's browser.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1083544",
+      "title": "Peeling back the Layers: A Navigation3 Deep Dive",
+      "startsAt": "2026-05-21T13:15:00.0000000Z",
+      "endsAt": "2026-05-21T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Marcello Galhardo",
+        "Ian Lake"
+      ],
+      "description": "Join us as we explore the Navigation3 API surface and peel back the layers of the library via the various NavDisplay overloads. We will provide insight into the decision behind each overload, how you would use each of them, and the helper APIs that assist you in building your custom logic. This will show you how to fully take advantage of the different building blocks that Navigation3 provides.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086353",
+      "title": "Why Most AI Agents Never Scale? Building Enterprise-Ready AI with Koog",
+      "startsAt": "2026-05-21T13:15:00.0000000Z",
+      "endsAt": "2026-05-21T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Vadim Briliantov"
+      ],
+      "description": "AI agents are everywhere — but most of them break the moment you try to use them for anything real. Token costs explode, behavior becomes unpredictable, and primitive “LLM + loop” architectures simply don’t scale beyond flashy demos.\r\n\r\nAt JetBrains, we’ve been building agents that power real products used by millions. Koog is the open-source Kotlin and JVM framework that came out of this experience and was released at the KotlinConf 2025 exactly 1 year ago. In this talk, we’ll introduce Koog 1.0.0-RC and show how its design makes AI agents scalable, predictable, and ready for production.\r\n\r\nKoog gives Kotlin and Java teams a complete toolset for building agents as well-structured, type-safe systems — whether you’re using simple functional agents, graph strategies, or planning-based approaches. It integrates deeply with the JVM and Kotlin Multiplatform ecosystems, including Spring, Spring AI, Ktor, Langfuse, W&B Weave, AWS Agent Core, Google Agent Engine, and full support for Android and Gemma-based local agents.\r\n\r\nWe’ll also look at how Koog handles challenges that most agent frameworks avoid:\r\n- Managing cost and context at scale through strategy-driven decomposition.\r\n- Modeling domain behavior using strongly-typed steps, so agents produce reliable, controlled outputs instead of guesswork.\r\n- Persisting and checkpointing agent state for fault recovery and long-running workflows.\r\n- Observing, evaluating, and improving agents with OpenTelemetry, Langfuse, and W&B Weave.\r\n\r\nBy the end, you’ll understand why most AI agents don’t scale and how Koog helps you build the ones that do: agents that run across JVM and KMP targets, integrate cleanly with existing systems, and remain robust under real-world load.\r\n\r\nIf you want to bring AI agents into production without rewriting your stack or sacrificing reliability, this talk is for you.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1084718",
+      "title": "Expedited Shipping: Accelerating iOS Development with KMP at Amazon",
+      "startsAt": "2026-05-21T13:15:00.0000000Z",
+      "endsAt": "2026-05-21T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Jessalyn Wang"
+      ],
+      "description": "This talk covers developing with Kotlin Multiplatform and iOS at scale using App Platform, an open-source lightweight application framework for state and memory management. Amazon Delivery ships a variety of applications spanning multiple device types and platforms that help facilitate the delivery process of millions of packages every day. These applications often talk to each other and share similar features in different form factors. We want to ship fast while maintaining feature parity across applications, and Kotlin Multiplatform is playing a big role in helping us accomplish this!\r\n\r\nWe've been using App Platform for a few years now in Android and JVM/Linux, but recently took the initiative to flesh out iOS support. iOS integration came with its own challenges, and we learned a lot. We’ll briefly introduce App Platform and where we have adopted it, then take a deeper look at our journey to iOS integration. It will cover how we introduced support for SwiftUI, defined patterns for navigation, onboarded real-world use cases that now serve hundreds of thousands of delivery drivers, and how we are tackling development at scale in an organization with hundreds of developers and dozens of teams.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085095",
+      "title": "The State of Amper",
+      "startsAt": "2026-05-21T13:15:00.0000000Z",
+      "endsAt": "2026-05-21T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Joffrey Bion"
+      ],
+      "description": "Amper is the new kid on the block in the build tools landscape. In this talk, we'll see exciting new features that we cooked during the past year, like plugins, publication, and some cool IDE features. We'll also have a peek at what's coming next.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1134718",
+      "title": "Interactive Session on Kotlin Education",
+      "startsAt": "2026-05-21T13:15:00.0000000Z",
+      "endsAt": "2026-05-21T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Discussion",
+        "Introductory and overview",
+        "Other",
+        "Education"
+      ],
+      "room": "Room 3",
+      "speakers": [
+        "Ksenia Shneyveys"
+      ],
+      "description": "We invite anyone who teaches Kotlin – in classrooms, online courses, or within their workplace – to join our session.\r\n\r\nIn this session, we will talk about the initiatives and resources of the Kotlin Foundation Education Committee for educators and students. \r\n\r\nWe’ll also explore how education is changing and how we are adapting. We’ll discuss approaches to:\r\n- Teaching students to build multiplatform apps with Kotlin.\r\n- Integrating AI tools into the learning and teaching process.\r\n- Improving the quality of AI-generated Kotlin code and guiding students to use AI responsibly.\r\n\r\nThis session combines presentations with an extended Q&A and discussion segment. We’ll also ask you to provide feedback on what resources and priorities are most valuable for you in teaching Kotlin. \r\n\r\nJoin us for an interactive session to talk about how we can better support you!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1083690",
+      "title": "Compose beyond UI : Display and Print!",
+      "startsAt": "2026-05-21T13:15:00.0000000Z",
+      "endsAt": "2026-05-21T13:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Salomon Brys"
+      ],
+      "description": "Compose is a way to display pixels on screen and animate them. What if what we've come to master could be used anywhere you need to visually organize content? We could create animated presentations & slides, looping displays, social media post images, or even board game card images & PDFs! Using all the tooling Compose has to offer, let us break our creativity free from the small screens.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086609",
+      "title": "Livecoding soundscapes with Compose Multiplatform",
+      "startsAt": "2026-05-21T13:45:00.0000000Z",
+      "endsAt": "2026-05-21T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Merlin Pahic"
+      ],
+      "description": "Compose Multiplatform allows for the creation of beautiful user interfaces in a declarative, functional paradigm. But the Compose compiler isn't limited to creating UI or even visuals.\r\n\r\nIn this talk, we explore using the Compose compiler to create soundscapes and other pieces of music. I will present a library and domain-specific language (DSL) for musical composition – complete with a plugin to turn IntelliJ into a livecoding environment.\r\n\r\nWe'll start by looking at the building blocks of musical compositions and how Kotlin and Compose Multiplatform can be used to implement them in a declarative and functional way. This includes tone generators/synths, shaping the envelope of a sound, playing samples, expressing various timings and simultaneously playing multiple tracks, and creating a drum machine. We'll also see how a powerful DSL allows us to more conveniently express complex rhythms.\r\n\r\nFollowing that, we'll look at how to implement the audio generation backend on multiple platforms, and some ways to optimise the Compose code – the precise timings required for music present a particular challenge. We'll also see how the audio generation integrates with existing Compose components, and how to create enlightening visualisations of the code and music.\r\n\r\nFinally we'll look at how to turn IntelliJ into a livecoding environment, allowing the creation and modification of musical pieces on the fly. This enables experimentation and improvisation for any programmer or musician.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1081924",
+      "title": "Increasing quality of AI generated Kotlin code",
+      "startsAt": "2026-05-21T14:15:00.0000000Z",
+      "endsAt": "2026-05-21T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Sergei Rybalkin"
+      ],
+      "description": "Discover practical strategies and recent advancements for improving the quality of Kotlin code produced by AI models. We will follow the ups and downs of Meta journey advancing Kotlin code generation in for both in-house and publicly available agents.\r\n\r\nThis talk explores common challenges in AI-generated code, shares best practices for evaluation and refinement, and highlights tools and techniques that help developers ensure reliability, readability, and maintainability in Kotlin projects powered by AI.\r\n\r\nNote: this talk was submitted in November 2025, 6 months ahead of the conference. While the principles we will talk about would likely be still relevant most likely we will be talking the newest generation of models available in Spring 2026. \r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1084621",
+      "title": "Talking to terminals (and how they talk back)",
+      "startsAt": "2026-05-21T14:15:00.0000000Z",
+      "endsAt": "2026-05-21T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Jake Wharton"
+      ],
+      "description": "Have you ever wondered how Gradle renders multiple progress bars below the scrolling output? Or how a Linux installer renders full screen in the terminal? What about how curl somehow displays a progress bar despite having its output redirected to a file?\r\n\r\nThis talk will explore how command-line applications communicate with the terminal. From basic elements such as colors and the terminal size to advanced behavior like frame synchronization, images, and keyboard events.\r\n\r\nOur journey will be in Kotlin, of course, and cover talking to OS-specific APIs, the challenges of JVM vs. Kotlin/Native, and finally some reusable libraries to make your life easier.\r\n\r\nModern terminals are powerful systems which can do a lot more than just display text. Let's use them to their full potential!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1078524",
+      "title": "Why Is My IntelliJ So Slow? ...And What Does Your Code Have to Do With It",
+      "startsAt": "2026-05-21T14:15:00.0000000Z",
+      "endsAt": "2026-05-21T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Anna Kozlova"
+      ],
+      "description": "If you've ever wondered why your IDE crawls when working on seemingly innocent code, you're not alone. In this talk, we won't dive into JVM flags, garbage collector tuning, or obscure performance hacks. Instead, we'll explore how your Kotlin code can have a surprising impact on IDE performance.\r\nWe'll show how small changes in your code style can lead to noticeable improvements. By understanding how your IDE parses, indexes, and analyzes code, you'll learn how to write code that plays nicely with your tools. It will save a lot of time – not only for you now, but also for your teammates and your future self.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086972",
+      "title": "Crafting delightful experiences",
+      "startsAt": "2026-05-21T14:15:00.0000000Z",
+      "endsAt": "2026-05-21T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Multiplatform",
+        "Android",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Ian Leshan"
+      ],
+      "description": "Jetpack Compose gives us powerful APIs to craft interfaces, but standard implementations often miss opportunities to create truly delightful user experiences. This talk deep-dives into a single interaction. Slide to dismiss! I will demonstrate how thoughtful animation layering transforms a basic gesture into something that feels polished and intuitive.\r\n\r\nWe'll build a complete slide-to-dismiss component, exploring:\r\n\r\n- **Tap animations** using spring physics for natural, responsive feedback\r\n- **Drag gestures** with fluid but interruptible motion\r\n- **Visual feedback systems** that guide users, like adding animated effects that communicate certain state changes\r\n- **Haptic feedback** that gives the user tactile feedback on their interaction\r\n\r\nEach layer builds on the last, showing the progression from a basic swipe to a rich interaction that communicates state, provides confirmation cues, and feels satisfying to use. You'll see how small details, like clever uses of drop shadows, create interfaces that users intuitively understand without explanation.\r\n\r\nThe presentation itself will be built entirely in **Compose Multiplatform**, with live interactive demonstrations that demonstrate these topics in realtime. And later on, attendees can study this code to learn and put into practice the topics explored in this talk.\r\n\r\nYou'll leave with a complete understanding of how to combine Compose's animation APIs into interactions that elevate your app from functional to fantastic.\r\n\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1183682",
+      "title": "Beer, Fries, and the Surprisingly Easy Kotlin Meetups",
+      "startsAt": "2026-05-21T14:15:00.0000000Z",
+      "endsAt": "2026-05-21T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Other",
+        "Community"
+      ],
+      "room": "Room 3",
+      "speakers": [
+        "Tim Schraepen",
+        "Simon Vergauwen"
+      ],
+      "description": "Belgium has three languages, scattered developer communities, and a Kotlin user group (BEKUG) that went quiet after COVID. At KotlinConf two years ago we connected by chance. That sent us home motivated and energised to revive things, but we quickly hit the classic wall: no speakers, no momentum.\r\nWe decided to try OpenSpace: no CFP, no pressure, attendees build the agenda themselves on the day. One person told us afterward: \"I was skeptical, but it was really fun.\" That was enough.\r\nThree meetups in, we're still learning: how to make the format feel inviting, how to balance talking with listening. But every session has organically produced community-driven conversation, and people keep coming back.\r\nYou don't need a perfect lineup. You just need to keep showing up.\r\nTakeaways: what OpenSpace is, how to run it for a meetup, and why organizing is worth it even when it feels hard.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1090001",
+      "title": "Swift Export: Where We Stand",
+      "startsAt": "2026-05-21T14:15:00.0000000Z",
+      "endsAt": "2026-05-21T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Pamela Hill-Galloway"
+      ],
+      "description": "Swift Export, the much-anticipated project from the JetBrains team, has been in progress for some time and is currently in the Experimental state. The project’s goal is to make calling shared Kotlin code from Swift more intuitive and idiomatic for Swift developers (and dare I say, even fun?).\r\n\r\nIn this talk, we will see exactly what the current state of Swift Export is, with some live coding demonstrating how to go from the old “Objective-C bridge” way to the new “Swift Export” way. We will discuss the currently supported features and any subtleties we encountered while mapping Kotlin to Swift. We will also discuss what still needs further work and refinement, and how the community can get involved.\r\n\r\nBy the end of the session, you’ll be able to assess for yourself whether Swift Export is ready to adopt for your team and use case, based on some guidelines from the Swift Export team. More idiomatic Swift, happier team!\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1121678",
+      "title": "Can Kotlin Swift Interop Ever Be Perfect?",
+      "startsAt": "2026-05-21T14:45:00.0000000Z",
+      "endsAt": "2026-05-21T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Advanced",
+        "Multiplatform",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Gleb Lukianets"
+      ],
+      "description": "Even the most similar programming languages can have deep semantic differences that are difficult to reconcile within an interop layer. In this talk, we explore some of these differences between Kotlin and Swift, and discuss the compromises they force in the design of Kotlin Swift Export.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1050196",
+      "title": "Robocoders: The [K]agematch",
+      "startsAt": "2026-05-21T15:15:00.0000000Z",
+      "endsAt": "2026-05-21T16:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "Multiplatform",
+        "Language and best practices",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Viktor Gamov",
+        "Baruch Sadogursky"
+      ],
+      "description": "AI coding assistants love to brag about their Python and JavaScript skills. Cool story. But can they handle Kotlin?\r\nIn this live experiment, two developers will use leading AI tools (including JetBrains Junie and Claude Code) to build identical Kotlin applications from scratch: a Ktor backend, a Kotlin.js frontend, tests, and deployment. 35 minutes. No rehearsal.\r\nWe're testing whether these AIs can actually:\r\nNavigate Kotlin's type system (nullable types, sealed classes, reified generics)\r\nWrite idiomatic coroutines and Flow transformations\r\nUse Kotlin-specific libraries (kotlinx.serialization, Ktor, Exposed)\r\nDebug compiler errors that aren't just \"semicolon missing\"\r\nGenerate code that doesn't make Kotlin developers cry\r\nThe rumor is that LLMs are trained mostly on Python/JS codebases. If that's true, we're about to find out—in the most entertaining way possible.\r\nExpect spectacular failures. Bring skepticism of epic proportions and bad jokes. Let's find out if AI can Kotlin.\r\nYou decide: After watching both attempts succeed (or struggle), vote on whether these tools are ready for production Kotlin work, or if we're still better off with good old IntelliJ muscle memory.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1083721",
+      "title": "The Lord of Collection Functions - The Fellowship of Kotlin",
+      "startsAt": "2026-05-21T15:15:00.0000000Z",
+      "endsAt": "2026-05-21T16:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Language and best practices",
+        "Other"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Ben Kadel"
+      ],
+      "description": "A darkness has awoken in Center-earth, an ancient evil is reaching out of the shadows of every corrupt codebase, intent on bringing destruction & algorithmic oppression to all that call this world home. Everything that once was cherished will be lost, if the growing scourge is not defeated & cast back into the fires from whence it came…\r\n\r\nThat my dear friends, is where you come in…\r\n\r\nJoin the Kotlin fellowship on an exciting journey to save Center-earth from the imperative evil that was thought long extinct, but is now looping back once more! Help restore pure functional programming to this peaceful realm, ensure immutability & defeat the evil Dark Lord For-ron.\r\n\r\nTogether, we will explore the expansive array of Kotlin Collection Functions; these allow us to perform useful tasks on collections, like Set, Map, & List. Enabling us to transform, check, analyse, & aggregate the contents of the collection. We will unlock their secrets—understanding where to wield them, and how to apply their power for maximum effect, including (but not limited to):\r\n\r\nfilter, map & partition.\r\n\r\nflatMap, zip & groupBy.\r\n\r\nassociateWith, windowed & runningFold.\r\n\r\nIf we survive, you will take with you a deep comprehension of all of these functions (and many more), expanding your technical repertoire, to help you overcome any complex coding challenge (even the treacherous Advent of Code trials).\r\n\r\nSo, are you ready to fight the sinister Lord For-ron & trade imperative code for the elegant power of functional programming? Prepare for a perilous adventure—join the fellowship…\r\n\r\nThe fate of Center-earth is in your hands…\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085144",
+      "title": "Go Get It, with Kotlin: Evolving Uber’s Java Backend",
+      "startsAt": "2026-05-21T15:15:00.0000000Z",
+      "endsAt": "2026-05-21T16:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Ryan Ulep"
+      ],
+      "description": "At Uber, our backend services power billions of trips and have long relied on Java. As our systems and engineering teams rapidly expanded, we saw an opportunity to add support for Kotlin in our large Java monorepo to compliment our existing Java ecosystem.\r\n\r\nIn this talk, I’ll share the journey of how the JVM Platform team introduced Kotlin into Uber’s backend environment: how we made the business case to engineering leads, worked side-by-side with the Java platform and feature teams, addressed developer skepticism, and tackled technical gaps in build tooling, static analysis, and monorepo tooling. This isn’t just “another language switch”, but rather enabling thousands of engineers to evolve together with modern programming paradigms. Whether you’re an engineering leader or a hands-on developer, you’ll see how a large-scale transformation can start with one language choice and ripple outward.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086167",
+      "title": "Engineering High-Performance Multiplatform Graphic Rendering with Jetpack Compose",
+      "startsAt": "2026-05-21T15:15:00.0000000Z",
+      "endsAt": "2026-05-21T16:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform",
+        "Android"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Tunji Dahunsi",
+        "Rahul Behera"
+      ],
+      "description": "Standard animation libraries often force a compromise. GIFs consume bandwidth, Lottie struggles with complex rasters, and video formats lack frame-perfect alpha transparency. Furthermore, replicating complex text effects using these vector or raster formats is inefficient and bloated and can result in glyph shaping issues in different languages.\r\n\r\nTo drive user engagement and measurable business impact, we need tools that are easy to deploy and cost effective to maintain. In this talk, we'll cover two explorations: a custom high-fidelity animated image sequence engine for complex visuals, and TextWave—a specialized engine for animating glyphs that offers superior efficiency and control over binary size compared to standard alternatives.\r\n\r\nCoordinating these components to run at high FPS across 3 platforms is a massive engineering challenge. Does each platform implement it natively, or is there room for a multiplatform implementation?\r\n\r\nIn this session, we will share the architecture of building these advanced rendering engines in both native and multiplatform scenarios. We will move beyond basic UI to discuss:\r\n* Rendering the custom graphics on each platform natively. \r\n* Rendering the custom graphics on each platform with Compose multiplatform with Skia including working with the Kotlin Native memory model and hardware bitmaps including before-and-after profiler analysis. \r\n* The Rendering Pipeline: How we architected a decoding pipeline that manages byte[] ownership to prevent copies and massive memory pressure—specifically addressing the \"heap growth\" challenges in Kotlin Native when loading compressed assets.\r\n* Coordinating text animations with raster sequences, and the measurable impact this performance boost had on bookings.\r\n* Interesting nuances of byte array management accross JS,  Java, and Native environments.\r\n\r\nJoin us for a deep technical dive into the state of cross-platform graphics, featuring real-world benchmarks, profiler screenshots, and the lessons learned from rendering pixels at scale.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1087740",
+      "title": "Setting Kotlin Free with Native Tooling",
+      "startsAt": "2026-05-21T15:15:00.0000000Z",
+      "endsAt": "2026-05-21T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Server-side",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Sam Gammon"
+      ],
+      "description": "Elide is a full package for building with Kotlin: install dependencies, compile and test code, and package for production! With support for Native Image and KotlinX built-in, experience Kotlin with nothing in the way.\r\n\r\nIn this hands-on session, we will use Elide to build a small Kotlin command-line tool, shipped as a Native Image within a Docker container.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1147520",
+      "title": "KMP at Scale in Kuaishou Super App for over 700M users",
+      "startsAt": "2026-05-21T15:45:00.0000000Z",
+      "endsAt": "2026-05-21T16:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Omico Wang"
+      ],
+      "description": "Kuaishou, one of the world's largest short-video platforms with 800M+ MAU, has successfully adopted Kotlin Multiplatform (KMP) across our core business scenarios, including live streaming, IM, content creation, and social features. This talk shares our journey of migrating massive native codebases to KMP, focusing on practical challenges and solutions at scale.\r\nWe'll dive into critical production issues we encountered and solved: GC optimization strategies to prevent watchdog crashes, SO library splitting to improve integration efficiency, and compilation optimizations for faster build times. We'll also share our best practices for cross-language interoperability between Kotlin/Native and Objective-C/C++, including memory management patterns that have proven reliable in production.\r\nA key part of our migration strategy involves AI-assisted code transformation. We've developed an automated pipeline that converts existing Android Java code to Kotlin, then transforms it into KMP-compatible project code. This multi-stage approach (Java → Kotlin → KMP) has dramatically reduced migration costs and accelerated our adoption timeline. We'll share the architecture of this AI-powered migration system, the challenges we faced in automated code transformation, and how we validated the correctness of AI-generated code at scale.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1095750",
+      "title": "We were meant to be",
+      "startsAt": "2026-05-22T07:00:00.0000000Z",
+      "endsAt": "2026-05-22T08:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Other"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Lena Reinhard"
+      ],
+      "description": "Maybe you got into tech because you were fascinated by playing around with computers. Or you were drawn by the promise of a stable job and generous income, all while building useful things, and maybe even while working from home. Now, after return-to-office, rounds and rounds of layoffs, and the creeping of AI into our lives, the promises of tech careers have crumbled and job insecurity is high. Many of us feel uncertain about what all of this means. \r\n\r\nNow what?",
+      "recordingUrl": null
+    },
+    {
+      "id": "1100229",
+      "title": "Automate upgrading to Kotlin 2 with OpenRewrite",
+      "startsAt": "2026-05-22T08:15:00.0000000Z",
+      "endsAt": "2026-05-22T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Rooz SF",
+        "Jonathan Schneider"
+      ],
+      "description": "OpenRewrite Kotlin 2 support is here! OpenRewrite can automate Kotlin updates by using its open-source refactoring engine to apply pre-built or custom recipes that modify your codebase at scale. These recipes handle dependency upgrades, API changes, and stylistic consistency, reducing manual effort. In this talk we will share how the Moderne and OpenRewrite engineering team's built and enhanced Kotlin2 support and walk you through the new capabilities. \r\n\r\nOpenRewrite works by applying \"recipes\" to the Lossless Semantic Trees (LSTs) that represent your source code. The LSTs capture full type attribution and formatting, allowing for accurate, automated refactoring that respects the original coding style. ",
+      "recordingUrl": null
+    },
+    {
+      "id": "1110200",
+      "title": "Dissecting Kotlin: 2026",
+      "startsAt": "2026-05-22T08:15:00.0000000Z",
+      "endsAt": "2026-05-22T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Huyen Tue Dao"
+      ],
+      "description": "Kotlin 1.0 launched 10 years ago, and the language continues to rapidly evolve. As developers, whether we use 1.0 features or explore previews, our Kotlin knowledge grows through both experience and study of its features, design, and implementation.\r\n\r\nIn this talk, we will explore recent stable and in-preview Kotlin features, review their design and implementation, and consider what they reveal about Kotlin as a language and how they can inspire our everyday Kotlin.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1080364",
+      "title": "Kotlin as a Safety Net: Type-Driven Reliability in the Finance Industry",
+      "startsAt": "2026-05-22T08:15:00.0000000Z",
+      "endsAt": "2026-05-22T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Yuri Geronimus"
+      ],
+      "description": "What happens when a null pointer crash isn't just a bug — it's a compliance incident? Payment systems are one of the few places where the gap between \"it compiles\" and \"it's correct\" has real financial and legal consequences. This is a story about using Kotlin's type system as an architectural tool to close that gap.\r\n\r\nHere's what we'll cover:\r\n- Why Java wasn't enough — the specific failure modes that triggered the migration: null crashes in transaction processing, broken rollback flows, and sensitive data leaking into logs at the worst possible moment\r\n- Type-driven design in practice — how sealed hierarchies, value classes, and null-safety were used to make invalid payment states literally unrepresentable, and PCI-scoped data traceable through the type system — not through discipline\r\n- Coroutines where it counts — structuring async money movement so that failure paths are explicit, not accidental\r\nThe ripple effect on the team — how stronger types changed code reviews, simplified testing, and turned audit prep from a scramble into a checklist\r\n- Migrating without a rewrite — practical strategies for introducing Kotlin into a live system built on Java and C++\r\n- Measuring what changed — concrete metrics: incident class reductions, compliance workflow improvements, and what actually moved the needle\r\n\r\n\r\nYou will learn a set of patterns you can apply immediately, even if payments are nowhere near your domain, because the core problem is universal: making correctness enforceable by the compiler, not by hope.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1087031",
+      "title": "Advanced Kotlin Native Integration",
+      "startsAt": "2026-05-22T08:15:00.0000000Z",
+      "endsAt": "2026-05-22T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Tadeas Kriz"
+      ],
+      "description": "When compiling Kotlin Multiplatform code for native platforms, the compiler produces object files and then links them together. Other libraries and programs can then use the resulting library as a dependency.\r\n\r\nWhile this process is similar to other native dependencies, there's a major limitation. There should be only one Kotlin Multiplatform native binary in your project.\r\n\r\nIn this talk we'll take a look at the impact of including multiple Kotlin Multiplatform binaries in an application, look at ways to split the compilation into multiple smaller pieces, and discuss potential solutions for larger projects requiring complex repository structures.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085121",
+      "title": "10 Gradle Best Practices Every Kotlin Developer Should Know",
+      "startsAt": "2026-05-22T08:15:00.0000000Z",
+      "endsAt": "2026-05-22T08:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Stefan Wolf"
+      ],
+      "description": "Gradle powers nearly every Kotlin project, but most developers only use a fraction of what the build tool has to offer. This lightning talk provides Kotlin developers with a fast and practical tour of the 10 most impactful Gradle best practices, based on official guidance from the JetBrains, Google, and Gradle teams.\r\n\r\nIn 15 minutes, you’ll learn how to structure your builds, manage dependencies safely, write maintainable build logic, avoid configuration pitfalls, and speed up your CI pipelines; all with small, incremental improvements that make a big difference.\r\n\r\nAnd as a bonus, you’ll get a sneak peek at real-time code inspection and best-practice fixes in IntelliJ IDEA.\r\n\r\nWhether you build Android apps, backend services, or multiplatform libraries, you’ll walk away with a checklist you can apply immediately to make your Gradle builds faster, clearer, more reliable, and easier for your whole team to maintain.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086813",
+      "title": "A First Look at the Kotlin Ecosystem Plugin for Declarative Gradle",
+      "startsAt": "2026-05-22T08:45:00.0000000Z",
+      "endsAt": "2026-05-22T09:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Marcin Mycek"
+      ],
+      "description": "Declarative Gradle is a reset moment for build authoring – declarative, opinionated, and built for better toolability. But that’s only half the story. In this talk, we’ll take a first look at the Kotlin ecosystem plugin built on top of it and show how it lets us radically improve a number of core Kotlin and Multiplatform build concepts that were painful to work with, but almost untouchable until now. We’ll showcase an early prototype and walk through key changes and reasoning behind them.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086701",
+      "title": "Idiomatic Kotlin applications with Spring Boot 4",
+      "startsAt": "2026-05-22T09:15:00.0000000Z",
+      "endsAt": "2026-05-22T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Sébastien Deleuze"
+      ],
+      "description": "In this brand new talk, Sébastien shares his guidance on how to write idiomatic Kotlin applications in 2026 with Spring Boot by focusing on various aspects: build, null-safe APIs, logging, configuration, serialization, observability, API versioning, resilience, efficiency, tests, persistence, AI, etc.\r\n\r\nHe will leverage the latest Kotlin extensions and Spring Boot 4 features in multiple short examples and demos to share tips and recipes that should be easily actionable for Kotlin server-side developers.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085731",
+      "title": "How I Learned to Stop Worrying and Love Value Semantics (in Kotlin)",
+      "startsAt": "2026-05-22T09:15:00.0000000Z",
+      "endsAt": "2026-05-22T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Marat Akhin"
+      ],
+      "description": "Kotlin developers often juggle references and mutable objects, both in server-side and mobile applications. In many cases, adopting value semantics makes code easier to read, reason about, and test. This session explains what value semantics actually is, why it matters, and how to apply it effectively in Kotlin without being afraid of a \"complicated mental model\" or \"too many allocations.\"\r\n\r\nThe talk starts by clearly defining value semantics in contrast to reference semantics: identity vs equality, mutation vs copying, and how those ideas map to familiar Kotlin features such as data classes and their copy() function, up-and-coming value classes, and (im)mutable collections. It outlines the benefits of value-centric design: simpler reasoning about state, safer concurrency, fewer \"who mutated this?\" bugs, -- and then focuses on the real trade-offs: \"more\" apparent copying, potential allocation overhead, and changes in API and data model design.\r\n\r\nCode examples and simple benchmarks demonstrate how value-semantics-oriented designs can still perform well on the JVM, and how to lean on features like value classes to make them practical. Attendees leave with a concrete mental model of value semantics in Kotlin, a realistic view of its pros and cons, and practical guidelines for where adopting it pays off and where it might not.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1082547",
+      "title": "Redefining Machine Learning with Kotlin: A Device-First Approach to AI",
+      "startsAt": "2026-05-22T09:15:00.0000000Z",
+      "endsAt": "2026-05-22T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Multiplatform",
+        "AI"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Michal Harakal"
+      ],
+      "description": "Large Language Models have revolutionized AI — but their centralized nature comes with real costs: concentration of knowledge, privacy risks, and latency. What if Kotlin developers could flip the script, bringing powerful AI directly onto devices with an open-source, developer-friendly machine learning framework?\r\nIn this talk, we’ll take you inside our journey of building SKaiNET, a brand-new framework written from scratch in Kotlin Multiplatform. We’ll start by exploring the limitations of today’s tools, then walk step-by-step through defining neural networks in Kotlin using a type-safe DSL, compiling them into compute graphs, and running lightweight models like convolutional nets and compact LLMs completely offline — all in pure Kotlin.\r\nYou’ll learn how Kotlin’s strengths — coroutines, type safety, and multiplatform support — enable low-latency, privacy-first AI that runs directly on-device. With features like flexible tensor layouts and support for multiple file formats, SKaiNET bridges the gap between mobile development and data science.\r\nIt’s open-source. It’s powerful. And you’re invited to help shape its future. Expect code, insights, and a hands-on look at how Kotlin (and SKaiNET) is quietly redefining mobile AI.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1093276",
+      "title": "Build Tools API: a stable interface for the Kotlin compiler",
+      "startsAt": "2026-05-22T09:15:00.0000000Z",
+      "endsAt": "2026-05-22T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Wojtek Kalicinski"
+      ],
+      "description": "The Kotlin compiler is the heart of the Kotlin ecosystem, but integrating it reliably into custom build systems, IDEs, or other tools has long presented challenges. Historically, interactions often relied on command-line interfaces (CLI) or internal, unstable APIs, making support for features like incremental compilation and multiplatform projects (KMP) difficult to maintain.\r\n\r\nEnter the Kotlin Build Tools API (BTA): a new, stable, and programmatic interface designed to simplify these integrations. BTA offers a consistent way to perform common compiler operations, starting with compiling Kotlin source files for the JVM platform - complete with full support for daemon/in-process modes and crucial features like incremental compilation, with other platforms and KMP to follow.\r\n\r\nIn this talk, aimed at engineers building tools that rely on Kotlin compilation, we will delve into the historical pain points of compiler interaction, introduce BTA, and explain the architectural guarantees it provides. Attendees will receive a detailed technical overview of how to work with the API - from initialization to executing operations - and see real-world examples demonstrating how tools like the Kotlin Gradle Plugin (KGP) and Maven are already leveraging BTA for robust JVM compilation.\r\n\r\nJoin us to learn how BTA provides a stable foundation, allowing you to build the next generation of powerful Kotlin tools.\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1061540",
+      "title": "Reflection is Evil",
+      "startsAt": "2026-05-22T09:15:00.0000000Z",
+      "endsAt": "2026-05-22T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Jeffrey van Gogh"
+      ],
+      "description": "Reflection is a feature present in many higher level languages/VMs such as the JVM & .NET. In this talk Jeffrey will try to convince you using Reflection can be problematic.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1084596",
+      "title": "The place where leaking abstraction, data races and security vulnerabilities all meet",
+      "startsAt": "2026-05-22T09:45:00.0000000Z",
+      "endsAt": "2026-05-22T10:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Filipp Zhinkin"
+      ],
+      "description": "Working with files and directories is such a ubiquitous task, we're all doing it every day whether we want it or not. After filesystems introduction, more than 60 years ago, multitude of libraries and APIs were introduced, and by the 2025 the problem of interaction with file systems from your program should be finally solved. But is it though?\r\n\r\nIn my talk, I'll open a Pandora's box of leaking abstractions, data races and security vulnerabilities for you, and we'll see whether \"there's a library from 80s doing that!\" means the problem is solved, or it is an invitation to innovate.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1084454",
+      "title": "Practical Filament - Reshape your UI!",
+      "startsAt": "2026-05-22T11:00:00.0000000Z",
+      "endsAt": "2026-05-22T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Nicole Terc"
+      ],
+      "description": "Let’s take a closer look at Filament, the real-time physically based rendering engine, and learn how to use it to build fun effects in our day -to-day UI.\r\n\r\nUsing Compose Multiplatform, we will explore the main Filament features, and how to use them to create some particle and material based UI effects and interactions. We will cover how to set up Filament, how to work with its material system, and how to use shaders and lighting to create simple effects that react to touch and animations. All of this rooted in practical examples, without diving too much into low level graphics code.\r\n\r\nAfter this talk, you will have a better understanding of how Filament works, and how you can use it to create expressive and dynamic UI in your own projects.\r\n\r\nKeep it fun, keep it animated! :)",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086726",
+      "title": "Eval-Driven Development: The Fine Line Between Agentic Success and Failure",
+      "startsAt": "2026-05-22T11:00:00.0000000Z",
+      "endsAt": "2026-05-22T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Urs Peter"
+      ],
+      "description": "Agentic systems unlock capabilities that traditional “deterministic” applications simply can’t deliver. But there’s a catch: their probabilistic nature introduces real and often unexpected risks—hallucinations, context drift, prompt degradation, and multi-step workflows that evolve in surprising ways. And you definitely don’t want to discover those in production.\r\n\r\nThe good news: there is a remedy. We can borrow the most reliable practice from deterministic software—test-driven development—and adapt it to the agentic world. The result is Eval-Driven Development (EDD): a systematic, engineering-first approach to bringing reliability into inherently probabilistic systems.\r\n\r\nIn this talk, we explore Eval-Driven Agentic Development and how it can transform your agents from unpredictable to reliable. We’ll dive into the techniques, tools, and patterns needed to make evaluation a first-class citizen of your development process—demonstrating all of these in a real-world application built with the powerful AI framework: Koog.\r\n\r\nAlong the way, you will learn how to:\r\n- Test agents at multiple layers—schema validation, tool correctness, decision flows, and end-to-end goal completion\r\n- Gather metrics that serve as the backbone of meaningful evaluations\r\n- Turn complex agent traces into actionable insight rather than noise\r\n- Use LLMs to generate test cases, assertions, synthetic data, and act as “judges” in your eval pipeline\r\n- Detect regressions when prompts, models, or data change\r\n- Build a continuous evaluation loop with real-world data—so your agents improve over time instead of quietly degrading\r\n\r\nEvaluation-Driven Development is the only path forward for reliable, smart next-generation applications. Let's learn how to walk it - together!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086357",
+      "title": "Deconstructing OkHttp",
+      "startsAt": "2026-05-22T11:00:00.0000000Z",
+      "endsAt": "2026-05-22T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Server-side",
+        "Android"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Jesse Wilson"
+      ],
+      "description": "OkHttp is a popular library for making network calls. You might use it directly, or with Ktor, Retrofit, Coil, or gRPC.\r\n\r\nBut this is not a talk on how to use OkHttp. Instead, we’ll open up the code and look at its weird and clever implementation details. We’ll see connection lifecycles, cache state machines, and URL decoders. We’ll learn:\r\n\r\n * How OkHttp’s own architecture is a stack of interceptors.\r\n * How you can generate certificates for testing HTTPS.\r\n * The extreme effort OkHttp makes for great performance.\r\n * Three different ways to extend OkHttp.\r\n\r\nIf you’d like to see some capable and efficient code in Kotlin, this talk is for you.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086400",
+      "title": "Sony’s KMP Journey: Scaling BLE & Hardware with Kotlin Multiplatform",
+      "startsAt": "2026-05-22T11:00:00.0000000Z",
+      "endsAt": "2026-05-22T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Sergio Carrilho"
+      ],
+      "description": "“You have 9 months to build iOS and Android apps from scratch for our next premium headphones. How you do it is up to you, but it has to work flawlessly.”\r\n\r\nThis was the directive given to a small group of Android engineers at Sony in 2021. The requirements were brutal: high-speed BLE connectivity for real-time sensor data, robust background execution, and a UI capable of keeping pace with hardware innovation. The goal? To ensure the software experience matched the world-class quality of our hardware.\r\n\r\nAgainst conventional wisdom, we made a calculated bet on Kotlin Multiplatform (KMP), even though it was still in preview.\r\n\r\nIn this session, I will take you inside Sony’s 6-year journey from a risky experiment to a global success story: the Sony | Sound Connect app, now installed on millions of devices.\r\n\r\nWe’ll move far beyond simple code sharing and dive into the deep, hardware-driven challenges that pushed KMP to its limits. You will learn:\r\n\r\n- The Hardware Challenge:\r\n    How we balanced platform-specific BLE and background execution with shared KMP logic, and how we survived early threading and memory-model pain.\r\n\r\n- The UI Evolution:\r\n    Why we migrated from React Native to Compose Multiplatform while it was still in Beta, and how we integrated it with legacy native code to deliver a seamless Sony user experience.\r\n    \r\n- Navigating Stakeholder Fear:\r\n    How we justified using “unstable” technology through risk analysis, fast iteration, and a lot of engineering scar tissue.\r\n    \r\nThis is not a theoretical talk. It’s a behind-the-scenes story of trial, error, and eventual success, proving that Kotlin Multiplatform is ready for the most demanding, hardware-first environments.\r\n\r\nAs KMP and Compose Multiplatform reach full maturity in 2026, this talk offers the hindsight, patterns, and architectural lessons early adopters wish they had, and later adopters still need.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085578",
+      "title": "How your Web colleagues can start using Kotlin within their preferred environment?",
+      "startsAt": "2026-05-22T11:00:00.0000000Z",
+      "endsAt": "2026-05-22T11:15:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "AI",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Denis Ambatenne"
+      ],
+      "description": "You suggest that your fellow web developers reuse business logic already written in Kotlin, but they get stuck on a requirement to switch IDEs, and learn new tech stack?\r\n\r\nIn this session, I’ll show you how to use Kotlin LSP, command-line tools like emulators and adb, and Hot Reload to build and iterate on a KMP mobile app directly in Cursor. From there, I’ll take the next step and begin sharing Kotlin business logic with an existing JS/TS application—all within a single IDE, while maintaining a tight feedback loop. For the most adventurous, we might even try sharing some UI.\r\n\r\nI will show also, how your web colleagues can use AI (Cursor in this case), to explore Kotlin code, without a need to spend months learning it.\r\n\r\nLearning and using Kotlin is now easier outside of its traditional tooling, making it more attractive for teams to adopt KMP as a way to share business logic with web clients.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1071387",
+      "title": "Hot-Reloading Kotlin/Native",
+      "startsAt": "2026-05-22T11:30:00.0000000Z",
+      "endsAt": "2026-05-22T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Extensibility/Tooling",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Gabriele Pappalardo"
+      ],
+      "description": "\"Compose Hot-Reload is impossible on iOS Simulators without a JVM.\" If you've heard this, prepare to be surprised.\r\n\r\nWe will explore the experimental engineering journey of bringing hot-reload to Kotlin/Native on iOS. We’ll uncover why traditional hot-reload approaches fail on Apple’s Darwin platforms and how we bypassed these strict limitations without building a custom Kotlin Virtual Machine. Instead, you'll see how we leveraged LLVM ORC v2 to enable hot-reload directly on iOS.\r\n\r\nWe will dive into the under-the-hood compiler changes, from split compilation to the new hot-reload runtime module, and discuss the real-world complexities of state preservation, function updates and class layout changes.\r\n\r\nWhether you build KMP apps or love low-level runtime manipulation, you'll leave with a glimpse into the future of the Kotlin Multiplatform developer experience.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1074938",
+      "title": "Full-Stack Kotlin AI: Powering Compose Multiplatform apps with Koog & MCP",
+      "startsAt": "2026-05-22T12:00:00.0000000Z",
+      "endsAt": "2026-05-22T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "John O'Reilly"
+      ],
+      "description": "This session will demonstrate how you can use the Koog AI agent framework to form the intelligent core of your Compose Multiplatform application.\r\n\r\nWe'll also outline how to\r\n- use \"local tools\" that give your agent additional capabilities on Android, iOS, and Desktop\r\n- connect to an MCP server developed using the Kotlin MCP SDK\r\n- use both cloud based and local on-device LLMs ",
+      "recordingUrl": null
+    },
+    {
+      "id": "1064863",
+      "title": "Context parameters and API design",
+      "startsAt": "2026-05-22T12:00:00.0000000Z",
+      "endsAt": "2026-05-22T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Alejandro Serrano Mena"
+      ],
+      "description": "Context parameters, a relatively new feature in the Kotlin language, provides new choices for API design. This choice, however, also brings new questions, especially in their relation to receivers.\r\n\r\nThis talk describes some of the most important details from the context parameter design that library authors should take into account. We then describe the \"spotlight principle\" as a general guide on the context parameter / extension conundrum, and see how the general guidance applies in a few common scenarios.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086104",
+      "title": "What Nobody Told Us About Shipping Kotlin to iOS",
+      "startsAt": "2026-05-22T12:00:00.0000000Z",
+      "endsAt": "2026-05-22T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Suhyeon (Leah) Kim"
+      ],
+      "description": "Three Android developers. No iOS experience. A two-month deadline to ship an internal app to both platforms. We went with Compose Multiplatform, and the UI layer worked well with 100% Compose. What nobody warned us about was everything underneath — the boundary between Swift and Kotlin.\r\n\r\nAfter running the app in production for about a year, we've collected a set of problems and patterns worth sharing. This session covers three case studies from our production experience:\r\n- Native State Observation: Using StateFlow as a bridge between iOS-native events and shared Compose UI — handling force updates, feature flags, and remote config with one pattern.\r\n- Integrating Non-KMP SDKs: A delegate pattern for Firebase (which has no KMP SDK), and the binary isolation behavior we didn't see coming.\r\n- SPM Umbrella Export: The fix for binary isolation that keeps your Gradle modules separate while compiling into a single iOS binary.\r\n\r\nThis session includes a Swift-Kotlin interop pitfalls cheat sheet and the story of what happened when we brought this architecture to the JetBrains booth at KotlinConf 2025.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085114",
+      "title": "Your Life on a Map: Private Geospatial Analytics with Kotlin DataFrame and Kandy",
+      "startsAt": "2026-05-22T12:00:00.0000000Z",
+      "endsAt": "2026-05-22T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Aleksei Zinovev"
+      ],
+      "description": "In the age of fitness trackers, smartwatches, cycling computers, and travel apps, each of us generates a huge amount of personal geographical data - daily steps, running routes, bike rides, hikes, city walks, and road trips. But how do we turn this raw stream of GPX, GeoJSON, KML, or TCX files into meaningful insights, clean datasets, and reliable analytics?\r\n\r\nThese datasets are rich and deeply personal - and not everyone wants to upload them to cloud platforms or rely on whatever limited dashboards a mobile app provides. Sometimes the analytics you want simply aren’t there, and sometimes privacy matters more than convenience.\r\n\r\nIn this talk, I’ll show how Kotlin DataFrame and Kandy can help you process and analyze personal GPS data entirely on your own machine. We’ll parse and clean tracks collected by everyday mobile apps, handle common anomalies and sensor glitches, enrich the data with useful metrics, and create just enough visualization to understand mobility patterns - without promising a full-blown GIS system.\r\n\r\nThis session demonstrates a practical Kotlin-native workflow for anyone who wants deeper insights into their own movement data while keeping full control and privacy.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085702",
+      "title": "Teaching Kotlin for the AI Era: Tips, Tools, and Practical Insights",
+      "startsAt": "2026-05-22T12:00:00.0000000Z",
+      "endsAt": "2026-05-22T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Language and best practices",
+        "AI",
+        "Other",
+        "Education"
+      ],
+      "room": "Room 3",
+      "speakers": [
+        "Anastasiia Birillo",
+        "Daniil Karol"
+      ],
+      "description": "AI is not only transforming software development but also redefining how we teach programming. As this landscape evolves, programming courses must adapt to meet new industry demands. Traditional methods, like teaching basic syntax or relying heavily on lectures, are no longer enough. Instead, we need to rethink both what we teach and how we teach, equipping students with skills relevant to an AI-driven world.\r\n\r\nIn this talk, we will share industry insights on how AI is already shaping the software development world, connect these trends to programming education, and explore how universities are integrating this into their programming courses. We’ll highlight how all of this maps to Kotlin, helping you design a Kotlin course that aligns with the rapidly evolving industry.\r\n\r\nKey topics include:\r\n- Teaching Kotlin fundamentals alongside the development of AI agents\r\n- The new technical and problem-solving skills developers need to succeed in the AI era\r\n- The limitations of traditional teaching methods and how interactive, AI-driven tools can enhance engagement\r\n- The roles AI can play in programming education (e.g., automated feedback, AI code reviewers) and where human expertise remains critical\r\n\r\nAttendees will leave with actionable insights and ready-to-use exercises for their own courses. Whether you’re an educator, curriculum designer, or industry instructor, this talk will empower you to prepare students for the challenges and opportunities of programming in the AI era.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086836",
+      "title": "Flow with Exposed: Life Finds a Way",
+      "startsAt": "2026-05-22T12:00:00.0000000Z",
+      "endsAt": "2026-05-22T12:15:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Chantal Loncle"
+      ],
+      "description": "A single automaton is activated. The ruleset for its potential state is predetermined. How many generations will it or its descendants take to breach the confines of their environment? What if hundreds had been activated?\r\n\r\nUsing a zero-player simulation with each automaton signalling its own state-change event to the server, we'll see how Exposed, a database access library, can assist with high throughput and the handling of asynchronous database operations. We'll also leverage Kotlin Flow on top of Exposed DSL queries to observe a continuous data stream of all state updates to the UI.\r\n\r\nAt the end of the simulation cycle, we'll jump into Kotlin Notebook, where we'll retrieve our data using Exposed, then analyze and transform it using Kotlin DataFrame, and finally visualize the results using the Kandy plotting library.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1154789",
+      "title": "The Backend Immune System - Rich Errors, Ktor Observability and Safe Local Remediation",
+      "startsAt": "2026-05-22T12:30:00.0000000Z",
+      "endsAt": "2026-05-22T12:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Meike Felicia Hammer"
+      ],
+      "description": "Modern backend systems must do more than fail loudly: they must explain failures, prioritize and sometimes fix automatically without introducing new risk.\r\n\r\nThis talk introduces the Backend Immune System, a Kotlin‑native resilience pattern built on three ecosystem strengths: rich errors, Ktor observability and local, deterministic agents that perform safe, verifiable remediations.\r\n\r\nInspired by biological immune systems, we explore how backend failures can be turned into actionable signals, how Ktor can act as an observability radar and how a lightweight local agent can respond with safe, idempotent micro‑remediations.\r\n\r\nThis is not self‑healing infrastructure and not a remote LLM. The agent operates strictly within the request boundary, performs only bounded, verifiable actions and escalates when necessary. It cannot patch Ktor, rewrite code, or fix systemic outages and that's exactly why the pattern is safe and production‑credible.\r\n\r\nA short demo shows three deterministic runs:\r\n• Legacy mode: opaque exceptions and generic 500s\r\n• Immune mode without verification: demonstrating why error disappearance is not success\r\n• Immune mode with verification: showing correct, end‑to‑end recovery",
+      "recordingUrl": null
+    },
+    {
+      "id": "1083900",
+      "title": "TestBalloon: Kotlin testing is easier (and more fun) than you think",
+      "startsAt": "2026-05-22T13:15:00.0000000Z",
+      "endsAt": "2026-05-22T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Oliver Okrongli",
+        "Bernd Prünster"
+      ],
+      "description": "You want an easier way to write tests? Parameterize tests in plain Kotlin? Reuse a series of tests? Easily extend own your test setup? Have first-class support on all platforms? All without struggling with a huge framework API?\r\n\r\nTestBalloon is a new test framework that brings the power of Kotlin to your test setup. With a small-surface API, a hierarchical test structure and an extensible DSL, TestBalloon makes Kotlin testing easy.\r\n\r\nHow does TestBalloon fit into the existing test landscape? Why can you keep your favorite assertions library or just use Power Assert? How does a next-generation framework cooperate with legacy JUnit 4, but also the latest JUnit 6? How well can it support all platforms up to Wasm/WASI? Why do nested, concurrent or parallel tests work on platforms that don’t natively support it? Get ready for some surprises as we’ll look into how deeply TestBalloon integrates with the existing infrastructure.\r\n\r\nDiscover modern testing patterns and strategies. You’ll see lots of practical examples, ranging from simple unit tests with less boilerplate to advanced testing with coroutines and generated data. We’ll cover parameterized tests, data-driven testing, and fixtures, which handle shared or isolated state across multiple tests. And we’ll explore how simple custom test functions handle common scenarios, like flaky tests, in a way that’s tailored to your specific use cases. Finally, we’ll dive into larger test setups, how to efficiently structure them, and how to successfully migrate them to TestBalloon with surprisingly little effort.\r\n\r\nAcross the complete range of testing on all Kotlin targets from mobile across server-side to full multiplatform testing, you’ll learn a set of effective techniques and patterns. And you’ll discover how TestBalloon makes your testing life easier by opening the gates for the superpower that you already have: Your Kotlin skills.\r\n\r\nAt the end of this talk, you’ll be able to firmly the answer the question: \"How can I master Kotlin testing with ease, and make my team release with joy and confidence, every time?\"",
+      "recordingUrl": null
+    },
+    {
+      "id": "1078053",
+      "title": "How Kotlin Powers Functional Design: MCP Edition",
+      "startsAt": "2026-05-22T13:15:00.0000000Z",
+      "endsAt": "2026-05-22T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "David Denton"
+      ],
+      "description": "We've seen this before. When we built http4k, we were using Kotlin to fight reflection-based magic, untestable architectures, and runtime failures that should have been caught as compile errors. The approach we took - treating everything as composable functions - solved these problems and created a toolkit developers love using.\r\n\r\nNow we think MCP SDKs are making the exact same mistakes. Complex frameworks tied to specific transports. Testing that requires running actual servers. Runtime errors from type mismatches that could be caught at compile time. And when the MCP spec shifted from SSE to HTTP streaming, tightly-coupled architectures struggled to adapt. It's 2015 all over again.\r\n\r\nBuilding an MCP SDK gave us a chance to test a hypothesis: were http4k's functional patterns actually universal, or just clever one-time tricks? This talk shows what happens when we applied the same principles to a completely different protocol:\r\n\r\n- Layering abstractions - Separating protocol logic from transport mechanics\r\n- Functional capabilities - Binding behaviour to specifications without magic\r\n- In-memory testing - Pure functions that don't need infrastructure to verify\r\n- Compile-time safety - Type systems that catch errors before runtime\r\n- Composable modules - Reusing existing patterns (OAuth, Lenses, JSON-RPC) instead of building new ones\r\n\r\nYou'll see how Kotlin's features - extension functions, type aliases, operator overloading - enable these patterns to work across domains. More importantly, you'll see why functional simplicity consistently beats complexity, whether you're building HTTP servers or AI integrations.\r\n\r\nThis is an object lesson in modular design: build simple, composable parts once, then watch them work everywhere.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1090416",
+      "title": "Faster Kotlin with Bazel at Uber",
+      "startsAt": "2026-05-22T13:15:00.0000000Z",
+      "endsAt": "2026-05-22T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Android",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Ty Smith",
+        "Olivier Notteghem"
+      ],
+      "description": "Kotlin plays a central role in Uber’s Android codebase: our Android monorepo contains more than 8,000 Kotlin modules. This year we completed its full migration to the Bazel build system, however Uber Android engineers have been building, testing, and shipping Android apps with Bazel for more than 18 months.\r\n\r\nThis migration was fraught with challenges, and required many enhancements to the Bazel ecosystem for Kotlin and Android. We invested heavily not only to make the migration possible at this scale, ship production apps, improve build performance, enhance the developer experience, unblock the latest Kotlin features, and preserve developer velocity throughout the transition.\r\n\r\nThis talk walks through the improvements across the entire ecosystem—ranging from modernization to performance optimizations, code-coverage integration, IDE experience improvements, as well as where things are going next. \r\n\r\nWant to understand the state of Bazel for Android and Kotlin for your own needs, understand how to make it faster, or just curious how this works in production for large code-bases?  Don't miss this talk.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086968",
+      "title": "Adventures in Whimsical UX: The Tug-of-War Between Delight & Performance",
+      "startsAt": "2026-05-22T13:15:00.0000000Z",
+      "endsAt": "2026-05-22T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "Extensibility/Tooling",
+        "Language and best practices",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Lauren Darcey",
+        "Eric Kuck"
+      ],
+      "description": "Lauren from product wants a future-facing mobile app full of highly responsive and rich visuals, robust animations, immersive soundscapes, and meaningful haptics. Eric from engineering wants to ensure the app starts up quickly, doesn’t drop frames, and runs on a cheap, 5-year-old tablet without OOMing on launch. Their product strategy requires both.\r\n\r\nIn this fun, dialogue-style session, mobile performance experts and newly minted co-founders Lauren Darcey and Eric Kuck explore the eternal tension between \"making it delightful\" and \"making it performant.\"\r\n\r\nWhat happens when mobile performance-focused developers lean in to building some of the most intensive user experiences, from particle effects to shared element transitions, and push the limits of what to expect from mobile devices with KMP and CMP?\r\n\r\nIn 2026, the bar for app quality has never been higher. We move beyond simple \"moments of delight\" to architect apps where whimsy is the core feature, not just a decoration. We dig into the heavy lifting required to support this vision: the specific animation frameworks, asset pipelines, and multimedia choices needed to drive next-gen UX without killing the battery or grinding the device frame rates to a halt.\r\n\r\nThis is a candid look at the architectural and performance tradeoffs facing developers today with KMP and CMP. We demonstrate how Compose Multiplatform allows us to bridge the gap between high-impact design and hardcore engineering constraints in ways we never could before. \r\n\r\nYou’ll leave with new ideas on how to incorporate foundational performance posture into your apps, and more confidence in using the powerful cross-platform frameworks and device features to their fullest potential.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1188872",
+      "title": "Building Developer Communities: How JetBrains Supports Kotlin User Groups Around the World",
+      "startsAt": "2026-05-22T13:15:00.0000000Z",
+      "endsAt": "2026-05-22T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Other",
+        "Community"
+      ],
+      "room": "Room 3",
+      "speakers": [
+        "Maria Krishtal"
+      ],
+      "description": "Strong developer ecosystems don’t emerge by accident – they grow gradually thanks to the passion of community leaders and the support structures around them.\r\n\r\nIn this talk, we’ll explore how JetBrains supports developer communities globally, with a special focus on Kotlin User Groups (KUGs), but also detailing the company’s work with GDGs and Java and Android user groups around the world. From local meetups to global initiatives, we’ll share how community leaders and JetBrains work together to create spaces where developers learn, connect, and grow.\r\n\r\nYou’ll learn how KUGs are started and sustained, what kinds of support JetBrains provides to organizers, and how community-driven initiatives help shape the future of the Kotlin ecosystem.\r\n\r\nWhether you’re already running a meetup, thinking about starting a community, or simply curious about how one is built, this talk will offer practical insights and real-life stories from us.\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1121225",
+      "title": "From Idea to Feature: How Kotlin Language Design Uses User Research",
+      "startsAt": "2026-05-22T13:15:00.0000000Z",
+      "endsAt": "2026-05-22T13:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Natalia Mishina"
+      ],
+      "description": "How does a new Kotlin language feature actually come to life?\r\n\r\nIn this short talk, I’ll walk through the journey of a language feature — from an early idea to a real part of Kotlin. You’ll see how language design decisions are made, where user research fits into this process, and how developer feedback helps shape features long before they are released.\r\n\r\nThis talk is not about technical internals, but about how language designers and researchers work together to make Kotlin evolve in a developer-centered way.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1085233",
+      "title": "KotlinLLM: Leveraging AI for Runtime Logic Delegation in Kotlin",
+      "startsAt": "2026-05-22T13:45:00.0000000Z",
+      "endsAt": "2026-05-22T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side",
+        "Language and best practices",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Stanislav Sandler"
+      ],
+      "description": "As software development evolves in the AI era, developers need adapt new technologies to improve efficiency and workflows. Kotlin, known for reducing boilerplate code and enabling clean, readable solutions, is an ideal foundation for integrating AI into modern development practices. Building on Kotlin’s core principles, we propose an idiomatic way to use large LLMs directly in Kotlin code: Runtime LLM Calls or shorter KotlinLLM.\r\n\r\nRuntime LLM Calls allow LLMs to work with runtime context, going beyond static, predefined developer code. We introduce three key constructions - runLLM, asLLM, and catchLLM - each designed to address common development challenges:\r\n\r\n- runLLM: Dynamically delegate logic to an LLM. This is especially useful for mocking, helping developers create stub implementations of interfaces and replace traditional TODOs in abstract method overriding.\r\n- asLLM: Automate object casting (e.g., JSON, YAML) into Kotlin data classes using LLMs, simplifying serialization and deserialization workflows.\r\n- catchLLM: Use LLM reasoning to gather context on runtime exceptions and produce detailed, meaningful error reports, making debugging faster and easier.\r\n\r\nThis initiative is being implemented as a MVP. While the technical details and naming may evolve, the goal remains the same: to demonstrate how AI can integrate seamlessly with Kotlin, empowering developers with smarter, more flexible tools. \r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1077163",
+      "title": "Moments When Things Go Wrong",
+      "startsAt": "2026-05-22T14:15:00.0000000Z",
+      "endsAt": "2026-05-22T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "speakers": [
+        "Aurimas Liutikas"
+      ],
+      "description": "Sometimes you find yourself with a bug in a library or a tool you are using causing things to fail or even worse fail flakily. This talk will be a guide on how to take it from there. We'll walk through examples of non-determinism, race-conditions, undocumented behavior and others to see what we can learn to make the process to a working build/application faster. We'll look into an example of a race condition in the Kotlin Gradle Plugin. We'll hone our skills in investigation, isolation of the issue to create a standalone reproduction, and finally getting it resolved. We'll discuss at what point you should care about a problem or simply leave it alone. The stories will be inspired by Aurimas' work on AndroidX libraries.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1132572",
+      "title": "Spec-Driven Development with AI Agents: From High-Level Requirements to Working Software",
+      "startsAt": "2026-05-22T14:15:00.0000000Z",
+      "endsAt": "2026-05-22T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Anton Arhipov"
+      ],
+      "description": "AI coding agents are powerful, but they often feel unpredictable. Without structure, they can jump into implementation, miss requirements, or generate code you can’t easily track. Spec-driven development is a practical approach that brings order to this process.\r\n\r\nThe method is simple: start with clear, high-level requirements, refine them into a detailed development plan, then break that plan into a task list with trackable steps. The AI agent works from these artifacts—requirements.md, plan.md, and tasks.md—instead of ad-hoc prompts. Each step becomes explicit, reviewable, and repeatable.\r\n\r\nIn this talk, I’ll show how to apply spec-driven development and explain my intuition for this approach. We’ll walk through an example: documenting requirements, generating a plan, creating tasks, and guiding the AI through execution one step at a time. Along the way, you’ll see techniques for controlling workflow, reviewing changes, and avoiding “black box” code generation.\r\n\r\nIf you’ve tried coding with AI tools but found them chaotic, this session will give you a framework to make them reliable partners.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1084094",
+      "title": "Turbocharged Kotlin/Native on AWS Lambda",
+      "startsAt": "2026-05-22T14:15:00.0000000Z",
+      "endsAt": "2026-05-22T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Server-side"
+      ],
+      "room": "Room 13a",
+      "speakers": [
+        "Ian Botsford"
+      ],
+      "description": "AWS Lambda is a powerful tool for serverless architectures but many examples and tools assume you're working in Python, Node.js, or Java. This talk demonstrates fast, maintainable Lambda functions in your preferred language!\r\n\r\nIn this session, we'll go from zero to fully-deployed Kotlin/Native Lambda functions, with real performance data and practical tradeoffs at every step. You'll learn how to build a custom Lambda runtime, structure your code for serverless, and to package & deploy your application. Throughout the talk we'll highlight how to measure & optimize for cold starts, concurrency, and efficiency. Whether you're hitting Lambda timeout limits, paying for wasted cold start time, or just curious about pushing Kotlin to new environments, this talk gives you the tools to evaluate and implement Kotlin/Native on Lambda.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086386",
+      "title": "Developing Music Creation Apps for Web, Desktop and Android",
+      "startsAt": "2026-05-22T14:15:00.0000000Z",
+      "endsAt": "2026-05-22T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 13b",
+      "speakers": [
+        "Phil Burk"
+      ],
+      "description": "Writing music creation apps for multiple platforms is challenging. We need cross platform, low latency audio. We also need a UI that can follow the musical events. And for multiplayer apps we need cross platform network communication.\r\n\r\nLearn how we solved the audio problem using expected/actual classes and multiple host specific implementations, including WebAudio. We will examine the issues around using co-routines for real-time audio and how it relates to state flow. We will also discuss the conversion of an old general purpose modular synthesis library from Java to Kotlin Multiplatform and how we modernized the API. \r\n \r\nThe UI required some novel techniques including custom drawing and adaptive layout. We will also show how to support drag gestures using either a mouse or a finger.\r\n\r\nFor networking we used ktor and also developed a server based relay to transfer web-socket traffic to our existing TCP/IP based collaboration server.\r\n\r\nWe will demonstrate the use of these techniques in two music creation apps. One is a multiplayer online drum machine. The other is a practice app that shows fingering for guitar and keyboard as your custom composition is played.\r\n\r\nIf you are building real-time audio applications then this session will provide the architectural insights and production-ready techniques that can help you succeed.\r\n",
+      "recordingUrl": null
+    },
+    {
+      "id": "1075652",
+      "title": "Koin + Kotlin Compiler = ♥️",
+      "startsAt": "2026-05-22T14:15:00.0000000Z",
+      "endsAt": "2026-05-22T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "Android",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Arnaud Giuliani"
+      ],
+      "description": "Koin is taking its biggest leap in 8 years: embracing the Kotlin Compiler. This talk shows what happens when your favorite DI framework moves the heavy lifting to compile time. From an automated DSL and precomputed dependency indexes to real compile-time safety guarantees. Same simplicity, new superpowers.",
+      "recordingUrl": null
+    },
+    {
+      "id": "1086156",
+      "title": "Powering Up Your Assertions",
+      "startsAt": "2026-05-22T14:45:00.0000000Z",
+      "endsAt": "2026-05-22T15:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "speakers": [
+        "Brian Norman"
+      ],
+      "description": "Big changes to Power-Assert are headed your way with Kotlin 2.4! We’ve heard your complaints about complex Gradle configuration, confusing message diagrams, and poor library integration. We’re hoping to address all of these areas, and I’ll show you how!\r\n\r\nBut the good news doesn’t stop there. If you’re an assertion library author, you may be interested in how you can add first-party support for Power-Assert to your library. We want every assertion library to have the same great, out-of-the-box experience!\r\n\r\nAnd we might even take a brief look at what we’ll be working on next!",
+      "recordingUrl": null
+    },
+    {
+      "id": "1166456",
+      "title": "Golden Kodee Awards",
+      "startsAt": "2026-05-22T15:15:00.0000000Z",
+      "endsAt": "2026-05-22T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Keynote, Room 14",
+      "speakers": [
+        "Sebastian Aigner",
+        "Pamela Hill-Galloway",
+        "Hadi Hariri",
+        "Ksenia Shneyveys",
+        "Natasha Murashkina"
+      ],
+      "description": "The Golden Kodee Awards honor members of the Kotlin community who share knowledge and inspire others. We recognize contributions in five key categories – Creativity, Online Presence, In-Person Presence, Education, and Positive Societal Impact.\r\n\r\nJoin us for the KotlinConf closing ceremony to celebrate the winners together!",
+      "recordingUrl": null
+    }
+  ]
+}

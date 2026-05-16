@@ -1,0 +1,1799 @@
+{
+  "sessions": [
+    {
+      "id": "ba0b1cef-c9e2-5920-9fa6-5dab0e46acad",
+      "originalId": "1148503",
+      "title": "Opening Keynote",
+      "startsAt": "2026-05-21T07:00:00.000Z",
+      "endsAt": "2026-05-21T08:00:00.000Z",
+      "startHour": "2026-05-21T07:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "Multiplatform",
+        "Android",
+        "Extensibility/Tooling",
+        "Language and best practices",
+        "AI",
+        "Other"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Sebastian Aigner",
+        "Michail Zarečenskij",
+        "Vsevolod Tolstopyatov",
+        "Svetlana Isakova",
+        "Jeffrey van Gogh",
+        "Márton Braun",
+        "Chantal Loncle",
+        "Josh Long",
+        "Christian Ryan"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "03a85869-fa3c-52b4-ad32-05b318e8f3a9",
+      "originalId": "1126816",
+      "title": "Bootiful Kotlin",
+      "startsAt": "2026-05-21T08:15:00.000Z",
+      "endsAt": "2026-05-21T09:00:00.000Z",
+      "startHour": "2026-05-21T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Josh Long"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "f3e47c6e-5017-576f-9686-93a0ea4b0afe",
+      "originalId": "1067499",
+      "title": "Keeping Tabs on Your Data: AndroidX Storage for the Web",
+      "startsAt": "2026-05-21T08:15:00.000Z",
+      "endsAt": "2026-05-21T09:00:00.000Z",
+      "startHour": "2026-05-21T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Daniel Santiago Rivera",
+        "Elif Bilgin Morris"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "abe85c78-b037-5818-a8db-a9d56690ab10",
+      "originalId": "1085720",
+      "title": "A tale of the Gradle DSLs",
+      "startsAt": "2026-05-21T08:15:00.000Z",
+      "endsAt": "2026-05-21T09:00:00.000Z",
+      "startHour": "2026-05-21T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Paul Merlin"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "29b13a77-89ae-5ab1-8134-86675331bb5e",
+      "originalId": "1089408",
+      "title": "All platforms are unique but some platforms are more unique than others",
+      "startsAt": "2026-05-21T08:15:00.000Z",
+      "endsAt": "2026-05-21T09:00:00.000Z",
+      "startHour": "2026-05-21T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Konstantin Tskhovrebov"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "6502af10-6fc1-5100-ac26-92517534c565",
+      "originalId": "1086800",
+      "title": "Tiny Models, Big Impact: On-Device AI for Real Apps",
+      "startsAt": "2026-05-21T08:15:00.000Z",
+      "endsAt": "2026-05-21T08:30:00.000Z",
+      "startHour": "2026-05-21T08:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Android",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Hammad Akram"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "0f0d7c16-8013-5070-a3b0-32dd3952ccab",
+      "originalId": "1086504",
+      "title": "Run, Kotlin, Run!",
+      "startsAt": "2026-05-21T08:45:00.000Z",
+      "endsAt": "2026-05-21T09:00:00.000Z",
+      "startHour": "2026-05-21T08:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Marc Reichelt"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "4a5ad58d-803a-5fdd-b55c-1508768939c7",
+      "originalId": "1073399",
+      "title": "Evolving Language Defaults",
+      "startsAt": "2026-05-21T09:15:00.000Z",
+      "endsAt": "2026-05-21T10:00:00.000Z",
+      "startHour": "2026-05-21T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Michail Zarečenskij"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "ff991eb0-f2fb-5f0d-b983-3917ed846981",
+      "originalId": "1120234",
+      "title": "Kotlin/Wasm: Finally, the missing piece for a full stack Kotlin webapp!",
+      "startsAt": "2026-05-21T09:15:00.000Z",
+      "endsAt": "2026-05-21T10:00:00.000Z",
+      "startHour": "2026-05-21T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Dan Kim"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "7aacf6ac-eb30-5d7b-89ca-493cfbb0a83d",
+      "originalId": "1066547",
+      "title": "Metro Under the Hood",
+      "startsAt": "2026-05-21T09:15:00.000Z",
+      "endsAt": "2026-05-21T10:00:00.000Z",
+      "startHour": "2026-05-21T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform",
+        "Extensibility/Tooling",
+        "Other"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Zac Sweers"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "08780b2a-13b1-55a9-a273-0214b95761f5",
+      "originalId": "1087289",
+      "title": "Opinionated Ktor Services",
+      "startsAt": "2026-05-21T09:15:00.000Z",
+      "endsAt": "2026-05-21T10:00:00.000Z",
+      "startHour": "2026-05-21T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Simon Vergauwen"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "8b85bb5d-9205-5272-9a42-23b450831d21",
+      "originalId": "1086544",
+      "title": "Breaking Frozen Frames: Phased Rendering for Feature Rich UIs",
+      "startsAt": "2026-05-21T09:15:00.000Z",
+      "endsAt": "2026-05-21T09:30:00.000Z",
+      "startHour": "2026-05-21T09:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Sinan Kozak"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "053ee75f-d815-5461-9f12-765f9a678757",
+      "originalId": "1084890",
+      "title": "Bringing Native iOS Feel to Compose Multiplatform Apps",
+      "startsAt": "2026-05-21T09:45:00.000Z",
+      "endsAt": "2026-05-21T10:00:00.000Z",
+      "startHour": "2026-05-21T09:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Mohamed Ben Rejeb"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "92678c1e-b1f8-59d7-b035-0e8793896aff",
+      "originalId": "1120097",
+      "title": "What's New in Compose Multiplatform: Better Shared UI for iOS and Beyond",
+      "startsAt": "2026-05-21T11:00:00.000Z",
+      "endsAt": "2026-05-21T11:45:00.000Z",
+      "startHour": "2026-05-21T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Sebastian Aigner",
+        "Márton Braun"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "eefcaa12-46b9-5575-a129-a37c793b4c29",
+      "originalId": "1085790",
+      "title": "How google.com/search builds on Kotlin coroutines for highly scalable, streaming, concurrent servers",
+      "startsAt": "2026-05-21T11:00:00.000Z",
+      "endsAt": "2026-05-21T11:45:00.000Z",
+      "startHour": "2026-05-21T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Sam Berlin",
+        "Alessio Della Motta"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "63127f06-ebb6-59e5-8e81-d3afe74c2f36",
+      "originalId": "1075549",
+      "title": "Real-World Data Science With Kotlin Notebook",
+      "startsAt": "2026-05-21T11:00:00.000Z",
+      "endsAt": "2026-05-21T11:45:00.000Z",
+      "startHour": "2026-05-21T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "AI",
+        "Other"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Adele Carpenter"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "e17483f2-1620-5714-88fa-50b1ba27b99c",
+      "originalId": "1049249",
+      "title": "Kotlin Performance Tracing on Android: From Coroutines to Reality",
+      "startsAt": "2026-05-21T11:00:00.000Z",
+      "endsAt": "2026-05-21T11:45:00.000Z",
+      "startHour": "2026-05-21T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Android"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Akniyet Arysbayev"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "372d13da-6fec-5c41-9a38-939b30293f1d",
+      "originalId": "1086698",
+      "title": "Kotlin Analysis API in Practice: Semantic Smarts for Code Migrations",
+      "startsAt": "2026-05-21T11:00:00.000Z",
+      "endsAt": "2026-05-21T11:15:00.000Z",
+      "startHour": "2026-05-21T11:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Idan Nakav"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "5f23e0a1-23ee-543f-acab-0eb754e7b2ca",
+      "originalId": "1086933",
+      "title": "SwiftPM support for Kotlin Multiplatform",
+      "startsAt": "2026-05-21T11:30:00.000Z",
+      "endsAt": "2026-05-21T11:45:00.000Z",
+      "startHour": "2026-05-21T11:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Timofey Solonin"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "87dec3d9-2f0e-5f37-a651-81b66a84ba25",
+      "originalId": "1077477",
+      "title": "Local Lifetimes for Kotlin",
+      "startsAt": "2026-05-21T12:00:00.000Z",
+      "endsAt": "2026-05-21T12:45:00.000Z",
+      "startHour": "2026-05-21T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Ross Tate"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "76668f5b-dcfe-5a6a-be8c-b147e83b8c57",
+      "originalId": "1086889",
+      "title": "Concurrency Patterns for Modern High Performance Kotlin Servers",
+      "startsAt": "2026-05-21T12:00:00.000Z",
+      "endsAt": "2026-05-21T12:45:00.000Z",
+      "startHour": "2026-05-21T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Bowen Feng"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "3daf3fdd-e20b-5075-beaa-f1f89a52fb21",
+      "originalId": "1086954",
+      "title": "RemoteCompose: Building for remote surfaces with Compose",
+      "startsAt": "2026-05-21T12:00:00.000Z",
+      "endsAt": "2026-05-21T12:45:00.000Z",
+      "startHour": "2026-05-21T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Android"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Yuri Schimke"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "b818b341-2011-50df-92b0-8f45de081a96",
+      "originalId": "1086934",
+      "title": "Kotlin/JS: Past, Present and Future",
+      "startsAt": "2026-05-21T12:00:00.000Z",
+      "endsAt": "2026-05-21T12:45:00.000Z",
+      "startHour": "2026-05-21T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Artem Kobzar"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "76f58af2-980f-5a7a-88e0-f8aaccdbd64a",
+      "originalId": "1197192",
+      "title": "Codex for Kotlin Engineers",
+      "startsAt": "2026-05-21T12:00:00.000Z",
+      "endsAt": "2026-05-21T12:15:00.000Z",
+      "startHour": "2026-05-21T12:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Benedict Kerres"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "286767ad-ac00-54fd-881d-bf24efd118cc",
+      "originalId": "1087039",
+      "title": "Building AI‑Powered Web Apps in Kotlin/Wasm",
+      "startsAt": "2026-05-21T12:30:00.000Z",
+      "endsAt": "2026-05-21T12:45:00.000Z",
+      "startHour": "2026-05-21T12:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Zalim Bashorov"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "5833fd80-ca10-5878-bf3e-290dadfc042b",
+      "originalId": "1086353",
+      "title": "Why Most AI Agents Never Scale? Building Enterprise-Ready AI with Koog",
+      "startsAt": "2026-05-21T13:15:00.000Z",
+      "endsAt": "2026-05-21T14:00:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Vadim Briliantov"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "6ebc6d2c-5752-5647-be3d-ce633d0ce687",
+      "originalId": "1083544",
+      "title": "Peeling back the Layers: A Navigation3 Deep Dive",
+      "startsAt": "2026-05-21T13:15:00.000Z",
+      "endsAt": "2026-05-21T14:00:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Marcello Galhardo",
+        "Ian Lake"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "c7e5206e-71b5-585f-b184-19f9ae93c60b",
+      "originalId": "1084718",
+      "title": "Expedited Shipping: Accelerating iOS Development with KMP at Amazon",
+      "startsAt": "2026-05-21T13:15:00.000Z",
+      "endsAt": "2026-05-21T14:00:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Jessalyn Wang"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "573de0d6-fdd0-51b4-8699-f175be4eeeb0",
+      "originalId": "1085095",
+      "title": "The State of Amper",
+      "startsAt": "2026-05-21T13:15:00.000Z",
+      "endsAt": "2026-05-21T14:00:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Joffrey Bion"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "f65d8d0a-9abd-50cc-8619-ecb2d3a6049f",
+      "originalId": "1083690",
+      "title": "Compose beyond UI : Display and Print!",
+      "startsAt": "2026-05-21T13:15:00.000Z",
+      "endsAt": "2026-05-21T13:30:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Salomon Brys"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "2f5f0457-44fa-585b-aadf-9cbd7f1fedc7",
+      "originalId": "1134718",
+      "title": "Interactive Session on Kotlin Education",
+      "startsAt": "2026-05-21T13:15:00.000Z",
+      "endsAt": "2026-05-21T14:00:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Discussion",
+        "Introductory and overview",
+        "Other",
+        "Education"
+      ],
+      "room": "Room 3",
+      "roomId": "58b97459-9c0a-57c5-9e6a-2eb86423c19a",
+      "roomSort": 6,
+      "speakers": [
+        "Ksenia Shneyveys"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "549198e1-49ef-54e0-bd69-8fe57c23154d",
+      "originalId": "1086609",
+      "title": "Livecoding soundscapes with Compose Multiplatform",
+      "startsAt": "2026-05-21T13:45:00.000Z",
+      "endsAt": "2026-05-21T14:00:00.000Z",
+      "startHour": "2026-05-21T13:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Merlin Pahic"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "da287f7e-7903-5566-916f-ba7132f4265c",
+      "originalId": "1084621",
+      "title": "Talking to terminals (and how they talk back)",
+      "startsAt": "2026-05-21T14:15:00.000Z",
+      "endsAt": "2026-05-21T15:00:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Jake Wharton"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "f085c0af-660b-5601-b777-39538bcf73b5",
+      "originalId": "1081924",
+      "title": "Increasing quality of AI generated Kotlin code",
+      "startsAt": "2026-05-21T14:15:00.000Z",
+      "endsAt": "2026-05-21T15:00:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Sergei Rybalkin"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "e633bfd7-a7e2-5c9a-adac-991b54323c67",
+      "originalId": "1078524",
+      "title": "Why Is My IntelliJ So Slow? ...And What Does Your Code Have to Do With It",
+      "startsAt": "2026-05-21T14:15:00.000Z",
+      "endsAt": "2026-05-21T15:00:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Anna Kozlova"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "6ab6e796-e266-5213-ae5d-27ed699a4aa6",
+      "originalId": "1086972",
+      "title": "Crafting delightful experiences",
+      "startsAt": "2026-05-21T14:15:00.000Z",
+      "endsAt": "2026-05-21T15:00:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Multiplatform",
+        "Android",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Ian Leshan"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "8ad5085d-1b01-5df1-aee2-edf629b20a50",
+      "originalId": "1090001",
+      "title": "Swift Export: Where We Stand",
+      "startsAt": "2026-05-21T14:15:00.000Z",
+      "endsAt": "2026-05-21T14:30:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Pamela Hill-Galloway"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "8a5e7283-83ba-5908-a1d1-070fd6eb26db",
+      "originalId": "1183682",
+      "title": "Beer, Fries, and the Surprisingly Easy Kotlin Meetups",
+      "startsAt": "2026-05-21T14:15:00.000Z",
+      "endsAt": "2026-05-21T15:00:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Other",
+        "Community"
+      ],
+      "room": "Room 3",
+      "roomId": "58b97459-9c0a-57c5-9e6a-2eb86423c19a",
+      "roomSort": 6,
+      "speakers": [
+        "Tim Schraepen",
+        "Simon Vergauwen"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "20ecd656-1a63-567a-bb12-534756857433",
+      "originalId": "1121678",
+      "title": "Can Kotlin Swift Interop Ever Be Perfect?",
+      "startsAt": "2026-05-21T14:45:00.000Z",
+      "endsAt": "2026-05-21T15:00:00.000Z",
+      "startHour": "2026-05-21T14:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Advanced",
+        "Multiplatform",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Gleb Lukianets"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "e564038d-7aa5-591f-8fe3-30b47ca752ab",
+      "originalId": "1083721",
+      "title": "The Lord of Collection Functions - The Fellowship of Kotlin",
+      "startsAt": "2026-05-21T15:15:00.000Z",
+      "endsAt": "2026-05-21T16:00:00.000Z",
+      "startHour": "2026-05-21T15:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Language and best practices",
+        "Other"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Ben Kadel"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "cd22be9e-37b0-524c-b6aa-2462ac771ae4",
+      "originalId": "1050196",
+      "title": "Robocoders: The [K]agematch",
+      "startsAt": "2026-05-21T15:15:00.000Z",
+      "endsAt": "2026-05-21T16:00:00.000Z",
+      "startHour": "2026-05-21T15:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Server-side",
+        "Multiplatform",
+        "Language and best practices",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Viktor Gamov",
+        "Baruch Sadogursky"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "81ca2bb9-7797-5b13-aa65-87d9143614ca",
+      "originalId": "1085144",
+      "title": "Go Get It, with Kotlin: Evolving Uber’s Java Backend",
+      "startsAt": "2026-05-21T15:15:00.000Z",
+      "endsAt": "2026-05-21T16:00:00.000Z",
+      "startHour": "2026-05-21T15:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Ryan Ulep"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "bf303289-b130-5b03-8e0c-50e725902b35",
+      "originalId": "1086167",
+      "title": "Engineering High-Performance Multiplatform Graphic Rendering with Jetpack Compose",
+      "startsAt": "2026-05-21T15:15:00.000Z",
+      "endsAt": "2026-05-21T16:00:00.000Z",
+      "startHour": "2026-05-21T15:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform",
+        "Android"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Tunji Dahunsi",
+        "Rahul Behera"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "4b20b54b-1ab2-5b0e-ad72-6129711f9767",
+      "originalId": "1087740",
+      "title": "Setting Kotlin Free with Native Tooling",
+      "startsAt": "2026-05-21T15:15:00.000Z",
+      "endsAt": "2026-05-21T15:30:00.000Z",
+      "startHour": "2026-05-21T15:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Server-side",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Sam Gammon"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "4c84a717-8e36-530e-88b4-963bda0c7bfd",
+      "originalId": "1147520",
+      "title": "KMP at Scale in Kuaishou Super App for over 700M users",
+      "startsAt": "2026-05-21T15:45:00.000Z",
+      "endsAt": "2026-05-21T16:00:00.000Z",
+      "startHour": "2026-05-21T15:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Omico Wang"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "e0c4884c-4b4b-5ce5-ba3c-5ab47532975d",
+      "originalId": "1095750",
+      "title": "We were meant to be",
+      "startsAt": "2026-05-22T07:00:00.000Z",
+      "endsAt": "2026-05-22T08:00:00.000Z",
+      "startHour": "2026-05-22T07:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Other"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Lena Reinhard"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "a3ebeeb9-7a31-5a10-af06-54fc0b1469a3",
+      "originalId": "1110200",
+      "title": "Dissecting Kotlin: 2026",
+      "startsAt": "2026-05-22T08:15:00.000Z",
+      "endsAt": "2026-05-22T09:00:00.000Z",
+      "startHour": "2026-05-22T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Huyen Tue Dao"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "57c6df08-360f-576d-9662-74f638fc0619",
+      "originalId": "1100229",
+      "title": "Automate upgrading to Kotlin 2 with OpenRewrite",
+      "startsAt": "2026-05-22T08:15:00.000Z",
+      "endsAt": "2026-05-22T09:00:00.000Z",
+      "startHour": "2026-05-22T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Rooz SF",
+        "Jonathan Schneider"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "a0fd8dc7-05c3-5dbb-802b-d788c0315212",
+      "originalId": "1080364",
+      "title": "Kotlin as a Safety Net: Type-Driven Reliability in the Finance Industry",
+      "startsAt": "2026-05-22T08:15:00.000Z",
+      "endsAt": "2026-05-22T09:00:00.000Z",
+      "startHour": "2026-05-22T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Yuri Geronimus"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "f76e512e-a230-57fc-b671-9909f7b13532",
+      "originalId": "1087031",
+      "title": "Advanced Kotlin Native Integration",
+      "startsAt": "2026-05-22T08:15:00.000Z",
+      "endsAt": "2026-05-22T09:00:00.000Z",
+      "startHour": "2026-05-22T08:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Multiplatform"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Tadeas Kriz"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "37a8e71c-4f0b-540d-8e77-a60e5694a622",
+      "originalId": "1085121",
+      "title": "10 Gradle Best Practices Every Kotlin Developer Should Know",
+      "startsAt": "2026-05-22T08:15:00.000Z",
+      "endsAt": "2026-05-22T08:30:00.000Z",
+      "startHour": "2026-05-22T08:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Stefan Wolf"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "4d484b28-170e-5142-b324-091aa54ea3e6",
+      "originalId": "1086813",
+      "title": "A First Look at the Kotlin Ecosystem Plugin for Declarative Gradle",
+      "startsAt": "2026-05-22T08:45:00.000Z",
+      "endsAt": "2026-05-22T09:00:00.000Z",
+      "startHour": "2026-05-22T08:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side",
+        "Multiplatform",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Marcin Mycek"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "505dd012-f040-563d-af4a-e88cb90f01d7",
+      "originalId": "1085731",
+      "title": "How I Learned to Stop Worrying and Love Value Semantics (in Kotlin)",
+      "startsAt": "2026-05-22T09:15:00.000Z",
+      "endsAt": "2026-05-22T10:00:00.000Z",
+      "startHour": "2026-05-22T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Marat Akhin"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "9053b17e-348a-568c-bd89-9944df8a71db",
+      "originalId": "1086701",
+      "title": "Idiomatic Kotlin applications with Spring Boot 4",
+      "startsAt": "2026-05-22T09:15:00.000Z",
+      "endsAt": "2026-05-22T10:00:00.000Z",
+      "startHour": "2026-05-22T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Sébastien Deleuze"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "2396c021-4716-5c16-841d-070b55b618d9",
+      "originalId": "1082547",
+      "title": "Redefining Machine Learning with Kotlin: A Device-First Approach to AI",
+      "startsAt": "2026-05-22T09:15:00.000Z",
+      "endsAt": "2026-05-22T10:00:00.000Z",
+      "startHour": "2026-05-22T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Multiplatform",
+        "AI"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Michal Harakal"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "a12113e8-7c45-5461-8ecd-c611358faaf6",
+      "originalId": "1093276",
+      "title": "Build Tools API: a stable interface for the Kotlin compiler",
+      "startsAt": "2026-05-22T09:15:00.000Z",
+      "endsAt": "2026-05-22T10:00:00.000Z",
+      "startHour": "2026-05-22T09:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Wojtek Kalicinski"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "12983598-429e-5824-b143-e30d016b2a71",
+      "originalId": "1061540",
+      "title": "Reflection is Evil",
+      "startsAt": "2026-05-22T09:15:00.000Z",
+      "endsAt": "2026-05-22T09:30:00.000Z",
+      "startHour": "2026-05-22T09:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Jeffrey van Gogh"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "1e48dc64-5494-5819-8d44-7a9b2ed0eb31",
+      "originalId": "1084596",
+      "title": "The place where leaking abstraction, data races and security vulnerabilities all meet",
+      "startsAt": "2026-05-22T09:45:00.000Z",
+      "endsAt": "2026-05-22T10:00:00.000Z",
+      "startHour": "2026-05-22T09:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Filipp Zhinkin"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "3164c0cb-9d95-54a2-bf0a-535e70a7bbfa",
+      "originalId": "1086726",
+      "title": "Eval-Driven Development: The Fine Line Between Agentic Success and Failure",
+      "startsAt": "2026-05-22T11:00:00.000Z",
+      "endsAt": "2026-05-22T11:45:00.000Z",
+      "startHour": "2026-05-22T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Urs Peter"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "dd67b894-f260-58e3-a9ad-f65bc6cbcec0",
+      "originalId": "1084454",
+      "title": "Practical Filament - Reshape your UI!",
+      "startsAt": "2026-05-22T11:00:00.000Z",
+      "endsAt": "2026-05-22T11:45:00.000Z",
+      "startHour": "2026-05-22T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Nicole Terc"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "5634b2b7-199e-5288-bf34-213b33d5b934",
+      "originalId": "1086357",
+      "title": "Deconstructing OkHttp",
+      "startsAt": "2026-05-22T11:00:00.000Z",
+      "endsAt": "2026-05-22T11:45:00.000Z",
+      "startHour": "2026-05-22T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Server-side",
+        "Android"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Jesse Wilson"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "e5f8f1a7-d8f0-5a73-9d1e-adcaece373f4",
+      "originalId": "1086400",
+      "title": "Sony’s KMP Journey: Scaling BLE & Hardware with Kotlin Multiplatform",
+      "startsAt": "2026-05-22T11:00:00.000Z",
+      "endsAt": "2026-05-22T11:45:00.000Z",
+      "startHour": "2026-05-22T11:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Sergio Carrilho"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "45666a66-e7f5-5596-98fc-f88119745c19",
+      "originalId": "1085578",
+      "title": "How your Web colleagues can start using Kotlin within their preferred environment?",
+      "startsAt": "2026-05-22T11:00:00.000Z",
+      "endsAt": "2026-05-22T11:15:00.000Z",
+      "startHour": "2026-05-22T11:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "AI",
+        "Other"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Denis Ambatenne"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "797b1cb9-c4d7-5506-9e87-e5ae29c0cef9",
+      "originalId": "1071387",
+      "title": "Hot-Reloading Kotlin/Native",
+      "startsAt": "2026-05-22T11:30:00.000Z",
+      "endsAt": "2026-05-22T11:45:00.000Z",
+      "startHour": "2026-05-22T11:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Multiplatform",
+        "Extensibility/Tooling",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Gabriele Pappalardo"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "3315cbc9-84d6-5be0-b3c2-d665f189eb51",
+      "originalId": "1064863",
+      "title": "Context parameters and API design",
+      "startsAt": "2026-05-22T12:00:00.000Z",
+      "endsAt": "2026-05-22T12:45:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Language and best practices"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Alejandro Serrano Mena"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "79d85562-665b-5d9b-b78c-d230bd7d8a37",
+      "originalId": "1074938",
+      "title": "Full-Stack Kotlin AI: Powering Compose Multiplatform apps with Koog & MCP",
+      "startsAt": "2026-05-22T12:00:00.000Z",
+      "endsAt": "2026-05-22T12:45:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "AI"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "John O'Reilly"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "b5506fd4-5c97-59cd-84ba-fe84d25fbc9a",
+      "originalId": "1086104",
+      "title": "What Nobody Told Us About Shipping Kotlin to iOS",
+      "startsAt": "2026-05-22T12:00:00.000Z",
+      "endsAt": "2026-05-22T12:45:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Suhyeon (Leah) Kim"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "f37d0cef-3107-523c-a224-4a502d0278be",
+      "originalId": "1085114",
+      "title": "Your Life on a Map: Private Geospatial Analytics with Kotlin DataFrame and Kandy",
+      "startsAt": "2026-05-22T12:00:00.000Z",
+      "endsAt": "2026-05-22T12:45:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Aleksei Zinovev"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "54a84dc2-130e-5e2e-b73d-df8a453b543d",
+      "originalId": "1086836",
+      "title": "Flow with Exposed: Life Finds a Way",
+      "startsAt": "2026-05-22T12:00:00.000Z",
+      "endsAt": "2026-05-22T12:15:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Chantal Loncle"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "5b2d0291-ca13-52a9-9283-f3f0d67c6427",
+      "originalId": "1085702",
+      "title": "Teaching Kotlin for the AI Era: Tips, Tools, and Practical Insights",
+      "startsAt": "2026-05-22T12:00:00.000Z",
+      "endsAt": "2026-05-22T12:45:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Language and best practices",
+        "AI",
+        "Other",
+        "Education"
+      ],
+      "room": "Room 3",
+      "roomId": "58b97459-9c0a-57c5-9e6a-2eb86423c19a",
+      "roomSort": 6,
+      "speakers": [
+        "Anastasiia Birillo",
+        "Daniil Karol"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "d157f97d-9b6e-543e-bba9-d279a2e11df0",
+      "originalId": "1154789",
+      "title": "The Backend Immune System - Rich Errors, Ktor Observability and Safe Local Remediation",
+      "startsAt": "2026-05-22T12:30:00.000Z",
+      "endsAt": "2026-05-22T12:45:00.000Z",
+      "startHour": "2026-05-22T12:00:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Server-side",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Meike Felicia Hammer"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "7f5a65e7-85d0-5cff-a875-42763632492a",
+      "originalId": "1078053",
+      "title": "How Kotlin Powers Functional Design: MCP Edition",
+      "startsAt": "2026-05-22T13:15:00.000Z",
+      "endsAt": "2026-05-22T14:00:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Server-side",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "David Denton"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "cb136092-b33b-51b5-8e78-aa6b30391072",
+      "originalId": "1083900",
+      "title": "TestBalloon: Kotlin testing is easier (and more fun) than you think",
+      "startsAt": "2026-05-22T13:15:00.000Z",
+      "endsAt": "2026-05-22T14:00:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Oliver Okrongli",
+        "Bernd Prünster"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "c675495f-11d0-5a45-9696-5199f6f68954",
+      "originalId": "1090416",
+      "title": "Faster Kotlin with Bazel at Uber",
+      "startsAt": "2026-05-22T13:15:00.000Z",
+      "endsAt": "2026-05-22T14:00:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Android",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Ty Smith",
+        "Olivier Notteghem"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "fa83938c-36c1-5713-a575-4a33f5fe9dad",
+      "originalId": "1086968",
+      "title": "Adventures in Whimsical UX: The Tug-of-War Between Delight & Performance",
+      "startsAt": "2026-05-22T13:15:00.000Z",
+      "endsAt": "2026-05-22T14:00:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform",
+        "Android",
+        "Extensibility/Tooling",
+        "Language and best practices",
+        "Other"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Lauren Darcey",
+        "Eric Kuck"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "5bb0b629-fc9d-57ff-bb15-5ae69e21152b",
+      "originalId": "1121225",
+      "title": "From Idea to Feature: How Kotlin Language Design Uses User Research",
+      "startsAt": "2026-05-22T13:15:00.000Z",
+      "endsAt": "2026-05-22T13:30:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Language and best practices"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Natalia Mishina"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "e7d38574-9d66-5731-b4fd-a9607ce0aaf7",
+      "originalId": "1188872",
+      "title": "Building Developer Communities: How JetBrains Supports Kotlin User Groups Around the World",
+      "startsAt": "2026-05-22T13:15:00.000Z",
+      "endsAt": "2026-05-22T14:00:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Introductory and overview",
+        "Other",
+        "Community"
+      ],
+      "room": "Room 3",
+      "roomId": "58b97459-9c0a-57c5-9e6a-2eb86423c19a",
+      "roomSort": 6,
+      "speakers": [
+        "Maria Krishtal"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "173f9e5d-5329-53ca-a9a7-be7447ae9ff2",
+      "originalId": "1085233",
+      "title": "KotlinLLM: Leveraging AI for Runtime Logic Delegation in Kotlin",
+      "startsAt": "2026-05-22T13:45:00.000Z",
+      "endsAt": "2026-05-22T14:00:00.000Z",
+      "startHour": "2026-05-22T13:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Intermediate",
+        "Server-side",
+        "Language and best practices",
+        "AI"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Stanislav Sandler"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "0c9b1721-6b79-57d3-b8f2-93ce59a8b4ff",
+      "originalId": "1132572",
+      "title": "Spec-Driven Development with AI Agents: From High-Level Requirements to Working Software",
+      "startsAt": "2026-05-22T14:15:00.000Z",
+      "endsAt": "2026-05-22T15:00:00.000Z",
+      "startHour": "2026-05-22T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "AI"
+      ],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Anton Arhipov"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "3c134db4-5c9b-567b-95f5-2b93c9e66be3",
+      "originalId": "1077163",
+      "title": "Moments When Things Go Wrong",
+      "startsAt": "2026-05-22T14:15:00.000Z",
+      "endsAt": "2026-05-22T15:00:00.000Z",
+      "startHour": "2026-05-22T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Extensibility/Tooling",
+        "Other"
+      ],
+      "room": "Auditorium, Room 1",
+      "roomId": "a1e9c9ea-3375-535a-9384-35e29a85054d",
+      "roomSort": 1,
+      "speakers": [
+        "Aurimas Liutikas"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "c7c30e2f-0bd1-5458-ad3e-ac7f1f848883",
+      "originalId": "1084094",
+      "title": "Turbocharged Kotlin/Native on AWS Lambda",
+      "startsAt": "2026-05-22T14:15:00.000Z",
+      "endsAt": "2026-05-22T15:00:00.000Z",
+      "startHour": "2026-05-22T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Advanced",
+        "Server-side"
+      ],
+      "room": "Room 13a",
+      "roomId": "e287da74-e6e3-5550-aa0d-081d2dd05a1a",
+      "roomSort": 2,
+      "speakers": [
+        "Ian Botsford"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "cf0b7a25-5b3a-5f62-8926-625c6c1f1044",
+      "originalId": "1086386",
+      "title": "Developing Music Creation Apps for Web, Desktop and Android",
+      "startsAt": "2026-05-22T14:15:00.000Z",
+      "endsAt": "2026-05-22T15:00:00.000Z",
+      "startHour": "2026-05-22T14:15:00.000Z",
+      "category": [
+        "Regular session",
+        "Intermediate",
+        "Multiplatform"
+      ],
+      "room": "Room 13b",
+      "roomId": "87516487-b560-5872-8c4f-28b769654e7c",
+      "roomSort": 3,
+      "speakers": [
+        "Phil Burk"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "a08d21e2-3acd-55a5-863a-85fda7e8fa9d",
+      "originalId": "1075652",
+      "title": "Koin + Kotlin Compiler = ♥️",
+      "startsAt": "2026-05-22T14:15:00.000Z",
+      "endsAt": "2026-05-22T14:30:00.000Z",
+      "startHour": "2026-05-22T14:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Multiplatform",
+        "Android",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Arnaud Giuliani"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "0c9aedbf-1b5c-596c-81f1-82ff367c4a5a",
+      "originalId": "1086156",
+      "title": "Powering Up Your Assertions",
+      "startsAt": "2026-05-22T14:45:00.000Z",
+      "endsAt": "2026-05-22T15:00:00.000Z",
+      "startHour": "2026-05-22T14:15:00.000Z",
+      "category": [
+        "Lightning talk",
+        "Introductory and overview",
+        "Extensibility/Tooling"
+      ],
+      "room": "Room 5, Lightning talks",
+      "roomId": "f852e74f-a608-5019-ab0b-cae206f36408",
+      "roomSort": 4,
+      "speakers": [
+        "Brian Norman"
+      ],
+      "isServiceSession": false
+    },
+    {
+      "id": "60a9e1ee-5214-598d-ac57-91c6f6542ba6",
+      "originalId": "1166456",
+      "title": "Golden Kodee Awards",
+      "startsAt": "2026-05-22T15:15:00.000Z",
+      "endsAt": "2026-05-22T16:30:00.000Z",
+      "startHour": "2026-05-22T15:15:00.000Z",
+      "category": [],
+      "room": "Keynote, Room 14",
+      "roomId": "86337912-4d33-5bf1-9b22-fb1f023e6a5d",
+      "roomSort": 0,
+      "speakers": [
+        "Sebastian Aigner",
+        "Pamela Hill-Galloway",
+        "Hadi Hariri",
+        "Ksenia Shneyveys",
+        "Natasha Murashkina"
+      ],
+      "isServiceSession": false
+    }
+  ]
+}
