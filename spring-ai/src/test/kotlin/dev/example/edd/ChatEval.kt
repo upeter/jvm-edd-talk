@@ -27,6 +27,7 @@ import dev.example.ToolCallRecorder
 import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.maps.shouldHaveSize
@@ -37,6 +38,7 @@ import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.model.ToolContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import java.time.Instant
 import java.util.UUID
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -244,6 +246,39 @@ class ChatEval @Autowired constructor(
             }
         }
     }
+
+    @Test
+    fun `should not add already started sessions to preferences`() {
+        val conversationId = UUID.randomUUID().toString()
+        val currentTime = Instant.parse("2026-05-22T13:30:00Z")
+        val prompt = """
+            It is Friday May 22, 2026 at 13:30.
+            I am interested in beginner-friendly Kotlin, KMP, and AI sessions that I can still attend.
+            Add suitable sessions to my preferred schedule.
+        """.trimIndent()
+
+        val response = controller.chat(ChatMessage(prompt, conversationId)).orEmpty()
+        val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)
+        val outdatedSessions = preferredSessions.filter { session ->
+            Instant.parse(session.startsAt).isBefore(currentTime)
+        }
+
+        println("=== Response ===")
+        println(response)
+        println("=== Preferred Sessions ===")
+        preferredSessions.sortedBy { it.startsAt }.forEach { session ->
+            println("${session.startsAt} - ${session.title}")
+        }
+
+        preferredSessions.shouldNotBeEmpty()
+        withClue(
+            "Outdated sessions were added to preferences:\n- ${
+                outdatedSessions.joinToString("\n- ") { "${it.startsAt} - ${it.title}" }
+            }"
+        ) {
+            outdatedSessions.shouldBeEmpty()
+        }
+    }
 }
 
 fun ExperimentResult.assert() {
@@ -252,4 +287,3 @@ fun ExperimentResult.assert() {
 
     }
 }
-
