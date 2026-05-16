@@ -95,7 +95,7 @@ sealed class ChatBubbleStyle {
 
     object Agent : ChatBubbleStyle() {
         override val alignment = Alignment.CenterStart
-        override val backgroundColor = Color(0xFFFF100D)
+        override val backgroundColor = Color(0xC7994CC7)
         override val textColor = Color.White
     }
 
@@ -467,8 +467,8 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
         if (isLoading) {
             LinearProgressIndicator(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-                color = Color(0xFFFF100D),
-                trackColor = Color(0xFFFF100D).copy(alpha = 0.3f)
+                color = Color(0xC7900DD7),
+                trackColor = Color(0xC7900DD7).copy(alpha = 0.3f)
             )
         }
 
@@ -575,7 +575,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         previous = inputFieldFocus
                     },
                 enabled = !isLoading && inputText.isNotBlank(),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF100D))
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xC7900DD7))
             ) {
                 Text("Send")
             }
@@ -594,7 +594,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .padding(end = 8.dp, bottom = 8.dp),
                 enabled = !isLoading,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF100D))
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xC7900DD7))
             ) {
                 Text("Rec")
             }
@@ -618,7 +618,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         modifier = Modifier
                             .size(120.dp * recordScale)
                             .clip(CircleShape)
-                            .background(if (isRecording) Color(0xFFFF100D) else Color.LightGray)
+                            .background(if (isRecording) Color(0xC7900DD7) else Color.LightGray)
                             .clickable {
                                 if (!isRecording) {
                                     isRecording = true

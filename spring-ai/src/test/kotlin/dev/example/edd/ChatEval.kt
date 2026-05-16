@@ -1,6 +1,7 @@
 package dev.example.edd
 
 import dev.dokimos.core.EvalTestCaseParam
+import dev.dokimos.core.ExperimentResult
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.conversation.AggregationStrategy
 import dev.dokimos.core.conversation.ConversationalApplication
@@ -20,7 +21,16 @@ import dev.example.ChatMessage
 import dev.example.ConferenceTools
 import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
 import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_JFALL
+import dev.example.SessionPreferenceRepository
+import dev.example.SessionSearchRepository
 import dev.example.ToolCallRecorder
+import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
+import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.collections.shouldNotBeEmpty
+import io.kotest.matchers.maps.shouldHaveSize
+import kotlinx.datetime.toLocalDate
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
@@ -36,17 +46,18 @@ class ChatEval @Autowired constructor(
     val controller: AIController,
     val tools: ConferenceTools,
     val toolCallbackRecorder: ToolCallRecorder,
+    val sessionPreferenceRepository: SessionPreferenceRepository
 ) {
 
     @Test
     fun `should retrieve basic conference information`() {
         experiment {
-            name = "JFall Conference Evals"
+            name = "KotlinConf Conference Evals"
             dataset {
                 name = "first-time-attendee"
                 example {
-                    input = "What's the name of this conference?"
-                    expected = "JFall 2026"
+                    input = "Where is KotlinConf 2026 held?"
+                    expected = "Messegelände, 81823 München, Germany"
                 }
             }
             task { example ->
@@ -59,7 +70,7 @@ class ChatEval @Autowired constructor(
 
                 }
             }
-        }.run().print()
+        }.run().print().assert()
     }
 
 
@@ -67,18 +78,18 @@ class ChatEval @Autowired constructor(
 
     val serverReporter = DokimosServerReporter.builder()
         .serverUrl("http://localhost:8080")
-        .projectName("jfall-chat-app-evals")
+        .projectName("kotlinconf-chat-app-evals")
         .build()
 
     @Test
     fun `should judge reply`() {
         experiment {
-            name = "JFall Tone Evals"
+            name = "KotlinConf Tone Evals"
             dataset {
                 name = "first-time-attendee"
                 example {
-                    input = "Where is JFall 2026 held?"
-                    expected = "Laan der Verenigde Naties 150, 6716 JE Ede"
+                    input = "Where is KotlinConf 2026 held?"
+                    expected = "Messegelände, 81823 München, Germany"
                 }
             }
             task { example ->
@@ -96,31 +107,31 @@ class ChatEval @Autowired constructor(
 
             }
             reporter = serverReporter
-        }.run().print()
+        }.run().print().assert()
     }
 
 
     @Test
     fun `should retrieve general venue information`() {
         experiment {
-            name = "JFall Venue Evals"
+            name = "KotlinConf Venue Evals"
             dataset {
                 name = "first-time-attendee"
                 example {
-                    input = "What’s the address of the JFall 2026 venue?"
-                    expected = "Laan der Verenigde Naties 150, 6716 JE Ede"
+                    input = "What’s the address of the KotlinConf 2026 venue?"
+                    expected = "Messegelände, 81823 München, Germany"
                     metadata("userType", "firstTimeAttendee")
                     metadata("complexity", "small")
                 }
                 example {
-                    input = "On what date is JFall 2026 held?"
-                    expected = "November 6, 2026"
+                    input = "On what date is KotlinConf 2026 held?"
+                    expected = "May 21–22, 2026"
                     metadata("userType", "firstTimeAttendee")
                     metadata("complexity", "small")
                 }
                 example {
-                    input = " What is the regular ticket price for JFall 2026?"
-                    expected = "€95"
+                    input = " What is the regular ticket price for KotlinConf 2026?"
+                    expected = "EUR 700"
                     metadata("userType", "firstTimeAttendee")
                     metadata("complexity", "medium")
                 }
@@ -160,7 +171,7 @@ class ChatEval @Autowired constructor(
                 }
             }
             reporter = serverReporter
-        }.run().print()
+        }.run().print().assert()
 
 
     }
@@ -172,12 +183,12 @@ class ChatEval @Autowired constructor(
         val user: SimulatedUser = llmUser(judge) {
             persona = "Java/Kotlin developer who wants to add as many as possible preferred sessions to their schedule"
             behaviorGuidelines = """
-                - Is interested in sessions about AI, foremost with the Spring-AI framework.
+                - Is interested in sessions about AI, foremost with AI frameworks like Koog, langchain4j and Spring-AI.
                 - Wants to fill the schedule with as many as possible sessions of his interest.
                 - Mention you are a Kotlin developer.
             """
         }
-        val conversationId = "12233445"
+        val conversationId = UUID.randomUUID().toString()
         val chatApp = ConversationalApplication { trajectory ->
             val response = controller.chat(ChatMessage(trajectory.toText(), conversationId))
             Message.assistant(response)
@@ -191,7 +202,7 @@ class ChatEval @Autowired constructor(
             scenario = "User wants to complete conference schedule with preferred sessions"
             initialMessage = "Hi"
             stoppingCondition = {
-                tools.getPreferredSessionsBy(ToolContext(mapOf("conversationId" to conversationId))).size >= 5
+                tools.getPreferredSessionsBy(ToolContext(mapOf("conversationId" to conversationId))).size >= 10
             }
         }.simulate()
 
@@ -225,7 +236,20 @@ class ChatEval @Autowired constructor(
         println("Overall Score: ${"%.2f".format(result.score())}")
         println("Passed: ${result.success()}")
         println("Reason: ${result.reason()}")
+
+        assertSoftly {
+            sessionPreferenceRepository.getPreferredSessionsBy(conversationId).shouldNotBeEmpty()
+                .groupBy { it.startsAt }.forEach { (date, sessions) ->
+                withClue("Multiple Sessions on slot $date:\n- ${sessions.joinToString("\n- ") { it.title }}") { sessions.shouldHaveSize(1) }
+            }
+        }
     }
 }
 
+fun ExperimentResult.assert() {
+    runResults.filter{it.failCount() > 0}.takeIf { it.isNotEmpty() }?.let{
+        fail(it.joinToString { it.itemResults().joinToString("\n") })
+
+    }
+}
 

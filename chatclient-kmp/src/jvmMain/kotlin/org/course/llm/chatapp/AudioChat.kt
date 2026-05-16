@@ -307,7 +307,7 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .size(120.dp * animatedSize)
                     .clip(CircleShape)
-                    .background(if (isRecording) Color(0xFFFF100D) else Color.LightGray)
+                    .background(if (isRecording) Color(0xC7900DD7) else Color.LightGray)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null

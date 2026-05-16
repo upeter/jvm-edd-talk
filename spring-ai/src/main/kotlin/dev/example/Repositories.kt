@@ -61,6 +61,8 @@ class SessionSearchRepository(val vectorStore: VectorStore) {
     @Repository
     class SessionPreferenceRepository() {
 
+        fun getAllPreferences(): Map<String, Set<ConferenceSession>> = preferences.toMap()
+
         fun getPreferredSessionsBy(conversationKey: String): Set<ConferenceSession> =
             preferences[conversationKey]?.toSet().orEmpty()
 
@@ -86,7 +88,7 @@ class SessionSearchRepository(val vectorStore: VectorStore) {
             private val sessions: List<ConferenceSession> = run {
                 val dataset: Dataset = mapper.readValue(
                     SessionPreferenceRepository::class.java
-                        .getResourceAsStream("/data/dataset-jfall-sessions.json")
+                        .getResourceAsStream("/data/dataset-kotlinconf-sessions.json")
                 )
                 dataset.sessions
             }

@@ -160,7 +160,7 @@ class AiConfig {
                 logger.info("${count} sessions embeddings already present in public.talks")
             } else {
                 logger.info("Start ingesting sessions in public.talks...   ")
-                val df = DataFrame.readJson("spring-ai/src/main/resources/data/dataset-jfall.json")
+                val df = DataFrame.readJson("spring-ai/src/main/resources/data/dataset-kotlinconf.json")
                 val sessions = df.explode("sessions").select("sessions").rename("sessions").into("session").flatten()
                 val conferenceDaysSorted = sessions
                     .map { java.time.Instant.parse(it["startsAt"].toString()).atZone(zone).toLocalDate() }

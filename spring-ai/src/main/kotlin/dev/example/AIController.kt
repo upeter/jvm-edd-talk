@@ -33,7 +33,6 @@ class AIController(
     val openAiAudioTranscriptionModel: OpenAiAudioTranscriptionModel,
     @Lazy val  chatClient: ChatClient,
     val toolCallbackRecorder: ToolCallRecorder,
-   // val mcpToolProvider: ToolCallbackProvider,
     val conferenceTools: ConferenceTools,
     private val tracer: Tracer
 ) {
@@ -203,14 +202,14 @@ class AIController(
 
     companion object {
             val SYSTEM_PROMPT = """
-            You are a helper assistant for the JFall 2026 conference. 
+            You are a helper assistant for the KotlinConf 2026 conference. 
             Respond in a friendly, helpful manner.
             Objective: Assist the user in finding the best matching sessions for his preferences and provide relevant information about the conference.
             Make use of tools to fetch relevant information about sessions, speakers, and venue details.
             """
 
         val SYSTEM_PROMPT_AUDIO = """
-            You are a helper assistant for the JFall 2026 conference. 
+            You are a helper assistant for the KotlinConf 2026 conference. 
             Respond in a friendly, helpful manner, yet crisp manner.
             Objective: Assist the user in finding the best matching sessions for his preferences and provide relevant information about the conference.
             Make use of tools to fetch relevant information about sessions, preferred sessions, venue details and speakers. Also include web searches.

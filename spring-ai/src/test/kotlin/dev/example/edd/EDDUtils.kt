@@ -2,7 +2,7 @@ package dev.example.edd
 
 import dev.dokimos.core.ExperimentResult
 
-fun ExperimentResult.print() {   // 6. Display results
+fun ExperimentResult.print()  = apply{   // 6. Display results
     println("=".repeat(60))
     println("Evaluation Results")
     println("=".repeat(60))
