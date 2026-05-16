@@ -2,6 +2,7 @@ package dev.example.langfuse
 
 import com.langfuse.client.LangfuseClient
 import com.langfuse.client.resources.commons.types.ObservationsView
+import com.langfuse.client.resources.commons.types.TraceWithFullDetails
 import com.langfuse.client.resources.observations.requests.GetObservationsRequest
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
@@ -41,6 +42,9 @@ class LangfuseFeedbackClient(
     fun fetchFeedback(limit: Int = 20): List<FeedbackEntry> =
         fetchObservations(limit, "feedback")
                 .map { toFeedback(it) }
+
+    fun fetchTrace(traceId: String): TraceWithFullDetails =
+        langfuseClient.trace().get(traceId)
 
 
     private fun toFeedback(view: ObservationsView): FeedbackEntry {
