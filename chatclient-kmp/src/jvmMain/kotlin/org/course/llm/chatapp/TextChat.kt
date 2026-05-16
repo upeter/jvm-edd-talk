@@ -68,7 +68,8 @@ data class FeedbackPayload(
     val request: String,
     val answer: String,
     val sessionId: String,
-    val rating: String
+    val rating: String,
+    val reason: String? = null
 )
 
 data class MarkdownColors(
@@ -117,7 +118,7 @@ enum class FeedbackStatus {
 @Composable
 fun ChatBubble(
     message: ChatMessage,
-    onFeedback: ((ChatMessage, Boolean) -> Unit)? = null
+    onFeedback: ((ChatMessage, Boolean, String?) -> Unit)? = null
 ) {
     val defaultStyle = if (message.isUserMessage) ChatBubbleStyle.User else ChatBubbleStyle.Agent
     val style = message.customStyle ?: defaultStyle
@@ -184,8 +185,10 @@ fun ChatBubbleWithStyle(content: String, style: ChatBubbleStyle) {
 @Composable
 fun FeedbackRow(
     message: ChatMessage,
-    onFeedback: (ChatMessage, Boolean) -> Unit
+    onFeedback: (ChatMessage, Boolean, String?) -> Unit
 ) {
+    var showDownReasonDialog by remember(message.id) { mutableStateOf(false) }
+    var downReason by remember(message.id) { mutableStateOf("") }
     val isSending = message.feedbackStatus == FeedbackStatus.SENDING
     val sentUp = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == true
     val sentDown = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == false
@@ -215,7 +218,7 @@ fun FeedbackRow(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
-                onClick = { onFeedback(message, true) },
+                onClick = { onFeedback(message, true, null) },
                 enabled = !isSending,
                 modifier = Modifier.size(32.dp)
             ) {
@@ -227,7 +230,7 @@ fun FeedbackRow(
                 )
             }
             IconButton(
-                onClick = { onFeedback(message, false) },
+                onClick = { showDownReasonDialog = true },
                 enabled = !isSending,
                 modifier = Modifier.size(32.dp)
             ) {
@@ -236,6 +239,49 @@ fun FeedbackRow(
                     contentDescription = "Thumb down",
                     tint = downColor,
                     modifier = Modifier.size(18.dp)
+                )
+            }
+
+            if (showDownReasonDialog) {
+                AlertDialog(
+                    onDismissRequest = {
+                        showDownReasonDialog = false
+                        downReason = ""
+                    },
+                    title = { Text("What went wrong?") },
+                    text = {
+                        OutlinedTextField(
+                            value = downReason,
+                            onValueChange = { downReason = it },
+                            label = { Text("Reason") },
+                            placeholder = { Text("For example: These sessions already started.") },
+                            minLines = 3,
+                            maxLines = 5,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                    },
+                    confirmButton = {
+                        TextButton(
+                            onClick = {
+                                onFeedback(message, false, downReason.trim())
+                                showDownReasonDialog = false
+                                downReason = ""
+                            },
+                            enabled = downReason.isNotBlank()
+                        ) {
+                            Text("Submit")
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(
+                            onClick = {
+                                showDownReasonDialog = false
+                                downReason = ""
+                            }
+                        ) {
+                            Text("Cancel")
+                        }
+                    }
                 )
             }
 
@@ -417,7 +463,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
         }
     }
 
-    val sendFeedback: (ChatMessage, Boolean) -> Unit = feedback@{ targetMessage, isThumbsUp ->
+    val sendFeedback: (ChatMessage, Boolean, String?) -> Unit = feedback@{ targetMessage, isThumbsUp, reason ->
         if (targetMessage.feedbackStatus == FeedbackStatus.SENDING) return@feedback
         val requestText = targetMessage.userRequest
         val session = targetMessage.sessionId
@@ -441,7 +487,8 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                             request = requestText,
                             answer = targetMessage.content,
                             sessionId = session,
-                            rating = if (isThumbsUp) "UP" else "DOWN"
+                            rating = if (isThumbsUp) "UP" else "DOWN",
+                            reason = reason?.takeIf { it.isNotBlank() }
                         )
                     )
                 }

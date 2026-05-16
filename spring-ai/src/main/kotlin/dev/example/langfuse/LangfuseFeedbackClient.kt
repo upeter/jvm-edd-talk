@@ -14,6 +14,7 @@ data class FeedbackEntry(
     val sessionId: String,
     val request: String,
     val answer: String,
+    val reason: String?,
     val rating: Double,
     val timestamp: Instant
 )
@@ -47,10 +48,11 @@ class LangfuseFeedbackClient(
         return FeedbackEntry(
             traceId = view.traceId.orElse(null),
             observationId = view.id,
-            sessionId = attrs.getValue("langfuse.session.id"),
-            request = attrs.getValue("langfuse.user.request"),
-            answer = attrs.getValue("langfuse.answer"),
-            rating = attrs.getValue("langfuse.feedback").let{if(it == "UP") 1.0 else 0.0},
+            sessionId = attrs["langfuse.session.id"].orEmpty(),
+            request = attrs["langfuse.user.request"].orEmpty(),
+            answer = attrs["langfuse.answer"].orEmpty(),
+            reason = attrs["langfuse.feedback.reason"]?.takeIf { it.isNotBlank() },
+            rating = attrs["langfuse.feedback"].let{if(it == "UP") 1.0 else 0.0},
             timestamp = view.startTime.toInstant()
         )
     }

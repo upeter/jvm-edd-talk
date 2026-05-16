@@ -26,7 +26,13 @@ import io.opentelemetry.context.Scope
 
 data class ChatMessage(val message: String, val conversationId: String)
 data class TranscribedMessageReply(val transcribedInputText: String, val outputText: String)
-data class FeedbackRequest(val request: String, val answer: String, val sessionId: String, val rating: String)
+data class FeedbackRequest(
+    val request: String,
+    val answer: String,
+    val sessionId: String,
+    val rating: String,
+    val reason: String? = null
+)
 @RestController
 class AIController(
     val openAiAudioSpeechModel: OpenAiAudioSpeechModel,
@@ -120,6 +126,7 @@ class AIController(
             .setAttribute("langfuse.user.request", feedbackRequest.request)
             .setAttribute("langfuse.answer", feedbackRequest.answer)
             .setAttribute("langfuse.feedback", feedbackRequest.rating)
+            .setAttribute("langfuse.feedback.reason", feedbackRequest.reason.orEmpty())
             .startSpan()
 
         return try {
