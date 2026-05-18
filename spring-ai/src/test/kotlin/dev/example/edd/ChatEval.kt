@@ -18,13 +18,14 @@ import dev.dokimos.springai.SpringAiSupport
 import dev.example.AIController
 import dev.example.ChatMessage
 import dev.example.ConferenceTools
+import dev.example.ConferenceTools.Companion.TOOL_ADD_PREFERRED_SESSIONS
+import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
 import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF
 import dev.example.SessionPreferenceRepository
 import dev.example.ToolCallRecorder
 import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
-import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import org.junit.jupiter.api.Test
@@ -33,7 +34,6 @@ import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.model.ToolContext
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import java.time.Instant
 import java.util.UUID
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -268,35 +268,53 @@ class ChatEval @Autowired constructor(
 
     @Test
     fun `should not add already started sessions to preferences`() {
-        val conversationId = UUID.randomUUID().toString()
-        val currentTime = Instant.parse("2026-05-22T13:30:00Z")
-        val prompt = """
-            It is Friday May 22, 2026 at 13:30.
-            I am interested in beginner-friendly Kotlin, KMP, and AI sessions that I can still attend.
-            Add suitable sessions to my preferred schedule.
-        """.trimIndent()
+        experiment {
+            name = "KotlinConf Started Session Preference Evals"
+            dataset {
+                name = "schedule-after-sessions-started"
+                example {
+                    input = """
+                        It is Friday May 22, 2026 at 13:30.
+                        I am interested in beginner-friendly Kotlin, KMP, and AI sessions that I can still attend.
+                        Add suitable sessions to my preferred schedule.
+                    """.trimIndent()
+                    expected = "Preferred sessions should not overlap with sessions already started before 2026-05-22T13:30:00Z."
+                    metadata("currentTime", "2026-05-22T13:30:00Z")
+                }
+            }
+            task { example ->
+                toolCallbackRecorder.clear()
+                val conversationId = UUID.randomUUID().toString()
+                val response = controller.chat(ChatMessage(example.input(), conversationId)).orEmpty()
+                val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)
+                val toolCalls = toolCallbackRecorder.getCalls().map {
+                    mapOf(
+                        "toolName" to it.toolName,
+                        "toolInput" to it.inputJson,
+                        "toolOutput" to it.output
+                    )
+                }
 
-        val response = controller.chat(ChatMessage(prompt, conversationId)).orEmpty()
-        val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)
-        val outdatedSessions = preferredSessions.filter { session ->
-            Instant.parse(session.startsAt).isBefore(currentTime)
-        }
-
-        println("=== Response ===")
-        println(response)
-        println("=== Preferred Sessions ===")
-        preferredSessions.sortedBy { it.startsAt }.forEach { session ->
-            println("${session.startsAt} - ${session.title}")
-        }
-
-        preferredSessions.shouldNotBeEmpty()
-        withClue(
-            "Outdated sessions were added to preferences:\n- ${
-                outdatedSessions.joinToString("\n- ") { "${it.startsAt} - ${it.title}" }
-            }"
-        ) {
-            outdatedSessions.shouldBeEmpty()
-        }
+                mapOf(
+                    "output" to response,
+                    "toolCalls" to toolCalls,
+                    "preferredSessions" to preferredSessions,
+                    "currentTime" to example.metadata().getValue("currentTime")
+                )
+            }
+            evaluators {
+                toolCallEvaluator {
+                    name = "Add Preferred Sessions Tool Call"
+                    expectedToolName = TOOL_ADD_PREFERRED_SESSIONS
+                }
+                toolCallEvaluator {
+                    name = "Search Sessions Tool Call"
+                    expectedToolName = TOOL_CONFERENCE_SESSION_SEARCH
+                }
+                startedSessionOverlap {}
+            }
+            reporter = serverReporter
+        }.run().print().assert()
     }
 }
 

@@ -7,6 +7,8 @@ import dev.dokimos.core.EvalTestCaseParam
 import dev.dokimos.kotlin.core.EvalResult
 import dev.dokimos.kotlin.dsl.DokimosDsl
 import dev.dokimos.kotlin.dsl.evaluators.EvaluatorsDsl
+import dev.example.ConferenceSession
+import java.time.Instant
 
 class ResponseLengthEvaluator(
     private val minLength: Int,
@@ -117,17 +119,17 @@ class ToolCallEvaluator(
             }
         }
 
-        val metadata: Map<String, Any?> = buildMap {
+        val metadata: Map<String, Any> = buildMap {
             put("expectedToolName", expectedToolName)
-            put("actualToolName", actualToolName)
+            actualToolName?.let { put("actualToolName", it) }
             expectedInput?.let { put("expectedToolInput", it) }
-            put("actualToolInput", actualToolInput)
+            actualToolInput?.let { put("actualToolInput", it) }
             expectedOutput?.let { put("expectedToolOutput", it) }
-            put("actualToolOutput", actualToolOutput)
+            actualToolOutput?.let { put("actualToolOutput", it) }
             put("passedChecks", passed)
             put("totalChecks", total)
             put("failedChecks", failedChecks)
-            put("toolCallsCount", total)
+            put("toolCallsCount", actualToolCalls.size)
         }
 
         return EvalResult(
@@ -219,4 +221,80 @@ class ContainsEvaluatorDsl {
 /** Convenience builder for creating a [ContainsEvaluator] with a Kotlin DSL block. */
 fun EvaluatorsDsl.contains(block: ContainsEvaluatorDsl.() -> Unit) {
     evaluator(ContainsEvaluatorDsl().apply(block).build())
+}
+
+class StartedSessionOverlapEvaluator(
+    evaluatorName: String = "Started Session Overlap",
+    private val preferredSessionsKey: String = "preferredSessions",
+    private val currentTimeKey: String = "currentTime"
+) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.ACTUAL_OUTPUT)) {
+
+    override fun runEvaluation(testCase: EvalTestCase): EvalResult {
+        val outputs = testCase.actualOutputs()
+        val currentTimeValue = outputs[currentTimeKey]?.toString()
+        val currentTime = currentTimeValue?.let { Instant.parse(it) }
+            ?: return overlapEvalResult(0.0, "Missing current time in '$currentTimeKey'.", emptyMap())
+        val preferredSessions = ((outputs[preferredSessionsKey] as? Iterable<*>) ?: emptyList<Any>())
+            .mapNotNull { it.asSessionForOverlap() }
+        val startedSessions = preferredSessions.filter { Instant.parse(it.startsAt).isBefore(currentTime) }
+        val score = if (startedSessions.isEmpty()) 1.0 else 0.0
+        val reason = if (startedSessions.isEmpty()) {
+            "No already-started sessions were added to preferences."
+        } else {
+            "Already-started sessions were added: ${startedSessions.joinToString { "${it.startsAt} - ${it.title}" }}"
+        }
+        val metadata: Map<String, Any> = mapOf(
+            "currentTime" to currentTime.toString(),
+            "preferredSessionsCount" to preferredSessions.size,
+            "startedSessionsCount" to startedSessions.size,
+            "startedSessions" to startedSessions.map { mapOf("startsAt" to it.startsAt, "title" to it.title) }
+        )
+
+        return EvalResult(
+            name(),
+            score,
+            threshold(),
+            score >= threshold(),
+            reason,
+            metadata
+        )
+    }
+
+    private fun overlapEvalResult(score: Double, reason: String, metadata: Map<String, Any>): EvalResult = EvalResult(
+        name(),
+        score,
+        threshold(),
+        score >= threshold(),
+        reason,
+        metadata
+    )
+
+    private fun Any?.asSessionForOverlap(): SessionForOverlap? = when (this) {
+        is ConferenceSession -> SessionForOverlap(title, startsAt)
+        is Map<*, *> -> {
+            val title = this["title"]?.toString()
+            val startsAt = this["startsAt"]?.toString()
+            if (title == null || startsAt == null) null else SessionForOverlap(title, startsAt)
+        }
+        else -> null
+    }
+
+    private data class SessionForOverlap(val title: String, val startsAt: String)
+}
+
+@DokimosDsl
+class StartedSessionOverlapEvaluatorDsl {
+    var name: String = "Started Session Overlap"
+    var preferredSessionsKey: String = "preferredSessions"
+    var currentTimeKey: String = "currentTime"
+
+    fun build(): StartedSessionOverlapEvaluator = StartedSessionOverlapEvaluator(
+        evaluatorName = name,
+        preferredSessionsKey = preferredSessionsKey,
+        currentTimeKey = currentTimeKey
+    )
+}
+
+fun EvaluatorsDsl.startedSessionOverlap(block: StartedSessionOverlapEvaluatorDsl.() -> Unit = {}) {
+    evaluator(StartedSessionOverlapEvaluatorDsl().apply(block).build())
 }
