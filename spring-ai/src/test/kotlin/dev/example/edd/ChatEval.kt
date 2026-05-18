@@ -1,6 +1,5 @@
 package dev.example.edd
 
-import dev.dokimos.core.EvalTestCaseParam
 import dev.dokimos.core.ExperimentResult
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.conversation.AggregationStrategy
@@ -19,10 +18,8 @@ import dev.dokimos.springai.SpringAiSupport
 import dev.example.AIController
 import dev.example.ChatMessage
 import dev.example.ConferenceTools
-import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
-import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_JFALL
+import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF
 import dev.example.SessionPreferenceRepository
-import dev.example.SessionSearchRepository
 import dev.example.ToolCallRecorder
 import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
 import io.kotest.assertions.assertSoftly
@@ -30,8 +27,6 @@ import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotBeEmpty
-import io.kotest.matchers.maps.shouldHaveSize
-import kotlinx.datetime.toLocalDate
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
@@ -54,7 +49,7 @@ class ChatEval @Autowired constructor(
     @Test
     fun `should retrieve basic conference information`() {
         experiment {
-            name = "KotlinConf Conference Evals"
+            name = "KotlinConf Conference Venue data Evals"
             dataset {
                 name = "first-time-attendee"
                 example {
@@ -68,12 +63,19 @@ class ChatEval @Autowired constructor(
                 mapOf("output" to response)
             }
             evaluators {
-                contains {
-
-                }
+                contains {}
             }
         }.run().print().assert()
     }
+
+
+
+
+
+
+
+
+
 
 
     val judge: JudgeLM = SpringAiSupport.asJudge(builder)
@@ -84,13 +86,14 @@ class ChatEval @Autowired constructor(
         .build()
 
     @Test
-    fun `should judge reply`() {
+    fun `should retrieve basic conference information and evaluate tone`() {
         experiment {
             name = "KotlinConf Tone Evals"
             dataset {
                 name = "first-time-attendee"
                 example {
-                    input = "Where is KotlinConf 2026 held?"
+                    input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
+                            "Wherrrre is KotlinConf 2026 held and whats the exact addrrrress?"
                     expected = "Messegelände, 81823 München, Germany"
                 }
             }
@@ -100,21 +103,38 @@ class ChatEval @Autowired constructor(
                 mapOf("output" to response)
             }
             evaluators {
-                llmJudge(judge) {
+                llmJudge(judge = SpringAiSupport.asJudge(builder)) {
                     name = "Tone"
-                    criteria = "Is the answer helpful, accurate, and professionally worded?"
+                    criteria = "Is the answer helpful, accurate, neutral and business-appropriate worded?"
                     threshold = 0.9
                 }
                 contains {}
-
             }
-            reporter = serverReporter
+            reporter = DokimosServerReporter.builder()
+                .serverUrl("http://localhost:8080")
+                .projectName("kotlinconf-chat-app-evals")
+                .build()
         }.run().print().assert()
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Test
-    fun `should retrieve general venue information`() {
+    fun `should retrieve accurate general venue information`() {
         experiment {
             name = "KotlinConf Venue Evals"
             dataset {
@@ -126,13 +146,7 @@ class ChatEval @Autowired constructor(
                     metadata("complexity", "small")
                 }
                 example {
-                    input = "On what date is KotlinConf 2026 held?"
-                    expected = "May 21–22, 2026"
-                    metadata("userType", "firstTimeAttendee")
-                    metadata("complexity", "small")
-                }
-                example {
-                    input = " What is the regular ticket price for KotlinConf 2026?"
+                    input = "What is the regular ticket price for KotlinConf 2026?"
                     expected = "EUR 700"
                     metadata("userType", "firstTimeAttendee")
                     metadata("complexity", "medium")
@@ -145,11 +159,14 @@ class ChatEval @Autowired constructor(
                 val response = controller.chat(ChatMessage(prompt, sessionId))!!
 
                 val toolCalls = toolCallbackRecorder.getCalls().map {
-                    mapOf("toolName" to it.toolName, "toolInput" to it.inputJson, "toolOutput" to it.output)
+                    mapOf("toolName" to it.toolName,
+                        "toolInput" to it.inputJson,
+                        "toolOutput" to it.output)
                 }
                 mapOf(
                     "output" to response,
                     "retrievedContext" to tools.getGeneralVenueInformation(),
+                    "context" to tools.getGeneralVenueInformation(),
                     "toolCalls" to toolCalls,
                     "toolOutput" to tools.getGeneralVenueInformation()
                 )
@@ -157,13 +174,16 @@ class ChatEval @Autowired constructor(
 
             evaluators {
                 toolCallEvaluator {
-                    expectedToolName = TOOL_GENERAL_VENUE_INFORMATION_JFALL
+                    expectedToolName = TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF
                     toolOutputKey = "toolOutput"
                 }
                 faithfulness(judge) {
                     name = "Faithfulness"
                     threshold = 0.9
                     contextKey = "retrievedContext"
+                    includeReason = true
+                }
+                hallucination(judge) {
                     includeReason = true
                 }
                 contextualRelevance(judge) {
@@ -183,11 +203,10 @@ class ChatEval @Autowired constructor(
     @Test
     fun `multiturn chat for first time attendee looking for beginner sessions`() {
         val user: SimulatedUser = llmUser(judge) {
-            persona = "Java/Kotlin developer who wants to add as many as possible preferred sessions to their schedule"
+            persona = "Kotlin backend developer who wants to add as many as possible preferred sessions to their schedule"
             behaviorGuidelines = """
-                - Is interested in sessions about AI, foremost with AI frameworks like Koog, langchain4j and Spring-AI.
-                - Wants to fill the schedule with as many as possible sessions of his interest.
-                - Mention you are a Kotlin developer.
+                - Is interested in sessions about backend and AI, foremost AI frameworks like Koog, langchain4j and Spring-AI.
+                - Wants to fill the schedule with as many as possible sessions of his interest. 
             """
         }
         val conversationId = UUID.randomUUID().toString()
