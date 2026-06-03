@@ -23,7 +23,7 @@ class ConferenceTools(
 
 
     @Tool(
-        name = TOOL_GENERAL_SESSION_INFORMATION_JFALL,
+        name = TOOL_GENERAL_SESSION_INFORMATION_KOTLINCONF,
         description = "You provide general session information about the KotlinConf 2026 conference like title, speaker, category, room, start- and endtime "
     )
     fun getVenueInformation(): String = generalSessionInformation
@@ -92,7 +92,7 @@ class ConferenceTools(
 
         // Centralized tool names (avoid string duplication across annotations/tests)
         const val TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF = "general-venue-information-kotlinconf"
-        const val TOOL_GENERAL_SESSION_INFORMATION_JFALL = "general-session-information-kotlinconf"
+        const val TOOL_GENERAL_SESSION_INFORMATION_KOTLINCONF = "general-session-information-kotlinconf"
         const val TOOL_CONFERENCE_SESSION_SEARCH = "conference-session-search"
         const val TOOL_GET_PREFERRED_SESSIONS = "get-preferred-sessions"
         const val TOOL_ADD_PREFERRED_SESSIONS = "add-preferred-sessions"
