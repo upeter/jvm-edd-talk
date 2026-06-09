@@ -1,5 +1,6 @@
 package dev.example.edd
 
+import dev.dokimos.core.Assertions
 import dev.dokimos.core.ExperimentResult
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.conversation.AggregationStrategy
@@ -9,6 +10,7 @@ import dev.dokimos.core.conversation.SimulatedUser
 import dev.dokimos.core.conversation.TrajectoryEvaluationCriteria
 import dev.dokimos.core.conversation.TrajectoryEvaluator
 import dev.dokimos.kotlin.core.EvalTestCase
+import dev.dokimos.kotlin.core.assertNoRegression
 import dev.dokimos.kotlin.dsl.conversation.llmUser
 import dev.dokimos.kotlin.dsl.conversation.simulator
 import dev.dokimos.kotlin.dsl.conversation.trajectoryEvaluator
@@ -65,7 +67,7 @@ class ChatEval @Autowired constructor(
             evaluators {
                 contains {}
             }
-        }.run().print().assert()
+        }.run().print().assertNoRegression("rag")
     }
 
 
