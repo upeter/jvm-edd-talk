@@ -15,8 +15,6 @@ import dev.dokimos.kotlin.dsl.conversation.llmUser
 import dev.dokimos.kotlin.dsl.conversation.simulator
 import dev.dokimos.kotlin.dsl.conversation.trajectoryEvaluator
 import dev.dokimos.kotlin.dsl.experiment
-import dev.dokimos.server.client.DokimosServerReporter
-import dev.dokimos.springai.SpringAiSupport
 import dev.example.AIController
 import dev.example.ChatMessage
 import dev.example.ConferenceTools
@@ -80,12 +78,9 @@ class ChatEval @Autowired constructor(
 
 
 
-    val judge: JudgeLM = SpringAiSupport.asJudge(builder)
+    val judge: JudgeLM = springAiJudge(builder)
 
-    val serverReporter = DokimosServerReporter.builder()
-        .serverUrl("http://localhost:8080")
-        .projectName("kotlinconf-chat-app-evals")
-        .build()
+    val serverReporter = dokimosReporter()
 
     @Test
     fun `should retrieve basic conference information and evaluate tone`() {
@@ -105,17 +100,14 @@ class ChatEval @Autowired constructor(
                 mapOf("output" to response)
             }
             evaluators {
-                llmJudge(judge = SpringAiSupport.asJudge(builder)) {
+                llmJudge(judge = judge) {
                     name = "Tone"
                     criteria = "Is the answer helpful, accurate, neutral and business-appropriate worded?"
                     threshold = 0.9
                 }
                 contains {}
             }
-            reporter = DokimosServerReporter.builder()
-                .serverUrl("http://localhost:8080")
-                .projectName("kotlinconf-chat-app-evals")
-                .build()
+            reporter = serverReporter
         }.run().print().assert()
     }
 
@@ -146,25 +138,24 @@ class ChatEval @Autowired constructor(
                     expected = "Messegelände, 81823 München, Germany"
                     metadata("userType", "firstTimeAttendee")
                     metadata("complexity", "small")
+                    expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
                 }
                 example {
                     input = "What is the regular ticket price for KotlinConf 2026?"
                     expected = "EUR 700"
                     metadata("userType", "firstTimeAttendee")
                     metadata("complexity", "medium")
+                    expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
                 }
             }
 
             task { example ->
+                toolCallbackRecorder.clear()
                 val sessionId = "1212121212"
                 val prompt = example.input()
                 val response = controller.chat(ChatMessage(prompt, sessionId))!!
 
-                val toolCalls = toolCallbackRecorder.getCalls().map {
-                    mapOf("toolName" to it.toolName,
-                        "toolInput" to it.inputJson,
-                        "toolOutput" to it.output)
-                }
+                val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
                 mapOf(
                     "output" to response,
                     "retrievedContext" to tools.getGeneralVenueInformation(),
@@ -175,10 +166,7 @@ class ChatEval @Autowired constructor(
             }
 
             evaluators {
-                toolCallEvaluator {
-                    expectedToolName = TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF
-                    toolOutputKey = "toolOutput"
-                }
+                toolCorrectness {}
                 faithfulness(judge) {
                     name = "Faithfulness"
                     threshold = 0.9
@@ -289,13 +277,7 @@ class ChatEval @Autowired constructor(
                 val conversationId = UUID.randomUUID().toString()
                 val response = controller.chat(ChatMessage(example.input(), conversationId)).orEmpty()
                 val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)
-                val toolCalls = toolCallbackRecorder.getCalls().map {
-                    mapOf(
-                        "toolName" to it.toolName,
-                        "toolInput" to it.inputJson,
-                        "toolOutput" to it.output
-                    )
-                }
+                val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
 
                 mapOf(
                     "output" to response,
@@ -305,11 +287,11 @@ class ChatEval @Autowired constructor(
                 )
             }
             evaluators {
-                toolCallEvaluator {
+                toolPresence {
                     name = "Add Preferred Sessions Tool Call"
                     expectedToolName = TOOL_ADD_PREFERRED_SESSIONS
                 }
-                toolCallEvaluator {
+                toolPresence {
                     name = "Search Sessions Tool Call"
                     expectedToolName = TOOL_CONFERENCE_SESSION_SEARCH
                 }
