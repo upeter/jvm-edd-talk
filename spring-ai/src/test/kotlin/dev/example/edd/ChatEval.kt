@@ -319,10 +319,3 @@ class ChatEval @Autowired constructor(
         }.run().print().assert()
     }
 }
-
-fun ExperimentResult.assert() {
-    runResults.filter{it.failCount() > 0}.takeIf { it.isNotEmpty() }?.let{
-        fail(it.joinToString { it.itemResults().joinToString("\n") })
-
-    }
-}

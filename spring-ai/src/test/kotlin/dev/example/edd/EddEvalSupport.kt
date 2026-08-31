@@ -1,8 +1,16 @@
 package dev.example.edd
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import dev.dokimos.core.ExperimentResult
+import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.agents.ToolCall
+import dev.dokimos.core.agents.ToolDefinition
+import dev.dokimos.server.client.DokimosServerReporter
+import dev.dokimos.springai.SpringAiSupport
+import dev.example.AIController
 import dev.example.CapturedToolCall
+import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
+import org.springframework.ai.chat.client.ChatClient
 
 private val toolArgsMapper = ObjectMapper()
 
@@ -25,3 +33,57 @@ fun List<CapturedToolCall>.asToolCalls(): List<ToolCall> = map { call ->
 
 /** Expected tool calls for the name-based matchers — only the names matter. */
 fun expectedToolCalls(vararg names: String): List<Map<String, Any>> = names.map { mapOf("name" to it) }
+
+/** Shared LLM-judge configuration used by the eval classes. */
+fun springAiJudge(builder: ChatClient.Builder): JudgeLM = SpringAiSupport.asJudge(builder)
+
+/** Reports eval results to the local Dokimos dashboard. */
+fun dokimosReporter(): DokimosServerReporter = DokimosServerReporter.builder()
+    .serverUrl("http://localhost:8080")
+    .projectName("kotlinconf-chat-app-evals")
+    .build()
+
+/**
+ * The tools the agent was given, in Dokimos form. Needed by the evaluators that check calls against
+ * the available tools (toolCallValidity, toolNameReliability, toolDescriptionReliability).
+ */
+fun conferenceToolDefinitions(controller: AIController): List<ToolDefinition> =
+    SpringAiSupport.toToolDefinitions(controller.interceptedTools.map { it.toolDefinition })
+
+/** Fails the test if any run produced a failing item result. */
+fun ExperimentResult.assert() {
+    runResults.filter { it.failCount() > 0 }.takeIf { it.isNotEmpty() }?.let {
+        fail(it.joinToString { it.itemResults().joinToString("\n") })
+    }
+}
+
+fun ExperimentResult.print()  = apply{   // 6. Display results
+    println("=".repeat(60))
+    println("Evaluation Results")
+    println("=".repeat(60))
+    println("Pass rate: ${"%.0f".format(this.passRate() * 100)}%")
+    println()
+
+    println("Average Scores:")
+    evaluatorNames().forEach { evalutor ->
+        println("  $evalutor: ${"%.2f".format(this.averageScore(evalutor))}")
+    }
+    println()
+
+    println("Detailed Results:")
+    println("-".repeat(60))
+    this.itemResults().forEach { item ->
+        println()
+        println("Question: ${item.example().input()}")
+        println("Response: ${item.actualOutputs()["output"]}")
+        println("Expected: ${item.example().expectedOutput()}")
+        println("Status: ${if (item.success()) "✅ PASS" else "❌ FAIL"}")
+        println("Scores:")
+        item.evalResults().forEach { eval ->
+            println("  • ${eval.name()}: ${"%.2f".format(eval.score())}${if (eval.success()) " ✅" else " ❌"}")
+        }
+        println("- - ".repeat(20))
+    }
+    println()
+    println("=".repeat(60))
+}
