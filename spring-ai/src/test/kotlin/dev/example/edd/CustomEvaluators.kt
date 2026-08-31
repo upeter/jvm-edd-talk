@@ -56,7 +56,7 @@ class ToolPresenceEvaluator(
     private val expectedToolName: String,
     /** If set, looks up an expected substring in [EvalTestCase.expectedOutputs] and checks the tool result contains it. */
     private val toolOutputKey: String? = null,
-) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.ACTUAL_OUTPUT)) {
+) : BaseEvaluator(evaluatorName, 1.0, emptyList()) {
 
     override fun runEvaluation(testCase: EvalTestCase): EvalResult {
         val calls = (testCase.actualOutputs()[PARAM_TOOL_CALLS] as? List<*>).orEmpty()
