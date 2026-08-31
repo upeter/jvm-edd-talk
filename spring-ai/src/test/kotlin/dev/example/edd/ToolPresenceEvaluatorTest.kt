@@ -14,8 +14,6 @@ class ToolPresenceEvaluatorTest {
     fun `passes when the expected tool was called among others`() {
         val evaluator = ToolPresenceEvaluator("Venue Tool", "general-venue-information-kotlinconf")
         val testCase = EvalTestCase(
-            input = "",
-            actualOutput = "",
             actualOutputs = mapOf(
                 "toolCalls" to listOf(
                     toolCall("conference-session-search"),
@@ -34,8 +32,6 @@ class ToolPresenceEvaluatorTest {
     fun `fails when the expected tool was never called`() {
         val evaluator = ToolPresenceEvaluator("Venue Tool", "general-venue-information-kotlinconf")
         val testCase = EvalTestCase(
-            input = "",
-            actualOutput = "",
             actualOutputs = mapOf("toolCalls" to listOf(toolCall("conference-session-search")))
         )
 
@@ -54,7 +50,6 @@ class ToolPresenceEvaluatorTest {
         )
         val testCase = EvalTestCase(
             input = "",
-            actualOutput = "",
             actualOutputs = mapOf("toolCalls" to listOf(toolCall("general-venue-information-kotlinconf", "Berlin"))),
             expectedOutputs = mapOf("venue" to "Muenchen")
         )
