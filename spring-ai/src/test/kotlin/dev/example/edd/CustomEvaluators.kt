@@ -4,6 +4,7 @@ import dev.dokimos.core.BaseEvaluator
 import dev.dokimos.core.EvalResult
 import dev.dokimos.core.EvalTestCase
 import dev.dokimos.core.EvalTestCaseParam
+import dev.dokimos.core.agents.ToolCall
 import dev.dokimos.kotlin.core.EvalResult
 import dev.dokimos.kotlin.dsl.DokimosDsl
 import dev.dokimos.kotlin.dsl.evaluators.EvaluatorsDsl
@@ -36,147 +37,81 @@ class ResponseLengthEvaluator(
     }
 }
 
-class ToolCallEvaluator(
-    evaluatorName: String = "ToolCallEvaluator",
+/**
+ * Asserts that one specific named tool was called, tolerant of whatever other tools the agent also
+ * called. Optionally also checks that the tool's result contained an expected value.
+ *
+ * This fills a gap the built-in agent evaluators leave open:
+ *  - `toolCorrectness` set-matches the *entire* call list, so it penalizes any extra legitimate call;
+ *  - `toolTrajectory` matches a full golden name+argument sequence, which an LLM's nondeterministic
+ *    arguments rarely reproduce exactly.
+ *
+ * Prefer a built-in when the exact set or order of calls can be pinned down; reach for this when all
+ * you need is "tool X was used somewhere along the way".
+ *
+ * Reads the recorded calls from the "toolCalls" output key, as produced by [asToolCalls].
+ */
+class ToolPresenceEvaluator(
+    evaluatorName: String,
     private val expectedToolName: String,
-    /** If set, this key is used to look up an expected toolInput value from [EvalTestCase.expectedOutputs]. */
-    private val toolInputKey: String? = null,
-    /** If set, this key is used to look up an expected toolOutput value from [EvalTestCase.expectedOutputs]. */
-    private val toolOutputKey: String? = null
-
-) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.INPUT, EvalTestCaseParam.ACTUAL_OUTPUT)) {
-
+    /** If set, looks up an expected substring in [EvalTestCase.expectedOutputs] and checks the tool result contains it. */
+    private val toolOutputKey: String? = null,
+) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.ACTUAL_OUTPUT)) {
 
     override fun runEvaluation(testCase: EvalTestCase): EvalResult {
-        val outputs = testCase.actualOutputs()
+        val calls = (testCase.actualOutputs()[PARAM_TOOL_CALLS] as? List<*>).orEmpty()
+            .mapNotNull { it.asView() }
 
-        // Expected shape from the task():
-        // "toolCalls" -> List<Map<String, Any>> where map contains keys like "toolName", "toolInput", "toolOutput"
-        val actualToolCalls: List<Map<String, Any?>> = (outputs[PARAM_TOOL_CALLS] as? List<*>)
-            .orEmpty()
-            .mapNotNull { it as? Map<*, *> }
-            .map { it.entries.associate { (k, v) -> k?.toString().orEmpty() to v } }
+        val match = calls.firstOrNull { it.name == expectedToolName }
+        val expectedOutput = toolOutputKey?.let { testCase.expectedOutputs()[it]?.toString() }
+        val outputOk = expectedOutput?.let { match?.result?.contains(it) == true }
 
-        val expectedInput: String? = toolInputKey?.let { key ->
-            testCase.expectedOutputs()[key]?.toString()
+        val score = when {
+            match == null -> 0.0
+            outputOk == false -> 0.0
+            else -> 1.0
         }
-        val expectedOutput: String? = toolOutputKey?.let { key ->
-            testCase.expectedOutputs()[key]?.toString()
-        }
-
-        // Try to find the relevant tool call. If multiple match by name, prefer one that also matches input/output.
-        val matchingByName = actualToolCalls.filter { it[PARAM_TOOL_NAME]?.toString() == expectedToolName }
-        val matchingToolCall: Map<String, Any?>? = when {
-            matchingByName.isEmpty() -> null
-            expectedInput == null && expectedOutput == null -> matchingByName.first()
-            else -> matchingByName.firstOrNull { candidate ->
-                val inputOk = expectedInput?.let { candidate[PARAM_TOOL_INPUT]?.toString() == it } ?: true
-                val outputOk = expectedOutput?.let { candidate[PARAM_TOOL_OUTPUT]?.toString() == it } ?: true
-                inputOk && outputOk
-            } ?: matchingByName.first()
-        }
-
-        val toolNameOk = matchingToolCall != null
-
-        val toolInputOk: Boolean? = expectedInput?.let { expected ->
-            matchingToolCall?.get(PARAM_TOOL_INPUT)?.toString() == expected
-        }
-
-        val toolOutputOk: Boolean? = expectedOutput?.let { expected ->
-            matchingToolCall?.get(PARAM_TOOL_OUTPUT)?.toString() == expected
-        }
-
-        // Score: always include toolName check. Include input/output checks only when expectations were provided.
-        val checks: List<Pair<String, Boolean>> = buildList {
-            add(PARAM_TOOL_NAME to toolNameOk)
-            if (toolInputOk != null) add(PARAM_TOOL_INPUT to toolInputOk)
-            if (toolOutputOk != null) add(PARAM_TOOL_OUTPUT to toolOutputOk)
-        }
-
-        val passed = checks.count { it.second }
-        val total = checks.size
-        val score = if (total == 0) 0.0 else passed.toDouble() / total.toDouble()
-        val success = score >= threshold()
-
-        val actualToolName = matchingToolCall?.get(PARAM_TOOL_NAME)?.toString()
-        val actualToolInput = matchingToolCall?.get(PARAM_TOOL_INPUT)?.toString()
-        val actualToolOutput = matchingToolCall?.get(PARAM_TOOL_OUTPUT)?.toString()
-
-        val failedChecks = checks.filterNot { it.second }.map { it.first }
-
         val reason = buildString {
-            append("checks=").append(passed).append("/").append(total)
-            if (failedChecks.isNotEmpty()) append(", failed=").append(failedChecks)
-            append(", expectedToolName='").append(expectedToolName).append("'")
-            append(", actualToolName='").append(actualToolName).append("'")
-            if (expectedInput != null) {
-                append(", expectedToolInput='").append(expectedInput).append("'")
-                append(", actualToolInput='").append(actualToolInput).append("'")
-            }
-            if (expectedOutput != null) {
-                append(", expectedToolOutput='").append(expectedOutput).append("'")
-                append(", actualToolOutput='").append(actualToolOutput).append("'")
-            }
+            append(if (match != null) "Tool '$expectedToolName' was called" else "Tool '$expectedToolName' was NOT called")
+            append(" (calls: ${calls.joinToString { it.name }.ifEmpty { "none" }})")
+            if (expectedOutput != null) append("; expected output '$expectedOutput' present=$outputOk")
         }
-
-        val metadata: Map<String, Any> = buildMap {
-            put("expectedToolName", expectedToolName)
-            actualToolName?.let { put("actualToolName", it) }
-            expectedInput?.let { put("expectedToolInput", it) }
-            actualToolInput?.let { put("actualToolInput", it) }
-            expectedOutput?.let { put("expectedToolOutput", it) }
-            actualToolOutput?.let { put("actualToolOutput", it) }
-            put("passedChecks", passed)
-            put("totalChecks", total)
-            put("failedChecks", failedChecks)
-            put("toolCallsCount", actualToolCalls.size)
-        }
-
         return EvalResult(
-            name(),
-            score,
-            threshold(),
-            success,
-            reason,
-            metadata
+            name(), score, threshold(), score >= threshold(), reason,
+            mapOf("expectedToolName" to expectedToolName, "calledTools" to calls.map { it.name }),
         )
     }
 
+    private data class View(val name: String, val result: String?)
+
+    private fun Any?.asView(): View? = when (this) {
+        is ToolCall -> View(name(), result())
+        is Map<*, *> -> (this["name"] ?: this["toolName"])?.toString()
+            ?.let { View(it, (this["result"] ?: this["toolOutput"])?.toString()) }
+        else -> null
+    }
 
     companion object {
         const val PARAM_TOOL_CALLS = "toolCalls"
-        const val PARAM_TOOL_NAME = "toolName"
-        const val PARAM_TOOL_INPUT = "toolInput"
-        const val PARAM_TOOL_OUTPUT = "toolOutput"
     }
 }
 
 @DokimosDsl
-class ToolCallEvaluatorDsl {
-
-    var name: String = "ToolCallEvaluator"
-
+class ToolPresenceEvaluatorDsl {
+    var name: String = "Tool Presence"
     var expectedToolName: String? = null
-    var toolInputKey: String? = null
     var toolOutputKey: String? = null
 
-    fun build(): ToolCallEvaluator {
-        val expectedName = requireNotNull(expectedToolName) {
-            "expectedToolName must be provided"
-        }
-
-        return ToolCallEvaluator(
-            evaluatorName = name,
-            expectedToolName = expectedName,
-            toolInputKey = toolInputKey,
-            toolOutputKey = toolOutputKey
-        )
-    }
+    fun build(): ToolPresenceEvaluator = ToolPresenceEvaluator(
+        evaluatorName = name,
+        expectedToolName = requireNotNull(expectedToolName) { "expectedToolName must be provided" },
+        toolOutputKey = toolOutputKey
+    )
 }
 
-/** Convenience builder for creating a [ToolCallEvaluator] with a Kotlin DSL block. */
-fun EvaluatorsDsl.toolCallEvaluator(block: ToolCallEvaluatorDsl.() -> Unit) {
-    evaluator(ToolCallEvaluatorDsl().apply(block).build())
+/** Convenience builder for creating a [ToolPresenceEvaluator] with a Kotlin DSL block. */
+fun EvaluatorsDsl.toolPresence(block: ToolPresenceEvaluatorDsl.() -> Unit) {
+    evaluator(ToolPresenceEvaluatorDsl().apply(block).build())
 }
 
 class ContainsEvaluator(
