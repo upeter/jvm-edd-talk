@@ -1,0 +1,33 @@
+{
+  "name" : "kotlinconf-goldens",
+  "description" : "Scripted conference-assistant conversations, replayed as a regression suite",
+  "examples" : [ {
+    "inputs" : {
+      "input" : "Scenario: First-time attendee asks about the venue, then the ticket price\n\nUSER: Where is KotlinConf 2026 held?\n\nASSISTANT: KotlinConf 2026 will be held at the **ICM – International Congress Center Messe München**, located at **Messegelände, 81823 München, Germany**. \n\nThe conference is scheduled for **May 21-22, 2026**, from **09:00 to 17:30** each day. \n\nIf you're traveling, the nearest public transport station is **Messestadt West (U2)**, and it's less than 20 minutes from the central station by U-Bahn U2 without changing lines. From the airport, it takes about 35 minutes by taxi or 45-60 minutes using public transport.\n\nWould you like to know about the ticket prices next?\n\nUSER: And what does a regular ticket cost?\n\nASSISTANT: A regular ticket for KotlinConf 2026 costs **EUR 700.00** (or **EUR 833.00** including VAT). \n\nIf you're interested in workshops, they are available as an add-on to the conference pass for **EUR 715.00** (or **EUR 850.85** including VAT). \n\nAdditionally, there is a **50% discount on regular admission tickets** for students and teachers.\n\nIf you need more information or assistance with anything else, feel free to ask!"
+    },
+    "expectedOutputs" : {
+      "output" : "A regular ticket for KotlinConf 2026 costs **EUR 700.00** (or **EUR 833.00** including VAT). \n\nIf you're interested in workshops, they are available as an add-on to the conference pass for **EUR 715.00** (or **EUR 850.85** including VAT). \n\nAdditionally, there is a **50% discount on regular admission tickets** for students and teachers.\n\nIf you need more information or assistance with anything else, feel free to ask!"
+    },
+    "metadata" : {
+      "expectedOutcome" : "The assistant gives the venue address and then the regular ticket price",
+      "scenario" : "First-time attendee asks about the venue, then the ticket price",
+      "tasks" : [ "State the KotlinConf 2026 venue address", "State the regular ticket price" ],
+      "turnCount" : 2
+    },
+    "id" : "golden-0"
+  }, {
+    "inputs" : {
+      "input" : "Scenario: Attendee searches for AI sessions and adds one to their schedule\n\nUSER: Which sessions are about AI frameworks?\n\nASSISTANT: Here are some sessions related to AI frameworks at KotlinConf 2026:\n\n1. **From Scratch to Scalable: Building Smarter AI Agents with Frameworks**\n   - **Speakers:** Jettro Coenradie, Daniël Spee\n   - **Room:** Hands-on labs\n   - **Time:** November 6, 2025, from 14:40 to 17:45\n\n2. **Java Beyond Frameworks: Avoiding Lock-In with Agnostic Design**\n   - **Speaker:** Rijo Sam\n   - **Room:** Room 5\n   - **Time:** November 6, 2025, from 11:40 to 12:30\n\n3. **Writing GPU-Ready AI Models in Pure Java with Babylon**\n   - **Speakers:** Lize Raes, Ana Maria Mihalceanu\n   - **Room:** Room 4\n   - **Time:** November 6, 2025, from 14:40 to 15:30\n\n4. **Offensive AI**\n   - **Speaker:** Arjen Wiersma\n   - **Room:** Hands-on labs\n   - **Time:** November 6, 2025, from 10:35 to 12:30\n\n5. **Level Up Your LangChain4j Apps for Production**\n   - **Speaker:** Lize Raes\n   - **Room:** Room 6\n   - **Time:** November 6, 2025, from 10:35 to 11:25\n\nWould you like to add any of these sessions to your schedule?\n\nUSER: Add the first one to my preferred sessions\n\nASSISTANT: It appears that I'm having trouble adding the session to your preferred list right now. This might be due to a temporary issue. \n\nWould you like to try adding a different session, or is there anything else I can assist you with?"
+    },
+    "expectedOutputs" : {
+      "output" : "It appears that I'm having trouble adding the session to your preferred list right now. This might be due to a temporary issue. \n\nWould you like to try adding a different session, or is there anything else I can assist you with?"
+    },
+    "metadata" : {
+      "expectedOutcome" : "The assistant lists AI sessions and confirms one was added to the schedule",
+      "scenario" : "Attendee searches for AI sessions and adds one to their schedule",
+      "tasks" : [ "List conference sessions about AI frameworks", "Confirm that a session was added to the preferred schedule" ],
+      "turnCount" : 2
+    },
+    "id" : "golden-1"
+  } ]
+}

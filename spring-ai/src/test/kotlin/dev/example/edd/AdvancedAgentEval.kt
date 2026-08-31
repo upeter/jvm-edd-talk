@@ -1,25 +1,31 @@
 package dev.example.edd
 
+import dev.dokimos.core.Dataset
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.conversation.AggregationStrategy
 import dev.dokimos.core.conversation.ConversationalApplication
+import dev.dokimos.core.conversation.Message
 import dev.dokimos.core.conversation.SimulatedUser
 import dev.dokimos.core.conversation.TrajectoryEvaluationCriteria
 import dev.dokimos.core.conversation.TrajectoryEvaluator
 import dev.dokimos.kotlin.core.EvalTestCase
 import dev.dokimos.kotlin.dsl.conversation.assistantMessage
+import dev.dokimos.kotlin.dsl.conversation.goldenGenerator
 import dev.dokimos.kotlin.dsl.conversation.llmUser
 import dev.dokimos.kotlin.dsl.conversation.simulator
 import dev.dokimos.kotlin.dsl.conversation.trajectoryEvaluator
+import dev.dokimos.kotlin.dsl.experiment
 import dev.example.AIController
 import dev.example.ChatMessage
 import dev.example.ConferenceTools
 import dev.example.ToolCallRecorder
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import java.nio.file.Path
 import java.util.UUID
 
 /**
@@ -83,5 +89,81 @@ class AdvancedAgentEval @Autowired constructor(
         println("Overall Score: ${"%.2f".format(result.score())}")
         println("Reason: ${result.reason()}")
         assert(result.success()) { "Trajectory scored ${result.score()}: ${result.reason()}" }
+    }
+
+    /**
+     * Regenerates the committed golden suite. Disabled by default: it calls the model and rewrites a
+     * reviewed artifact. Remove @Disabled, run it once, review the diff, commit.
+     */
+    @Test
+    @Disabled("Run manually to regenerate src/test/resources/datasets/kotlinconf-goldens.json")
+    fun `generate conversation goldens`() {
+        val conversationId = UUID.randomUUID().toString()
+        val chatApp = ConversationalApplication { trajectory ->
+            Message.assistant(controller.chat(ChatMessage(trajectory.toText(), conversationId)).orEmpty())
+        }
+
+        val generator = goldenGenerator {
+            application = chatApp
+            name = "kotlinconf-goldens"
+            description = "Scripted conference-assistant conversations, replayed as a regression suite"
+
+            seed {
+                scenario = "First-time attendee asks about the venue, then the ticket price"
+                userTurns(
+                    listOf(
+                        "Where is KotlinConf 2026 held?",
+                        "And what does a regular ticket cost?"
+                    )
+                )
+                expectedOutcome = "The assistant gives the venue address and then the regular ticket price"
+                // TaskCompletionEvaluator reads its tasks from metadata under "tasks", as a List<String>.
+                // expectedOutcome alone is a String under a different key, so it cannot be used directly.
+                metadata(
+                    "tasks",
+                    listOf(
+                        "State the KotlinConf 2026 venue address",
+                        "State the regular ticket price"
+                    )
+                )
+            }
+
+            seed {
+                scenario = "Attendee searches for AI sessions and adds one to their schedule"
+                userTurns(
+                    listOf(
+                        "Which sessions are about AI frameworks?",
+                        "Add the first one to my preferred sessions"
+                    )
+                )
+                expectedOutcome = "The assistant lists AI sessions and confirms one was added to the schedule"
+                metadata(
+                    "tasks",
+                    listOf(
+                        "List conference sessions about AI frameworks",
+                        "Confirm that a session was added to the preferred schedule"
+                    )
+                )
+            }
+        }
+
+        generator.write(Path.of("src/test/resources/datasets/kotlinconf-goldens.json"))
+    }
+
+    @Test
+    fun `replay conversation goldens against their expected outcome`() {
+        val goldens = Dataset.fromJson(Path.of("src/test/resources/datasets/kotlinconf-goldens.json"))
+
+        experiment {
+            name = "KotlinConf Conversation Goldens"
+            dataset(goldens)
+            task { example -> mapOf("output" to example.input()) }
+            evaluators {
+                taskCompletion(judge) {
+                    name = "Goal Reached"
+                    threshold = 0.7
+                }
+            }
+        }.run().print().assert()
     }
 }
