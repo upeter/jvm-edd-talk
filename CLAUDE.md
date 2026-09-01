@@ -12,7 +12,7 @@ revealed one at a time on stage. Preserve that spacing.
 
 Offline Dokimos documentation and the upstream Claude Code eval skills are vendored in
 [`docs/dokimos/`](docs/dokimos/README.md) — consult those before guessing at the Dokimos API.
-Note the version skew: this repo pins `dokimos.version = 0.22.0`, the vendored docs track upstream `main`.
+This repo pins `dokimos.version = 0.27.0`; the vendored docs track upstream `main` (currently `0.28.0-SNAPSHOT`).
 
 ## Commands
 
@@ -88,18 +88,33 @@ Terminal operations differ in meaning and are not interchangeable:
   `severityMargin` (0.15), so within-threshold noise does not flake the build. Re-baseline an
   intended change with `DOKIMOS_UPDATE_BASELINE=true ./mvnw test` (the `-D` property is unreliable
   through the IntelliJ runner).
-- `.print()` — the human-readable console report in `EDDUtils.kt`, used for the live demo.
+- `.print()` — the human-readable console report in `EddEvalSupport.kt`, used for the live demo.
 
 `ChatEval` also demonstrates multi-turn agent evaluation: `llmUser` (a persona-driven `SimulatedUser`)
 + `simulator { ... }.simulate()` produces a trajectory, scored by a `trajectoryEvaluator` with
 weighted `TrajectoryEvaluationCriteria`.
 
+**3b. Advanced agent evaluation: multi-turn trajectories and golden datasets** (`AdvancedAgentEval.kt`)
+
+Built on 0.27 features: tool-aware trajectory scoring via `trajectoryEvaluator` with `toolCorrectness`
+criteria, golden dataset generation via `GoldenGenerator`, and golden replay via `TaskCompletionEvaluator`.
+**New eval methods go here, never into `ChatEval.kt`** — the latter's method order and spacing is a
+stage-reveal sequence for the live talk.
+
+**Permanently red test:** `AdvancedAgentEval#replay conversation goldens against their expected outcome`
+is deliberately failing. It caught a real app bug in `ConferenceTools.addPreferenceSessions` →
+`SessionPreferenceRepository.findBySessionTitle`'s title-matching logic (confirmed deterministic across
+multiple LLM models). The product owner explicitly chose to keep this test red as talk material
+demonstrating EDD catching a real bug. **Do not "fix" this test by editing the golden data, adjusting
+thresholds, or patching the bug without explicit direction.**
+
 **4. Custom evaluators** (`CustomEvaluators.kt`)
 
 Domain evaluators are written as a triple: an `Evaluator` class, a `...Dsl` builder, and an
 `EvaluatorsDsl.xxx { }` extension function that registers it — follow that pattern when adding one.
-`ToolCallEvaluator` (was an expected tool called), `ContainsEvaluator` (substring/expected match),
-`StartedSessionOverlapEvaluator` (domain rule: never schedule a session that already started).
+`ToolPresenceEvaluator` (tool set-matches the whole tool call list via `toolCorrectness` scores),
+`ContainsEvaluator` (substring/expected match), `StartedSessionOverlapEvaluator` (domain rule: never
+schedule a session that already started).
 
 **5. Production feedback → new eval cases** (`langfuse/`, `src/notebooks/`)
 
@@ -114,9 +129,11 @@ consume — real-world failures become eval dataset entries.
 - Kotlin backtick test names throughout; Kotest matchers (`shouldHaveSize`, `assertSoftly`, `withClue`)
   for plain assertions, Dokimos evaluators for LLM output.
 - The judge model is built with `SpringAiSupport.asJudge(builder)` from the injected `ChatClient.Builder`.
-- Model config lives in `application.properties` (`gpt-5-chat-latest`, temperature 0.4). Both are
-  baseline hazards the Dokimos docs call out: a floating model alias and a non-zero judge temperature
-  make recorded scores drift for reasons unrelated to the code. Regenerate baselines deliberately,
-  never to make a build go green.
-- Only `baselines/tone-evals.json` is currently committed, and no eval gates against it today —
-  `ChatEval` gates `"rag"` and asserts directly elsewhere. Treat it as a leftover, not a live gate.
+- Model config lives in `application.properties` (temperature 0.4). Judge temperature is a
+  baseline hazard the Dokimos docs call out: a non-zero judge temperature makes recorded scores drift
+  for reasons unrelated to the code. Regenerate baselines deliberately, never to make a build go green.
+  **Note:** The model alias `gpt-5-chat-latest` in `application.properties` is deprecated by OpenAI;
+  real evals require a manual `-Dspring.ai.openai.chat.options.model=<current-model>` override at test time
+  (e.g., `gpt-4o-mini`). This is not part of the Dokimos upgrade.
+- The `baselines/rag.json` regression baseline is committed and the `.assertNoRegression("rag")`
+  gate in `ChatEval` is live.

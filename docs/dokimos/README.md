@@ -3,9 +3,9 @@
 Offline copy of the [dokimos](https://github.com/dokimos-dev/dokimos) documentation and
 Claude Code eval skills, for use while building the eval-driven development talk.
 
-- Upstream: `dokimos-dev/dokimos` @ `279c868` (2026-08-19), project version `0.28.0-SNAPSHOT`
-- Version used in this repo: `dokimos.version = 0.22.0` (`spring-ai/pom.xml`) — the docs
-  below track upstream `main`, so check `reference/changelog.mdx` before assuming an API exists in 0.22.0.
+- Upstream: `dokimos-dev/dokimos` @ `main`, project version `0.28.0-SNAPSHOT`
+- Version used in this repo: `dokimos.version = 0.27.0` (`spring-ai/pom.xml`) — the docs
+  below track upstream `main`.
 
 To refresh: re-clone upstream and re-copy `docs/docs/` → `reference/`, `plugins/*/skills/*/SKILL.md` → `agent-skills/`.
 
