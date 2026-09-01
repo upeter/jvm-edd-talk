@@ -112,7 +112,8 @@ thresholds, or patching the bug without explicit direction.**
 
 Domain evaluators are written as a triple: an `Evaluator` class, a `...Dsl` builder, and an
 `EvaluatorsDsl.xxx { }` extension function that registers it — follow that pattern when adding one.
-`ToolPresenceEvaluator` (tool set-matches the whole tool call list via `toolCorrectness` scores),
+`ToolPresenceEvaluator` (was a specific tool called, tolerant of extra calls; fills the gap where
+`toolCorrectness` set-matches the entire call list and penalizes any extra),
 `ContainsEvaluator` (substring/expected match), `StartedSessionOverlapEvaluator` (domain rule: never
 schedule a session that already started).
 
