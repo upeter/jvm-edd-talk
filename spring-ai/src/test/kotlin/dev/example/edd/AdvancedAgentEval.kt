@@ -72,6 +72,10 @@ class AdvancedAgentEval @Autowired constructor(
         println("=== Conversation ===")
         println(trajectory.toText())
 
+        assert(trajectory.toolCalls().isNotEmpty()) {
+            "Expected the trajectory to carry at least one tool call, but none were recorded"
+        }
+
         val evaluator: TrajectoryEvaluator = trajectoryEvaluator(judge) {
             name = "Tool-Aware Schedule Trajectory"
             threshold = 0.7

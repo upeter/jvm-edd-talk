@@ -151,7 +151,7 @@ class ChatEval @Autowired constructor(
 
             task { example ->
                 toolCallbackRecorder.clear()
-                val sessionId = "1212121212"
+                val sessionId = UUID.randomUUID().toString()
                 val prompt = example.input()
                 val response = controller.chat(ChatMessage(prompt, sessionId))!!
 

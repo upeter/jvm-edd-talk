@@ -79,7 +79,7 @@ The map returned by `task` is the contract with the evaluators — evaluators re
 evaluator usually means adding a key to the task's output map.
 
 Terminal operations differ in meaning and are not interchangeable:
-- `.assert()` — local `ExperimentResult` extension in `ChatEval.kt`; fails on any failing item.
+- `.assert()` — local `ExperimentResult` extension in `EddEvalSupport.kt`; fails on any failing item.
 - `.assertNoRegression("rag")` — Dokimos server-free regression gate. The name resolves
   `src/test/resources/dokimos/baselines/<name>.json` (relative to the module dir under Surefire);
   omitting it falls back to the experiment name. The first local run scaffolds the baseline and
@@ -96,17 +96,31 @@ weighted `TrajectoryEvaluationCriteria`.
 
 **3b. Advanced agent evaluation: multi-turn trajectories and golden datasets** (`AdvancedAgentEval.kt`)
 
-Built on 0.27 features: tool-aware trajectory scoring via `trajectoryEvaluator` with `toolCorrectness`
-criteria, golden dataset generation via `GoldenGenerator`, and golden replay via `TaskCompletionEvaluator`.
+Built on 0.27 features: trajectory scoring via `trajectoryEvaluator` with `goalCompletion` and
+`helpfulness` criteria (the test also asserts directly on `trajectory.toolCalls()` to verify the
+trajectory actually carries the tool calls the agent made), golden dataset generation via
+`GoldenGenerator`, and golden replay via `TaskCompletionEvaluator`.
 **New eval methods go here, never into `ChatEval.kt`** — the latter's method order and spacing is a
 stage-reveal sequence for the live talk.
 
-**Permanently red test:** `AdvancedAgentEval#replay conversation goldens against their expected outcome`
-is deliberately failing. It caught a real app bug in `ConferenceTools.addPreferenceSessions` →
-`SessionPreferenceRepository.findBySessionTitle`'s title-matching logic (confirmed deterministic across
-multiple LLM models). The product owner explicitly chose to keep this test red as talk material
-demonstrating EDD catching a real bug. **Do not "fix" this test by editing the golden data, adjusting
-thresholds, or patching the bug without explicit direction.**
+**Permanently red tests:** two evals in this file are deliberately failing because of the same
+underlying app bug in `ConferenceTools.addPreferenceSessions` →
+`SessionPreferenceRepository.findBySessionTitle`'s title-matching logic (confirmed deterministic
+across multiple LLM models — this is not flakiness). The product owner explicitly chose to keep
+both red as talk material demonstrating EDD catching a real bug, from two angles. **Do not "fix"
+either test by editing goldens, adjusting thresholds, weakening assertions, or patching the bug
+without explicit direction.**
+
+- `` `multiturn trajectory carries the tool calls the agent made`() `` — the simulated user's persona
+  pushes toward adding sessions to the schedule; when the agent hits the bug, Goal Completion scores
+  ~0.5 and the trajectory's overall score falls below the 0.7 threshold. The `trajectory.toolCalls()`
+  assertion earlier in the test still passes (it only checks that tool calls were captured, not that
+  they succeeded) — only the final `result.success()` check fails, and only because of this bug.
+- `` `replay conversation goldens against their expected outcome`() `` — re-grades a frozen golden
+  transcript (`mapOf("output" to example.input())`) rather than re-running the app, so fixing
+  `findBySessionTitle` elsewhere will **not** turn it green on its own; the golden would need
+  regenerating (via the `@Disabled` `` `generate conversation goldens`() `` method) once the bug is
+  fixed.
 
 **4. Custom evaluators** (`CustomEvaluators.kt`)
 
