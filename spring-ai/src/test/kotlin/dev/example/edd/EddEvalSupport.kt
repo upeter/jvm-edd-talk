@@ -11,6 +11,8 @@ import dev.example.AIController
 import dev.example.CapturedToolCall
 import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
 import org.springframework.ai.chat.client.ChatClient
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 private val toolArgsMapper = ObjectMapper()
 
@@ -30,6 +32,29 @@ fun List<CapturedToolCall>.asToolCalls(): List<ToolCall> = map { call ->
     }.getOrDefault(emptyMap())
     ToolCall.builder().name(call.toolName).arguments(arguments).result(call.output).build()
 }
+
+/**
+ * The zone the session corpus is expressed in.
+ *
+ * Two clocks coexist in this app and they are easy to confuse:
+ *  - `ConferenceSession.startsAt` (and the seeded `talks.sql` `startsAt`) is a true UTC instant;
+ *  - `startsAtLocalDateTime`, which is what the agent actually sees via `searchSessions`, is that
+ *    instant rendered as conference-local wall-clock time, with no offset suffix.
+ *
+ * The seed data bakes the offset at UTC+2, so an eval that pins a "current time" must state which
+ * clock it means. Writing the prompt's local time with a `Z` suffix silently shifts it by two hours
+ * and makes time-based evaluators judge the agent against a clock it never saw.
+ */
+val CONFERENCE_ZONE: ZoneId = ZoneId.of("Europe/Berlin")
+
+/**
+ * Converts a conference-local wall-clock time — the same one the eval prompt states in prose — into
+ * the UTC instant that evaluators compare `startsAt` against.
+ *
+ * Use this instead of hand-writing an instant, so the prompt and the metadata cannot drift apart.
+ */
+fun conferenceLocalTime(localDateTime: String): String =
+    LocalDateTime.parse(localDateTime).atZone(CONFERENCE_ZONE).toInstant().toString()
 
 /** Expected tool calls for the name-based matchers — only the names matter. */
 fun expectedToolCalls(vararg names: String): List<Map<String, Any>> = names.map { mapOf("name" to it) }
@@ -51,7 +76,7 @@ fun conferenceToolDefinitions(controller: AIController): List<ToolDefinition> =
     SpringAiSupport.toToolDefinitions(controller.interceptedTools.map { it.toolDefinition })
 
 /** Fails the test if any run produced a failing item result. */
-fun ExperimentResult.assert() {
+fun ExperimentResult.assert():ExperimentResult = apply {
     runResults.filter { it.failCount() > 0 }.takeIf { it.isNotEmpty() }?.let {
         fail(it.joinToString { it.itemResults().joinToString("\n") })
     }
@@ -81,6 +106,10 @@ fun ExperimentResult.print()  = apply{   // 6. Display results
         println("Scores:")
         item.evalResults().forEach { eval ->
             println("  • ${eval.name()}: ${"%.2f".format(eval.score())}${if (eval.success()) " ✅" else " ❌"}")
+            // Only failures explain themselves — a passing run stays readable on stage.
+            if (!eval.success()) {
+                eval.reason()?.lineSequence()?.forEach { println("      $it") }
+            }
         }
         println("- - ".repeat(20))
     }

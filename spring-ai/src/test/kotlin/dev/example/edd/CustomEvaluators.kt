@@ -9,7 +9,10 @@ import dev.dokimos.kotlin.core.EvalResult
 import dev.dokimos.kotlin.dsl.DokimosDsl
 import dev.dokimos.kotlin.dsl.evaluators.EvaluatorsDsl
 import dev.example.ConferenceSession
+import java.time.Duration
 import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 class ResponseLengthEvaluator(
     private val minLength: Int,
@@ -161,48 +164,168 @@ fun EvaluatorsDsl.contains(block: ContainsEvaluatorDsl.() -> Unit) {
 class StartedSessionOverlapEvaluator(
     evaluatorName: String = "Started Session Overlap",
     private val preferredSessionsKey: String = "preferredSessions",
-    private val currentTimeKey: String = "currentTime"
+    private val currentTimeKey: String = "currentTime",
+    private val zone: ZoneId = CONFERENCE_ZONE,
 ) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.ACTUAL_OUTPUT)) {
 
     override fun runEvaluation(testCase: EvalTestCase): EvalResult {
         val outputs = testCase.actualOutputs()
-        val currentTimeValue = outputs[currentTimeKey]?.toString()
-        val currentTime = currentTimeValue?.let { Instant.parse(it) }
-            ?: return overlapEvalResult(0.0, "Missing current time in '$currentTimeKey'.", emptyMap())
-        val preferredSessions = ((outputs[preferredSessionsKey] as? Iterable<*>) ?: emptyList<Any>())
-            .mapNotNull { it.asSessionForOverlap() }
-        val startedSessions = preferredSessions.filter { Instant.parse(it.startsAt).isBefore(currentTime) }
-        val score = if (startedSessions.isEmpty()) 1.0 else 0.0
-        val reason = if (startedSessions.isEmpty()) {
-            "No already-started sessions were added to preferences."
-        } else {
-            "Already-started sessions were added: ${startedSessions.joinToString { "${it.startsAt} - ${it.title}" }}"
-        }
-        val metadata: Map<String, Any> = mapOf(
-            "currentTime" to currentTime.toString(),
-            "preferredSessionsCount" to preferredSessions.size,
-            "startedSessionsCount" to startedSessions.size,
-            "startedSessions" to startedSessions.map { mapOf("startsAt" to it.startsAt, "title" to it.title) }
-        )
 
-        return EvalResult(
-            name(),
-            score,
-            threshold(),
-            score >= threshold(),
-            reason,
-            metadata
+        val currentTimeRaw = outputs[currentTimeKey]?.toString()
+            ?: return diagnostic(
+                score = 0.0,
+                headline = "Cannot evaluate — the task returned no '$currentTimeKey' output key.",
+                details = listOf(
+                    "Add the evaluation clock to the map the task returns, e.g. " +
+                        "\"$currentTimeKey\" to example.metadata().getValue(\"$currentTimeKey\").",
+                    "Keys the task did return: ${outputs.keys.describe()}.",
+                ),
+                metadata = mapOf("availableOutputKeys" to outputs.keys.toList()),
+            )
+
+        val currentTime = runCatching { Instant.parse(currentTimeRaw) }.getOrElse { failure ->
+            return diagnostic(
+                score = 0.0,
+                headline = "Cannot evaluate — '$currentTimeKey' is not an ISO-8601 instant.",
+                details = listOf(
+                    "Value was \"$currentTimeRaw\" (${failure.message}).",
+                    "Expected a UTC instant such as 2026-05-22T11:30:00Z. A conference-local " +
+                        "wall-clock time has to be converted first — see conferenceLocalTime().",
+                ),
+                metadata = mapOf("currentTimeRaw" to currentTimeRaw),
+            )
+        }
+        val nowLabel = "$currentTime (${currentTime.asLocal()} local, ${zone.id})"
+
+        val rawEntries = outputs[preferredSessionsKey]
+        if (rawEntries !is Iterable<*>) {
+            return diagnostic(
+                score = 0.0,
+                headline = "Cannot evaluate — '$preferredSessionsKey' is " +
+                    if (rawEntries == null) "missing from the task output." else "not a collection.",
+                details = listOfNotNull(
+                    rawEntries?.let { "Got ${it::class.simpleName} instead: ${it.toString().take(120)}." },
+                    "The task must return the sessions that ended up on the schedule, e.g. " +
+                        "\"$preferredSessionsKey\" to sessionPreferenceRepository.getPreferredSessionsBy(conversationId).",
+                    "Keys the task did return: ${outputs.keys.describe()}.",
+                ),
+                metadata = mapOf("availableOutputKeys" to outputs.keys.toList()),
+            )
+        }
+
+        val entries = rawEntries.toList()
+        val unreadable = entries.filter { it.asSessionForOverlap() == null }
+        val parsed = entries.mapNotNull { it.asSessionForOverlap() }
+            .map { session -> session to runCatching { Instant.parse(session.startsAt) }.getOrNull() }
+        val undated = parsed.filter { it.second == null }.map { it.first }
+        val dated = parsed.mapNotNull { (session, startsAt) -> startsAt?.let { session to it } }
+        val (upcoming, started) = dated.sortedBy { it.second }.partition { !it.second.isBefore(currentTime) }
+
+        val score = if (started.isEmpty()) 1.0 else 0.0
+        val headline = when {
+            started.isNotEmpty() ->
+                "${started.size} of ${dated.size} preferred session(s) had already started at $nowLabel."
+            dated.isEmpty() ->
+                "Nothing was added to the schedule, so this rule passes vacuously — check the " +
+                    "tool-call evaluators to see whether the agent was supposed to add anything."
+            else ->
+                "All ${dated.size} preferred session(s) start at or after $nowLabel."
+        }
+
+        val details = buildList {
+            if (started.isNotEmpty()) {
+                add("Violations — already under way when the user asked:")
+                started.forEach { (session, startsAt) ->
+                    add(
+                        "  • started ${Duration.between(startsAt, currentTime).humanize()} earlier" +
+                            " — $startsAt (${startsAt.asLocal()} local) — \"${session.title}\"",
+                    )
+                }
+            }
+            if (upcoming.isNotEmpty()) {
+                add("Correctly still upcoming (${upcoming.size}), earliest first:")
+                upcoming.take(MAX_LISTED).forEach { (session, startsAt) ->
+                    add("  • $startsAt (${startsAt.asLocal()} local) — \"${session.title}\"")
+                }
+                if (upcoming.size > MAX_LISTED) add("  • … and ${upcoming.size - MAX_LISTED} more")
+            }
+            if (unreadable.isNotEmpty()) {
+                add(
+                    "⚠ ${unreadable.size} entry/entries under '$preferredSessionsKey' were not recognised as " +
+                        "sessions and could not be checked: " +
+                        unreadable.take(MAX_LISTED).joinToString { it.toString().take(80) },
+                )
+            }
+            if (undated.isNotEmpty()) {
+                add(
+                    "⚠ ${undated.size} session(s) had an unparsable startsAt and could not be checked: " +
+                        undated.take(MAX_LISTED).joinToString { "\"${it.title}\" (startsAt=\"${it.startsAt}\")" },
+                )
+            }
+            if (started.isNotEmpty()) {
+                add(
+                    "If these look like sessions the agent was right to pick, check the clocks before the " +
+                        "agent: '$currentTimeKey' must be a UTC instant, while the agent sees " +
+                        "startsAtLocalDateTime in ${zone.id}. A local time written with a Z suffix shifts " +
+                        "every comparison by the zone offset.",
+                )
+            }
+        }
+
+        return diagnostic(
+            score = score,
+            headline = headline,
+            details = details,
+            metadata = mapOf(
+                "currentTime" to currentTime.toString(),
+                "currentTimeLocal" to currentTime.asLocal(),
+                "zone" to zone.id,
+                "preferredSessionsCount" to dated.size,
+                "startedSessionsCount" to started.size,
+                "startedSessions" to started.map { (session, startsAt) ->
+                    mapOf(
+                        "startsAt" to session.startsAt,
+                        "startsAtLocal" to startsAt.asLocal(),
+                        "minutesLate" to Duration.between(startsAt, currentTime).toMinutes(),
+                        "title" to session.title,
+                    )
+                },
+                "upcomingSessions" to upcoming.map { (session, startsAt) ->
+                    mapOf("startsAt" to session.startsAt, "startsAtLocal" to startsAt.asLocal(), "title" to session.title)
+                },
+                "uncheckedEntryCount" to (unreadable.size + undated.size),
+            ),
         )
     }
 
-    private fun overlapEvalResult(score: Double, reason: String, metadata: Map<String, Any>): EvalResult = EvalResult(
+    /** One [EvalResult] shape for every outcome, so a failure always explains itself over several lines. */
+    private fun diagnostic(
+        score: Double,
+        headline: String,
+        details: List<String> = emptyList(),
+        metadata: Map<String, Any> = emptyMap(),
+    ): EvalResult = EvalResult(
         name(),
         score,
         threshold(),
         score >= threshold(),
-        reason,
-        metadata
+        (listOf(headline) + details).joinToString("\n"),
+        metadata,
     )
+
+    private fun Instant.asLocal(): String = LOCAL_FORMAT.format(atZone(zone))
+
+    private fun Duration.humanize(): String {
+        val hours = toHours()
+        val minutes = toMinutes() % 60
+        return when {
+            hours > 0L && minutes > 0L -> "${hours}h${minutes}m"
+            hours > 0L -> "${hours}h"
+            else -> "${minutes}m"
+        }
+    }
+
+    private fun Set<String>.describe(): String = sorted().joinToString().ifEmpty { "none" }
 
     private fun Any?.asSessionForOverlap(): SessionForOverlap? = when (this) {
         is ConferenceSession -> SessionForOverlap(title, startsAt)
@@ -215,6 +338,11 @@ class StartedSessionOverlapEvaluator(
     }
 
     private data class SessionForOverlap(val title: String, val startsAt: String)
+
+    companion object {
+        private const val MAX_LISTED = 5
+        private val LOCAL_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+    }
 }
 
 @DokimosDsl
@@ -223,10 +351,14 @@ class StartedSessionOverlapEvaluatorDsl {
     var preferredSessionsKey: String = "preferredSessions"
     var currentTimeKey: String = "currentTime"
 
+    /** The zone the agent's `startsAtLocalDateTime` values are rendered in, used for readable failure output. */
+    var zone: ZoneId = CONFERENCE_ZONE
+
     fun build(): StartedSessionOverlapEvaluator = StartedSessionOverlapEvaluator(
         evaluatorName = name,
         preferredSessionsKey = preferredSessionsKey,
-        currentTimeKey = currentTimeKey
+        currentTimeKey = currentTimeKey,
+        zone = zone,
     )
 }
 
