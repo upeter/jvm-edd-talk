@@ -4,6 +4,7 @@ import dev.dokimos.core.Assertions
 import dev.dokimos.core.ExperimentResult
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.conversation.AggregationStrategy
+import dev.dokimos.core.conversation.ConversationTrajectory
 import dev.dokimos.core.conversation.ConversationalApplication
 import dev.dokimos.core.conversation.Message
 import dev.dokimos.core.conversation.SimulatedUser
@@ -20,7 +21,9 @@ import dev.example.ChatMessage
 import dev.example.ConferenceTools
 import dev.example.ConferenceTools.Companion.TOOL_ADD_PREFERRED_SESSIONS
 import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
+import dev.example.ConferenceTools.Companion.TOOL_GENERAL_SESSION_INFORMATION_KOTLINCONF
 import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF
+import dev.example.ConferenceTools.Companion.TOOL_GET_PREFERRED_SESSIONS
 import dev.example.SessionPreferenceRepository
 import dev.example.ToolCallRecorder
 import io.kotest.assertions.AssertionErrorBuilder.Companion.fail
@@ -38,266 +41,286 @@ import java.util.UUID
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnabledIfEnvironmentVariable(named = "OPENAI_API_KEY", matches = ".+")
-class ChatEval @Autowired constructor(
-    val builder: ChatClient.Builder,
-    val controller: AIController,
-    val tools: ConferenceTools,
-    val toolCallbackRecorder: ToolCallRecorder,
-    val sessionPreferenceRepository: SessionPreferenceRepository
-) {
-
-    @Test
-    fun `should retrieve basic conference information`() {
-        experiment {
-            name = "KotlinConf Conference Venue data Evals"
-            dataset {
-                name = "first-time-attendee"
-                example {
-                    input = "Where is KotlinConf 2026 held?"
-                    expected = "Messegelände, 81823 München, Germany"
+class ChatEval
+    @Autowired
+    constructor(
+        val builder: ChatClient.Builder,
+        val controller: AIController,
+        val tools: ConferenceTools,
+        val toolCallbackRecorder: ToolCallRecorder,
+        val sessionPreferenceRepository: SessionPreferenceRepository,
+    ) {
+        @Test
+        fun `should retrieve basic conference information`() {
+            experiment {
+                name = "KotlinConf Conference Venue data Evals"
+                dataset {
+                    name = "first-time-attendee"
+                    example {
+                        input = "Where is KotlinConf 2026 held?"
+                        expected = "Messegelände, 81823 München, Germany"
+                    }
                 }
-            }
-            task { example ->
-                val prompt = example.input()
-                val response = controller.chat(ChatMessage(prompt, UUID.randomUUID().toString())).orEmpty()
-                mapOf("output" to response)
-            }
-            evaluators {
-                contains {}
-            }
-        }.run().print().assertNoRegression("rag")
-    }
-
-
-
-
-
-
-
-
-
-
-
-    val judge: JudgeLM = springAiJudge(builder)
-
-    val serverReporter = dokimosReporter()
-
-    @Test
-    fun `should retrieve basic conference information and evaluate tone`() {
-        experiment {
-            name = "KotlinConf Tone Evals"
-            dataset {
-                name = "first-time-attendee"
-                example {
-                    input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
-                            "Wherrrre is KotlinConf 2026 held and whats the exact addrrrress?"
-                    expected = "Messegelände, 81823 München, Germany"
+                task { example ->
+                    val prompt = example.input()
+                    val response = controller.chat(ChatMessage(prompt, UUID.randomUUID().toString())).orEmpty()
+                    mapOf("output" to response)
                 }
-            }
-            task { example ->
-                val prompt = example.input()
-                val response = controller.chat(ChatMessage(prompt, UUID.randomUUID().toString())).orEmpty()
-                mapOf("output" to response)
-            }
-            evaluators {
-                llmJudge(judge = judge) {
-                    name = "Tone"
-                    criteria = "Is the answer helpful, accurate, neutral and business-appropriate worded?"
-                    threshold = 0.9
+                evaluators {
+                    contains {}
                 }
-                contains {}
-            }
-            reporter = serverReporter
-        }.run().print().assert()
-    }
+            }.run().print()
+        }
 
+        val judge: JudgeLM = springAiJudge(builder)
 
+        val serverReporter = dokimosReporter()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @Test
-    fun `should retrieve accurate general venue information`() {
-        experiment {
-            name = "KotlinConf Venue Evals"
-            dataset {
-                name = "first-time-attendee"
-                example {
-                    input = "What’s the address of the KotlinConf 2026 venue?"
-                    expected = "Messegelände, 81823 München, Germany"
-                    metadata("userType", "firstTimeAttendee")
-                    metadata("complexity", "small")
-                    expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
+        @Test
+        fun `should retrieve basic conference information and evaluate tone`() {
+            experiment {
+                name = "KotlinConf Tone Evals"
+                dataset {
+                    name = "first-time-attendee"
+                    example {
+                        input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
+                            "Wherrrre is KotlinConf 2026 held and what'ssss the venue location?"
+                        expected = "International Congress Center Messe München"
+                    }
                 }
-                example {
-                    input = "What is the regular ticket price for KotlinConf 2026?"
-                    expected = "EUR 700"
-                    metadata("userType", "firstTimeAttendee")
-                    metadata("complexity", "medium")
-                    expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
+                task { example ->
+                    val prompt = example.input()
+                    val response = controller.chat(ChatMessage(prompt, UUID.randomUUID().toString())).orEmpty()
+                    mapOf("output" to response)
                 }
-            }
-
-            task { example ->
-                toolCallbackRecorder.clear()
-                val sessionId = UUID.randomUUID().toString()
-                val prompt = example.input()
-                val response = controller.chat(ChatMessage(prompt, sessionId))!!
-
-                val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
-                mapOf(
-                    "output" to response,
-                    "retrievedContext" to tools.getGeneralVenueInformation(),
-                    "context" to tools.getGeneralVenueInformation(),
-                    "toolCalls" to toolCalls,
-                    "toolOutput" to tools.getGeneralVenueInformation()
-                )
-            }
-
-            evaluators {
-                toolCorrectness {}
-                faithfulness(judge) {
-                    name = "Faithfulness"
-                    threshold = 0.9
-                    contextKey = "retrievedContext"
-                    includeReason = true
+                evaluators {
+                    llmJudge(judge = springAiJudge(builder)) {
+                        name = "Tone"
+                        criteria = "Is the answer helpful, accurate and neutrally worded, using formal, literal language?"
+                        threshold = 0.7
+                    }
+                    contains {}
                 }
-                hallucination(judge) {
-                    includeReason = true
+            }.run().print().assert()
+        }
+
+
+
+
+
+
+
+        @Test
+        fun `regression should retrieve basic conference information and evaluate tone`() {
+            experiment {
+                name = "KotlinConf Tone Evals"
+                dataset {
+                    name = "first-time-attendee"
+                    example {
+                        input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
+                            "Wherrrre is KotlinConf 2026 held and what'ssss the venue location?"
+                        expected = "International Congress Center Messe München"
+                    }
                 }
-                contextualRelevance(judge) {
-                    retrievalContextKey = "retrievedContext"
-                    includeReason = true
-                    strictMode = true  // Set to true for threshold of 1.0
+                task { example ->
+                    val prompt = example.input()
+                    val response = controller.chat(ChatMessage(prompt, UUID.randomUUID().toString())).orEmpty()
+                    mapOf("output" to response)
                 }
-            }
-            reporter = serverReporter
-        }.run().print().assert()
+                evaluators {
+                    llmJudge(judge = judge) {
+                        name = "Tone"
+                        criteria = "Is the answer helpful, accurate, neutral using formal, literal language?"
+                        threshold = 0.7
+                    }
+                    contains {}
+                }
+            }.run().print().assert()
+                .assertNoRegression("tone-evals") {
+                    severityMargin = 0.10
+                }
 
 
-    }
+        }
 
 
 
-    @Test
-    fun `multiturn chat for first time attendee looking for beginner sessions`() {
-        val user: SimulatedUser = llmUser(judge) {
-            persona = "Kotlin backend developer who wants to add as many as possible preferred sessions to their schedule"
-            behaviorGuidelines = """
+
+
+        @Test
+        fun `should retrieve accurate general venue information`() {
+            experiment {
+                name = "KotlinConf Venue Evals"
+                dataset {
+                    name = "first-time-attendee"
+                    example {
+                        input = "What’s the address of the KotlinConf 2026 venue?"
+                        expected = "Messegelände, 81823 München, Germany"
+                        metadata("userType", "firstTimeAttendee")
+                        metadata("complexity", "small")
+                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
+                    }
+                    example {
+                        input = "What is the regular ticket price for KotlinConf 2026?"
+                        expected = "EUR 700"
+                        metadata("userType", "firstTimeAttendee")
+                        metadata("complexity", "medium")
+                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
+                    }
+                }
+
+                task { example ->
+                    toolCallbackRecorder.clear()
+                    val sessionId = UUID.randomUUID().toString()
+                    val prompt = example.input()
+                    val response = controller.chat(ChatMessage(prompt, sessionId))!!
+
+                    val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
+                    mapOf(
+                        "output" to response,
+                        "retrievedContext" to tools.getGeneralVenueInformation(),
+                        "context" to tools.getGeneralVenueInformation(),
+                        "toolCalls" to toolCalls,
+                        "toolOutput" to tools.getGeneralVenueInformation(),
+                    )
+                }
+
+                evaluators {
+                    toolCorrectness {}
+                    faithfulness(judge) {
+                        name = "Faithfulness"
+                        threshold = 0.9
+                        contextKey = "retrievedContext"
+                        includeReason = true
+                    }
+                    hallucination(judge) {
+                        includeReason = true
+                    }
+                    contextualRelevance(judge) {
+                        retrievalContextKey = "retrievedContext"
+                        includeReason = true
+                        strictMode = true // Set to true for threshold of 1.0
+                    }
+                }
+                reporter = serverReporter
+            }.run().print().assert()
+        }
+
+        @Test
+        fun `multiturn chat for first time attendee looking for beginner sessions`() {
+            val user: SimulatedUser =
+                llmUser(judge) {
+                    persona = "Kotlin backend developer who wants to add as many as possible preferred sessions to their schedule"
+                    behaviorGuidelines = """
                 - Is interested in sessions about backend and AI, foremost AI frameworks like Koog, langchain4j and Spring-AI.
                 - Wants to fill the schedule with as many as possible sessions of his interest. 
             """
-        }
-        val conversationId = UUID.randomUUID().toString()
-        val chatApp = ConversationalApplication { trajectory ->
-            val response = controller.chat(ChatMessage(trajectory.toText(), conversationId))
-            Message.assistant(response)
-        }
+                }
+            val conversationId = UUID.randomUUID().toString()
+            val chatApp =
+                ConversationalApplication { trajectory ->
+                    val response = controller.chat(ChatMessage(trajectory.toText(), conversationId))
+                    Message.assistant(response)
+                }
 
-        // Run simulation
-        val trajectory = simulator {
-            simulatedUser = user
-            application = chatApp
-            maxTurns = 6
-            scenario = "User wants to complete conference schedule with preferred sessions"
-            initialMessage = "Hi"
-            stoppingCondition = {
-                tools.getPreferredSessionsBy(ToolContext(mapOf("conversationId" to conversationId))).size >= 10
-            }
-        }.simulate()
+            // Run simulation
+            val trajectory: ConversationTrajectory =
+                simulator {
+                    simulatedUser = user
+                    application = chatApp
+                    maxTurns = 6
+                    scenario = "User wants to complete conference schedule with preferred sessions"
+                    initialMessage = "Hi"
+                    stoppingCondition = {
+                        tools.getPreferredSessionsBy(ToolContext(mapOf("conversationId" to conversationId))).size >= 10
+                    }
+                }.simulate()
 
-        // Print conversation
-        println("=== Conversation ===")
-        println(trajectory.toText())
+            // Print conversation
+            println("=== Conversation ===")
+            println(trajectory.toText())
 
-        // Evaluate
-        val evaluator: TrajectoryEvaluator = trajectoryEvaluator(judge) {
-            name = "Schedule Session Trajectory"
-            threshold = 0.7
-            criteria(
-                listOf(
-                    TrajectoryEvaluationCriteria.userSatisfaction(),
-                    TrajectoryEvaluationCriteria.goalCompletion(),
-                    TrajectoryEvaluationCriteria.professionalTone(),
-                    TrajectoryEvaluationCriteria.helpfulness()
+            // Evaluate
+            val evaluator: TrajectoryEvaluator =
+                trajectoryEvaluator(judge) {
+                    name = "Schedule Session Trajectory"
+                    threshold = 0.7
+                    criteria(
+                        listOf(
+                            TrajectoryEvaluationCriteria.userSatisfaction(),
+                            TrajectoryEvaluationCriteria.goalCompletion(),
+                            TrajectoryEvaluationCriteria.professionalTone(),
+                            TrajectoryEvaluationCriteria.helpfulness(),
+                        ),
+                    )
+                    aggregationStrategy = AggregationStrategy.WEIGHTED_MEAN
+                }
+
+            val testCase =
+                EvalTestCase(
+                    actualOutputs = mapOf("trajectory" to trajectory),
                 )
-            )
-            aggregationStrategy = AggregationStrategy.WEIGHTED_MEAN
+
+            val result = evaluator.evaluate(testCase)
+
+            // Print results
+            println("\n=== Evaluation Results ===")
+            println("Overall Score: ${"%.2f".format(result.score())}")
+            println("Passed: ${result.success()}")
+            println("Reason: ${result.reason()}")
+
+            assertSoftly {
+                sessionPreferenceRepository
+                    .getPreferredSessionsBy(conversationId)
+                    .shouldNotBeEmpty()
+                    .groupBy { it.startsAt }
+                    .forEach { (date, sessions) ->
+                        withClue(
+                            "Multiple Sessions on slot $date:\n- ${sessions.joinToString("\n- ") { it.title }}",
+                        ) { sessions.shouldHaveSize(1) }
+                    }
+            }
         }
 
-        val testCase = EvalTestCase(
-            actualOutputs = mapOf("trajectory" to trajectory)
-        )
+        @Test
+        fun `should not add already started sessions to preferences`() {
+            experiment {
+                name = "KotlinConf Started Session Preference Evals"
+                dataset {
+                    name = "schedule-after-sessions-started"
+                    example {
+                        input =
+                            """
+                            It is Friday May 22, 2026 at 13:30.
+                            I am interested in beginner-friendly Kotlin, KMP, and AI sessions that I can still attend.
+                            Add suitable sessions to my preferred schedule.
+                            """.trimIndent()
+                        expected =
+                            "Preferred sessions should not include any session that already started before " +
+                                "Friday May 22, 2026 at 13:30 conference-local time."
+                        metadata("currentTime", conferenceLocalTime("2026-05-22T13:30"))
+                        expected("toolCalls", expectedToolCalls(TOOL_ADD_PREFERRED_SESSIONS, TOOL_GENERAL_SESSION_INFORMATION_KOTLINCONF, TOOL_GET_PREFERRED_SESSIONS))
+                    }
+                }
+                task { example ->
+                    toolCallbackRecorder.clear()
+                    val conversationId = UUID.randomUUID().toString()
+                    val response = controller.chat(ChatMessage(example.input(), conversationId)).orEmpty()
+                    val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)
+                    val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
 
-        val result = evaluator.evaluate(testCase)
+                    mapOf(
+                        "output" to response,
+                        "toolCalls" to toolCalls,
+                        "preferredSessions" to preferredSessions,
+                        "currentTime" to example.metadata().getValue("currentTime"),
 
-        // Print results
-        println("\n=== Evaluation Results ===")
-        println("Overall Score: ${"%.2f".format(result.score())}")
-        println("Passed: ${result.success()}")
-        println("Reason: ${result.reason()}")
-
-        assertSoftly {
-            sessionPreferenceRepository.getPreferredSessionsBy(conversationId).shouldNotBeEmpty()
-                .groupBy { it.startsAt }.forEach { (date, sessions) ->
-                withClue("Multiple Sessions on slot $date:\n- ${sessions.joinToString("\n- ") { it.title }}") { sessions.shouldHaveSize(1) }
-            }
+                    )
+                }
+                evaluators {
+                    toolCorrectness {}
+                    startedSessionOverlap {}
+                }
+            }.run().print().assert()
         }
     }
-
-    @Test
-    fun `should not add already started sessions to preferences`() {
-        experiment {
-            name = "KotlinConf Started Session Preference Evals"
-            dataset {
-                name = "schedule-after-sessions-started"
-                example {
-                    input = """
-                        It is Friday May 22, 2026 at 13:30.
-                        I am interested in beginner-friendly Kotlin, KMP, and AI sessions that I can still attend.
-                        Add suitable sessions to my preferred schedule.
-                    """.trimIndent()
-                    expected = "Preferred sessions should not overlap with sessions already started before 2026-05-22T13:30:00Z."
-                    metadata("currentTime", "2026-05-22T13:30:00Z")
-                }
-            }
-            task { example ->
-                toolCallbackRecorder.clear()
-                val conversationId = UUID.randomUUID().toString()
-                val response = controller.chat(ChatMessage(example.input(), conversationId)).orEmpty()
-                val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)
-                val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
-
-                mapOf(
-                    "output" to response,
-                    "toolCalls" to toolCalls,
-                    "preferredSessions" to preferredSessions,
-                    "currentTime" to example.metadata().getValue("currentTime")
-                )
-            }
-            evaluators {
-                toolPresence {
-                    name = "Add Preferred Sessions Tool Call"
-                    expectedToolName = TOOL_ADD_PREFERRED_SESSIONS
-                }
-                toolPresence {
-                    name = "Search Sessions Tool Call"
-                    expectedToolName = TOOL_CONFERENCE_SESSION_SEARCH
-                }
-                startedSessionOverlap {}
-            }
-            reporter = serverReporter
-        }.run().print().assert()
-    }
-}

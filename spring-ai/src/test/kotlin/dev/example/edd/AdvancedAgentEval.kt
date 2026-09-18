@@ -3,6 +3,7 @@ package dev.example.edd
 import dev.dokimos.core.Dataset
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.core.conversation.AggregationStrategy
+import dev.dokimos.core.conversation.ConversationTrajectory
 import dev.dokimos.core.conversation.ConversationalApplication
 import dev.dokimos.core.conversation.Message
 import dev.dokimos.core.conversation.SimulatedUser
@@ -82,6 +83,7 @@ class AdvancedAgentEval @Autowired constructor(
             criteria(
                 listOf(
                     TrajectoryEvaluationCriteria.goalCompletion(),
+                    TrajectoryEvaluationCriteria.professionalTone(),
                     TrajectoryEvaluationCriteria.helpfulness()
                 )
             )
@@ -100,10 +102,10 @@ class AdvancedAgentEval @Autowired constructor(
      * reviewed artifact. Remove @Disabled, run it once, review the diff, commit.
      */
     @Test
-    @Disabled("Run manually to regenerate src/test/resources/datasets/kotlinconf-goldens.json")
+    //@Disabled("Run manually to regenerate src/test/resources/datasets/kotlinconf-goldens.json")
     fun `generate conversation goldens`() {
         val conversationId = UUID.randomUUID().toString()
-        val chatApp = ConversationalApplication { trajectory ->
+        val chatApp = ConversationalApplication { trajectory: ConversationTrajectory ->
             Message.assistant(controller.chat(ChatMessage(trajectory.toText(), conversationId)).orEmpty())
         }
 
@@ -151,7 +153,7 @@ class AdvancedAgentEval @Autowired constructor(
             }
         }
 
-        generator.write(Path.of("src/test/resources/datasets/kotlinconf-goldens.json"))
+        generator.write(Path.of("src/test/resources/datasets/kotlinconf-goldens-2.json"))
     }
 
     @Test
