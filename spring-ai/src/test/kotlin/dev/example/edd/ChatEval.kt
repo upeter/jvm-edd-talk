@@ -147,7 +147,8 @@ class ChatEval
 
 
 
-        @Test
+    //must fail for price hallicunations
+    @Test
         fun `should retrieve accurate general venue information`() {
             experiment {
                 name = "KotlinConf Venue Evals"
@@ -206,7 +207,8 @@ class ChatEval
             }.run().print().assert()
         }
 
-        @Test
+    //must fail due to overlapping sessions being proposed
+    @Test
         fun `multiturn chat for first time attendee looking for beginner sessions`() {
             val user: SimulatedUser =
                 llmUser(judge) {
@@ -282,7 +284,8 @@ class ChatEval
             }
         }
 
-        @Test
+    //must fail due to sessions being proposed in the past
+    @Test
         fun `should not add already started sessions to preferences`() {
             experiment {
                 name = "KotlinConf Started Session Preference Evals"

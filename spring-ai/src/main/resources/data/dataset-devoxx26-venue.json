@@ -1,0 +1,83 @@
+{
+  "name": "Devoxx Belgium 2026",
+  "address": "Kinepolis Antwerp, Groenendaallaan 394, 2030 Antwerp, Belgium (use the Business Center entrance, not the movie entrance)",
+  "venueName": "Kinepolis Antwerp",
+  "dateFrom": "2026-10-05",
+  "dateTo": "2026-10-09",
+  "startTime": "09:30",
+  "endTime": "20:00",
+  "nearestPublicTransport": "Tram 6 (direction Luchtbal), stop Kinepolis; bus 31, 123 and 7xx",
+  "travelFromCentralStation": "Tram 6 from the underground platform at Antwerpen-Centraal towards Luchtbal, exit Kinepolis, then a short walk to the venue",
+  "travelFromAirport": "From Brussels Airport take the direct train to Antwerpen-Centraal, then tram 6 towards Luchtbal to the Kinepolis stop",
+  "rooms": [
+    {
+      "name": "Exhibition Hall",
+      "sort": 0
+    },
+    {
+      "name": "Room 3",
+      "sort": 1
+    },
+    {
+      "name": "Room 4",
+      "sort": 2
+    },
+    {
+      "name": "Room 5",
+      "sort": 3
+    },
+    {
+      "name": "Room 6",
+      "sort": 4
+    },
+    {
+      "name": "Room 7",
+      "sort": 5
+    },
+    {
+      "name": "Room 8",
+      "sort": 6
+    },
+    {
+      "name": "Room 9",
+      "sort": 7
+    },
+    {
+      "name": "Room 10",
+      "sort": 8
+    },
+    {
+      "name": "BOF 1",
+      "sort": 9
+    },
+    {
+      "name": "BOF 2",
+      "sort": 10
+    }
+  ],
+  "price": {
+    "conference": "EUR 695.00 (3 days, 7-9 Oct.)",
+    "conferenceInclVat": "EUR 840.95 incl. 21% VAT",
+    "workshop": "EUR 445.00 (Deep-Dive ticket, 2 days, 5-6 Oct.); Combi ticket (5 days, 5-9 Oct.) EUR 995.00",
+    "workshopInclVat": "EUR 538.45 incl. 21% VAT; Combi EUR 1,203.95 incl. 21% VAT",
+    "academiaDiscount": "No student or academic discount is listed; speakers receive a free full-week Combi pass"
+  },
+  "officialWebsite": "https://devoxx.be/",
+  "venueWebsite": "https://www.kinepolis.be/",
+  "travelInformationWebsite": "https://devoxx.be/faq/",
+  "accommodationWebsite": "https://www.visitantwerpen.be/",
+  "nearbyAccommodationOptions": [
+    {
+      "name": "Radisson Blu Hotel Antwerp City Centre (next to Antwerpen-Centraal, direct access to tram 6)",
+      "website": "https://www.radissonhotels.com/"
+    },
+    {
+      "name": "Hampton by Hilton Antwerp Central Station",
+      "website": "https://www.hilton.com/"
+    },
+    {
+      "name": "Holiday Inn Express Antwerp City North (bus 31 to the venue)",
+      "website": "https://www.ihg.com/"
+    }
+  ]
+}

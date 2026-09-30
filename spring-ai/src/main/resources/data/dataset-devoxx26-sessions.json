@@ -1,0 +1,3717 @@
+{
+  "sessions": [
+    {
+      "id": "17763",
+      "title": "Solving Multimodal and Long-Context Challenges",
+      "startsAt": "2026-10-05T07:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Laurent Picard"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17786",
+      "title": "Agent Loops, Decoded: Fundamentals to Agentic Patterns in Spring AI",
+      "startsAt": "2026-10-05T07:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Christian Tzolov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10020",
+      "title": "From AI to Agent: A Field Guide to Agentic Patterns in LangChain4j",
+      "startsAt": "2026-10-05T07:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Loïc Magnette"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23529",
+      "title": "From Autocomplete to Autopilot: How AI Is Changing the Developer Experience",
+      "startsAt": "2026-10-05T07:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Tugdual Grall"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7006",
+      "title": "Prompt It Right: Spring Boot Testing in the AI Era",
+      "startsAt": "2026-10-05T07:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Philip Riecks"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17800",
+      "title": "🚀 From Java to AI: Build Your First Intelligent Agent System!",
+      "startsAt": "2026-10-05T07:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Emmanuel Hugonnet",
+        "Antoine Sabot-Durand",
+        "yann Blazart"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22914",
+      "title": "Java is for Data Science, Too: Building an End-to-End ML Pipeline Without Leaving the JVM",
+      "startsAt": "2026-10-05T08:30:00.0000000Z",
+      "endsAt": "2026-10-05T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Sven Reimers",
+        "Zoran Sevarac"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50108",
+      "title": "Introduction to Spring AI",
+      "startsAt": "2026-10-05T10:40:00.0000000Z",
+      "endsAt": "2026-10-05T11:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Timo Salm"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7012",
+      "title": "Destructoring is the future of Javas Encapsulation",
+      "startsAt": "2026-10-05T10:40:00.0000000Z",
+      "endsAt": "2026-10-05T11:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Richard Gross"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10045",
+      "title": "Java, LEGO & AI: Teaching the Next Generation to Build, Not Just Prompt",
+      "startsAt": "2026-10-05T10:40:00.0000000Z",
+      "endsAt": "2026-10-05T11:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Eddy Vos"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17765",
+      "title": "Can AI Build a Jakarta EE Runtime? The Vidocq Experiment",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Antoine Sabot-Durand",
+        "yann Blazart",
+        "Sebastien Blanc"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23524",
+      "title": "Modern Java in Practice - The Features That Matter",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Nicolai Parlog",
+        "Falk Sippach"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25027",
+      "title": "Codepocalypse Now: LangChain4j vs JetBrains Koog",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Viktor Gamov",
+        "Baruch Sadogursky"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4098",
+      "title": "From Developer to Builder: A Spec-Driven Development Deep Dive",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Simon Martinelli"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5537",
+      "title": "The Quarkus advantage: Turning build-time metaprogramming into runtime performances",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Mario Fusco",
+        "Georgios Andrianakis",
+        "Francesco Nigro"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22920",
+      "title": "Using Structured Concurrency and Scoped Values to Create a Virtual Threads Based Asynchronous Application",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Ana-Maria Mihalceanu",
+        "José Paumard"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24229",
+      "title": "Building Autonomous AI Agents with Spring",
+      "startsAt": "2026-10-05T11:30:00.0000000Z",
+      "endsAt": "2026-10-05T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Timo Salm",
+        "Sandra Ahlgrimm"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24227",
+      "title": "Expanding Vector Search Beyond Similarity",
+      "startsAt": "2026-10-05T14:50:00.0000000Z",
+      "endsAt": "2026-10-05T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Alina Yurenko"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7011",
+      "title": "Secure Your Coding Agent Like It’s Malware",
+      "startsAt": "2026-10-05T14:50:00.0000000Z",
+      "endsAt": "2026-10-05T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Richard Gross"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10034",
+      "title": "The day we stopped publishing Kafka event from our API...",
+      "startsAt": "2026-10-05T14:50:00.0000000Z",
+      "endsAt": "2026-10-05T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Virginie Zinck"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21654",
+      "title": "Your AI Agent Trusts Strangers. Let Me Show You.",
+      "startsAt": "2026-10-05T14:50:00.0000000Z",
+      "endsAt": "2026-10-05T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Elder Moraes"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5516",
+      "title": "Wiring Up the AI Mesh: Building A2A-Compliant Java Agents",
+      "startsAt": "2026-10-05T14:50:00.0000000Z",
+      "endsAt": "2026-10-05T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Emmanuel Hugonnet",
+        "Mario Fusco",
+        "Kevin Dubois"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "20651",
+      "title": "From Install to Insight: A Hands-On GPU Lab for Java Developers",
+      "startsAt": "2026-10-05T14:50:00.0000000Z",
+      "endsAt": "2026-10-05T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Thanos Stratikopoulos",
+        "Christos Kotselidis",
+        "Mary Xekalaki"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25674",
+      "title": "Docker Hardened Images - what you need to know",
+      "startsAt": "2026-10-05T15:35:00.0000000Z",
+      "endsAt": "2026-10-05T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Matthias Haeussler"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5507",
+      "title": "Stopping AI-Generated Architectural Drift: Deterministic Guardrails for Agentic Coding",
+      "startsAt": "2026-10-05T15:35:00.0000000Z",
+      "endsAt": "2026-10-05T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Sasha Podlesniuk"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25652",
+      "title": "In the loop, not in the dark: staying in control in the era of dark software factories",
+      "startsAt": "2026-10-05T15:35:00.0000000Z",
+      "endsAt": "2026-10-05T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Alex Gavrilescu"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23533",
+      "title": "Teaching a New Dog Old Tricks: Give the Agent a Debugger",
+      "startsAt": "2026-10-05T15:35:00.0000000Z",
+      "endsAt": "2026-10-05T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Anton Arhipov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17783",
+      "title": "Building the Trusted Agent Ecosystem",
+      "startsAt": "2026-10-05T16:20:00.0000000Z",
+      "endsAt": "2026-10-05T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Ivan Petrov",
+        "Patrick McGrath"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8196",
+      "title": "Testing Architecture Made Simple",
+      "startsAt": "2026-10-05T16:20:00.0000000Z",
+      "endsAt": "2026-10-05T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Gunter Rotsaert"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22911",
+      "title": "One tool to rule them all: bash, a tiny LLM, and the birth of a coding agent",
+      "startsAt": "2026-10-05T16:20:00.0000000Z",
+      "endsAt": "2026-10-05T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Philippe Charrière"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "13753",
+      "title": "Hi, Belgian Java Community, we want to meet you!",
+      "startsAt": "2026-10-05T17:00:00.0000000Z",
+      "endsAt": "2026-10-05T18:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Frank Delporte",
+        "Tom Cools"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16435",
+      "title": "LangChain4j Community BOF",
+      "startsAt": "2026-10-05T17:00:00.0000000Z",
+      "endsAt": "2026-10-05T18:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Dimitris Andreadis"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24247",
+      "title": "Building AI Agents from First Principles",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Adib Saikali"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9752",
+      "title": "Learning modern Java the playful way",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Marit van Dijk",
+        "Piotr Przybyl"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17751",
+      "title": "Cheaper or Better? The Strategic Choice Behind AI Adoption",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Mind the Geek"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Miriam Sasse"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22912",
+      "title": "Loop Engineering, beyond prompt, context, and harness engineering",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Guillaume Laforge",
+        "Wietse Venema"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "15354",
+      "title": "Will Valhalla Fix Tony's Billion-Dollar Mistake?",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "José Paumard",
+        "Remi Forax"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4079",
+      "title": "👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Stéphane Philippart",
+        "Matthieu Vincent"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10022",
+      "title": "From code to control: master deployments with Feature Flagging and OpenFeature",
+      "startsAt": "2026-10-06T07:30:00.0000000Z",
+      "endsAt": "2026-10-06T10:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "BEGINNER",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Alexandre Touret",
+        "Philippe Duval"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5526",
+      "title": "From Developer to Story Builder: Engineering a Novel, an ARG, and a Transmedia World with AI",
+      "startsAt": "2026-10-06T10:40:00.0000000Z",
+      "endsAt": "2026-10-06T11:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Raphael Semeteys"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21152",
+      "title": "Beyond system.out.println: Applying a Debugging Mindset at Scale",
+      "startsAt": "2026-10-06T10:40:00.0000000Z",
+      "endsAt": "2026-10-06T11:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Cees Bos"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10016",
+      "title": "Measuring the Unmeasurable: Evaluating Generative AI in Practice",
+      "startsAt": "2026-10-06T10:40:00.0000000Z",
+      "endsAt": "2026-10-06T11:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Erin Pacquetet"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21670",
+      "title": "Legacy JVM modernization with agentic AI: Quarkus vs Spring Boot",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Radek Kargul",
+        "Willem Jan Glerum"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16439",
+      "title": "AI Security Deep Dive, Securing Agents and AI Applications",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Brian Vermeer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19714",
+      "title": "Specialized AI Agents: from concept to production",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "David Gageot"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "31452",
+      "title": "Responsibly Dimming the Lights in the Software Factory",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Victor Rentea"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8194",
+      "title": "Write Java Code Like a Seasoned Hacker: 2026 Edition",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Deep Dive",
+        "ADVANCED",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Soroosh Khodami"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8190",
+      "title": "Technical Workshop on AI-Native Tooling for Java Development",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Juan Antonio Breña 🇪🇸🇪🇺",
+        "Leandro Loureiro"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23520",
+      "title": "Beyond the Chatbox: Ship On-Device AI in Your Browser",
+      "startsAt": "2026-10-06T11:30:00.0000000Z",
+      "endsAt": "2026-10-06T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Marcel Bagemihl",
+        "Stefan Ludwig"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19732",
+      "title": "Tap into the NVIDIA Ecosystem from Java with TornadoVM's Hybrid API",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Thanos Stratikopoulos",
+        "Michalis Papadimitriou",
+        "Mary Xekalaki"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "11558",
+      "title": "BootUI, the missing developer console for Spring Boot and Quarkus",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Julien Dubois"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22933",
+      "title": "30 minutes to build your first Vidocq app, the 100% European Sovereign Java stack with zero external dependencies",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Sebastien Blanc"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5051",
+      "title": "🧰 Dev Containers: the ultimate toolbox for developers?",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Mind the Geek"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Stéphane Philippart"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16418",
+      "title": "Solving Distributed Transactions with the Saga Pattern and Temporal",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Andrei Sulyz"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "15360",
+      "title": "Analyze and Optimize Your Applications with JFR",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Ana-Maria Mihalceanu",
+        "José Paumard"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7036",
+      "title": "Building Production-Ready Agentic Systems with LangChain4j and Quarkus",
+      "startsAt": "2026-10-06T14:50:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Hands-on Lab",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Mario Fusco",
+        "Georgios Andrianakis",
+        "Kevin Dubois"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17558",
+      "title": "From Laptop to Lakehouse: Analytical SQL with DuckDB",
+      "startsAt": "2026-10-06T15:35:00.0000000Z",
+      "endsAt": "2026-10-06T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Oliver Geisser"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5519",
+      "title": "The Magic of OpenTelemetry: Rewriting Your App in Production",
+      "startsAt": "2026-10-06T15:35:00.0000000Z",
+      "endsAt": "2026-10-06T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Bruce Bujon"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9024",
+      "title": "Beyond assertEquals: Probabilistic Security and Bias Testing for Java LLM Applications",
+      "startsAt": "2026-10-06T15:35:00.0000000Z",
+      "endsAt": "2026-10-06T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Iryna Dohndorf"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24234",
+      "title": "AsyncAPI in action: OpenAPI for event-driven applications",
+      "startsAt": "2026-10-06T15:35:00.0000000Z",
+      "endsAt": "2026-10-06T16:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Michel Schudel"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50101",
+      "title": "The Java Story | The Official Documentary",
+      "startsAt": "2026-10-06T15:35:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Documentary",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Georges Saab"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21690",
+      "title": "Exquisite Evals for Skills & MCPs",
+      "startsAt": "2026-10-06T16:20:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Christian Tzolov",
+        "James Ward"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10021",
+      "title": "Java Script (No, Not That One): Modern Automation with Java",
+      "startsAt": "2026-10-06T16:20:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Loïc Magnette"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4077",
+      "title": "Do We Need a Build Language? Java Builds Java",
+      "startsAt": "2026-10-06T16:20:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Rafael Winterhalter"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7017",
+      "title": "The Importance of HITL to Avoid Chaos and EU Regulations for AI",
+      "startsAt": "2026-10-06T16:20:00.0000000Z",
+      "endsAt": "2026-10-06T16:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Tools-in-Action",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Juan Antonio Breña 🇪🇸🇪🇺"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10037",
+      "title": "Quarkus Community BOF",
+      "startsAt": "2026-10-06T17:00:00.0000000Z",
+      "endsAt": "2026-10-06T18:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Dimitris Andreadis"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10046",
+      "title": "Who will build software after AI?",
+      "startsAt": "2026-10-06T17:00:00.0000000Z",
+      "endsAt": "2026-10-06T18:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Eddy Vos"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "31451",
+      "title": "Welcome to Devoxx",
+      "startsAt": "2026-10-07T07:30:00.0000000Z",
+      "endsAt": "2026-10-07T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Keynote",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Stephan Janssen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50102",
+      "title": "From Brainless to Brilliant — Giving an Open-Source Robot a Mind of Its Own",
+      "startsAt": "2026-10-07T07:50:00.0000000Z",
+      "endsAt": "2026-10-07T08:10:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Keynote",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Jan Van Wassenhove"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "31455",
+      "title": "Half of a billion Idle GPUs: The Case for On-Device AI",
+      "startsAt": "2026-10-07T08:10:00.0000000Z",
+      "endsAt": "2026-10-07T08:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Keynote",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Prince Canuma"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "48301",
+      "title": "A Fleet of AI Agents, Each in Its Own Sandbox: Inside Docker's Agentic Platform",
+      "startsAt": "2026-10-07T08:30:00.0000000Z",
+      "endsAt": "2026-10-07T08:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Keynote",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Jean-Laurent de Morlhon"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49251",
+      "title": "The Year of the Runtime",
+      "startsAt": "2026-10-07T08:50:00.0000000Z",
+      "endsAt": "2026-10-07T09:10:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Keynote",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Ron Pressler"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "51951",
+      "title": "Agentic Engineering Reconversion",
+      "startsAt": "2026-10-07T09:10:00.0000000Z",
+      "endsAt": "2026-10-07T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Keynote",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Victor Rentea"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24233",
+      "title": "Build the Builder: A Java Coding Agent in Your IDE with ACP",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Vadim Briliantov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7022",
+      "title": "Emergent DevEx: The Good, the Bad, and the Legacy",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Makan Sepehrifar",
+        "Soroosh Khodami"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21691",
+      "title": "MCP 2.0 - Stateless, New Auth (CIMD), and Exciting Extensions",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "James Ward"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "29351",
+      "title": "Structured Concurrency Looms",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Alan Bateman"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24224",
+      "title": "Post-Quantum Today: How Your Passwords Will Be Safe in a Quantum Future",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Julian Burr"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22923",
+      "title": "Fun with Flags: How OpenFeature Solves Your Feature Flag Headaches",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Simon Schrottner"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8156",
+      "title": "I Hired a Real Robot as My Junior Dev — and Now My Kids Don't Want to Learn Java Anymore",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Mind the Geek"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Jan Van Wassenhove"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7040",
+      "title": "Wrap, Reshape, or Redesign: Retrofitting Your APIs for a World of Agents",
+      "startsAt": "2026-10-07T10:00:00.0000000Z",
+      "endsAt": "2026-10-07T10:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Horacio Gonzalez"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49254",
+      "title": "Mission Possible: The 45-Minute Path to Bullet-Proof Java Container Images",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Pasha Finkelshtein"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4100",
+      "title": "Life in the Ivory Tower: Confessions of a Former Developer Who Turned Into an Architect",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Robin Custers"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50106",
+      "title": "From User Prompt to JPA Query: Comparing Tool Calling, Structured Output & Hybrid Approach",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Sebastian Kühnau"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49253",
+      "title": "Engineering for the Long Haul: Operating Open Source at Scale",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Sven Sellen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25657",
+      "title": "Safety, speed, and governance in the agentic era",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Oleg Šelajev"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10038",
+      "title": "Eval Driven Development: Why you need it to make your Agentic Application survive Production",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Urs Peter"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22909",
+      "title": "What rules the virtual? How our systems obey physical laws.",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "INTERMEDIATE",
+        "Mind the Geek"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Marianne Hoornenborg"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50103",
+      "title": "Let's dance! – Teaching your robot some moves with reinforcement learning",
+      "startsAt": "2026-10-07T11:05:00.0000000Z",
+      "endsAt": "2026-10-07T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Thomas Endres",
+        "Martin F."
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "31454",
+      "title": "Run Frontier Open Models on consumer hardware",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Prince Canuma"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4096",
+      "title": "Deterministic by Design - Achieving Reproducible Builds with Maven",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Maarten Mulders"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4087",
+      "title": "Harness Engineering: Building the System Around Your AI Coding Agent",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "JI Darwish"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8164",
+      "title": "The pizza party of the future 🍕 software teams and product value in the age of coding agents",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Katie Clark",
+        "Simon Rohrer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9008",
+      "title": "G1, ZGC, Shenandoah, ... with all these GCs in Java, which one do I choose?",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Antoine DESSAIGNE"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7018",
+      "title": "A Year of Agentic AI Evolution: Lessons Learned Building Production-grade Agentic Systems",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Mario Fusco",
+        "Kevin Dubois"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24228",
+      "title": "Java, Raspberry Pi, and the Art of Overengineering Everyday Life",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Matti Tahvonen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17752",
+      "title": "🌉 Gateway API, 10 years of maturation for a new Kubernetes network API",
+      "startsAt": "2026-10-07T12:00:00.0000000Z",
+      "endsAt": "2026-10-07T12:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Kevin Davin"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8166",
+      "title": "Integration patterns for distributed systems",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Dirk Fröhner",
+        "Sabarish Sekar"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21666",
+      "title": "Teaching an Old Handle New Tricks: From Core Reflection to FFM",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Maurizio Cimadamore",
+        "Viktor Klang"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8171",
+      "title": "0 to 350 Engineers on Claude Code: What Could Go Wrong?",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Nicolas Martignole"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22942",
+      "title": "Why Documentation Won’t Write Itself—and AI Won’t Save You",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Christian Heitzmann"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4051",
+      "title": "CRAcking Compliance - The EU Cyber Resilience Act",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Christian Schabetsberger"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19733",
+      "title": "Bootiful Spring Boot 4",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Josh Long"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7008",
+      "title": "How to survive and thrive as a dev (team) in the exponential age of AI. Real-world AI adoption, smarter ways of working, and lessons from the front lines",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Sander Hoogendoorn"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4097",
+      "title": "Pragmatic multi-cloud architecture: designing for resilience and portability beyond the hype",
+      "startsAt": "2026-10-07T13:10:00.0000000Z",
+      "endsAt": "2026-10-07T14:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Alexandre Touret"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "11562",
+      "title": "Surviving the \"AI Slopageddon\": How AI shakes the foundations of Open Source",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Raphael Semeteys"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19730",
+      "title": "Building LLM Inference Engines in Java with TornadoVM and the NVIDIA Ecosystem",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Thanos Stratikopoulos",
+        "Michalis Papadimitriou",
+        "Orion Papadakis"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17791",
+      "title": "Consistency Patterns in Event-Driven Architecture",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Emanuel Trandafir"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24212",
+      "title": "GraalVM Next: Layers, Crema, and WebAssembly in Action",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Alina Yurenko"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49252",
+      "title": "Big Runtimes Make Efficient Programs",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Ron Pressler"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "31453",
+      "title": "Architecture Observability and Guardrails",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Victor Rentea"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4086",
+      "title": "AI Made Building Cheap. Now Decisions Are the Bottleneck.",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Dave Sammut",
+        "João Rosa"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50107",
+      "title": "Building an Agent Ready Platform",
+      "startsAt": "2026-10-07T14:40:00.0000000Z",
+      "endsAt": "2026-10-07T15:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Timo Salm"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10802",
+      "title": "A Deserter Returns: What the Java community helped me rediscover",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Thierry Chantier"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16426",
+      "title": "No Country For Old APIs. Wrapping legacy Java services as MCP tools without rewriting them.",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Željko Kozina"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17759",
+      "title": "Kubernetes for Developers",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Alain Regnier"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19713",
+      "title": "Create your own AI Agents without code",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "David Gageot"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16401",
+      "title": "Beyond encryption at rest: computing on encrypted data",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Andrea Iacono"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9046",
+      "title": "rm -rf self-doubt: Debugging Impostor Syndrome for Developers",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Vincent Mayers"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "14463",
+      "title": "When benchmarks go bad - what we learned from measuring performance wrong",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Francesco Nigro",
+        "Holly Cummins"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5510",
+      "title": "Quarkus Meets Leyden at the JVM Performance Edge",
+      "startsAt": "2026-10-07T15:50:00.0000000Z",
+      "endsAt": "2026-10-07T16:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Georgios Andrianakis",
+        "Ana-Maria Mihalceanu"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24206",
+      "title": "GraalVM Community BOF",
+      "startsAt": "2026-10-07T16:50:00.0000000Z",
+      "endsAt": "2026-10-07T17:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 10",
+      "speakers": [
+        "Thomas Wuerthinger",
+        "Fabio Niephaus",
+        "Alina Yurenko"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19707",
+      "title": "Getting started with speaking: Your first conference talk",
+      "startsAt": "2026-10-07T16:50:00.0000000Z",
+      "endsAt": "2026-10-07T17:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 11",
+      "speakers": [
+        "Bert Jan Schrijver"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9023",
+      "title": "Rewriting the rules: How AI transforms engineering and inspiring young minds",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Ayoub Hammou Ahabchane",
+        "Kamel Zaraoui"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25048",
+      "title": "Java on Kubernetes Without Container Images: The WebAssembly Way",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Bruno Borges"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16414",
+      "title": "From vibe coding to harness engineering: modernizing a regulated environment with AI",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Anyul Rivas"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "12753",
+      "title": "Software Monuments - Architectural Lessons from the Systems That Shaped Computing",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Tobias Voss"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19748",
+      "title": "Snake in 10 Lines: Learning More by Coding Less",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Guus de Wit"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "11556",
+      "title": "223 Pull Requests in 11 Days: The Recipe for Building Real Software with AI Agents",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Julien Dubois"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9035",
+      "title": "Toxic Flows in MCP Servers and Skills: What Your Agent Blindly Trusts",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Brian Vermeer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23527",
+      "title": "Project Detroit: From Foreign Libraries to Foreign Language Runtimes",
+      "startsAt": "2026-10-08T07:30:00.0000000Z",
+      "endsAt": "2026-10-08T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Maurizio Cimadamore"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21657",
+      "title": "Reflect, Transform, Accelerate: Bringing GPU Computing to Java",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Juan Fumero"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8169",
+      "title": "How to Architect Green Software",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Ioannis Kolaxis"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22905",
+      "title": "When ORM Becomes OMG: Performance Pitfalls in JPA and Friends",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Jos Roseboom"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22947",
+      "title": "High-Performance Java-Native AI with CUDA and the Vector API",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Zoran Sevarac"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9032",
+      "title": "Agents With Seatbelts: Practical Ways to Keep AI Code Gen Under Control",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Jonathan Vila López"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "14457",
+      "title": "Coder, Coach, Catalyst - using questions to make people grow",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Martin Mazur"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5541",
+      "title": "Dream Machines & Walled Gardens",
+      "startsAt": "2026-10-08T08:40:00.0000000Z",
+      "endsAt": "2026-10-08T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Anders Norås"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25671",
+      "title": "State of Agentic Coding",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Daniela Petruzalek"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21671",
+      "title": "The Rise of Agent Enablement: Coding Agents Don't Scale Themselves. Neither Do Your Teams.",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Patrick Debois"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23543",
+      "title": "The Yearly Java Performance Update for 2026",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Per-Ake Minborg"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17556",
+      "title": "SIMD for Java: how Elasticsearch already benefits from the Panama Vector API",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Piotr Przybyl"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "14452",
+      "title": "Quixotic: Pure Java Inference at Native Speed",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Alfonso² Peterssen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8153",
+      "title": "Taming Microservice Overload: Our Journey to Modular Monoliths",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Mario Klaver"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24245",
+      "title": "Making sense of vector databases",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Balkrishna Rawool"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16443",
+      "title": "Say Goodbye to LLM API keys with Workload Identity Federation",
+      "startsAt": "2026-10-08T09:50:00.0000000Z",
+      "endsAt": "2026-10-08T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Siarhei Biarozkin"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50104",
+      "title": "Engineering Lessons from Working on Software Older Than Me",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Guust Ysebie"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "41302",
+      "title": "\"You May Now Optimize the Wedding\": Optimizing the Seating, Bachelor Party, and Honeymoon with Constraint AI",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Geoffrey De Smet",
+        "Tom Cools"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "44601",
+      "title": "Agents Shouldn't Control Control Flow",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Jeremy Adams"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24244",
+      "title": "Green Maven builds: sustainable CI in practice",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Jan Boonen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17782",
+      "title": "Is the IDE dead ?",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Martin Lippert"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7020",
+      "title": "Who to blame? The AI, The Programmer, or The Prompt?",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Makan Sepehrifar"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50109",
+      "title": "Keeping Spring Applications Secure in the Age of AI",
+      "startsAt": "2026-10-08T10:55:00.0000000Z",
+      "endsAt": "2026-10-08T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Lunch Talk",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Neven Cvetkovic"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "50105",
+      "title": "Building, Shipping and Governing AI Agents on Kubernetes",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Tom O'Rourke",
+        "Ep Heijting"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5502",
+      "title": "Taming the Chaos: Security and Predictability in LLM-Powered Applications",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Rustam Mehmandarov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8186",
+      "title": "The Hexagonal Hangover",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Ties van de Ven"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24218",
+      "title": "Conquest, time travel and explosions using Git",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Alexander Chatzizacharias"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23536",
+      "title": "Ask the Architects",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Gavin Bierman",
+        "Maurizio Cimadamore",
+        "Per-Ake Minborg",
+        "Viktor Klang",
+        "Alan Bateman"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22916",
+      "title": "Java and the Next Generation of Programming Models",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Ana-Maria Mihalceanu"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19706",
+      "title": "Software engineering in the age of AI agents: who’s in control?",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Bert Jan Schrijver"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23522",
+      "title": "Hardwood: Building a Parquet Parser From Scratch (With a Little Help From AI)",
+      "startsAt": "2026-10-08T11:50:00.0000000Z",
+      "endsAt": "2026-10-08T12:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Gunnar Morling"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49255",
+      "title": "Modernizing legacy code with AI: hands-on examples & lessons learned",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Koen Vanderkimpen",
+        "Wim Lambrecht"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "27453",
+      "title": "Build a private cluster for the office",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "John Davies"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5530",
+      "title": "Kill All Mutants! (Intro to Mutation Testing)",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Development Practices"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Dave Aronson"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "24202",
+      "title": "Beyond the Pod: Architecting and Scaling AI Agents on Kubernetes",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Abdellfetah SGHIOUAR"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16444",
+      "title": "Faster Development with Java, Python, and Micronaut",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Graeme Rocher",
+        "Thomas Wuerthinger"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10031",
+      "title": "The Dark Secrets of Computer Science",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Mind the Geek"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Fabien Marsaud"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22932",
+      "title": "Why Java Is Perfect for AI - Just Not the AI You’re Thinking Of",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Trisha Gee",
+        "Andrey Santrosyan"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5549",
+      "title": "Underneath the Black Marker: AI Techniques for Detecting and Reversing Redactions",
+      "startsAt": "2026-10-08T13:00:00.0000000Z",
+      "endsAt": "2026-10-08T13:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "David vonThenen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "41301",
+      "title": "Owning the inference layer: When and how to run your own models",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Maarten Vandeperre",
+        "Camille Nigon"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "12758",
+      "title": "Knocking on the Wrong Door: The Six Developers You’ll Meet in Security",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Enrique Larios Vargas"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25042",
+      "title": "Owning the Code You Didn't Type",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Renato Guerra Cavalcanti"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23539",
+      "title": "Everyday JSON",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Viktor Klang"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "19708",
+      "title": "Choose your own adventure in agentic design patterns",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Guillaume Laforge"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49256",
+      "title": "ADRs: The Why and How",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Venkat Subramaniam"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "12751",
+      "title": "Microservices Without the Distributed Mess",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Steven Hillaert"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "11560",
+      "title": "How I built my own intelligent Robot Arm from Scratch",
+      "startsAt": "2026-10-08T14:30:00.0000000Z",
+      "endsAt": "2026-10-08T15:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Iulia Feroli"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "25661",
+      "title": "Introducing Agent Control Theory: The System Runs the Model",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Mark Pollack"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9017",
+      "title": "AI in the Dark: Running LLMs in Air-Gapped Production Environments",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Mihaela Gheorghe-Roman"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "4090",
+      "title": "Help! I hate my team mate!",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Jessica Siewert"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9029",
+      "title": "From a startup stack to 5 microseconds: inside a crypto trading engine",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Oleg Lobanov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "22946",
+      "title": "Decoding the Cosmos: Voyager's 1970s Algorithms Meet Today's Cutting-Edge Tech",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Mind the Geek"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Pieter van der Meer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "14459",
+      "title": "Bootiful Security",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Security, Trust & Compliance"
+      ],
+      "room": "TBA 7",
+      "speakers": [
+        "Daniel Garnier-Moiroux",
+        "Josh Long"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "7035",
+      "title": "Their API Went Down. So Why Is My App on Fire?",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 8",
+      "speakers": [
+        "Ines Panker"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "51601",
+      "title": "Production-Ready Java Containers: Smaller, Faster, Smarter",
+      "startsAt": "2026-10-08T15:40:00.0000000Z",
+      "endsAt": "2026-10-08T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 9",
+      "speakers": [
+        "Albert Attard"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10043",
+      "title": "What Does it Print? The Java Quiz (Hard Edition 🤯)",
+      "startsAt": "2026-10-08T16:50:00.0000000Z",
+      "endsAt": "2026-10-08T17:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 10",
+      "speakers": [
+        "Clément de Tastes"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "8167",
+      "title": "Open Source in the Age of AI: Where's the value?",
+      "startsAt": "2026-10-08T16:50:00.0000000Z",
+      "endsAt": "2026-10-08T17:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "BOF",
+        "ADVANCED",
+        "Development Practices"
+      ],
+      "room": "TBA 11",
+      "speakers": [
+        "Trisha Gee"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49751",
+      "title": "F*ck The System, and other bad ideas for the future",
+      "startsAt": "2026-10-08T16:55:00.0000000Z",
+      "endsAt": "2026-10-08T17:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [
+        "Closing Keynote",
+        "BEGINNER",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Jo Caudron"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "27452",
+      "title": "The Praxis proxy or: How I Learned to Stop Worrying and Love AI workloads",
+      "startsAt": "2026-10-09T07:30:00.0000000Z",
+      "endsAt": "2026-10-09T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Cloud Native, Data & Infrastructure"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Alex Snaps"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "17794",
+      "title": "Escaping Java's Allocation Gravity with Value Classes",
+      "startsAt": "2026-10-09T07:30:00.0000000Z",
+      "endsAt": "2026-10-09T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Clément de Tastes",
+        "Remi Forax"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21694",
+      "title": "Why it takes 3000 commits to bring Valhalla's value objects to the JDK",
+      "startsAt": "2026-10-09T07:30:00.0000000Z",
+      "endsAt": "2026-10-09T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "David Simms"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21675",
+      "title": "All you need to know about Maven 4!",
+      "startsAt": "2026-10-09T07:30:00.0000000Z",
+      "endsAt": "2026-10-09T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Matthias Bünger"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9025",
+      "title": "The Quantum Tech Lead: Hands-On and Abstract at the Same Time",
+      "startsAt": "2026-10-09T07:30:00.0000000Z",
+      "endsAt": "2026-10-09T08:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "People, Practices & Career"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Cristian Schuszter"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "49257",
+      "title": "Embabel Agent v1.5",
+      "startsAt": "2026-10-09T08:40:00.0000000Z",
+      "endsAt": "2026-10-09T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Rod Johnson"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "15359",
+      "title": "Is AI killing XP practices? (Or are we letting it?)",
+      "startsAt": "2026-10-09T08:40:00.0000000Z",
+      "endsAt": "2026-10-09T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Nacho Cougil"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21655",
+      "title": "What’s happening with Project Amber?",
+      "startsAt": "2026-10-09T08:40:00.0000000Z",
+      "endsAt": "2026-10-09T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Gavin Bierman"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "10023",
+      "title": "You thought technical debt was bad? Meet design debt!",
+      "startsAt": "2026-10-09T08:40:00.0000000Z",
+      "endsAt": "2026-10-09T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Julien Topçu",
+        "Josian Chevalier"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "16408",
+      "title": "10 Billion Records vs. The Regulator: An Architectural Post-Mortem of an 11TB Exadata Failure",
+      "startsAt": "2026-10-09T08:40:00.0000000Z",
+      "endsAt": "2026-10-09T09:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Martin Ladecky"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "52101",
+      "title": "Java Next - From Valhalla to Leyden, from Babylon to Panama, from Amber to Detroit",
+      "startsAt": "2026-10-09T09:50:00.0000000Z",
+      "endsAt": "2026-10-09T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Java Language & Platform"
+      ],
+      "room": "TBA 2",
+      "speakers": [
+        "Nicolai Parlog"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "5538",
+      "title": "Strangling the dragon: modernizing legacy systems with the Strangler Fig pattern",
+      "startsAt": "2026-10-09T09:50:00.0000000Z",
+      "endsAt": "2026-10-09T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Architecture & Modernization"
+      ],
+      "room": "TBA 3",
+      "speakers": [
+        "Daniel Raneland"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "9036",
+      "title": "My old trains have a second life, with TinyGo!",
+      "startsAt": "2026-10-09T09:50:00.0000000Z",
+      "endsAt": "2026-10-09T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "BEGINNER",
+        "Mind the Geek"
+      ],
+      "room": "TBA 4",
+      "speakers": [
+        "Florian FORESTIER",
+        "Justine Bachelard"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "23531",
+      "title": "We created our own AI orchestrator and it became so much more!",
+      "startsAt": "2026-10-09T09:50:00.0000000Z",
+      "endsAt": "2026-10-09T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "INTERMEDIATE",
+        "Development Practices"
+      ],
+      "room": "TBA 5",
+      "speakers": [
+        "Ricky van Rijn"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "21687",
+      "title": "10 boring reasons why Java is the best ecosystem for agentic development",
+      "startsAt": "2026-10-09T09:50:00.0000000Z",
+      "endsAt": "2026-10-09T10:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [
+        "Conference",
+        "ADVANCED",
+        "Agentic Engineering & Tooling"
+      ],
+      "room": "TBA 6",
+      "speakers": [
+        "Ed Burns"
+      ],
+      "recordingUrl": null
+    }
+  ]
+}
