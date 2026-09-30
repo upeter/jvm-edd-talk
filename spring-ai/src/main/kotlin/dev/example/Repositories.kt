@@ -88,7 +88,7 @@ class SessionSearchRepository(val vectorStore: VectorStore) {
             private val sessions: List<ConferenceSession> = run {
                 val dataset: Dataset = mapper.readValue(
                     SessionPreferenceRepository::class.java
-                        .getResourceAsStream("/data/dataset-kotlinconf-sessions.json")
+                        .getResourceAsStream("/data/dataset-devoxx26-sessions.json")
                 )
                 dataset.sessions
             }

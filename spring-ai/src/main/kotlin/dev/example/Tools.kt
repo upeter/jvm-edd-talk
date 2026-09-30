@@ -99,12 +99,12 @@ class ConferenceTools(
         const val TOOL_REMOVE_PREFERRED_SESSIONS = "remove-preferred-sessions"
 
         val generalVenueInformation: String =
-            ConferenceTools::class.java.getResourceAsStream("/data/dataset-kotlinconf-venue.json").bufferedReader()
+            ConferenceTools::class.java.getResourceAsStream("/data/dataset-devoxx26-venue.json").bufferedReader()
                 .use {
                     it.readText()
                 }
         val generalSessionInformation: String =
-            ConferenceTools::class.java.getResourceAsStream("/data/dataset-kotlinconf-sessions.json").bufferedReader()
+            ConferenceTools::class.java.getResourceAsStream("/data/dataset-devoxx26-sessions.json").bufferedReader()
                 .use {
                     it.readText()
                 }
