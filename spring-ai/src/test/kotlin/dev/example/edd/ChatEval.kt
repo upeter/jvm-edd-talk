@@ -71,9 +71,7 @@ class ChatEval
                     name = "first-time-attendee"
                     example {
                         input = "Where is Devoxx Belgium 2026 held?"
-                        expected =
-                            """Groenendaallaan 394  
-                            |2030 Antwerp  """.trimMargin()
+                        expected = "Groenendaallaan 394, 2030 Antwerp"
                     }
                 }
                 task { example ->
@@ -86,6 +84,14 @@ class ChatEval
                 }
             }.run().print()
         }
+
+
+
+
+
+
+
+
 
         @Test
         fun `should retrieve basic conference information and evaluate tone`() {

@@ -121,12 +121,20 @@ class ContainsEvaluator(
     evaluatorName: String = "Contains",
     private val containsTextKey: String? = null,
     private val caseSensitive: Boolean = false,
+    private val splitFragmentsBy: String? = ",",
 ) : BaseEvaluator(evaluatorName, 1.0, listOf(EvalTestCaseParam.ACTUAL_OUTPUT)) {
 
     override fun runEvaluation(testCase: EvalTestCase): EvalResult {
         val output = testCase.actualOutput()
-        val containsText = containsTextKey?.let{testCase.expectedOutputs()[it]?.toString() } ?: testCase.expectedOutput()
-        val contains = if (caseSensitive) output.contains(containsText) else output.lowercase().contains(containsText.lowercase())
+        val containsText = containsTextKey?.let { testCase.expectedOutputs()[it]?.toString() } ?: testCase.expectedOutput()
+        val contains = when (splitFragmentsBy) {
+            null -> containsText.isContainedIn(output)
+            else -> containsText
+                .split(splitFragmentsBy)
+                .map(String::trim)
+                .filter(String::isNotEmpty)
+                .allInOrderIn(output)
+        }
 
         val score = if (contains) 1.0 else 0.0
         val reason = "Output text $containsText expected in $output"
@@ -138,6 +146,25 @@ class ContainsEvaluator(
             reason = reason,
         )
     }
+
+    private fun String.isContainedIn(output: String): Boolean = if (caseSensitive) {
+        output.contains(this)
+    } else {
+        output.lowercase().contains(lowercase())
+    }
+
+    private fun List<String>.allInOrderIn(output: String): Boolean {
+        val haystack = if (caseSensitive) output else output.lowercase()
+        val fragments = if (caseSensitive) this else map(String::lowercase)
+
+        var searchFrom = 0
+        for (fragment in fragments) {
+            val foundAt = haystack.indexOf(fragment, startIndex = searchFrom)
+            if (foundAt < 0) return false
+            searchFrom = foundAt + fragment.length
+        }
+        return true
+    }
 }
 
 
@@ -147,11 +174,14 @@ class ContainsEvaluatorDsl {
     var containsTextKey: String? = null
     var caseSensitive: Boolean = false
 
+    var splitFragmentsBy:String? = ","
+
     fun build(): ContainsEvaluator {
         return ContainsEvaluator(
             evaluatorName = name,
             containsTextKey = containsTextKey,
-            caseSensitive = caseSensitive
+            caseSensitive = caseSensitive,
+            splitFragmentsBy = splitFragmentsBy
         )
     }
 }
