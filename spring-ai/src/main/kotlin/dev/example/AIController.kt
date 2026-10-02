@@ -10,7 +10,6 @@ import org.springframework.ai.tool.ToolCallback
 import org.springframework.ai.tool.ToolCallbackProvider
 import org.springframework.context.annotation.Lazy
 import org.springframework.core.io.InputStreamResource
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -20,9 +19,10 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.multipart.MultipartFile
 import java.util.*
 import kotlin.random.Random.Default.nextInt
-import io.opentelemetry.api.trace.Tracer
-import io.opentelemetry.api.trace.Span
-import io.opentelemetry.context.Scope
+import dev.example.observability.LangfuseAttributes.METADATA_FEEDBACK_RATING
+import dev.example.observability.LangfuseAttributes.METADATA_FEEDBACK_REASON
+import dev.example.observability.langfuseObservation
+import io.micrometer.observation.ObservationRegistry
 
 data class ChatMessage(val message: String, val conversationId: String)
 data class TranscribedMessageReply(val transcribedInputText: String, val outputText: String)
@@ -40,7 +40,7 @@ class AIController(
     @Lazy val  chatClient: ChatClient,
     val toolCallbackRecorder: ToolCallRecorder,
     val conferenceTools: ConferenceTools,
-    private val tracer: Tracer
+    private val observationRegistry: ObservationRegistry
 ) {
 
 
@@ -80,14 +80,8 @@ class AIController(
 
 
     @PostMapping("/chat")
-    fun chat(@RequestBody chatMessage: ChatMessage): String? {
-        val span: Span = tracer.spanBuilder("chat")
-            .setAttribute("langfuse.session.id", chatMessage.conversationId)
-            .setAttribute("langfuse.user.request", chatMessage.message)
-            .startSpan()
-        var scope: Scope? = null
-        return try {
-            scope = span.makeCurrent()
+    fun chat(@RequestBody chatMessage: ChatMessage): String? =
+        observationRegistry.langfuseObservation("chat", chatMessage.conversationId, chatMessage.message) {
             chatClient
                 .prompt()
                 .system(SYSTEM_PROMPT)
@@ -100,14 +94,8 @@ class AIController(
                     it.param(CONVERSATION_ID, chatMessage.conversationId)
                 }
                 .call()
-                .content().also {
-                    span.setAttribute("langfuse.answer", it)
-                }
-        } finally {
-            scope?.close()
-            span.end()
+                .content()
         }
-    }
 
 
 
@@ -121,23 +109,17 @@ class AIController(
 
     @PostMapping("/feedback")
     fun feedback(@RequestBody feedbackRequest: FeedbackRequest): ResponseEntity<String> {
-        val span: Span = tracer.spanBuilder("feedback")
-            .setAttribute("langfuse.session.id", feedbackRequest.sessionId)
-            .setAttribute("langfuse.user.request", feedbackRequest.request)
-            .setAttribute("langfuse.answer", feedbackRequest.answer)
-            .setAttribute("langfuse.feedback", feedbackRequest.rating)
-            .setAttribute("langfuse.feedback.reason", feedbackRequest.reason.orEmpty())
-            .startSpan()
-
-        return try {
-            ResponseEntity.ok("ok")
-        } catch (ex: Exception) {
-            span.recordException(ex)
-            span.setStatus(io.opentelemetry.api.trace.StatusCode.ERROR)
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("error")
-        } finally {
-            span.end()
-        }
+        // The feedback observation records the rated exchange: request as input, answer as output.
+        observationRegistry.langfuseObservation(
+            name = "feedback",
+            sessionId = feedbackRequest.sessionId,
+            input = feedbackRequest.request,
+            metadata = mapOf(
+                METADATA_FEEDBACK_RATING to feedbackRequest.rating,
+                METADATA_FEEDBACK_REASON to feedbackRequest.reason.orEmpty(),
+            ),
+        ) { feedbackRequest.answer }
+        return ResponseEntity.ok("ok")
     }
 
 
@@ -179,13 +161,7 @@ class AIController(
         // 2. Call the chat method with the transcribed text
         val chatMessage = ChatMessage(transcribedText, conversationId ?: UUID.randomUUID().toString())
 
-        val chatSpan: Span = tracer.spanBuilder("audio-chat")
-            .setAttribute("langfuse.session.id", chatMessage.conversationId)
-            .setAttribute("langfuse.user.request", chatMessage.message)
-            .startSpan()
-        var chatScope: Scope? = null
-        val chatResponse = try {
-            chatScope = chatSpan.makeCurrent()
+        val chatResponse = observationRegistry.langfuseObservation("audio-chat", chatMessage.conversationId, chatMessage.message) {
             chatClient
                 .prompt()
                 .system(SYSTEM_PROMPT_AUDIO)
@@ -198,9 +174,6 @@ class AIController(
                 }
                 .call()
                 .content()
-        } finally {
-            chatScope?.close()
-            chatSpan.end()
         }
 
         // 3. Convert the response to audio

@@ -55,7 +55,6 @@ export LANGFUSE_PUBLIC_KEY=<pk>
 export LANGFUSE_SECRET_KEY=<sk>
 
 # OpenTelemetry export to Langfuse
-export OTEL_EXPORTER_OTLP_ENDPOINT=https://cloud.langfuse.com/api/public/otel/
 export OTEL_EXPORTER_OTLP_HEADERS='Authorization=Basic <pk:sk base64>'
 export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://cloud.langfuse.com/api/public/otel/v1/traces
 ```
@@ -63,6 +62,12 @@ export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=https://cloud.langfuse.com/api/public/
 Notes:
 - `OPENAI_API_KEY` is mandatory because `spring-ai/src/main/resources/application.properties` references it.
 - To build the Basic header value, base64-encode the literal string `"<pk>:<sk>"`.
+- Traces are exported only when `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` is set. Spring Boot 4 ignores the `OTEL_*`
+  variables, so `observability/LangfuseTracingConfig.kt` passes them to its exporter and adds the
+  `x-langfuse-ingestion-version: 4` header for Langfuse's v4 ingestion path. `OTEL_EXPORTER_OTLP_ENDPOINT` is not needed.
+- Langfuse v4 queries observations directly, so the app copies the session ID and trace name onto every span and
+  puts each request's input and output on the root observation (`observability/LangfuseTraceAttributes.kt`).
+- The feedback-triage flow reads Langfuse through the Observations API v2 (`langfuse/LangfuseFeedbackClient.kt`).
 
 ---
 

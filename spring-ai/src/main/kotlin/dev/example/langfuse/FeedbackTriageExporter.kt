@@ -1,8 +1,6 @@
 package dev.example.langfuse
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.langfuse.client.resources.commons.types.ObservationsView
-import com.langfuse.client.resources.commons.types.TraceWithFullDetails
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.createDirectories
@@ -40,7 +38,8 @@ class FeedbackTriageExporter(
     private val feedbackClient: LangfuseFeedbackClient,
     private val triager: FeedbackTriager? = null,
 ) {
-    private val mapper = jacksonObjectMapper().writerWithDefaultPrettyPrinter()
+    private val reader = jacksonObjectMapper()
+    private val mapper = reader.writerWithDefaultPrettyPrinter()
 
     fun exportNegativeFeedback(
         limit: Int = 20,
@@ -63,7 +62,7 @@ class FeedbackTriageExporter(
     }
 
     private fun exportEntry(entry: FeedbackEntry, tracesDirectory: Path): FeedbackTriageRow {
-        val trace = runCatching { feedbackClient.fetchTrace(entry.traceId) }.getOrNull()
+        val trace = runCatching { feedbackClient.fetchTrace(entry.traceId, entry.timestamp) }.getOrNull()
         val traceFileName = "trace-${entry.traceId.toSafeFileName()}.md"
         val traceFile = tracesDirectory.resolve(traceFileName)
         val traceMarkdown = renderTrace(entry, trace)
@@ -102,7 +101,7 @@ class FeedbackTriageExporter(
         )
     }
 
-    private fun renderTrace(entry: FeedbackEntry, trace: TraceWithFullDetails?): String = buildString {
+    private fun renderTrace(entry: FeedbackEntry, trace: TraceObservations?): String = buildString {
         appendLine("# Trace ${entry.traceId}")
         appendLine()
         trace?.htmlPath?.takeIf { it.isNotBlank() }?.let {
@@ -132,44 +131,47 @@ class FeedbackTriageExporter(
             return@buildString
         }
 
+        // Langfuse v4 has no trace entity: the root observation carries the overall input and output.
+        val root = trace.root
         appendLine("## Trace Summary")
         appendLine()
-        appendLine("Session: ${trace.sessionId.orElse(entry.sessionId)}")
-        appendLine("Started: ${trace.timestamp}")
-        appendLine("Latency: ${trace.latency}")
+        appendLine("Session: ${(root?.get("sessionId") as? String)?.ifBlank { null } ?: entry.sessionId}")
+        appendLine("Started: ${root?.get("startTime")}")
+        appendLine("Latency: ${root?.get("latency")}")
         appendLine("Total cost: ${trace.totalCost}")
         appendLine()
 
         appendLine("## Trace Input")
-        appendJsonBlock(trace.input.orElse(null))
+        appendJsonBlock(root?.get("input"))
         appendLine()
         appendLine("## Trace Output")
-        appendJsonBlock(trace.output.orElse(null))
+        appendJsonBlock(root?.get("output"))
         appendLine()
 
         appendLine("## Observations")
         appendLine()
-        trace.observations.sortedBy { it.startTime }.forEach { observation ->
+        trace.observations.sortedBy { it["startTime"] as String }.forEach { observation ->
             appendObservation(observation)
         }
     }
 
-    private fun StringBuilder.appendObservation(observation: ObservationsView) {
-        appendLine("### ${observation.name.orElse(observation.type)}")
+    private fun StringBuilder.appendObservation(observation: ObservationRow) {
+        fun field(name: String): String? = observation[name]?.toString()?.ifBlank { null }
+        appendLine("### ${field("name") ?: field("type")}")
         appendLine()
-        appendLine("- id: ${observation.id}")
-        appendLine("- type: ${observation.type}")
-        appendLine("- start: ${observation.startTime}")
-        observation.endTime.ifPresent { appendLine("- end: $it") }
-        observation.parentObservationId.ifPresent { appendLine("- parent: $it") }
-        observation.model.ifPresent { appendLine("- model: $it") }
-        observation.statusMessage.ifPresent { appendLine("- status: $it") }
+        appendLine("- id: ${field("id")}")
+        appendLine("- type: ${field("type")}")
+        appendLine("- start: ${field("startTime")}")
+        field("endTime")?.let { appendLine("- end: $it") }
+        field("parentObservationId")?.let { appendLine("- parent: $it") }
+        field("model")?.let { appendLine("- model: $it") }
+        field("statusMessage")?.let { appendLine("- status: $it") }
         appendLine()
         appendLine("Input:")
-        appendJsonBlock(observation.input.orElse(null))
+        appendJsonBlock(observation["input"])
         appendLine()
         appendLine("Output:")
-        appendJsonBlock(observation.output.orElse(null))
+        appendJsonBlock(observation["output"])
         appendLine()
     }
 
@@ -179,8 +181,9 @@ class FeedbackTriageExporter(
         appendLine("```")
     }
 
+    /** v2 returns input/output as raw strings: pretty-print them when they hold JSON, else keep them as is. */
     private fun Any.toPrettyJson(): String = runCatching {
-        mapper.writeValueAsString(this)
+        mapper.writeValueAsString(if (this is String) reader.readTree(this) else this)
     }.getOrElse { toString() }
 
     private fun buildCsv(rows: List<FeedbackTriageRow>): String {

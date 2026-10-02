@@ -29,9 +29,11 @@ import org.springframework.beans.factory.annotation.Value
 class AiConfig {
     @Bean
     fun chatClient(
-        openAiChatModel: OpenAiChatModel, chatMemory: ChatMemory,
+        // The auto-configured builder carries the ObservationRegistry. ChatClient.builder(chatModel) would use a
+        // no-op registry, and since Spring AI 2.0 the ChatClient executes tools itself, so tool calls go untraced.
+        chatClientBuilder: ChatClient.Builder, chatMemory: ChatMemory,
     ): ChatClient {
-        val builder = ChatClient.builder(openAiChatModel)
+        val builder = chatClientBuilder
             .defaultAdvisors(
                 MessageChatMemoryAdvisor.builder(chatMemory).build(),
             )
