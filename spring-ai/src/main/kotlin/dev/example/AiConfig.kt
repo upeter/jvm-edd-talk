@@ -1,15 +1,10 @@
 package dev.example
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import org.jetbrains.kotlinx.dataframe.DataFrame
-import org.jetbrains.kotlinx.dataframe.api.*
-import org.jetbrains.kotlinx.dataframe.io.readJson
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor
 import org.springframework.ai.chat.memory.ChatMemory
 import org.springframework.ai.chat.memory.InMemoryChatMemoryRepository
 import org.springframework.ai.chat.memory.MessageWindowChatMemory
-import org.springframework.ai.document.Document
 import org.springframework.ai.embedding.EmbeddingModel
 import org.springframework.ai.image.ImageModel
 import org.springframework.ai.image.ImageOptions
@@ -22,15 +17,10 @@ import org.springframework.ai.openai.api.OpenAiImageApi
 import org.springframework.ai.retry.RetryUtils
 import org.springframework.ai.tool.execution.ToolExecutionException
 import org.springframework.ai.tool.execution.ToolExecutionExceptionProcessor
-import org.springframework.ai.vectorstore.VectorStore
-import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.jdbc.core.JdbcTemplate
-import org.springframework.jdbc.core.queryForObject
 import org.springframework.web.client.RestClient
-import java.util.*
 import com.langfuse.client.LangfuseClient
 import org.springframework.beans.factory.annotation.Value
 
@@ -134,77 +124,14 @@ class AiConfig {
      */
     @Bean
     fun applicationRunner(
-        jdbcTemplate: JdbcTemplate,
-        vectorStore: VectorStore,
+        sessionIngestion: SessionIngestion,
         embeddingModel: EmbeddingModel,
-        mapper: ObjectMapper,
+        @Value("\${spring.ai.vectorstore.pgvector.table-name}") tableName: String,
     ): ApplicationRunner {
-        val zone = java.time.ZoneId.systemDefault()
-        fun phaseOfDayFrom(hour: Int, durationMinutes: Long): String = when {
-            durationMinutes >= 8 * 60 -> "ALL_DAY"
-            hour in 5..11 -> "MORNING"
-            hour in 12..17 -> "AFTERNOON"
-            else -> "EVENING"
-        }
         logger.info("Embedding Model used: $embeddingModel")
-        val doCount  =  {
-            val sql = "SELECT count(*) FROM public.talks"
-            runCatching {  jdbcTemplate.queryForObject<Int>(sql) }.getOrElse{0}
-        }
-
-
-        return ApplicationRunner { args: ApplicationArguments? ->
-            val count:Int = doCount()
-            val startTime = System.currentTimeMillis()
-            if (count > 0) {
-                logger.info("${count} sessions embeddings already present in public.talks")
-            } else {
-                logger.info("Start ingesting sessions in public.talks...   ")
-                val df = DataFrame.readJson("spring-ai/src/main/resources/data/dataset-devoxx26.json")
-                val sessions = df.explode("sessions").select("sessions").rename("sessions").into("session").flatten()
-                val conferenceDaysSorted = sessions
-                    .map { java.time.Instant.parse(it["startsAt"].toString()).atZone(zone).toLocalDate() }
-                    .distinct()
-                    .sorted()
-                val dayIndexByDate = conferenceDaysSorted.mapIndexed { idx, date -> date to (idx + 1) }.toMap()
-                val documents =
-                    sessions.map {
-                        val startZoned = java.time.Instant.parse(it["startsAt"].toString()).atZone(zone)
-                        val endZoned = java.time.Instant.parse(it["endsAt"].toString()).atZone(zone)
-                        val startLocal = startZoned.toLocalDateTime()
-                        val endLocal = endZoned.toLocalDateTime()
-                        val conferenceDay = startZoned.toLocalDate()
-                        val durationMinutes = java.time.Duration.between(startZoned, endZoned).toMinutes()
-                        val phaseOfDay = phaseOfDayFrom(startLocal.hour, durationMinutes)
-
-                        Document(
-                            "title:${it["title"]}, description:${it["description"]}",
-                            mapOf<String, Any>(
-                                "id" to UUID.randomUUID().toString().replace("-", ""),
-                                "title" to it["title"].toString(),
-                                "room" to it["room"].toString(),
-                                "category" to it["category"].toString(),
-                                "speakers" to it["speakers"].toString(),
-                                // Extra derived metadata in local date-time (no UTC suffix)
-                                "startsAtLocalDateTime" to java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(
-                                    startLocal
-                                ),
-                                "endsAtLocalDateTime" to java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(
-                                    endLocal
-                                ),
-                                "startsAt" to java.time.Instant.parse(it["startsAt"].toString()).toEpochMilli(),
-                                "endsAt" to java.time.Instant.parse(it["endsAt"].toString()).toEpochMilli(),
-                                "conferenceDay" to conferenceDay.toString(),
-                                "dayIndex" to (dayIndexByDate[conferenceDay] ?: 1),
-                                "phaseOfDay" to phaseOfDay,
-                                "durationMinutes" to durationMinutes.toInt(),
-                            )
-                        )
-                    }
-                vectorStore.accept(documents)
-                logger.info("Time taken to load ${doCount()} Sessions: {} ms", System.currentTimeMillis() - startTime)
-            }
-        }
+        // The configured table decides the chunking strategy (see ChunkingStrategy); unknown tables get WHOLE.
+        val strategy = ChunkingStrategy.forTable(tableName) ?: ChunkingStrategy.WHOLE
+        return ApplicationRunner { sessionIngestion.ingestIfEmpty(strategy, tableName) }
     }
 }
 

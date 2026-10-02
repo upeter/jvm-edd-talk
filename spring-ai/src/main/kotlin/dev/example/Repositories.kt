@@ -24,11 +24,15 @@ data class ConferenceSessionSearchResult(
 @Repository
 class SessionSearchRepository(val vectorStore: VectorStore) {
 
-    fun searchSessions(query: String): List<ConferenceSessionSearchResult> {
+    /**
+     * Chunked strategies store several documents per session, so the search over-fetches a candidate
+     * pool, collapses the hits per session (best-scoring document wins) and returns the top [maxResults].
+     */
+    fun searchSessions(query: String, maxResults: Int = MAX_RESULTS): List<ConferenceSessionSearchResult> {
         val searchRequest = SearchRequest.builder()
             .query(query)
-            .similarityThreshold(0.3)
-            .topK(10).build().also { logger.info("Query: ${query}") }
+            .similarityThreshold(SIMILARITY_THRESHOLD)
+            .topK(maxResults * CANDIDATE_POOL_FACTOR).build().also { logger.info("Query: ${query}") }
         return vectorStore.similaritySearch(searchRequest)
             .groupBy { it.metadata.getValue("title") }
             .map { (title, documents) ->
@@ -43,6 +47,14 @@ class SessionSearchRepository(val vectorStore: VectorStore) {
                     )
                 }
             }
+            .sortedByDescending { it.score }
+            .take(maxResults)
+    }
+
+    companion object {
+        const val MAX_RESULTS = 10
+        const val CANDIDATE_POOL_FACTOR = 3
+        const val SIMILARITY_THRESHOLD = 0.3
     }
 }
 

@@ -365,3 +365,68 @@ class StartedSessionOverlapEvaluatorDsl {
 fun EvaluatorsDsl.startedSessionOverlap(block: StartedSessionOverlapEvaluatorDsl.() -> Unit = {}) {
     evaluator(StartedSessionOverlapEvaluatorDsl().apply(block).build())
 }
+
+/**
+ * Scores where the expected item landed in a ranked retrieval result — a deterministic retrieval
+ * metric, no LLM judge involved.
+ *
+ *  - With [k] set it is **Hit@k**: 1.0 if the expected title is among the first k results, else 0.0.
+ *    With one relevant item per query, its dataset average equals Recall@k.
+ *  - Without [k] it is the **reciprocal rank** (1/rank, 0.0 if absent); its dataset average is MRR.
+ *
+ * Reads the ranked titles from [retrievedKey]; the expected title is the example's expected output.
+ */
+class RetrievalRankEvaluator(
+    evaluatorName: String,
+    private val k: Int? = null,
+    private val retrievedKey: String = PARAM_RETRIEVED,
+    threshold: Double = if (k != null) 1.0 else 0.5,
+) : BaseEvaluator(evaluatorName, threshold, emptyList()) {
+
+    override fun runEvaluation(testCase: EvalTestCase): EvalResult {
+        val retrieved = (testCase.actualOutputs()[retrievedKey] as? List<*>).orEmpty().map { it.toString() }
+        val expected = testCase.expectedOutput()
+        val rank = retrieved.indexOfFirst { it.equals(expected, ignoreCase = true) }
+            .takeIf { it >= 0 }?.plus(1)
+
+        val score = when {
+            rank == null -> 0.0
+            k != null -> if (rank <= k) 1.0 else 0.0
+            else -> 1.0 / rank
+        }
+        val reason = if (rank == null) {
+            "'$expected' not retrieved; top results: ${retrieved.take(3).joinToString(" | ").ifEmpty { "none" }}"
+        } else {
+            "'$expected' at rank $rank of ${retrieved.size}"
+        }
+        return EvalResult(
+            name(), score, threshold(), score >= threshold(), reason,
+            mapOf("rank" to (rank ?: -1), "retrievedCount" to retrieved.size),
+        )
+    }
+
+    companion object {
+        const val PARAM_RETRIEVED = "retrievedTitles"
+    }
+}
+
+@DokimosDsl
+class RetrievalRankEvaluatorDsl {
+    var name: String = "Reciprocal Rank"
+
+    /** Set for Hit@k; leave null for reciprocal rank (MRR). */
+    var k: Int? = null
+    var retrievedKey: String = RetrievalRankEvaluator.PARAM_RETRIEVED
+    var threshold: Double? = null
+
+    fun build(): RetrievalRankEvaluator = RetrievalRankEvaluator(
+        evaluatorName = name,
+        k = k,
+        retrievedKey = retrievedKey,
+        threshold = threshold ?: if (k != null) 1.0 else 0.5,
+    )
+}
+
+fun EvaluatorsDsl.retrievalRank(block: RetrievalRankEvaluatorDsl.() -> Unit = {}) {
+    evaluator(RetrievalRankEvaluatorDsl().apply(block).build())
+}
