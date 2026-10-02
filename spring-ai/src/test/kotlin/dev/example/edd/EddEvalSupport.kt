@@ -65,15 +65,14 @@ fun expectedToolCalls(vararg names: String): List<Map<String, Any>> = names.map 
  * so an alias update cannot drift recorded scores. GPT-5.x only accepts temperature 0 with
  * reasoning switched off.
  */
-private val judgeOptions: OpenAiChatOptions = OpenAiChatOptions.builder()
+private fun judgeOptions(): OpenAiChatOptions.Builder = OpenAiChatOptions.builder()
     .model("gpt-5.5-2026-04-23")
     .reasoningEffort("none")
     .temperature(0.0)
-    .build()
 
 /** Shared LLM-judge configuration used by the eval classes. Clones the builder so the app's client keeps its own model. */
 fun springAiJudge(builder: ChatClient.Builder): JudgeLM =
-    SpringAiSupport.asJudge(builder.clone().defaultOptions(judgeOptions))
+    SpringAiSupport.asJudge(builder.clone().defaultOptions(judgeOptions()))
 
 /** Reports eval results to the local Dokimos dashboard. */
 fun dokimosReporter(): DokimosServerReporter = DokimosServerReporter.builder()

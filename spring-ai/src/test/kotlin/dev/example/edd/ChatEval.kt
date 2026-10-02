@@ -58,7 +58,6 @@ class ChatEval
                 .model("gpt-5.5-2026-04-23") //judge should be pinned
                 .reasoningEffort("none")
                 .temperature(0.0)
-                .build()
         )
     )
 

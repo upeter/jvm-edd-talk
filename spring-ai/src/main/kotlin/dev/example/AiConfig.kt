@@ -10,11 +10,9 @@ import org.springframework.ai.image.ImageModel
 import org.springframework.ai.image.ImageOptions
 import org.springframework.ai.image.ImageOptionsBuilder
 import org.springframework.ai.openai.*
-import org.springframework.ai.openai.api.OpenAiAudioApi
-import org.springframework.ai.openai.api.OpenAiAudioApi.SpeechRequest.AudioResponseFormat
-import org.springframework.ai.openai.api.OpenAiAudioApi.TranscriptResponseFormat
-import org.springframework.ai.openai.api.OpenAiImageApi
-import org.springframework.ai.retry.RetryUtils
+import org.springframework.ai.openai.OpenAiAudioSpeechOptions.AudioResponseFormat
+import org.springframework.ai.openai.OpenAiAudioSpeechOptions.Voice
+import com.openai.models.audio.AudioResponseFormat as TranscriptResponseFormat
 import org.springframework.ai.tool.execution.ToolExecutionException
 import org.springframework.ai.tool.execution.ToolExecutionExceptionProcessor
 import org.springframework.boot.ApplicationRunner
@@ -39,14 +37,9 @@ class AiConfig {
     }
 
     @Bean
-    fun openAiAudioApi(@Value("#{environment.OPENAI_API_KEY}") key: String, restClientBuilder: RestClient.Builder) =
-        OpenAiAudioApi.Builder().baseUrl("https://api.openai.com").apiKey(key).restClientBuilder(restClientBuilder)
-            .responseErrorHandler(RetryUtils.DEFAULT_RESPONSE_ERROR_HANDLER).build()
-
-
-    @Bean
-    fun transcriptionOptions(): OpenAiAudioTranscriptionOptions {
+    fun transcriptionOptions(@Value("#{environment.OPENAI_API_KEY}") key: String): OpenAiAudioTranscriptionOptions {
         return OpenAiAudioTranscriptionOptions.builder()
+            .apiKey(key)
             .language("en")
             .prompt("Create transcription for this audio file.")
             .temperature(0f)
@@ -58,21 +51,22 @@ class AiConfig {
 
 
     @Bean
-    fun transcriptionModel(openAiAudioApi: OpenAiAudioApi, transcriptionOptions: OpenAiAudioTranscriptionOptions) =
-        OpenAiAudioTranscriptionModel(openAiAudioApi, transcriptionOptions)
+    fun transcriptionModel(transcriptionOptions: OpenAiAudioTranscriptionOptions): OpenAiAudioTranscriptionModel =
+        OpenAiAudioTranscriptionModel.builder().options(transcriptionOptions).build()
 
 
     @Bean
-    fun speachOptions(): OpenAiAudioSpeechOptions = OpenAiAudioSpeechOptions.builder()
-        .model(OpenAiAudioApi.TtsModel.TTS_1.getValue())
+    fun speachOptions(@Value("#{environment.OPENAI_API_KEY}") key: String): OpenAiAudioSpeechOptions = OpenAiAudioSpeechOptions.builder()
+        .apiKey(key)
+        .model("tts-1")
         .responseFormat(AudioResponseFormat.MP3)
-        .voice(OpenAiAudioApi.SpeechRequest.Voice.ALLOY)
+        .voice(Voice.ALLOY)
         .speed(1.0)
         .build()
 
     @Bean
-    fun speechModel(openAiAudioApi: OpenAiAudioApi, speechOptions: OpenAiAudioSpeechOptions) =
-        OpenAiAudioSpeechModel(openAiAudioApi, speechOptions)
+    fun speechModel(speechOptions: OpenAiAudioSpeechOptions): OpenAiAudioSpeechModel =
+        OpenAiAudioSpeechModel.builder().options(speechOptions).build()
 
     @Bean
     fun imageOptions(): ImageOptions = ImageOptionsBuilder.builder()
@@ -83,7 +77,7 @@ class AiConfig {
 
     @Bean
     fun imageModel(@Value("#{environment.OPENAI_API_KEY}") apiKey: String): ImageModel {
-        return OpenAiImageModel(OpenAiImageApi.Builder().apiKey(apiKey).build())
+        return OpenAiImageModel(OpenAiImageOptions.builder().apiKey(apiKey).build())
     }
 
 
