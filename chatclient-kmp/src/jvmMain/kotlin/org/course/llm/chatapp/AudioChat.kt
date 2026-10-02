@@ -16,7 +16,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -288,17 +290,11 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            // Agent icon (only visible when playing)
-            if (isPlaying) {
-                Image(
-                    painter = painterResource("AgentIcon.png"),
-                    contentDescription = "Agent",
-                    modifier = Modifier
-                        .size(120.dp)
-                        .scale(agentScale),
-                    alignment = Alignment.Center
-                )
-            }
+            // Duke is always on stage; he pulses while the response plays
+            DukeAvatar(
+                height = 140.dp,
+                modifier = Modifier.scale(if (isPlaying) agentScale else 1f)
+            )
 
             Spacer(modifier = Modifier.height(32.dp))
 
@@ -307,7 +303,8 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .size(120.dp * animatedSize)
                     .clip(CircleShape)
-                    .background(if (isRecording) Color(0xC7900DD7) else Color.LightGray)
+                    .background(if (isRecording) DevoxxColors.Orange else DevoxxColors.SurfaceRaised)
+                    .border(2.dp, if (isRecording) DevoxxColors.Lime else DevoxxColors.Border, CircleShape)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null
@@ -353,8 +350,10 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = if (isRecording) "Stop" else "Record",
-                    color = Color.White
+                    text = if (isRecording) "STOP" else "RECORD",
+                    color = if (isRecording) DevoxxColors.OnAccent else DevoxxColors.Text,
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 2.sp
                 )
             }
 
@@ -366,13 +365,17 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                     isPlaying -> "Playing response..."
                     else -> "Tap and hold to record"
                 },
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
+                color = DevoxxColors.TextMuted,
+                letterSpacing = 1.sp
             )
 
             // Progress indicator for processing
             if (isProcessing) {
                 CircularProgressIndicator(
-                    modifier = Modifier.padding(16.dp)
+                    modifier = Modifier.padding(16.dp),
+                    color = DevoxxColors.Orange,
+                    trackColor = DevoxxColors.Border
                 )
             }
         }

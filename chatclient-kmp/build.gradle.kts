@@ -3,7 +3,7 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 plugins {
     kotlin("multiplatform") version "2.3.10"
     id("org.jetbrains.kotlin.plugin.compose") version "2.3.10"
-    id("org.jetbrains.compose") version "1.8.1"
+    id("org.jetbrains.compose") version "1.9.3"
 
 }
 
@@ -18,7 +18,7 @@ repositories {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(25)
     jvm {
         testRuns["test"].executionTask.configure {
             useJUnitPlatform()
@@ -26,7 +26,7 @@ kotlin {
     }
 
     sourceSets {
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(compose.material3)
@@ -52,7 +52,7 @@ kotlin {
             }
         }
 
-        val jvmTest by getting {
+        jvmTest {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit5"))

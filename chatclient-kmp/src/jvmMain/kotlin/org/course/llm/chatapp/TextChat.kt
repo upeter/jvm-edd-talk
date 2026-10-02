@@ -1,5 +1,6 @@
 package org.course.llm.chatapp
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,6 +22,7 @@ import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.*
 import androidx.compose.ui.res.painterResource
+import androidx.compose.material.icons.filled.Mic
 import androidx.compose.material.icons.filled.ThumbDown
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.ui.unit.dp
@@ -87,24 +89,29 @@ sealed class ChatBubbleStyle {
     abstract val alignment: Alignment
     abstract val backgroundColor: Color
     abstract val textColor: Color
+    open val linkColor: Color get() = textColor
+    open val borderColor: Color? = null
 
     object User : ChatBubbleStyle() {
         override val alignment = Alignment.CenterEnd
-        override val backgroundColor = Color.LightGray
-        override val textColor = Color.DarkGray
+        override val backgroundColor = DevoxxColors.Orange
+        override val textColor = DevoxxColors.OnAccent
     }
 
     object Agent : ChatBubbleStyle() {
         override val alignment = Alignment.CenterStart
-        override val backgroundColor = Color(0xC7994CC7)
-        override val textColor = Color.White
+        override val backgroundColor = DevoxxColors.SurfaceRaised
+        override val textColor = DevoxxColors.Text
+        override val linkColor = DevoxxColors.Cyan
+        override val borderColor = DevoxxColors.Border
     }
 
-    // Gray bubble for transcribed user input
+    // Outlined orange bubble for transcribed user input
     object Transcribed : ChatBubbleStyle() {
         override val alignment = Alignment.CenterEnd
-        override val backgroundColor = Color.LightGray
-        override val textColor = Color.DarkGray
+        override val backgroundColor = DevoxxColors.Surface
+        override val textColor = DevoxxColors.Orange
+        override val borderColor = DevoxxColors.Orange
     }
 }
 
@@ -135,17 +142,17 @@ fun ChatBubble(
 fun MarkdownText(content: String, style: ChatBubbleStyle) {
     val markdownColors = MarkdownColors(
         text = style.textColor,
-        link = style.textColor.copy(alpha = 0.85f),
-        code = style.textColor.copy(alpha = 0.9f)
+        link = style.linkColor,
+        code = if (style is ChatBubbleStyle.Agent) DevoxxColors.Lime else style.textColor.copy(alpha = 0.9f)
     )
     val annotated = remember(content, style) { buildMarkdownAnnotatedString(content, markdownColors) }
     CompositionLocalProvider(LocalContentColor provides style.textColor) {
         SelectionContainer {
             Text(
                 text = annotated,
-                modifier = Modifier.padding(12.dp),
+                modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
                 color = style.textColor,
-                style = TextStyle.Default
+                style = TextStyle.Default.copy(lineHeight = 20.sp)
             )
         }
     }
@@ -163,18 +170,21 @@ fun ChatBubbleWithStyle(content: String, style: ChatBubbleStyle) {
         ) {
             // Show agent icon only for agent messages
             if (style is ChatBubbleStyle.Agent) {
-                Image(
-                    painter = painterResource("AgentIcon.png"),
-                    contentDescription = "Agent",
-                    modifier = Modifier.size(60.dp).padding(end = 8.dp),
-                    alignment = Alignment.TopStart
-                )
+                DukeAvatar(height = 56.dp)
+                Spacer(Modifier.width(10.dp))
             }
 
+            val isAgent = style is ChatBubbleStyle.Agent
             Surface(
-                shape = RoundedCornerShape(8.dp),
+                shape = RoundedCornerShape(
+                    topStart = if (isAgent) 2.dp else 16.dp,
+                    topEnd = if (isAgent) 16.dp else 2.dp,
+                    bottomStart = 16.dp,
+                    bottomEnd = 16.dp
+                ),
                 color = style.backgroundColor,
-                modifier = Modifier.widthIn(max = 400.dp)
+                border = style.borderColor?.let { BorderStroke(1.dp, it) },
+                modifier = Modifier.widthIn(max = 520.dp)
             ) {
                 MarkdownText(content, style)
             }
@@ -193,14 +203,14 @@ fun FeedbackRow(
     val sentUp = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == true
     val sentDown = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == false
     val upColor = when {
-        isSending -> Color.Gray.copy(alpha = 0.6f)
-        sentUp -> Color(0xFF4CAF50)
-        else -> Color.Gray
+        isSending -> DevoxxColors.TextMuted.copy(alpha = 0.5f)
+        sentUp -> DevoxxColors.Lime
+        else -> DevoxxColors.TextMuted
     }
     val downColor = when {
-        isSending -> Color.Gray.copy(alpha = 0.6f)
-        sentDown -> Color(0xFFF44336)
-        else -> Color.Gray
+        isSending -> DevoxxColors.TextMuted.copy(alpha = 0.5f)
+        sentDown -> DevoxxColors.Error
+        else -> DevoxxColors.TextMuted
     }
 
     Row(
@@ -210,7 +220,7 @@ fun FeedbackRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (!message.isUserMessage) {
-            Spacer(modifier = Modifier.width(68.dp))
+            Spacer(modifier = Modifier.width(52.dp))
         }
 
         Row(
@@ -257,6 +267,7 @@ fun FeedbackRow(
                             placeholder = { Text("For example: These sessions already started.") },
                             minLines = 3,
                             maxLines = 5,
+                            colors = devoxxTextFieldColors(),
                             modifier = Modifier.fillMaxWidth()
                         )
                     },
@@ -295,7 +306,7 @@ fun FeedbackRow(
             statusLabel?.let {
                 Text(
                     text = it,
-                    color = Color.Gray,
+                    color = if (message.feedbackStatus == FeedbackStatus.ERROR) DevoxxColors.Error else DevoxxColors.TextMuted,
                     style = MaterialTheme.typography.labelMedium
                 )
             }
@@ -429,6 +440,33 @@ private fun AnnotatedString.Builder.appendHorizontalRule(colors: MarkdownColors)
 }
 
 @Composable
+private fun WelcomePanel(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        DukeAvatar(height = 120.dp)
+        Spacer(Modifier.height(24.dp))
+        Text(
+            text = "HI, I'M YOUR DEVOXX ASSISTANT",
+            color = DevoxxColors.Text,
+            fontSize = 22.sp,
+            fontWeight = FontWeight.Black,
+            letterSpacing = 2.sp
+        )
+        Spacer(Modifier.height(8.dp))
+        Text(
+            text = "Find talks, plan your schedule and get around the venue in Antwerp.",
+            color = DevoxxColors.TextMuted,
+            fontSize = 14.sp
+        )
+        Spacer(Modifier.height(16.dp))
+        DevoxxPill("Powered by Spring AI", color = DevoxxColors.Cyan)
+    }
+}
+
+@Composable
 fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
     val scope = rememberCoroutineScope()
     val listState = rememberLazyListState()
@@ -514,13 +552,15 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
         if (isLoading) {
             LinearProgressIndicator(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-                color = Color(0xC7900DD7),
-                trackColor = Color(0xC7900DD7).copy(alpha = 0.3f)
+                color = DevoxxColors.Orange,
+                trackColor = DevoxxColors.Border
             )
         }
 
         // Chat messages area
-        LazyColumn(
+        if (messages.isEmpty() && !isLoading) {
+            WelcomePanel(modifier = Modifier.weight(1f).fillMaxWidth())
+        } else LazyColumn(
             modifier = Modifier.weight(1f).fillMaxWidth(),
             state = listState,
             verticalArrangement = Arrangement.spacedBy(8.dp)
@@ -607,7 +647,9 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                             else -> false // Don't consume other key events
                         }
                     },
-                placeholder = { Text("Type a message...") },
+                placeholder = { Text("Ask about talks, rooms, your schedule…") },
+                shape = RoundedCornerShape(24.dp),
+                colors = devoxxTextFieldColors(),
                 maxLines = 3
             )
 
@@ -622,9 +664,9 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         previous = inputFieldFocus
                     },
                 enabled = !isLoading && inputText.isNotBlank(),
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xC7900DD7))
+                colors = devoxxButtonColors()
             ) {
-                Text("Send")
+                Text("SEND", fontWeight = FontWeight.SemiBold, letterSpacing = 1.5.sp)
             }
 
             Button(
@@ -641,9 +683,16 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .padding(end = 8.dp, bottom = 8.dp),
                 enabled = !isLoading,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xC7900DD7))
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Transparent,
+                    contentColor = DevoxxColors.Lime,
+                    disabledContentColor = DevoxxColors.TextMuted
+                ),
+                border = BorderStroke(1.dp, if (isLoading) DevoxxColors.Border else DevoxxColors.Lime)
             ) {
-                Text("Rec")
+                Icon(Icons.Filled.Mic, contentDescription = null, modifier = Modifier.size(18.dp))
+                Spacer(Modifier.width(6.dp))
+                Text("REC", fontWeight = FontWeight.SemiBold, letterSpacing = 1.5.sp)
             }
         }
 
@@ -654,7 +703,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color(0xAA000000)),
+                    .background(DevoxxColors.Background.copy(alpha = 0.88f)),
                 contentAlignment = Alignment.Center
             ) {
                 Column(
@@ -665,7 +714,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         modifier = Modifier
                             .size(120.dp * recordScale)
                             .clip(CircleShape)
-                            .background(if (isRecording) Color(0xC7900DD7) else Color.LightGray)
+                            .background(if (isRecording) DevoxxColors.Orange else DevoxxColors.SurfaceRaised)
                             .clickable {
                                 if (!isRecording) {
                                     isRecording = true
@@ -712,7 +761,12 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                             },
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(if (isRecording) "Stop" else "Record", color = Color.White)
+                        Text(
+                            if (isRecording) "STOP" else "RECORD",
+                            color = if (isRecording) DevoxxColors.OnAccent else DevoxxColors.Text,
+                            fontWeight = FontWeight.Bold,
+                            letterSpacing = 2.sp
+                        )
                     }
 
                     Spacer(Modifier.height(16.dp))
@@ -728,10 +782,11 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                                 showRecordOverlay = false
                             },
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color.DarkGray,
-                                contentColor = Color.White
-                            )
-                        ) { Text("Cancel") }
+                                containerColor = Color.Transparent,
+                                contentColor = DevoxxColors.Text
+                            ),
+                            border = BorderStroke(1.dp, DevoxxColors.Border)
+                        ) { Text("CANCEL", letterSpacing = 1.5.sp) }
                     }
                 }
             }
