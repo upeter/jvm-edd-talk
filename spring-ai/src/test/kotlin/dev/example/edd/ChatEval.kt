@@ -167,13 +167,8 @@ class ChatEval
                 dataset {
                     name = "first-time-attendee"
                     example {
-                        input = "What’s the address of the Devoxx Belgium 2026 venue?"
-                        expected = "Groenendaallaan 394, 2030 Antwerp"
-                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
-                    }
-                    example {
-                        input = "What is the regular conference ticket price for Devoxx Belgium 2026?"
-                        expected = "EUR 695"
+                        input = "Where can I park my car at the venue, and what does it cost?"
+                        expected = "The venue information does not mention parking"
                         expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
                     }
                 }
@@ -294,15 +289,15 @@ class ChatEval
                     example {
                         input =
                             """
-                            It is Thursday October 8, 2026 at 15:30.
-                            I am interested in beginner-friendly Java, Spring, and AI sessions that I can still attend.
+                            It is Wednesday October 7, 2026 at 13:30.
+                            I am interested in MCP talks for my preferences that I can attend.
                             Add suitable sessions to my preferred schedule.
                             """.trimIndent()
                         expected =
                             "Preferred sessions should not include any session that already started before " +
-                                "Thursday October 8, 2026 at 15:30 conference-local time."
-                        metadata("currentTime", conferenceLocalTime("2026-10-08T15:30"))
-                        expected("toolCalls", expectedToolCalls(TOOL_ADD_PREFERRED_SESSIONS, TOOL_GENERAL_SESSION_INFORMATION_DEVOXX, TOOL_GET_PREFERRED_SESSIONS))
+                                "Wednesday October 7, 2026 at 13:30 conference-local time."
+                        metadata("currentTime", conferenceLocalTime("2026-10-07T13:30"))
+                        expected("toolCalls", expectedToolCalls(TOOL_ADD_PREFERRED_SESSIONS, TOOL_CONFERENCE_SESSION_SEARCH))
                     }
                 }
                 task { example ->
