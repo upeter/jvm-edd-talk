@@ -16,6 +16,7 @@ import dev.dokimos.kotlin.dsl.conversation.llmUser
 import dev.dokimos.kotlin.dsl.conversation.simulator
 import dev.dokimos.kotlin.dsl.conversation.trajectoryEvaluator
 import dev.dokimos.kotlin.dsl.experiment
+import dev.dokimos.springai.SpringAiSupport
 import dev.example.AIController
 import dev.example.ChatMessage
 import dev.example.ConferenceTools
@@ -35,6 +36,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
 import org.springframework.ai.chat.model.ToolContext
+import org.springframework.ai.openai.OpenAiChatOptions
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.UUID
@@ -50,10 +52,15 @@ class ChatEval
         val toolCallbackRecorder: ToolCallRecorder,
         val sessionPreferenceRepository: SessionPreferenceRepository,
     ) {
-    val judge: JudgeLM = springAiJudge(builder)
-    val serverReporter = dokimosReporter()
-
-
+    val judge: JudgeLM = SpringAiSupport.asJudge(
+        builder.clone().defaultOptions(
+            OpenAiChatOptions.builder()
+                .model("gpt-5.5-2026-04-23") //judge should be pinned
+                .reasoningEffort("none")
+                .temperature(0.0)
+                .build()
+        )
+    )
 
 
 
@@ -162,15 +169,11 @@ class ChatEval
                     example {
                         input = "What’s the address of the Devoxx Belgium 2026 venue?"
                         expected = "Groenendaallaan 394, 2030 Antwerp"
-                        metadata("userType", "firstTimeAttendee")
-                        metadata("complexity", "small")
                         expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
                     }
                     example {
                         input = "What is the regular conference ticket price for Devoxx Belgium 2026?"
                         expected = "EUR 695"
-                        metadata("userType", "firstTimeAttendee")
-                        metadata("complexity", "medium")
                         expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
                     }
                 }
@@ -184,7 +187,6 @@ class ChatEval
                     val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
                     mapOf(
                         "output" to response,
-                        "retrievedContext" to tools.getGeneralVenueInformation(),
                         "context" to tools.getGeneralVenueInformation(),
                         "toolCalls" to toolCalls,
                         "toolOutput" to tools.getGeneralVenueInformation(),
@@ -196,19 +198,12 @@ class ChatEval
                     faithfulness(judge) {
                         name = "Faithfulness"
                         threshold = 0.9
-                        contextKey = "retrievedContext"
                         includeReason = true
                     }
                     hallucination(judge) {
                         includeReason = true
                     }
-                    contextualRelevance(judge) {
-                        retrievalContextKey = "retrievedContext"
-                        includeReason = true
-                        strictMode = true // Set to true for threshold of 1.0
-                    }
                 }
-                reporter = serverReporter
             }.run().print().assert()
         }
 

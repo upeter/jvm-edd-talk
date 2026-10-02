@@ -1,0 +1,2503 @@
+{
+  "name" : "rag-retrieval",
+  "description" : "Session-search queries with the session title they should retrieve",
+  "examples" : [
+    {
+      "inputs" : {
+        "input" : "golden datasets, rubrics and regression gates for agents"
+      },
+      "expectedOutputs" : {
+        "output" : "Eval Driven Development: Why you need it to make your Agentic Application survive Production"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "LLM-as-a-judge in an evaluator-optimizer loop with Spring AI"
+      },
+      "expectedOutputs" : {
+        "output" : "Agent Loops, Decoded: Fundamentals to Agentic Patterns in Spring AI"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "clean and filter data with a Java DataFrame library"
+      },
+      "expectedOutputs" : {
+        "output" : "Java is for Data Science, Too: Building an End-to-End ML Pipeline Without Leaving the JVM"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "implementing a MicroProfile spec live on stage with an AI agent"
+      },
+      "expectedOutputs" : {
+        "output" : "Can AI Build a Jakarta EE Runtime? The Vidocq Experiment"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "pass sensitive information between modules without method parameters"
+      },
+      "expectedOutputs" : {
+        "output" : "Using Structured Concurrency and Scoped Values to Create a Virtual Threads Based Asynchronous Application"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "indirect prompt injection and tool allowlists in LangChain4j"
+      },
+      "expectedOutputs" : {
+        "output" : "Your AI Agent Trusts Strangers. Let Me Show You."
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "profiling Java code on the GPU with Nsight Systems"
+      },
+      "expectedOutputs" : {
+        "output" : "From Install to Insight: A Hands-On GPU Lab for Java Developers"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "skills, hooks, git worktrees and sub-agents for agent loops"
+      },
+      "expectedOutputs" : {
+        "output" : "Loop Engineering, beyond prompt, context, and harness engineering"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "alternate reality game website with clues hidden in a book"
+      },
+      "expectedOutputs" : {
+        "output" : "From Developer to Story Builder: Engineering a Novel, an ARG, and a Transmedia World with AI"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "translating Scala case classes and for-comprehensions into Java records"
+      },
+      "expectedOutputs" : {
+        "output" : "Legacy JVM modernization with agentic AI: Quarkus vs Spring Boot"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "call cuBLAS and cuFFT from Java without JNI"
+      },
+      "expectedOutputs" : {
+        "output" : "Tap into the NVIDIA Ecosystem from Java with TornadoVM's Hybrid API"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "query files on S3 in place and build a lakehouse"
+      },
+      "expectedOutputs" : {
+        "output" : "From Laptop to Lakehouse: Analytical SQL with DuckDB"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "EU regulation requiring human oversight of AI systems"
+      },
+      "expectedOutputs" : {
+        "output" : "The Importance of HITL to Avoid Chaos and EU Regulations for AI"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "KV-cache compression and quantization on long-context workloads"
+      },
+      "expectedOutputs" : {
+        "output" : "Run Frontier Open Models on consumer hardware"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "two-pizza teams, Team Topologies and T-shaped professionals"
+      },
+      "expectedOutputs" : {
+        "output" : "The pizza party of the future 🍕 software teams and product value in the age of coding agents"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "building CLIs with picocli and terminal UIs with TamboUI"
+      },
+      "expectedOutputs" : {
+        "output" : "A Deserter Returns: What the Java community helped me rediscover"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "containerd runtime v2 and OCI bundles to run WebAssembly on Kubernetes"
+      },
+      "expectedOutputs" : {
+        "output" : "Java on Kubernetes Without Container Images: The WebAssembly Way"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "the software that beat the world chess champion"
+      },
+      "expectedOutputs" : {
+        "output" : "Software Monuments - Architectural Lessons from the Systems That Shaped Computing"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "coaching skills: listening and asking the right questions"
+      },
+      "expectedOutputs" : {
+        "output" : "Coder, Coach, Catalyst - using questions to make people grow"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hibernate idle AI agents with gVisor on shared Kubernetes pods"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond the Pod: Architecting and Scaling AI Agents on Kubernetes"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "find parser bottlenecks with JDK Flight Recorder"
+      },
+      "expectedOutputs" : {
+        "output" : "Hardwood: Building a Parquet Parser From Scratch (With a Little Help From AI)"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "turn natural language requests into JPA filter objects with structured output"
+      },
+      "expectedOutputs" : {
+        "output" : "From User Prompt to JPA Query: Comparing Tool Calling, Structured Output & Hybrid Approach"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "a colleague on my team is a bully"
+      },
+      "expectedOutputs" : {
+        "output" : "Help! I hate my team mate!"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "sovereignty and self-hosting models versus hosted APIs"
+      },
+      "expectedOutputs" : {
+        "output" : "Owning the inference layer: When and how to run your own models"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Project Leyden with Quarkus"
+      },
+      "expectedOutputs" : {
+        "output" : "Quarkus Meets Leyden at the JVM Performance Edge"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Kotlin backend doing pose estimation, raced against the browser"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond the Chatbox: Ship On-Device AI in Your Browser"
+      },
+      "metadata" : {
+        "type" : "CURATED"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "generate knowledge graphs from 1M token documents in one call"
+      },
+      "expectedOutputs" : {
+        "output" : "Solving Multimodal and Long-Context Challenges"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "durable crash-recoverable agent workflows roadmap in Spring AI 2.1"
+      },
+      "expectedOutputs" : {
+        "output" : "Agent Loops, Decoded: Fundamentals to Agentic Patterns in Spring AI"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "AgentMonitor observability and debugging for LangChain4j autonomous agents"
+      },
+      "expectedOutputs" : {
+        "output" : "From AI to Agent: A Field Guide to Agentic Patterns in LangChain4j"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "guardrails and governance for GitHub Copilot in enterprise teams"
+      },
+      "expectedOutputs" : {
+        "output" : "From Autocomplete to Autopilot: How AI Is Changing the Developer Experience"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "guiding AI-generated Spring Boot tests across unit and integration levels"
+      },
+      "expectedOutputs" : {
+        "output" : "Prompt It Right: Spring Boot Testing in the AI Era"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hands-on LangChain4j workshop building enterprise-grade Java AI agents"
+      },
+      "expectedOutputs" : {
+        "output" : "🚀 From Java to AI: Build Your First Intelligent Agent System!"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "end-to-end machine learning workflow in Java using DeepNetts and DFLib"
+      },
+      "expectedOutputs" : {
+        "output" : "Java is for Data Science, Too: Building an End-to-End ML Pipeline Without Leaving the JVM"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see Spring AI used for production-ready agentic applications?"
+      },
+      "expectedOutputs" : {
+        "output" : "Introduction to Spring AI"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn about Java’s new derived record creation?"
+      },
+      "expectedOutputs" : {
+        "output" : "Destructoring is the future of Javas Encapsulation"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How can I use Java to program LEGO SPIKE robots?"
+      },
+      "expectedOutputs" : {
+        "output" : "Java, LEGO & AI: Teaching the Next Generation to Build, Not Just Prompt"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Vidocq runtime JPMS unit-level enforcement with JDK 25 features"
+      },
+      "expectedOutputs" : {
+        "output" : "Can AI Build a Jakarta EE Runtime? The Vidocq Experiment"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Java ahead-of-time computation and compact object headers performance"
+      },
+      "expectedOutputs" : {
+        "output" : "Modern Java in Practice - The Features That Matter"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "memory as advisor vs provider in LangChain4j and Koog"
+      },
+      "expectedOutputs" : {
+        "output" : "Codepocalypse Now: LangChain4j vs JetBrains Koog"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "updating specs to regenerate code instead of manual patches"
+      },
+      "expectedOutputs" : {
+        "output" : "From Developer to Builder: A Spec-Driven Development Deep Dive"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Quarkus build-time bytecode generation replacing reflection for faster JSON and REST"
+      },
+      "expectedOutputs" : {
+        "output" : "The Quarkus advantage: Turning build-time metaprogramming into runtime performances"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hands-on Java Loom virtual threads app with structured concurrency and scoped values"
+      },
+      "expectedOutputs" : {
+        "output" : "Using Structured Concurrency and Scoped Values to Create a Virtual Threads Based Asynchronous Application"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hands-on Spring AI Java workshop for production-ready autonomous MCP agents"
+      },
+      "expectedOutputs" : {
+        "output" : "Building Autonomous AI Agents with Spring"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see Micronaut and LangChain4j used for travel search?"
+      },
+      "expectedOutputs" : {
+        "output" : "Expanding Vector Search Beyond Similarity"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Which session explains locking down autonomous coding agents as untrusted code?"
+      },
+      "expectedOutputs" : {
+        "output" : "Secure Your Coding Agent Like It’s Malware"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to replace API event writes with Debezium?"
+      },
+      "expectedOutputs" : {
+        "output" : "The day we stopped publishing Kafka event from our API..."
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "LangChain4j techniques for defending Java agents from prompt injection"
+      },
+      "expectedOutputs" : {
+        "output" : "Your AI Agent Trusts Strangers. Let Me Show You."
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "dynamic router agent for decomposing multi-turn tasks across runtimes"
+      },
+      "expectedOutputs" : {
+        "output" : "Wiring Up the AI Mesh: Building A2A-Compliant Java Agents"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Nsight Systems profiling JIT compiled Java on NVIDIA GPU"
+      },
+      "expectedOutputs" : {
+        "output" : "From Install to Insight: A Hands-On GPU Lab for Java Developers"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hardened helm charts with signed provenance for regulated workloads"
+      },
+      "expectedOutputs" : {
+        "output" : "Docker Hardened Images - what you need to know"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "ArchUnit and CI-based guardrails to constrain AI coding agents"
+      },
+      "expectedOutputs" : {
+        "output" : "Stopping AI-Generated Architectural Drift: Deterministic Guardrails for Agentic Coding"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Groma.md live demo for supervising AI agents’ code architecture"
+      },
+      "expectedOutputs" : {
+        "output" : "In the loop, not in the dark: staying in control in the era of dark software factories"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "IntelliJ IDEA coding agents using debugger logpoints for runtime investigation"
+      },
+      "expectedOutputs" : {
+        "output" : "Teaching a New Dog Old Tricks: Give the Agent a Debugger"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to build verifiable, privacy-safe AI agents?"
+      },
+      "expectedOutputs" : {
+        "output" : "Building the Trusted Agent Ecosystem"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see ArchUnit and Taikai used together?"
+      },
+      "expectedOutputs" : {
+        "output" : "Testing Architecture Made Simple"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see a minimal bash-based LLM coding assistant demo?"
+      },
+      "expectedOutputs" : {
+        "output" : "One tool to rule them all: bash, a tiny LLM, and the birth of a coding agent"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "how to participate in local Java user group activities"
+      },
+      "expectedOutputs" : {
+        "output" : "Hi, Belgian Java Community, we want to meet you!"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "real-world LangChain4j adoption stories and upcoming roadmap features"
+      },
+      "expectedOutputs" : {
+        "output" : "LangChain4j Community BOF"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "dinner planning assistant example for tool use and memory"
+      },
+      "expectedOutputs" : {
+        "output" : "Building AI Agents from First Principles"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "vector search with multimodal text and image models"
+      },
+      "expectedOutputs" : {
+        "output" : "Learning modern Java the playful way"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "choosing between AI cost savings and enhanced customer value"
+      },
+      "expectedOutputs" : {
+        "output" : "Cheaper or Better? The Strategic Choice Behind AI Adoption"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "automating Claude Code workflows with autonomous coding loops and safeguards"
+      },
+      "expectedOutputs" : {
+        "output" : "Loop Engineering, beyond prompt, context, and harness engineering"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Java Valhalla value classes preview, JVM semantics, performance trade-offs"
+      },
+      "expectedOutputs" : {
+        "output" : "Will Valhalla Fix Tony's Billion-Dollar Mistake?"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I get hands-on Java examples using LangChain4j and RAG?"
+      },
+      "expectedOutputs" : {
+        "output" : "👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see OpenFeature used with Java and Angular?"
+      },
+      "expectedOutputs" : {
+        "output" : "From code to control: master deployments with Feature Flagging and OpenFeature"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Who’s presenting a concrete case study of AI-assisted novel engineering?"
+      },
+      "expectedOutputs" : {
+        "output" : "From Developer to Story Builder: Engineering a Novel, an ARG, and a Transmedia World with AI"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "debugging production outages using OpenTelemetry and Grafana observability data"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond system.out.println: Applying a Debugging Mindset at Scale"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "using llms as evaluators and their hidden limitations"
+      },
+      "expectedOutputs" : {
+        "output" : "Measuring the Unmeasurable: Evaluating Generative AI in Practice"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "scorecard comparing Quarkus and Spring Boot modernization outcomes"
+      },
+      "expectedOutputs" : {
+        "output" : "Legacy JVM modernization with agentic AI: Quarkus vs Spring Boot"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "guardrails and runtime protection against prompt injection and tool abuse"
+      },
+      "expectedOutputs" : {
+        "output" : "AI Security Deep Dive, Securing Agents and AI Applications"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "low-code Docker Agent workflow for cheap specialized business AI agents"
+      },
+      "expectedOutputs" : {
+        "output" : "Specialized AI Agents: from concept to production"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "stepwise reducing human review of AI-generated code"
+      },
+      "expectedOutputs" : {
+        "output" : "Responsibly Dimming the Lights in the Software Factory"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "advanced Java security practices with OWASP 2025, SAST, SCA, AI, containers"
+      },
+      "expectedOutputs" : {
+        "output" : "Write Java Code Like a Seasoned Hacker: 2026 Edition"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to build Java agents, skills, and commands?"
+      },
+      "expectedOutputs" : {
+        "output" : "Technical Workshop on AI-Native Tooling for Java Development"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to move DJL models into WebGPU?"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond the Chatbox: Ship On-Device AI in Your Browser"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see Java call CUDA and cuBLAS without JNI?"
+      },
+      "expectedOutputs" : {
+        "output" : "Tap into the NVIDIA Ecosystem from Java with TornadoVM's Hybrid API"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "configure production memory settings with BootUI on Quarkus"
+      },
+      "expectedOutputs" : {
+        "output" : "BootUI, the missing developer console for Spring Boot and Quarkus"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "live coding Vidocq application using Core Profile and MicroProfile"
+      },
+      "expectedOutputs" : {
+        "output" : "30 minutes to build your first Vidocq app, the 100% European Sovereign Java stack with zero external dependencies"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "build full development stack as code with Docker dev containers"
+      },
+      "expectedOutputs" : {
+        "output" : "🧰 Dev Containers: the ultimate toolbox for developers?"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "common mistakes designing reliable synchronous workflows in Temporal"
+      },
+      "expectedOutputs" : {
+        "output" : "Solving Distributed Transactions with the Saga Pattern and Temporal"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hands-on lab using JDK Flight Recorder with Prometheus observability"
+      },
+      "expectedOutputs" : {
+        "output" : "Analyze and Optimize Your Applications with JFR"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "enterprise-grade LangChain4j Quarkus agent workflows reliability testing and governance"
+      },
+      "expectedOutputs" : {
+        "output" : "Building Production-Ready Agentic Systems with LangChain4j and Quarkus"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "using duckdb for in-process analytics from files to lakehouse"
+      },
+      "expectedOutputs" : {
+        "output" : "From Laptop to Lakehouse: Analytical SQL with DuckDB"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn how OpenTelemetry’s Java agent rewrites bytecode?"
+      },
+      "expectedOutputs" : {
+        "output" : "The Magic of OpenTelemetry: Rewriting Your App in Production"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How can I use Tiberius and PUnit for multi-trial LLM security tests in Java?"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond assertEquals: Probabilistic Security and Bias Testing for Java LLM Applications"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see AsyncAPI generating Kafka Spring Boot services?"
+      },
+      "expectedOutputs" : {
+        "output" : "AsyncAPI in action: OpenAPI for event-driven applications"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "behind the scenes history interviews with early Java pioneers"
+      },
+      "expectedOutputs" : {
+        "output" : "The Java Story | The Official Documentary"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "javadocs.dev MCP token efficiency evaluation best practices"
+      },
+      "expectedOutputs" : {
+        "output" : "Exquisite Evals for Skills & MCPs"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "using java records and text blocks for csv api scripts"
+      },
+      "expectedOutputs" : {
+        "output" : "Java Script (No, Not That One): Modern Automation with Java"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Jenesis build tool using Java module system for dependency management"
+      },
+      "expectedOutputs" : {
+        "output" : "Do We Need a Build Language? Java Builds Java"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "designing compliant AI coding agents with human oversight in EU enterprises"
+      },
+      "expectedOutputs" : {
+        "output" : "The Importance of HITL to Avoid Chaos and EU Regulations for AI"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "open discussion with Quarkus team on ecosystem, extensions, community, AI"
+      },
+      "expectedOutputs" : {
+        "output" : "Quarkus Community BOF"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "teaching children programming in the age of AI coders"
+      },
+      "expectedOutputs" : {
+        "output" : "Who will build software after AI?"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Is there a demo of a home-built robot using AURA and Claude Code?"
+      },
+      "expectedOutputs" : {
+        "output" : "From Brainless to Brilliant — Giving an Open-Source Robot a Mind of Its Own"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn MLX techniques for running frontier models locally?"
+      },
+      "expectedOutputs" : {
+        "output" : "Half of a billion Idle GPUs: The Case for On-Device AI"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see how Docker uses autonomous agents for PRs?"
+      },
+      "expectedOutputs" : {
+        "output" : "A Fleet of AI Agents, Each in Its Own Sandbox: Inside Docker's Agentic Platform"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "automatic JVM heap sizing optimize CPU RAM tradeoff"
+      },
+      "expectedOutputs" : {
+        "output" : "The Year of the Runtime"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "lessons from hundreds of AI-converted software developers worldwide"
+      },
+      "expectedOutputs" : {
+        "output" : "Agentic Engineering Reconversion"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "ACP protocol pipeline for coordinating multiple external coding agents"
+      },
+      "expectedOutputs" : {
+        "output" : "Build the Builder: A Java Coding Agent in Your IDE with ACP"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "internal developer communities improving day-to-day workflow for large organizations"
+      },
+      "expectedOutputs" : {
+        "output" : "Emergent DevEx: The Good, the Bad, and the Legacy"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "latest MCP server developer features stateless transport CIMD auth extensions"
+      },
+      "expectedOutputs" : {
+        "output" : "MCP 2.0 - Stateless, New Auth (CIMD), and Exciting Extensions"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Project Loom structured concurrency patterns with virtual threads and new APIs"
+      },
+      "expectedOutputs" : {
+        "output" : "Structured Concurrency Looms"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "impact of Shor’s algorithm on RSA and lattice-based post-quantum cryptography"
+      },
+      "expectedOutputs" : {
+        "output" : "Post-Quantum Today: How Your Passwords Will Be Safe in a Quantum Future"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn vendor-neutral strategies for complex feature flag systems?"
+      },
+      "expectedOutputs" : {
+        "output" : "Fun with Flags: How OpenFeature Solves Your Feature Flag Headaches"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Session about using a physical robot to manage AI coding agents"
+      },
+      "expectedOutputs" : {
+        "output" : "I Hired a Real Robot as My Junior Dev — and Now My Kids Don't Want to Learn Java Anymore"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to adapt legacy APIs for AI agents?"
+      },
+      "expectedOutputs" : {
+        "output" : "Wrap, Reshape, or Redesign: Retrofitting Your APIs for a World of Agents"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Dockerfile examples for Java images with SBOM and CVSS-based scanning"
+      },
+      "expectedOutputs" : {
+        "output" : "Mission Possible: The 45-Minute Path to Bullet-Proof Java Container Images"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "maintain hands-on coding skills while advancing into enterprise architecture"
+      },
+      "expectedOutputs" : {
+        "output" : "Life in the Ivory Tower: Confessions of a Former Developer Who Turned Into an Architect"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hybrid method using tool parameters with embedded structured filters"
+      },
+      "expectedOutputs" : {
+        "output" : "From User Prompt to JPA Query: Comparing Tool Calling, Structured Output & Hybrid Approach"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "TuxCare rebootless patching and end-of-life security updates"
+      },
+      "expectedOutputs" : {
+        "output" : "Engineering for the Long Haul: Operating Open Source at Scale"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Docker Sandboxes for secure local AI coding agents and policies"
+      },
+      "expectedOutputs" : {
+        "output" : "Safety, speed, and governance in the agentic era"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "testing strategies for reliable Java and Kotlin AI agents with Dokimos"
+      },
+      "expectedOutputs" : {
+        "output" : "Eval Driven Development: Why you need it to make your Agentic Application survive Production"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "physical limits of information, energy cost of data and quantum effects"
+      },
+      "expectedOutputs" : {
+        "output" : "What rules the virtual? How our systems obey physical laws."
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see a humanoid robot learn party choreography with reinforcement learning?"
+      },
+      "expectedOutputs" : {
+        "output" : "Let's dance! – Teaching your robot some moves with reinforcement learning"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn MLX-based optimization of large models on Macs?"
+      },
+      "expectedOutputs" : {
+        "output" : "Run Frontier Open Models on consumer hardware"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to make Maven builds fully repeatable?"
+      },
+      "expectedOutputs" : {
+        "output" : "Deterministic by Design - Achieving Reproducible Builds with Maven"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "adding constraints and feedback loops to AI code generation"
+      },
+      "expectedOutputs" : {
+        "output" : "Harness Engineering: Building the System Around Your AI Coding Agent"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "DevSecFinOps responsibilities in cross-functional value stream teams"
+      },
+      "expectedOutputs" : {
+        "output" : "The pizza party of the future 🍕 software teams and product value in the age of coding agents"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "criteria for choosing between ZGC and Shenandoah in production"
+      },
+      "expectedOutputs" : {
+        "output" : "G1, ZGC, Shenandoah, ... with all these GCs in Java, which one do I choose?"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "observability and tracing for long-running AI agents with human handoffs"
+      },
+      "expectedOutputs" : {
+        "output" : "A Year of Agentic AI Evolution: Lessons Learned Building Production-grade Agentic Systems"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Java-based Raspberry Pi home automation projects for BBQ smoker and fishing"
+      },
+      "expectedOutputs" : {
+        "output" : "Java, Raspberry Pi, and the Art of Overengineering Everyday Life"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "standardizing advanced Kubernetes traffic routing with Gateway API implementations"
+      },
+      "expectedOutputs" : {
+        "output" : "🌉 Gateway API, 10 years of maturation for a new Kubernetes network API"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "design patterns for resilient event driven microservices and legacy integration"
+      },
+      "expectedOutputs" : {
+        "output" : "Integration patterns for distributed systems"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn how Java method handles power FFM?"
+      },
+      "expectedOutputs" : {
+        "output" : "Teaching an Old Handle New Tricks: From Core Reflection to FFM"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How did Back Market scale Claude Code safely across teams?"
+      },
+      "expectedOutputs" : {
+        "output" : "0 to 350 Engineers on Claude Code: What Could Go Wrong?"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to design sustainable, code-centric engineering documentation?"
+      },
+      "expectedOutputs" : {
+        "output" : "Why Documentation Won’t Write Itself—and AI Won’t Save You"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Dependabot and Renovate for automated dependency updates and vulnerability management"
+      },
+      "expectedOutputs" : {
+        "output" : "CRAcking Compliance - The EU Cyber Resilience Act"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Spring Boot data access with virtual threads and Project Loom"
+      },
+      "expectedOutputs" : {
+        "output" : "Bootiful Spring Boot 4"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "fluid autonomous microteams without scrum, pull requests, or code reviews"
+      },
+      "expectedOutputs" : {
+        "output" : "How to survive and thrive as a dev (team) in the exponential age of AI. Real-world AI adoption, smarter ways of working, and lessons from the front lines"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "bounded contexts for secure multi provider platform design"
+      },
+      "expectedOutputs" : {
+        "output" : "Pragmatic multi-cloud architecture: designing for resilience and portability beyond the hype"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "defending open source maintainers from low quality AI contributions"
+      },
+      "expectedOutputs" : {
+        "output" : "Surviving the \"AI Slopageddon\" : How AI shakes the foundations of Open Source"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Java GPU LLM inference with TornadoVM, NVIDIA cuBLAS cuDNN integration"
+      },
+      "expectedOutputs" : {
+        "output" : "Building LLM Inference Engines in Java with TornadoVM and the NVIDIA Ecosystem"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "avoiding dual writes with outbox inbox sagas in event systems"
+      },
+      "expectedOutputs" : {
+        "output" : "Consistency Patterns in Event-Driven Architecture"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see GraalVM Native Image layers and WebAssembly demos?"
+      },
+      "expectedOutputs" : {
+        "output" : "GraalVM Next: Layers, Crema, and WebAssembly in Action"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn how JVM runtimes outperform low-level languages?"
+      },
+      "expectedOutputs" : {
+        "output" : "Big Runtimes Make Efficient Programs"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to review and visualize AI-generated code quality?"
+      },
+      "expectedOutputs" : {
+        "output" : "Architecture Observability and Guardrails"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "AI-assisted Event Storming to generate C4 architecture diagrams"
+      },
+      "expectedOutputs" : {
+        "output" : "AI Made Building Cheap. Now Decisions Are the Bottleneck."
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "observability for tracking every agent action and associated cost"
+      },
+      "expectedOutputs" : {
+        "output" : "Building an Agent Ready Platform"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "TamboUI DSL for building modern Java terminal user interfaces"
+      },
+      "expectedOutputs" : {
+        "output" : "A Deserter Returns: What the Java community helped me rediscover"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Spring AI and Spring for GraphQL pattern: facade-first MCP integration"
+      },
+      "expectedOutputs" : {
+        "output" : "No Country For Old APIs. Wrapping legacy Java services as MCP tools without rewriting them."
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "practical developer guide to containers, kind, kubectl debug, OpenTelemetry"
+      },
+      "expectedOutputs" : {
+        "output" : "Kubernetes for Developers"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "build custom Docker Agent AI workflows without programming"
+      },
+      "expectedOutputs" : {
+        "output" : "Create your own AI Agents without code"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "practical homomorphic encryption for confidential cloud computing and private AI"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond encryption at rest: computing on encrypted data"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn neuroscience-based strategies to overcome developer impostor feelings?"
+      },
+      "expectedOutputs" : {
+        "output" : "rm -rf self-doubt: Debugging Impostor Syndrome for Developers"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn common mistakes in app performance testing?"
+      },
+      "expectedOutputs" : {
+        "output" : "When benchmarks go bad - what we learned from measuring performance wrong"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see real-world experiments combining Quarkus with Project Leyden?"
+      },
+      "expectedOutputs" : {
+        "output" : "Quarkus Meets Leyden at the JVM Performance Edge"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "roadmap and future features for GraalVM Micronaut Quarkus Spring"
+      },
+      "expectedOutputs" : {
+        "output" : "GraalVM Community BOF"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "lessons learned from first-time conference proposal rejections"
+      },
+      "expectedOutputs" : {
+        "output" : "Getting started with speaking: Your first conference talk"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "developer productivity gains using AI tools in regulated industries"
+      },
+      "expectedOutputs" : {
+        "output" : "Rewriting the rules: How AI transforms engineering and inspiring young minds"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Brewlet.sh live demo Spring Boot service without container image"
+      },
+      "expectedOutputs" : {
+        "output" : "Java on Kubernetes Without Container Images: The WebAssembly Way"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "AI-driven cloud migration of banking mainframes under shifting regulations"
+      },
+      "expectedOutputs" : {
+        "output" : "From vibe coding to harness engineering: modernizing a regulated environment with AI"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "historical case studies of Linux Java Apollo ELIZA software architecture lessons"
+      },
+      "expectedOutputs" : {
+        "output" : "Software Monuments - Architectural Lessons from the Systems That Shaped Computing"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "live coding minimalist Java Snake game using only JDK"
+      },
+      "expectedOutputs" : {
+        "output" : "Snake in 10 Lines: Learning More by Coding Less"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see a real Spring Boot app built by AI agents?"
+      },
+      "expectedOutputs" : {
+        "output" : "223 Pull Requests in 11 Days: The Recipe for Building Real Software with AI Agents"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to secure MCP tools and Skills integrations?"
+      },
+      "expectedOutputs" : {
+        "output" : "Toxic Flows in MCP Servers and Skills: What Your Agent Blindly Trusts"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see Java embedding V8 and CPython runtimes?"
+      },
+      "expectedOutputs" : {
+        "output" : "Project Detroit: From Foreign Libraries to Foreign Language Runtimes"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "profiling generated CUDA kernels with NVIDIA Nsight Compute and Systems"
+      },
+      "expectedOutputs" : {
+        "output" : "Reflect, Transform, Accelerate: Bringing GPU Computing to Java"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "catalog of trade-offs between sustainability, performance, and operating costs"
+      },
+      "expectedOutputs" : {
+        "output" : "How to Architect Green Software"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "detecting hidden n+1 queries with Spring Data JPA tooling"
+      },
+      "expectedOutputs" : {
+        "output" : "When ORM Becomes OMG: Performance Pitfalls in JPA and Friends"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "fraud detection latency optimization using Java FFM and Vector API"
+      },
+      "expectedOutputs" : {
+        "output" : "High-Performance Java-Native AI with CUDA and the Vector API"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "best practices for secure reliable MCP-based AI code generation"
+      },
+      "expectedOutputs" : {
+        "output" : "Agents With Seatbelts: Practical Ways to Keep AI Code Gen Under Control"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "technical leaders using coaching questions instead of solutions to develop teammates"
+      },
+      "expectedOutputs" : {
+        "output" : "Coder, Coach, Catalyst - using questions to make people grow"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Ted Nelson Computer Lib alternate history of the internet"
+      },
+      "expectedOutputs" : {
+        "output" : "Dream Machines & Walled Gardens"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see live demos of Google Antigravity coding agents?"
+      },
+      "expectedOutputs" : {
+        "output" : "State of Agentic Coding"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How can engineering leaders reorganize teams to scale AI coding agents?"
+      },
+      "expectedOutputs" : {
+        "output" : "The Rise of Agent Enablement: Coding Agents Don't Scale Themselves. Neither Do Your Teams."
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see recent JDK-level optimizations benchmarked and explained?"
+      },
+      "expectedOutputs" : {
+        "output" : "The Yearly Java Performance Update for 2026"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "runtime toggling of SIMD acceleration in Elasticsearch using Vector API"
+      },
+      "expectedOutputs" : {
+        "output" : "SIMD for Java: how Elasticsearch already benefits from the Panama Vector API"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Vector API quantized matrix multiplication kernels for fast JVM inference"
+      },
+      "expectedOutputs" : {
+        "output" : "Quixotic: Pure Java Inference at Native Speed"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Spring Modulith enforcing clean bounded contexts and module dependencies"
+      },
+      "expectedOutputs" : {
+        "output" : "Taming Microservice Overload: Our Journey to Modular Monoliths"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Java Vector API in-memory embedding index implementation"
+      },
+      "expectedOutputs" : {
+        "output" : "Making sense of vector databases"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Anthropic OpenAI SPIFFE Kubernetes secure LLM access without static secrets"
+      },
+      "expectedOutputs" : {
+        "output" : "Say Goodbye to LLM API keys with Workload Identity Federation"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "maintaining legacy PDF infrastructure lessons on scalability, security, interoperability"
+      },
+      "expectedOutputs" : {
+        "output" : "Engineering Lessons from Working on Software Older Than Me"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Timefold constraint optimization demo for wedding seating and trip planning"
+      },
+      "expectedOutputs" : {
+        "output" : "\"You May Now Optimize the Wedding\" : Optimizing the Seating, Bachelor Party, and Honeymoon with Constraint AI"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Session on compiling governed LangChain4j workflows from enterprise context graphs"
+      },
+      "expectedOutputs" : {
+        "output" : "Agents Shouldn't Control Control Flow"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Is there a session on reducing CI energy use with Maven?"
+      },
+      "expectedOutputs" : {
+        "output" : "Green Maven builds: sustainable CI in practice"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn how Claude Code might replace IDEs?"
+      },
+      "expectedOutputs" : {
+        "output" : "Is the IDE dead ?"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "mental model gap in securing agentic AI vulnerabilities"
+      },
+      "expectedOutputs" : {
+        "output" : "Who to blame? The AI, The Programmer, or The Prompt?"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Spring Application Advisor automated patching in CI for security"
+      },
+      "expectedOutputs" : {
+        "output" : "Keeping Spring Applications Secure in the Age of AI"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "agentgateway example reducing nineteen tool calls to two"
+      },
+      "expectedOutputs" : {
+        "output" : "Building, Shipping and Governing AI Agents on Kubernetes"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "multi-model consensus and self-correction patterns in LangChain4J Java code"
+      },
+      "expectedOutputs" : {
+        "output" : "Taming the Chaos: Security and Predictability in LLM-Powered Applications"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "tradeoffs of applying hexagonal and clean architecture in java"
+      },
+      "expectedOutputs" : {
+        "output" : "The Hexagonal Hangover"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "interactive git gameplay to visualize branches merges time travel and conflicts"
+      },
+      "expectedOutputs" : {
+        "output" : "Conquest, time travel and explosions using Git"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Project Babylon code reflection for Java-based AI model execution"
+      },
+      "expectedOutputs" : {
+        "output" : "Java and the Next Generation of Programming Models"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see real case studies of AI-assisted coding failures?"
+      },
+      "expectedOutputs" : {
+        "output" : "Software engineering in the age of AI agents: who’s in control?"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see a modern Java implementation of Parquet?"
+      },
+      "expectedOutputs" : {
+        "output" : "Hardwood: Building a Parquet Parser From Scratch (With a Little Help From AI)"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see AI applied to Java EE migration?"
+      },
+      "expectedOutputs" : {
+        "output" : "Modernizing legacy code with AI: hands-on examples & lessons learned"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "KV-cache loading from SSD for instant document access"
+      },
+      "expectedOutputs" : {
+        "output" : "Build a private cluster for the office"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "tools supporting mutation-based test quality checks in multiple languages"
+      },
+      "expectedOutputs" : {
+        "output" : "Kill All Mutants! (Intro to Mutation Testing)"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "hibernate and teleport ai agents using gVisor and OCI containers"
+      },
+      "expectedOutputs" : {
+        "output" : "Beyond the Pod: Architecting and Scaling AI Agents on Kubernetes"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "polyglot cloud-native apps using Micronaut DI and GraalVM native images"
+      },
+      "expectedOutputs" : {
+        "output" : "Faster Development with Java, Python, and Micronaut"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "funny war stories about legacy systems, language quirks, and cursed tech"
+      },
+      "expectedOutputs" : {
+        "output" : "The Dark Secrets of Computer Science"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "enterprise Java integration of agentic AI into existing applications"
+      },
+      "expectedOutputs" : {
+        "output" : "Why Java Is Perfect for AI - Just Not the AI You’re Thinking Of"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "AI methods exposing flawed document redaction and recovering obscured content"
+      },
+      "expectedOutputs" : {
+        "output" : "Underneath the Black Marker: AI Techniques for Detecting and Reversing Redactions"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to compare vLLM and hosted APIs?"
+      },
+      "expectedOutputs" : {
+        "output" : "Owning the inference layer: When and how to run your own models"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How can I use SECUR-E and COM-B to tailor developer security programs?"
+      },
+      "expectedOutputs" : {
+        "output" : "Knocking on the Wrong Door: The Six Developers You’ll Meet in Security"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How can I safely review and trust AI-generated code?"
+      },
+      "expectedOutputs" : {
+        "output" : "Owning the Code You Didn't Type"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "data-oriented programming simplifying built-in JSON processing API trade-offs"
+      },
+      "expectedOutputs" : {
+        "output" : "Everyday JSON"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "LLM-as-Judge pattern for improving Java LangChain4j agents"
+      },
+      "expectedOutputs" : {
+        "output" : "Choose your own adventure in agentic design patterns"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "how to maintain architecture decision records as requirements change"
+      },
+      "expectedOutputs" : {
+        "output" : "ADRs: The Why and How"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "heuristics for detecting bad service boundaries and distributed monoliths"
+      },
+      "expectedOutputs" : {
+        "output" : "Microservices Without the Distributed Mess"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "data scientist journey building DIY AI-powered robotic arm prototype"
+      },
+      "expectedOutputs" : {
+        "output" : "How I built my own intelligent Robot Arm from Scratch"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "enterprise framework for measuring and steering coding agents with AgentWorks"
+      },
+      "expectedOutputs" : {
+        "output" : "Introducing Agent Control Theory: The System Runs the Model"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "deploying offline local LLM agents in secure air-gapped production environments"
+      },
+      "expectedOutputs" : {
+        "output" : "AI in the Dark: Running LLMs in Air-Gapped Production Environments"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "How can I handle a chronically toxic colleague within my team?"
+      },
+      "expectedOutputs" : {
+        "output" : "Help! I hate my team mate!"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn about Bitvavo’s deterministic low-latency trading architecture?"
+      },
+      "expectedOutputs" : {
+        "output" : "From a startup stack to 5 microseconds: inside a crypto trading engine"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Is there a session comparing Voyager-era Viterbi coding with modern ML?"
+      },
+      "expectedOutputs" : {
+        "output" : "Decoding the Cosmos: Voyager's 1970s Algorithms Meet Today's Cutting-Edge Tech"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Passkeys authentication demo using Spring Security 7 for passwordless login"
+      },
+      "expectedOutputs" : {
+        "output" : "Bootiful Security"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "cache 429 responses with Redis TTL to respect rate limits"
+      },
+      "expectedOutputs" : {
+        "output" : "Their API Went Down. So Why Is My App on Fire?"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "measure impact of Java container image optimizations on observability"
+      },
+      "expectedOutputs" : {
+        "output" : "Production-Ready Java Containers: Smaller, Faster, Smarter"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "tricky Java code snippets exploring surprising runtime behavior"
+      },
+      "expectedOutputs" : {
+        "output" : "What Does it Print? The Java Quiz (Hard Edition 🤯)"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "business models and community impact of open source in AI era"
+      },
+      "expectedOutputs" : {
+        "output" : "Open Source in the Age of AI: Where's the value?"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "future of european sovereignty and innovation in collapsing world order"
+      },
+      "expectedOutputs" : {
+        "output" : "F*ck The System, and other bad ideas for the future"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Praxis Rust-based AI proxy framework for body-aware routing and filters"
+      },
+      "expectedOutputs" : {
+        "output" : "The Praxis proxy or: How I Learned to Stop Worrying and Love AI workloads"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see Project Valhalla value classes used in physics simulation?"
+      },
+      "expectedOutputs" : {
+        "output" : "Escaping Java's Allocation Gravity with Value Classes"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see JEP 401 value objects internals and roadmap?"
+      },
+      "expectedOutputs" : {
+        "output" : "Why it takes 3000 commits to bring Valhalla's value objects to the JDK"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see what’s new and breaking in Maven 4?"
+      },
+      "expectedOutputs" : {
+        "output" : "All you need to know about Maven 4!"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "CERN experience transitioning from individual contributor to tech leadership"
+      },
+      "expectedOutputs" : {
+        "output" : "The Quantum Tech Lead: Hands-On and Abstract at the Same Time"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "GOAP deterministic planner with @Action and @AchievesGoal annotations"
+      },
+      "expectedOutputs" : {
+        "output" : "Embabel Agent v1.5"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "how AI tempts teams to skip automated testing practices"
+      },
+      "expectedOutputs" : {
+        "output" : "Is AI killing XP practices? (Or are we letting it?)"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "nested constant patterns for concise Java pattern matching"
+      },
+      "expectedOutputs" : {
+        "output" : "What’s happening with Project Amber?"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "identifying and fixing hidden architectural design liabilities beyond tech debt"
+      },
+      "expectedOutputs" : {
+        "output" : "You thought technical debt was bad? Meet design debt!"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "BaFin-triggered Oracle Exadata 11TB failure post-mortem and redesign"
+      },
+      "expectedOutputs" : {
+        "output" : "10 Billion Records vs. The Regulator: An Architectural Post-Mortem of an 11TB Exadata Failure"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "future roadmap of Java platform projects Valhalla Leyden Panama Loom Amber Detroit"
+      },
+      "expectedOutputs" : {
+        "output" : "Java Next - From Valhalla to Leyden, from Babylon to Panama, from Amber to Detroit"
+      },
+      "metadata" : {
+        "type" : "TOPIC"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I learn to incrementally replace legacy apps using DDD?"
+      },
+      "expectedOutputs" : {
+        "output" : "Strangling the dragon: modernizing legacy systems with the Strangler Fig pattern"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Is there a session on digitizing vintage model railways with TinyGo?"
+      },
+      "expectedOutputs" : {
+        "output" : "My old trains have a second life, with TinyGo!"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "Where can I see a team’s custom Embabel Agent workflow?"
+      },
+      "expectedOutputs" : {
+        "output" : "We created our own AI orchestrator and it became so much more!"
+      },
+      "metadata" : {
+        "type" : "QUESTION"
+      }
+    },
+    {
+      "inputs" : {
+        "input" : "checklist for making Java agent-safe using static analysis"
+      },
+      "expectedOutputs" : {
+        "output" : "10 boring reasons why Java is the best ecosystem for agentic development"
+      },
+      "metadata" : {
+        "type" : "DETAIL"
+      }
+    }
+  ]
+}

@@ -3,7 +3,6 @@ package dev.example.edd
 import dev.dokimos.core.EvalTestCaseParam
 import dev.dokimos.core.JudgeLM
 import dev.dokimos.kotlin.dsl.experiment
-import dev.dokimos.springai.SpringAiSupport
 import dev.example.langfuse.LangfuseFeedbackClient
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import org.assertj.core.api.Assertions
@@ -22,7 +21,7 @@ class FeedbackEvalTest @Autowired constructor(
     val builder: ChatClient.Builder,
 ) {
 
-    val judge: JudgeLM = SpringAiSupport.asJudge(builder)
+    val judge: JudgeLM = springAiJudge(builder)
 
 
     @Test

@@ -160,13 +160,13 @@ consume — real-world failures become eval dataset entries.
 
 - Kotlin backtick test names throughout; Kotest matchers (`shouldHaveSize`, `assertSoftly`, `withClue`)
   for plain assertions, Dokimos evaluators for LLM output.
-- The judge model is built with `SpringAiSupport.asJudge(builder)` from the injected `ChatClient.Builder`.
-- Model config lives in `application.properties` (temperature 0.4). Judge temperature is a
-  baseline hazard the Dokimos docs call out: a non-zero judge temperature makes recorded scores drift
-  for reasons unrelated to the code. Regenerate baselines deliberately, never to make a build go green.
-  **Note:** The model alias `gpt-5-chat-latest` in `application.properties` is deprecated by OpenAI;
-  real evals require a manual `-Dspring.ai.openai.chat.options.model=<current-model>` override at test time
-  (e.g., `gpt-4o-mini`). This is not part of the Dokimos upgrade.
+- The judge is built with `springAiJudge(builder)` (`EddEvalSupport.kt`), which clones the injected
+  `ChatClient.Builder` and overrides its options: `gpt-5.5-2026-04-23` (a pinned snapshot, not the alias),
+  `reasoningEffort("none")`, temperature 0. GPT-5.x rejects temperature 0 unless reasoning is off.
+- The app model lives in `application.properties`: `gpt-4.1` at temperature 0.4, deliberately weaker than
+  the judge so the evals have mistakes to catch. Judge temperature is a baseline hazard the Dokimos docs
+  call out: a non-zero judge temperature, or an unpinned judge model, makes recorded scores drift for
+  reasons unrelated to the code. Regenerate baselines deliberately, never to make a build go green.
 - The only committed regression baseline is `baselines/tone-evals.json` (the `ChatEval` tone gate).
   `RAGEval`'s per-strategy gates (`rag-whole`, `rag-multi-vector`, …) scaffold their baselines on first
   run. They use `severityMargin = 1.0` because Hit@k flips 0↔1 on near-ties, so only the significance
