@@ -28,7 +28,7 @@ class EddEvalSupportTest {
     @Test
     fun `asToolCalls yields empty arguments when the recorded input is not valid json`() {
         val recorded = listOf(
-            CapturedToolCall(toolName = "general-venue-information-kotlinconf", inputJson = "", output = "Messegelaende")
+            CapturedToolCall(toolName = "general-venue-information-devoxx", inputJson = "", output = "Messegelaende")
         )
 
         val calls = recorded.asToolCalls()

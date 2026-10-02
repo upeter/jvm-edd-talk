@@ -1,0 +1,33 @@
+{
+  "name" : "devoxx26-goldens",
+  "description" : "Scripted conference-assistant conversations, replayed as a regression suite",
+  "examples" : [ {
+    "inputs" : {
+      "input" : "Scenario: First-time attendee asks about the venue, then the ticket price\n\nUSER: Where is Devoxx Belgium 2026 held?\n\nASSISTANT: Devoxx Belgium 2026 is held at:\n\nKinepolis Antwerp  \nGroenendaallaan 394  \n2030 Antwerp, Belgium  \n\nPlease use the **Business Center entrance**, not the regular movie entrance.\n\nIf you tell me where you are travelling from (e.g. Antwerp Central Station, Brussels Airport, or by car), I can give you tailored directions.\n\nUSER: And what does a regular ticket cost?\n\nASSISTANT: A regular 3-day conference ticket for Devoxx Belgium 2026 costs:\n\n- **EUR 695.00** (excluding 21% VAT)  \n- **EUR 840.95** (including 21% VAT)\n\nThis covers the main conference days (7–9 October 2026).\n\nIf you are also interested in the hands-on deep-dive days (workshops), I can explain the **workshop** and **combi (5-day)** ticket options as well."
+    },
+    "expectedOutputs" : {
+      "output" : "A regular 3-day conference ticket for Devoxx Belgium 2026 costs:\n\n- **EUR 695.00** (excluding 21% VAT)  \n- **EUR 840.95** (including 21% VAT)\n\nThis covers the main conference days (7–9 October 2026).\n\nIf you are also interested in the hands-on deep-dive days (workshops), I can explain the **workshop** and **combi (5-day)** ticket options as well."
+    },
+    "metadata" : {
+      "expectedOutcome" : "The assistant gives the venue address and then the regular ticket price",
+      "scenario" : "First-time attendee asks about the venue, then the ticket price",
+      "tasks" : [ "State the Devoxx Belgium 2026 venue address", "State the regular ticket price" ],
+      "turnCount" : 2
+    },
+    "id" : "golden-0"
+  }, {
+    "inputs" : {
+      "input" : "Scenario: Attendee searches for AI sessions and adds one to their schedule\n\nUSER: Which sessions are about AI frameworks?\n\nASSISTANT: Here are the Devoxx Belgium 2026 sessions most closely related to **AI frameworks and tooling**:\n\n1. **“👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻”**  \n   - **When:** 6 Oct, 09:30–12:30  \n   - **Room:** TBA 7  \n   - **Speakers:** Stéphane Philippart, Matthieu Vincent  \n   - Focus: Making AI capabilities available through standard dev libraries.\n\n2. **“Building AI Agents from First Principles”**  \n   - **When:** 6 Oct, 09:30–12:30  \n   - **Room:** TBA 2  \n   - **Speaker:** Adib Saikali  \n   - Focus: Architecting and implementing AI agents (likely using frameworks).\n\n3. **“Java and the Next Generation of Programming Models”**  \n   - **When:** 8 Oct, 13:50–14:40  \n   - **Room:** TBA 7  \n   - **Speaker:** Ana-Maria Mihalceanu  \n   - Focus: Modern Java programming models, including those relevant for AI.\n\n4. **“Introducing Spring AI”**  \n   - **When:** 5 Oct, 12:40–13:20  \n   - **Room:** TBA 2  \n   - **Speaker:** Timo Salm  \n   - Focus: Spring AI framework and how to use it in applications.\n\n5. **“Harness Engineering: Building the System Around Your AI Coding Agent”**  \n   - **When:** 7 Oct, 14:00–14:50  \n   - **Room:** TBA 4  \n   - **Speaker:** JI Darwish  \n   - Focus: Surrounding infrastructure and patterns for AI coding agents.\n\n6. **“Codepocalypse Now: LangChain4j vs JetBrains Koog”**  \n   - **When:** 5 Oct, 13:30–16:30  \n   - **Room:** TBA 4  \n   - **Speakers:** Viktor Gamov, Baruch Sadogursky  \n   - Focus: Comparing two AI/LLM frameworks in the Java ecosystem.\n\n7. **“Agent Loops, Decoded: Fundamentals to Agentic Patterns in Spring AI”**  \n   - **When:** 5 Oct, 09:30–12:30  \n   - **Room:** TBA 3  \n   - **Speaker:** Christian Tzolov  \n   - Focus: Agent patterns built with the Spring AI framework.\n\nIf you tell me which one you like most, I can add it to your preferred schedule for you.\n\nUSER: Add the first one to my preferred sessions\n\nASSISTANT: I have added **“👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻”** to your preferred sessions.\n\nIf you like, I can:\n- Check for time conflicts with other preferred sessions, or  \n- Suggest a few complementary AI sessions that fit around that time."
+    },
+    "expectedOutputs" : {
+      "output" : "I have added **“👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻”** to your preferred sessions.\n\nIf you like, I can:\n- Check for time conflicts with other preferred sessions, or  \n- Suggest a few complementary AI sessions that fit around that time."
+    },
+    "metadata" : {
+      "expectedOutcome" : "The assistant lists AI sessions and confirms one was added to the schedule",
+      "scenario" : "Attendee searches for AI sessions and adds one to their schedule",
+      "tasks" : [ "List conference sessions about AI frameworks", "Confirm that a session was added to the preferred schedule" ],
+      "turnCount" : 2
+    },
+    "id" : "golden-1"
+  } ]
+}

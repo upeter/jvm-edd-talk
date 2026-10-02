@@ -21,8 +21,8 @@ import dev.example.ChatMessage
 import dev.example.ConferenceTools
 import dev.example.ConferenceTools.Companion.TOOL_ADD_PREFERRED_SESSIONS
 import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
-import dev.example.ConferenceTools.Companion.TOOL_GENERAL_SESSION_INFORMATION_KOTLINCONF
-import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF
+import dev.example.ConferenceTools.Companion.TOOL_GENERAL_SESSION_INFORMATION_DEVOXX
+import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_DEVOXX
 import dev.example.ConferenceTools.Companion.TOOL_GET_PREFERRED_SESSIONS
 import dev.example.SessionPreferenceRepository
 import dev.example.ToolCallRecorder
@@ -53,12 +53,12 @@ class ChatEval
         @Test
         fun `should retrieve basic conference information`() {
             experiment {
-                name = "KotlinConf Conference Venue data Evals"
+                name = "Devoxx Conference Venue data Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
-                        input = "Where is KotlinConf 2026 held?"
-                        expected = "Messegelände, 81823 München, Germany"
+                        input = "Where is Devoxx Belgium 2026 held?"
+                        expected = "Groenendaallaan 394, 2030 Antwerp"
                     }
                 }
                 task { example ->
@@ -79,13 +79,13 @@ class ChatEval
         @Test
         fun `should retrieve basic conference information and evaluate tone`() {
             experiment {
-                name = "KotlinConf Tone Evals"
+                name = "Devoxx Tone Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
                         input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
-                            "Wherrrre is KotlinConf 2026 held and what'ssss the venue location?"
-                        expected = "International Congress Center Messe München"
+                            "Wherrrre is Devoxx Belgium 2026 held and what'ssss the venue location?"
+                        expected = "Kinepolis Antwerp"
                     }
                 }
                 task { example ->
@@ -113,13 +113,13 @@ class ChatEval
         @Test
         fun `regression should retrieve basic conference information and evaluate tone`() {
             experiment {
-                name = "KotlinConf Tone Evals"
+                name = "Devoxx Tone Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
                         input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
-                            "Wherrrre is KotlinConf 2026 held and what'ssss the venue location?"
-                        expected = "International Congress Center Messe München"
+                            "Wherrrre is Devoxx Belgium 2026 held and what'ssss the venue location?"
+                        expected = "Kinepolis Antwerp"
                     }
                 }
                 task { example ->
@@ -151,22 +151,22 @@ class ChatEval
     @Test
         fun `should retrieve accurate general venue information`() {
             experiment {
-                name = "KotlinConf Venue Evals"
+                name = "Devoxx Venue Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
-                        input = "What’s the address of the KotlinConf 2026 venue?"
-                        expected = "Messegelände, 81823 München, Germany"
+                        input = "What’s the address of the Devoxx Belgium 2026 venue?"
+                        expected = "Groenendaallaan 394, 2030 Antwerp"
                         metadata("userType", "firstTimeAttendee")
                         metadata("complexity", "small")
-                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
+                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
                     }
                     example {
-                        input = "What is the regular ticket price for KotlinConf 2026?"
-                        expected = "EUR 700"
+                        input = "What is the regular conference ticket price for Devoxx Belgium 2026?"
+                        expected = "EUR 695"
                         metadata("userType", "firstTimeAttendee")
                         metadata("complexity", "medium")
-                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_KOTLINCONF))
+                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
                     }
                 }
 
@@ -212,9 +212,9 @@ class ChatEval
         fun `multiturn chat for first time attendee looking for beginner sessions`() {
             val user: SimulatedUser =
                 llmUser(judge) {
-                    persona = "Kotlin backend developer who wants to add as many as possible preferred sessions to their schedule"
+                    persona = "Java backend developer who wants to add as many as possible preferred sessions to their schedule"
                     behaviorGuidelines = """
-                - Is interested in sessions about backend and AI, foremost AI frameworks like Koog, langchain4j and Spring-AI.
+                - Is interested in sessions about backend and AI, foremost AI frameworks like LangChain4j, Spring AI and Koog.
                 - Wants to fill the schedule with as many as possible sessions of his interest. 
             """
                 }
@@ -288,21 +288,21 @@ class ChatEval
     @Test
         fun `should not add already started sessions to preferences`() {
             experiment {
-                name = "KotlinConf Started Session Preference Evals"
+                name = "Devoxx Started Session Preference Evals"
                 dataset {
                     name = "schedule-after-sessions-started"
                     example {
                         input =
                             """
-                            It is Friday May 22, 2026 at 13:30.
-                            I am interested in beginner-friendly Kotlin, KMP, and AI sessions that I can still attend.
+                            It is Thursday October 8, 2026 at 15:30.
+                            I am interested in beginner-friendly Java, Spring, and AI sessions that I can still attend.
                             Add suitable sessions to my preferred schedule.
                             """.trimIndent()
                         expected =
                             "Preferred sessions should not include any session that already started before " +
-                                "Friday May 22, 2026 at 13:30 conference-local time."
-                        metadata("currentTime", conferenceLocalTime("2026-05-22T13:30"))
-                        expected("toolCalls", expectedToolCalls(TOOL_ADD_PREFERRED_SESSIONS, TOOL_GENERAL_SESSION_INFORMATION_KOTLINCONF, TOOL_GET_PREFERRED_SESSIONS))
+                                "Thursday October 8, 2026 at 15:30 conference-local time."
+                        metadata("currentTime", conferenceLocalTime("2026-10-08T15:30"))
+                        expected("toolCalls", expectedToolCalls(TOOL_ADD_PREFERRED_SESSIONS, TOOL_GENERAL_SESSION_INFORMATION_DEVOXX, TOOL_GET_PREFERRED_SESSIONS))
                     }
                 }
                 task { example ->

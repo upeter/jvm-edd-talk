@@ -12,12 +12,12 @@ class ToolPresenceEvaluatorTest {
 
     @Test
     fun `passes when the expected tool was called among others`() {
-        val evaluator = ToolPresenceEvaluator("Venue Tool", "general-venue-information-kotlinconf")
+        val evaluator = ToolPresenceEvaluator("Venue Tool", "general-venue-information-devoxx")
         val testCase = EvalTestCase(
             actualOutputs = mapOf(
                 "toolCalls" to listOf(
                     toolCall("conference-session-search"),
-                    toolCall("general-venue-information-kotlinconf")
+                    toolCall("general-venue-information-devoxx")
                 )
             )
         )
@@ -30,7 +30,7 @@ class ToolPresenceEvaluatorTest {
 
     @Test
     fun `fails when the expected tool was never called`() {
-        val evaluator = ToolPresenceEvaluator("Venue Tool", "general-venue-information-kotlinconf")
+        val evaluator = ToolPresenceEvaluator("Venue Tool", "general-venue-information-devoxx")
         val testCase = EvalTestCase(
             actualOutputs = mapOf("toolCalls" to listOf(toolCall("conference-session-search")))
         )
@@ -45,12 +45,12 @@ class ToolPresenceEvaluatorTest {
     fun `fails when the tool was called but its result lacks the expected text`() {
         val evaluator = ToolPresenceEvaluator(
             "Venue Tool",
-            "general-venue-information-kotlinconf",
+            "general-venue-information-devoxx",
             toolOutputKey = "venue"
         )
         val testCase = EvalTestCase(
             input = "",
-            actualOutputs = mapOf("toolCalls" to listOf(toolCall("general-venue-information-kotlinconf", "Berlin"))),
+            actualOutputs = mapOf("toolCalls" to listOf(toolCall("general-venue-information-devoxx", "Berlin"))),
             expectedOutputs = mapOf("venue" to "Muenchen")
         )
 

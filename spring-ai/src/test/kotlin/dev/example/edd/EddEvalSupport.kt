@@ -45,7 +45,7 @@ fun List<CapturedToolCall>.asToolCalls(): List<ToolCall> = map { call ->
  * clock it means. Writing the prompt's local time with a `Z` suffix silently shifts it by two hours
  * and makes time-based evaluators judge the agent against a clock it never saw.
  */
-val CONFERENCE_ZONE: ZoneId = ZoneId.of("Europe/Berlin")
+val CONFERENCE_ZONE: ZoneId = ZoneId.of("Europe/Brussels")
 
 /**
  * Converts a conference-local wall-clock time — the same one the eval prompt states in prose — into
