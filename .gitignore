@@ -1,3 +1,43 @@
 /chatclient-kmp/.gradle/
 /chatclient-kmp/build/
 /.worktrees/
+
+**/.idea/*
+*.iml
+*.swp
+pom.xml.versionsBackup
+.nx/
+
+.scannerwork
+
+target/
+
+node_modules/
+*.DS_Store
+yarn-error.log
+
+.tern*
+
+# Yarn
+yarn.lock
+
+# Generated test files
+/.aws/
+/.m2/
+
+# CDS Generated files
+backend/extract
+backend-jobs/extract
+
+# local agent config (contains API keys); module .ai/ docs are tracked
+.attach*
+
+# APM resources
+apm_modules/
+.claude/
+.agents/
+*mcp.json
+*lsp.json
+.github/hooks/
+.vscode/
+

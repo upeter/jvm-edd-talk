@@ -63,6 +63,16 @@ class RAGEval
         }
 
         /**
+         * Runs only the hand-written slice, straight from [CURATED_CASES] — so a new or edited curated
+         * query can be checked without regenerating [DATASET_PATH]. Prints each query's rank per strategy.
+         */
+        @Test
+        fun `curated queries per chunking strategy`() {
+            val results = ChunkingStrategy.entries.associateWith { retrievalExperiment(it, curatedOnly = true).run() }
+            printRanks(results)
+        }
+
+        /**
          * Regenerates [DATASET_PATH]. Disabled by default: it calls the chat model and rewrites a
          * reviewed artifact. Remove @Disabled, run it once, review the diff, commit.
          */
@@ -84,10 +94,23 @@ class RAGEval
             writeDataset(CURATED_CASES + generated)
         }
 
-        private fun retrievalExperiment(strategy: ChunkingStrategy) = experiment {
+        private fun retrievalExperiment(strategy: ChunkingStrategy, curatedOnly: Boolean = false) = experiment {
             val repository = searchRepositoryFor(strategy)
-            name = "RAG Retrieval - $strategy"
-            dataset(Dataset.fromJson(DATASET_PATH))
+            name = "RAG Retrieval - $strategy" + if (curatedOnly) " (curated)" else ""
+            if (curatedOnly) {
+                dataset {
+                    name = "rag-retrieval-curated"
+                    CURATED_CASES.forEach { case ->
+                        example {
+                            input = case.query
+                            expected = case.title
+                            metadata("type", case.type.name)
+                        }
+                    }
+                }
+            } else {
+                dataset(Dataset.fromJson(DATASET_PATH))
+            }
             parallelism = 8
             task { example ->
                 val titles = repository.searchSessions(example.input()).map { it.title }
@@ -159,6 +182,27 @@ class RAGEval
                         ),
                     )
                 }
+            }
+            println("=".repeat(72))
+        }
+
+        /** One row per query: the rank of the expected session per strategy (MRR = 1/rank), "-" if not retrieved. */
+        private fun printRanks(results: Map<ChunkingStrategy, ExperimentResult>) {
+            val byStrategy = results.mapValues { (_, result) -> result.itemResults().associateBy { it.key() } }
+            println("=".repeat(72))
+            println("Curated queries — rank of the expected session")
+            println("=".repeat(72))
+            println("%-58s".format("Query") + results.keys.joinToString("") { "%10s".format(it.name.take(9)) })
+            results.values.first().itemResults().forEach { item ->
+                val ranks = byStrategy.values.joinToString("") { items ->
+                    val mrr = items.getValue(item.key()).score("MRR")
+                    "%10s".format(if (mrr == 0.0) "-" else Math.round(1 / mrr).toString())
+                }
+                println("%-58s".format(item.example().input().take(57)) + ranks)
+            }
+            println()
+            listOf("Hit@1", "Hit@5", "MRR").forEach { metric ->
+                println("%-58s".format(metric) + results.values.joinToString("") { "%10.2f".format(it.averageScore(metric)) })
             }
             println("=".repeat(72))
         }
@@ -353,6 +397,10 @@ class RAGEval
                     "Owning the inference layer: When and how to run your own models",
                 ),
                 curated("Project Leyden with Quarkus", "Quarkus Meets Leyden at the JVM Performance Edge"),
+                curated(
+                    "Kotlin backend doing pose estimation, raced against the browser",
+                    "Beyond the Chatbox: Ship On-Device AI in Your Browser",
+                ),
             )
         }
     }

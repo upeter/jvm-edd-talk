@@ -50,7 +50,14 @@ class ChatEval
         val toolCallbackRecorder: ToolCallRecorder,
         val sessionPreferenceRepository: SessionPreferenceRepository,
     ) {
-        @Test
+    val judge: JudgeLM = springAiJudge(builder)
+    val serverReporter = dokimosReporter()
+
+
+
+
+
+    @Test
         fun `should retrieve basic conference information`() {
             experiment {
                 name = "Devoxx Conference Venue data Evals"
@@ -58,7 +65,9 @@ class ChatEval
                     name = "first-time-attendee"
                     example {
                         input = "Where is Devoxx Belgium 2026 held?"
-                        expected = "Groenendaallaan 394, 2030 Antwerp"
+                        expected =
+                            """Groenendaallaan 394  
+                            |2030 Antwerp  """.trimMargin()
                     }
                 }
                 task { example ->
@@ -71,10 +80,6 @@ class ChatEval
                 }
             }.run().print()
         }
-
-        val judge: JudgeLM = springAiJudge(builder)
-
-        val serverReporter = dokimosReporter()
 
         @Test
         fun `should retrieve basic conference information and evaluate tone`() {

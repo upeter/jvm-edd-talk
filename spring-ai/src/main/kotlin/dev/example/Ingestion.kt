@@ -5,6 +5,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.springframework.ai.document.Document
 import org.springframework.ai.embedding.EmbeddingModel
+import org.springframework.ai.transformer.splitter.TextSplitter
 import org.springframework.ai.transformer.splitter.TokenTextSplitter
 import org.springframework.ai.vectorstore.pgvector.PgVectorStore
 import org.springframework.ai.vectorstore.pgvector.PgVectorStore.PgDistanceType.COSINE_DISTANCE
@@ -40,7 +41,7 @@ enum class ChunkingStrategy(val tableName: String) {
     /** C: line/paragraph-based chunks, short ones merged up to a minimum size, each prefixed with the title. */
     PARAGRAPH_CHUNKS("talks_chunk_paragraph"),
 
-    /** D: several vectors per session — the whole description, the title alone, and B's token chunks. */
+    /** D: several vectors per session — the whole description, the title alone, and recursive chunks of the description. */
     MULTI_VECTOR("talks_multi_vector");
 
     companion object {
@@ -63,6 +64,8 @@ object SessionDocuments {
     const val TOKEN_CHUNK_SIZE = 120
     const val PARAGRAPH_MIN_CHARS = 400
     const val PARAGRAPH_MAX_CHARS = 900
+    const val RECURSIVE_CHUNK_CHARS = 500
+    const val RECURSIVE_OVERLAP_CHARS = 100
 
     const val CHUNK_KIND = "chunkKind"
     const val CHUNK_INDEX = "chunkIndex"
@@ -76,6 +79,8 @@ object SessionDocuments {
         .withMaxNumChunks(100)
         .withKeepSeparator(true)
         .build()
+
+    private val recursiveSplitter = RecursiveTextSplitter(RECURSIVE_CHUNK_CHARS, RECURSIVE_OVERLAP_CHARS)
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     private data class SessionsFile(val sessions: List<SessionRecord>)
@@ -107,12 +112,15 @@ object SessionDocuments {
             ChunkingStrategy.WHOLE -> listOf(whole)
             ChunkingStrategy.TOKEN_CHUNKS -> chunks(tokenChunks(session.description))
             ChunkingStrategy.PARAGRAPH_CHUNKS -> chunks(paragraphChunks(session.description))
-            ChunkingStrategy.MULTI_VECTOR -> listOf(whole, title) + chunks(tokenChunks(session.description))
+            ChunkingStrategy.MULTI_VECTOR -> listOf(whole, title) + chunks(recursiveChunks(session.description))
         }
     }
 
     fun tokenChunks(text: String): List<String> =
         tokenSplitter.split(Document(text)).mapNotNull { it.text?.trim()?.takeIf(String::isNotEmpty) }
+
+    fun recursiveChunks(text: String): List<String> =
+        recursiveSplitter.split(Document(text)).mapNotNull { it.text?.trim()?.takeIf(String::isNotEmpty) }
 
     /**
      * Splits on line breaks, then greedily merges lines until a chunk reaches [minChars]. Descriptions
@@ -169,6 +177,64 @@ object SessionDocuments {
         hour in 5..11 -> "MORNING"
         hour in 12..17 -> "AFTERNOON"
         else -> "EVENING"
+    }
+}
+
+/**
+ * Recursive chunking: split on the coarsest separator first (paragraphs), and fall back to finer ones
+ * (lines, sentences, words) only for pieces still longer than [chunkSize]. Neighbouring pieces are then
+ * merged back up to [chunkSize], repeating the last [chunkOverlap] characters, so chunks follow the
+ * text's own structure instead of cutting at a token count.
+ *
+ * Separators stay attached to the piece they end, so a chunk never starts mid-sentence.
+ */
+class RecursiveTextSplitter(
+    private val chunkSize: Int,
+    private val chunkOverlap: Int = 0,
+    private val separators: List<String> = listOf("\n\n", "\n", ". ", " "),
+) : TextSplitter() {
+    init {
+        require(chunkOverlap < chunkSize) { "chunkOverlap ($chunkOverlap) must be smaller than chunkSize ($chunkSize)" }
+    }
+
+    public override fun splitText(text: String): List<String> =
+        split(text, separators).map(String::trim).filter(String::isNotEmpty)
+
+    private fun split(text: String, separators: List<String>): List<String> {
+        if (text.length <= chunkSize) return listOf(text)
+        val separator = separators.firstOrNull { it in text } ?: return text.chunked(chunkSize)
+        val finer = separators.drop(separators.indexOf(separator) + 1)
+
+        val chunks = mutableListOf<String>()
+        val fitting = mutableListOf<String>()
+        text.split(Regex("(?<=${Regex.escape(separator)})")).forEach { piece ->
+            if (piece.length <= chunkSize) {
+                fitting += piece
+            } else {
+                chunks += merge(fitting).also { fitting.clear() }
+                chunks += split(piece, finer)
+            }
+        }
+        return chunks + merge(fitting)
+    }
+
+    /** Greedily concatenates [pieces] into chunks of at most [chunkSize], carrying [chunkOverlap] over. */
+    private fun merge(pieces: List<String>): List<String> {
+        val chunks = mutableListOf<String>()
+        val window = ArrayDeque<String>()
+        var length = 0
+        pieces.forEach { piece ->
+            if (window.isNotEmpty() && length + piece.length > chunkSize) {
+                chunks += window.joinToString("")
+                while (window.isNotEmpty() && (length > chunkOverlap || length + piece.length > chunkSize)) {
+                    length -= window.removeFirst().length
+                }
+            }
+            window += piece
+            length += piece.length
+        }
+        if (window.isNotEmpty()) chunks += window.joinToString("")
+        return chunks
     }
 }
 

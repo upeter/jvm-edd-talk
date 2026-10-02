@@ -5,7 +5,9 @@ import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.ints.shouldBeGreaterThanOrEqual
+import io.kotest.matchers.ints.shouldBeLessThanOrEqual
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.string.shouldStartWith
 import org.junit.jupiter.api.Test
 
@@ -48,10 +50,40 @@ class SessionDocumentsTest {
     }
 
     @Test
-    fun `multi vector adds the whole description and the title on top of the token chunks`() {
+    fun `recursive chunking stays within the size limit and loses no sentence`() {
+        val chunks = SessionDocuments.recursiveChunks(longest.description)
+
+        chunks.size shouldBeGreaterThan 1
+        chunks.forEach { it.length shouldBeLessThanOrEqual SessionDocuments.RECURSIVE_CHUNK_CHARS }
+        val joined = chunks.joinToString(" ")
+        longest.description.split(Regex("(?<=\\.)\\s+|\\n+")).map { it.trim() }.filter { it.isNotEmpty() }
+            .forEach { sentence -> joined shouldContain sentence }
+    }
+
+    @Test
+    fun `recursive splitter prefers paragraphs, then sentences, then words`() {
+        val splitter = RecursiveTextSplitter(chunkSize = 30)
+
+        splitter.splitText("First paragraph.\n\nSecond paragraph.") shouldBe
+            listOf("First paragraph.", "Second paragraph.")
+        splitter.splitText("One short sentence. Another short sentence.") shouldBe
+            listOf("One short sentence.", "Another short sentence.")
+        splitter.splitText("a-very-long-unbreakable-word and more words") shouldBe
+            listOf("a-very-long-unbreakable-word", "and more words")
+    }
+
+    @Test
+    fun `recursive splitter repeats the overlap at the start of the next chunk`() {
+        val chunks = RecursiveTextSplitter(chunkSize = 20, chunkOverlap = 6).splitText("aaa bbb ccc ddd eee fff ggg")
+
+        chunks shouldBe listOf("aaa bbb ccc ddd eee", "eee fff ggg")
+    }
+
+    @Test
+    fun `multi vector adds the whole description and the title on top of the recursive chunks`() {
         val texts = SessionDocuments.textsFor(ChunkingStrategy.MULTI_VECTOR, longest)
 
         texts.map { it.first }.take(2) shouldBe listOf("whole", "title")
-        texts shouldHaveSize 2 + SessionDocuments.tokenChunks(longest.description).size
+        texts shouldHaveSize 2 + SessionDocuments.recursiveChunks(longest.description).size
     }
 }

@@ -135,7 +135,6 @@ class AiConfig {
     }
 }
 
-//@Configuration(proxyBeanMethods = false)
 //class ToolConfig(val conferenceTools: ConferenceTools) {
 //    @Bean
 //    fun conferenceToolsCallback(conferenceTools: ConferenceTools): ToolCallbackProvider {
