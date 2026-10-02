@@ -1,7 +1,14 @@
 package dev.example.utils
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import dev.example.logger
+import dev.example.utils.RestClientInterceptor.Companion.toJsonOrRaw
+import okhttp3.Headers
+import okhttp3.Interceptor
+import okhttp3.MediaType
+import okhttp3.Request
+import okhttp3.RequestBody
+import okhttp3.Response
+import okio.Buffer
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpRequest
 import org.springframework.http.client.ClientHttpRequestExecution
@@ -132,5 +139,65 @@ class RestClientInterceptor : ClientHttpRequestInterceptor {
     }
 
 
+}
+
+/**
+ * OkHttp counterpart of [RestClientInterceptor]. Spring AI 2.x talks to OpenAI through the OpenAI Java SDK on OkHttp
+ * instead of Spring's RestClient, so a `ClientHttpRequestInterceptor` never sees those calls.
+ * Register it via an `OpenAiHttpClientBuilderCustomizer` bean (see `AiConfig`).
+ */
+class OkHttpLoggingInterceptor : Interceptor {
+
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+        logRequest(request)
+        val response = chain.proceed(request)
+        logResponse(response)
+        return response
+    }
+
+    fun logRequest(request: Request) {
+        val request = "Request:\n\tRequest: ${request.method} ${request.url}\n" +
+        "\tHeaders: ${request.headers.redacted()}\n" +
+        "\tBody: ${request.body.loggable()}"
+        logger.info(request)
+    }
+
+    fun logResponse(response: Response) {
+        val response = "Response:\n\tResponse: ${response.code} ${response.message}\n" +
+        "\tHeaders: ${response.headers}\n" +
+        "\tBody: ${response.loggableBody()}"
+        logger.info(response)
+    }
+
+    companion object {
+        val logger = LoggerFactory.getLogger(OkHttpLoggingInterceptor::class.java)
+
+        private fun Headers.redacted(): String =
+            joinToString(", ", "[", "]") { (name, value) ->
+                if (name.equals("Authorization", ignoreCase = true)) "$name:\"Bearer ***\"" else "$name:\"$value\""
+            }
+
+        // One-shot bodies (e.g. streamed uploads) can only be written once, so they are not read for logging.
+        private fun RequestBody?.loggable(): String = when {
+            this == null -> ""
+            isOneShot() -> "<one-shot body, ${contentLength()} bytes>"
+            !contentType().isText() -> "<${contentType()}, ${contentLength()} bytes>"
+            else -> Buffer().also { writeTo(it) }.readByteArray().toJsonOrRaw()
+        }
+
+        // peekBody leaves the original body readable for the SDK; SSE streams are skipped since peeking would block.
+        private fun Response.loggableBody(): String {
+            val type = body?.contentType()
+            return when {
+                type?.subtype == "event-stream" -> "<event stream>"
+                !type.isText() -> "<$type, ${body?.contentLength()} bytes>"
+                else -> peekBody(Long.MAX_VALUE).bytes().toJsonOrRaw()
+            }
+        }
+
+        private fun MediaType?.isText(): Boolean =
+            this == null || type == "text" || subtype.contains("json") || subtype.contains("x-www-form-urlencoded")
+    }
 }
 

@@ -32,6 +32,7 @@ import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotBeEmpty
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
@@ -52,16 +53,11 @@ class ChatEval
         val toolCallbackRecorder: ToolCallRecorder,
         val sessionPreferenceRepository: SessionPreferenceRepository,
     ) {
-    val judge: JudgeLM = SpringAiSupport.asJudge(
-        builder.clone().defaultOptions(
-            OpenAiChatOptions.builder()
-                .model("gpt-5.5-2026-04-23") //judge should be pinned
-                .reasoningEffort("none")
-                .temperature(0.0)
-        )
-    )
 
-
+    @BeforeEach
+        fun setup() {
+        toolCallbackRecorder.clear()
+    }
 
     @Test
         fun `should retrieve basic conference information`() {
@@ -88,11 +84,9 @@ class ChatEval
 
 
 
-
-
-
-
-
+    val judge: JudgeLM = SpringAiSupport.asJudge(builder.clone().defaultOptions(
+            OpenAiChatOptions.builder().model("gpt-5.5-2026-04-23").reasoningEffort("none").temperature(0.0))
+    )
         @Test
         fun `should retrieve basic conference information and evaluate tone`() {
             experiment {
@@ -111,7 +105,7 @@ class ChatEval
                     mapOf("output" to response)
                 }
                 evaluators {
-                    llmJudge(judge = springAiJudge(builder)) {
+                    llmJudge(judge = judge) {
                         name = "Tone"
                         criteria = "Is the answer helpful, accurate and neutrally worded, using formal, literal language?"
                         threshold = 0.7
@@ -164,7 +158,6 @@ class ChatEval
 
 
 
-    //must fail for price hallicunations
     @Test
         fun `should retrieve accurate general venue information`() {
             experiment {
@@ -177,13 +170,9 @@ class ChatEval
                         expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
                     }
                 }
-
                 task { example ->
-                    toolCallbackRecorder.clear()
                     val sessionId = UUID.randomUUID().toString()
-                    val prompt = example.input()
-                    val response = controller.chat(ChatMessage(prompt, sessionId))!!
-
+                    val response = controller.chat(ChatMessage(example.input(), sessionId))!!
                     val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
                     mapOf(
                         "output" to response,
@@ -192,7 +181,6 @@ class ChatEval
                         "toolOutput" to tools.getGeneralVenueInformation(),
                     )
                 }
-
                 evaluators {
                     toolCorrectness {}
                     faithfulness(judge) {
@@ -207,7 +195,6 @@ class ChatEval
             }.run().print().assert()
         }
 
-    //must fail due to overlapping sessions being proposed
     @Test
         fun `multiturn chat for first time attendee looking for beginner sessions`() {
             val user: SimulatedUser =

@@ -95,7 +95,7 @@ class AIController(
                 //.toolContext(mapOf("progressToken" to "token-${nextInt()}"))
                 .toolContext(mapOf("conversationId" to  chatMessage.conversationId))
                 //.tools(conferenceTools)
-                .toolCallbacks(interceptedTools)
+                .tools(interceptedTools)
                 .advisors {
                     it.param(CONVERSATION_ID, chatMessage.conversationId)
                 }
@@ -212,11 +212,24 @@ class AIController(
             You are a helper assistant for the Devoxx Belgium 2026 conference. 
             Style: 
             - Respond in a friendly, helpful manner.
-            - Always use business-appropriate language, no slang, or other non-standard language even though the user does.                        
             Objective: Assist the user in finding the best matching sessions for his preferences and provide relevant information about the conference.
             Make use of tools to fetch relevant information about sessions, speakers, and venue details.
             """
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
         val SYSTEM_PROMPT_AUDIO = """
             You are a helper assistant for the Devoxx Belgium 2026 conference. 
             Respond in a friendly, helpful manner, yet crisp manner.

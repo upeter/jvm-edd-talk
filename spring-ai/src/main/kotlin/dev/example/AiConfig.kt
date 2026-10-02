@@ -12,6 +12,8 @@ import org.springframework.ai.image.ImageOptionsBuilder
 import org.springframework.ai.openai.*
 import org.springframework.ai.openai.OpenAiAudioSpeechOptions.AudioResponseFormat
 import org.springframework.ai.openai.OpenAiAudioSpeechOptions.Voice
+import org.springframework.ai.openai.http.okhttp.OpenAiHttpClientBuilderCustomizer
+import dev.example.utils.OkHttpLoggingInterceptor
 import com.openai.models.audio.AudioResponseFormat as TranscriptResponseFormat
 import org.springframework.ai.tool.execution.ToolExecutionException
 import org.springframework.ai.tool.execution.ToolExecutionExceptionProcessor
@@ -36,6 +38,10 @@ class AiConfig {
         return builder.build()
     }
 
+    /** Logs every OpenAI request/response. Auto-configured models (chat, embedding) pick this bean up themselves. */
+    @Bean
+    fun openAiRequestLogging() = OpenAiHttpClientBuilderCustomizer { it.interceptor(OkHttpLoggingInterceptor()) }
+
     @Bean
     fun transcriptionOptions(@Value("#{environment.OPENAI_API_KEY}") key: String): OpenAiAudioTranscriptionOptions {
         return OpenAiAudioTranscriptionOptions.builder()
@@ -51,8 +57,12 @@ class AiConfig {
 
 
     @Bean
-    fun transcriptionModel(transcriptionOptions: OpenAiAudioTranscriptionOptions): OpenAiAudioTranscriptionModel =
-        OpenAiAudioTranscriptionModel.builder().options(transcriptionOptions).build()
+    fun transcriptionModel(
+        transcriptionOptions: OpenAiAudioTranscriptionOptions,
+        openAiRequestLogging: OpenAiHttpClientBuilderCustomizer,
+    ): OpenAiAudioTranscriptionModel =
+        OpenAiAudioTranscriptionModel.builder().options(transcriptionOptions)
+            .httpClientBuilderCustomizer(openAiRequestLogging).build()
 
 
     @Bean
@@ -65,8 +75,12 @@ class AiConfig {
         .build()
 
     @Bean
-    fun speechModel(speechOptions: OpenAiAudioSpeechOptions): OpenAiAudioSpeechModel =
-        OpenAiAudioSpeechModel.builder().options(speechOptions).build()
+    fun speechModel(
+        speechOptions: OpenAiAudioSpeechOptions,
+        openAiRequestLogging: OpenAiHttpClientBuilderCustomizer,
+    ): OpenAiAudioSpeechModel =
+        OpenAiAudioSpeechModel.builder().options(speechOptions)
+            .httpClientBuilderCustomizer(openAiRequestLogging).build()
 
     @Bean
     fun imageOptions(): ImageOptions = ImageOptionsBuilder.builder()
@@ -76,9 +90,13 @@ class AiConfig {
         .build()
 
     @Bean
-    fun imageModel(@Value("#{environment.OPENAI_API_KEY}") apiKey: String): ImageModel {
-        return OpenAiImageModel(OpenAiImageOptions.builder().apiKey(apiKey).build())
-    }
+    fun imageModel(
+        @Value("#{environment.OPENAI_API_KEY}") apiKey: String,
+        openAiRequestLogging: OpenAiHttpClientBuilderCustomizer,
+    ): ImageModel = OpenAiImageModel.builder()
+        .options(OpenAiImageOptions.builder().apiKey(apiKey).build())
+        .httpClientBuilderCustomizer(openAiRequestLogging)
+        .build()
 
 
     @Bean
