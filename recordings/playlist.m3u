@@ -1,0 +1,10 @@
+#EXTM3U
+# Talk order. One file per line, relative to this folder. Lines starting with # are ignored.
+N 02 - Synthetic data generation.mov
+N 03 - Deterministic Eval.mov
+N 04 - Tone evals - pirate speech.mov
+N 05 - Ground Truth.mov
+N 06 - Conversation - eval.mov
+N 07 - Vulnerabilities.mov
+N 08 - feedback with past sessions.mov
+N 09 - Overlap.mov
