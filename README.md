@@ -35,7 +35,7 @@ Dokimos provides a small server + dashboard to collect and visualize eval result
 
 ## Prerequisites
 
-- **Java 21** (both modules target JVM 21)
+- **Java 25** (both modules target JVM 25)
 - Docker (for pgvector + Dokimos statistics server)
 - An OpenAI API key
 - (Optional but recommended) a free Langfuse Cloud account
