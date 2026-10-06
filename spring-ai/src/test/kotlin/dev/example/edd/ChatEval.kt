@@ -281,8 +281,8 @@ class ChatEval
                     example {
                         input =
                             """
-                            It is Wednesday October 7, 2026 at 13:30.
-                            I am interested in MCP talks for my preferences that I can attend.
+                            It is Wednesday October 7, 2026 at 13:30.  
+                            I am interested in concurrency talks for my preferences that I can attend.
                             Add suitable sessions to my preferred schedule.
                             """.trimIndent()
                         expected =
@@ -293,7 +293,6 @@ class ChatEval
                     }
                 }
                 task { example ->
-                    toolCallbackRecorder.clear()
                     val conversationId = UUID.randomUUID().toString()
                     val response = controller.chat(ChatMessage(example.input(), conversationId)).orEmpty()
                     val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)

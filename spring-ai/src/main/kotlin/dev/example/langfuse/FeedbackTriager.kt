@@ -4,6 +4,12 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import dev.dokimos.core.JudgeLM
 
+fun interface FeedbackTriager {
+    fun classify(entry: FeedbackEntry, traceMarkdown: String): FeedbackClassification
+}
+
+
+
 data class FeedbackClassification(
     val complaintSummary: String = "",
     val failureMode: String = "",
@@ -12,10 +18,6 @@ data class FeedbackClassification(
     val confidence: Double = 0.0,
     val rationale: String = "",
 )
-
-fun interface FeedbackTriager {
-    fun classify(entry: FeedbackEntry, traceMarkdown: String): FeedbackClassification
-}
 
 class LlmFeedbackTriager(
     private val judge: JudgeLM,
