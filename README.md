@@ -132,6 +132,23 @@ Notes:
 - Some tests are guarded with `@EnabledIfEnvironmentVariable(named = "OPENAI_API_KEY", ...)`.
 - For dashboard reporting, make sure the Dokimos statistics server is running (see above).
 
+### Dokimos skills for Claude Code
+
+The [Dokimos Claude Code plugins](https://github.com/dokimos-dev/dokimos/tree/master/plugins) are
+enabled for this repo in `.claude/settings.json`. When you open the repo in Claude Code and trust the
+folder, it offers to add the `dokimos` marketplace and install them:
+
+- Scaffolding: `create-evaluator`, `create-dataset`, `create-tests`, `create-experiment`, `generate-goldens`
+- Integration: `evaluate-agent`, `evaluate-spring-ai`, `evaluate-koog`, `evaluate-langchain4j`,
+  `evaluate-openai`, `evaluate-embabel`, `evaluate-spring-ai-alibaba`
+
+To install them by hand instead:
+
+```
+/plugin marketplace add dokimos-dev/dokimos
+/plugin install evaluate-spring-ai@dokimos
+```
+
 ---
 
 ## Running `chatclient-kmp/` (desktop client)
