@@ -83,11 +83,10 @@ docker compose up -d
 This uses `./docker-compose.yaml` and exposes Postgres on `localhost:5430`.
 
 ### 2) Start Dokimos Eval statistics server (dashboard)
-In a separate folder (or anywhere), run:
+The Dokimos server compose file is vendored in `dokimos/`. From the repo root:
 
 ```bash
-curl -O https://raw.githubusercontent.com/dokimos-dev/dokimos/master/docker-compose.yml
-docker compose up -d
+cd dokimos && docker compose up -d
 ```
 
 Open http://localhost:8080 to view the dashboard.
@@ -140,9 +139,7 @@ Notes:
 From `chatclient-kmp/`:
 
 ```bash
-# This module currently only ships `gradlew.bat` (Windows).
-# On macOS/Linux, use your local Gradle installation.
-gradle run
+./gradlew run
 ```
 
 The UI expects the `spring-ai` server to be running on `http://localhost:8082`.

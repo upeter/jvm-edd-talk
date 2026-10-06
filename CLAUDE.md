@@ -16,7 +16,7 @@ This repo pins `dokimos.version = 0.27.0`; the vendored docs track upstream `mai
 
 ## Commands
 
-All Maven commands run from `spring-ai/` (Java 21, Kotlin 2.2, Spring Boot 3.5.5, Spring AI 1.1.2):
+All Maven commands run from `spring-ai/` (Java 25, Kotlin 2.4, Spring Boot 4.0.3, Spring AI 2.0.1):
 
 ```bash
 ./mvnw spring-boot:run                                    # app on :8082
@@ -47,7 +47,8 @@ The repo is organized around one closed loop. Understanding it requires reading 
 
 **1. The application under evaluation** (`spring-ai/src/main/kotlin/dev/example/`)
 
-A Spring AI chat app for a KotlinConf attendee assistant. `AIController` exposes `/chat`,
+A Spring AI chat app for a Devoxx Belgium 2026 attendee assistant (session and venue data in
+`src/main/resources/data/dataset-devoxx26-*.json`; the older `dataset-kotlinconf-*` files are unused). `AIController` exposes `/chat`,
 `/audio-chat`, `/audio-in-text-out-chat`, `/feedback`. `AiConfig` wires the `ChatClient` with a
 `MessageChatMemoryAdvisor` (in-memory, keyed by `conversationId`) plus audio/image models.
 `ConferenceTools` holds the `@Tool` functions — venue info, `searchSessions` (RAG over pgvector via
@@ -67,6 +68,15 @@ candidates and collapses chunk hits per session title, so any strategy returns d
 so eval tasks can assert on the agent's *trajectory*, not just its final text. Tool names are
 declared as constants (`TOOL_ADD_PREFERRED_SESSIONS`, …) precisely so evaluators can reference them
 without string drift. Call `toolCallbackRecorder.clear()` at the start of a task that inspects calls.
+
+**2b. Production tracing** (`observability/`)
+
+Separate from the eval-time recorder: OTEL traces to Langfuse. `LangfuseTracingConfig` bridges the
+`OTEL_EXPORTER_OTLP_*` env vars into Spring Boot 4's exporter (active only when
+`OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` is set). `LangfuseTraceAttributes` copies session ID and trace name
+onto every span for Langfuse v4. `ChatModelCompletionContentObservationFilter` and
+`ToolCallContentObservationFilter` put model completions and tool-call arguments/results on their
+observations, so the traces the feedback loop (step 5) pulls back carry the full content.
 
 **3. Evals** (`spring-ai/src/test/kotlin/dev/example/edd/`)
 
@@ -93,7 +103,8 @@ Terminal operations differ in meaning and are not interchangeable:
   omitting it falls back to the experiment name. The first local run scaffolds the baseline and
   passes, so a green first run measures nothing — commit the file, then the gate has teeth.
   It fails on a statistically significant aggregate drop *or* any single item dropping more than
-  `severityMargin` (0.15), so within-threshold noise does not flake the build. Re-baseline an
+  `severityMargin` (default 0.15; the `ChatEval` tone gate tightens it to 0.10), so within-threshold
+  noise does not flake the build. Re-baseline an
   intended change with `DOKIMOS_UPDATE_BASELINE=true ./mvnw test` (the `-D` property is unreliable
   through the IntelliJ runner).
 - `.print()` — the human-readable console report in `EddEvalSupport.kt`, used for the live demo.
@@ -127,8 +138,11 @@ without explicit direction.**
 - `` `replay conversation goldens against their expected outcome`() `` — re-grades a frozen golden
   transcript (`mapOf("output" to example.input())`) rather than re-running the app, so fixing
   `findBySessionTitle` elsewhere will **not** turn it green on its own; the golden would need
-  regenerating (via the `@Disabled` `` `generate conversation goldens`() `` method) once the bug is
-  fixed.
+  regenerating (via `` `generate conversation goldens`() ``) once the bug is fixed.
+
+`` `generate conversation goldens`() `` is intentionally **enabled** at the moment (its `@Disabled` is
+commented out): it calls the model on every run and writes `datasets/devoxx26-goldens-2.json`, leaving
+the replayed `devoxx26-goldens.json` untouched. Don't re-disable it without being asked.
 
 **3c. Retrieval evals** (`RAGEval.kt`)
 
@@ -146,7 +160,8 @@ Domain evaluators are written as a triple: an `Evaluator` class, a `...Dsl` buil
 `ToolPresenceEvaluator` (was a specific tool called, tolerant of extra calls; fills the gap where
 `toolCorrectness` set-matches the entire call list and penalizes any extra),
 `ContainsEvaluator` (substring/expected match), `StartedSessionOverlapEvaluator` (domain rule: never
-schedule a session that already started).
+schedule a session that already started), `RetrievalRankEvaluator` (Hit@k/MRR for `RAGEval`).
+`ResponseLengthEvaluator` (min/max output length) is the exception: a bare class with no DSL wrapper.
 
 **5. Production feedback → new eval cases** (`langfuse/`, `src/notebooks/`)
 
@@ -163,11 +178,12 @@ consume — real-world failures become eval dataset entries.
 - The judge is built with `springAiJudge(builder)` (`EddEvalSupport.kt`), which clones the injected
   `ChatClient.Builder` and overrides its options: `gpt-5.5-2026-04-23` (a pinned snapshot, not the alias),
   `reasoningEffort("none")`, temperature 0. GPT-5.x rejects temperature 0 unless reasoning is off.
-- The app model lives in `application.properties`: `gpt-4.1` at temperature 0.4, deliberately weaker than
+- The app model lives in `application.properties`: `gpt-5.4` at temperature 0.4, deliberately weaker than
   the judge so the evals have mistakes to catch. Judge temperature is a baseline hazard the Dokimos docs
   call out: a non-zero judge temperature, or an unpinned judge model, makes recorded scores drift for
   reasons unrelated to the code. Regenerate baselines deliberately, never to make a build go green.
-- The only committed regression baseline is `baselines/tone-evals.json` (the `ChatEval` tone gate).
-  `RAGEval`'s per-strategy gates (`rag-whole`, `rag-multi-vector`, …) scaffold their baselines on first
-  run. They use `severityMargin = 1.0` because Hit@k flips 0↔1 on near-ties, so only the significance
+- Regression baselines live in `spring-ai/src/test/resources/dokimos/baselines/`: `tone-evals.json` (the
+  `ChatEval` tone gate) and one per `RAGEval` strategy (`rag-whole`, `rag-multi-vector`, …). The whole
+  `dokimos/` folder is intentionally **not committed** for now, so on a fresh clone every gate scaffolds
+  on first run and passes. Don't commit it without being asked. The `RAGEval` gates use `severityMargin = 1.0` because Hit@k flips 0↔1 on near-ties, so only the significance
   test can fail them.
