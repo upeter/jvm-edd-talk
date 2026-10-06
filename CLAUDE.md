@@ -10,9 +10,8 @@ the *evals* are the point. Changes should keep the eval story legible for a live
 `@Test` methods in `ChatEval.kt` are deliberately separated by blank-line gaps so they can be
 revealed one at a time on stage. Preserve that spacing.
 
-Offline Dokimos documentation and the upstream Claude Code eval skills are vendored in
-[`docs/dokimos/`](docs/dokimos/README.md) — consult those before guessing at the Dokimos API.
-This repo pins `dokimos.version = 0.27.0`; the vendored docs track upstream `main` (currently `0.28.0-SNAPSHOT`).
+This repo pins `dokimos.version = 0.27.0`. The Dokimos Claude Code skills enabled in
+`.claude/settings.json` track upstream `main`, so check generated code against the 0.27 API.
 
 ## Commands
 
