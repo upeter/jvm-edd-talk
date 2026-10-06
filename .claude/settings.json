@@ -1,0 +1,24 @@
+{
+  "extraKnownMarketplaces": {
+    "dokimos": {
+      "source": {
+        "source": "github",
+        "repo": "dokimos-dev/dokimos"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "create-evaluator@dokimos": true,
+    "create-dataset@dokimos": true,
+    "create-tests@dokimos": true,
+    "create-experiment@dokimos": true,
+    "generate-goldens@dokimos": true,
+    "evaluate-agent@dokimos": true,
+    "evaluate-koog@dokimos": true,
+    "evaluate-langchain4j@dokimos": true,
+    "evaluate-spring-ai@dokimos": true,
+    "evaluate-openai@dokimos": true,
+    "evaluate-embabel@dokimos": true,
+    "evaluate-spring-ai-alibaba@dokimos": true
+  }
+}
