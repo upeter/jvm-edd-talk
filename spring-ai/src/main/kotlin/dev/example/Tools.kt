@@ -17,7 +17,7 @@ class ConferenceTools(
 
     @Tool(
         name = TOOL_GENERAL_VENUE_INFORMATION_DEVOXX,
-        description = "You provide general venue information about the Devoxx Belgium 2026 conference like location, address, ticket prices, hotels, date etc."
+        description = "You provide general venue information about the Devoxx Belgium 2026 conference like location, address, ticket prices, hotels, date, community drinks etc."
     )
     fun getGeneralVenueInformation(): String = generalVenueInformation
 

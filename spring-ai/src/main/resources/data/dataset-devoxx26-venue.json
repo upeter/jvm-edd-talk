@@ -79,5 +79,14 @@
       "name": "Holiday Inn Express Antwerp City North (bus 31 to the venue)",
       "website": "https://www.ihg.com/"
     }
-  ]
+  ],
+  "communityDrinks": {
+    "name": "Unofficial Devoxx community drinks",
+    "date": "2026-10-07",
+    "startTime": "20:00",
+    "location": "Café Bier Central, De Keyserlei 25, Antwerp (right next to Antwerpen-Centraal station)",
+    "price": "Free, the drinks are on us",
+    "registration": "No registration and no ticket needed, just walk in",
+    "description": "Like previous years, we are hosting the unofficial Devoxx community drinks with free Belgian beer. Everyone is welcome, so bring your colleagues."
+  }
 }
