@@ -12,9 +12,9 @@ class ContainsEvaluatorTest {
         val testCase = EvalTestCase(
             input = "",
             actualOutputs = mapOf(
-                "output" to "You can park at Kinepolis Antwerp. For pricing, check parking rates online."
+                "output" to "You can park at Pathé Ede. For pricing, check parking rates online."
             ),
-            expectedOutputs = mapOf("output" to "Kinepolis|parking rates"),
+            expectedOutputs = mapOf("output" to "Pathé|parking rates"),
         )
 
         val result = evaluator.evaluate(testCase)
@@ -28,8 +28,8 @@ class ContainsEvaluatorTest {
         val evaluator = ContainsEvaluator(splitFragmentsBy = null)
         val testCase = EvalTestCase(
             input = "",
-            actualOutputs = mapOf("output" to "The venue is Kinepolis Antwerp."),
-            expectedOutputs = mapOf("output" to "Kinepolis Antwerp"),
+            actualOutputs = mapOf("output" to "The venue is Pathé Ede."),
+            expectedOutputs = mapOf("output" to "Pathé Ede"),
         )
 
         val result = evaluator.evaluate(testCase)

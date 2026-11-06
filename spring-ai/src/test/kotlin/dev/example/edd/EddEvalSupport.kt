@@ -42,11 +42,11 @@ fun List<CapturedToolCall>.asToolCalls(): List<ToolCall> = map { call ->
  *  - `startsAtLocalDateTime`, which is what the agent actually sees via `searchSessions`, is that
  *    instant rendered as conference-local wall-clock time, with no offset suffix.
  *
- * The seed data bakes the offset at UTC+2, so an eval that pins a "current time" must state which
- * clock it means. Writing the prompt's local time with a `Z` suffix silently shifts it by two hours
- * and makes time-based evaluators judge the agent against a clock it never saw.
+ * The seed data bakes the offset at UTC+1 (CET; J-Fall is in November), so an eval that pins a
+ * "current time" must state which clock it means. Writing the prompt's local time with a `Z` suffix
+ * silently shifts it by one hour and makes time-based evaluators judge the agent against a clock it never saw.
  */
-val CONFERENCE_ZONE: ZoneId = ZoneId.of("Europe/Brussels")
+val CONFERENCE_ZONE: ZoneId = ZoneId.of("Europe/Amsterdam")
 
 /**
  * Converts a conference-local wall-clock time — the same one the eval prompt states in prose — into

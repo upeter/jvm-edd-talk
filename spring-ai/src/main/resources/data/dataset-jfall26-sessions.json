@@ -1,0 +1,1002 @@
+{
+  "sessions": [
+    {
+      "id": "1265418",
+      "title": "The Spring Test Profiler: Cut Down Your Test Execution Time by 70%",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Philip Riecks"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1318370",
+      "title": "On-premises AI: Frontier-level agentic engineering at the Dutch National Police",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Miel van Welzen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1320003",
+      "title": "How AI Lost the Thread: The Strange Path from Neurons to LLMs",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Tineke Slotegraaf"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1291015",
+      "title": "Don't fall in the metrics trap",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Maarten Mulders",
+        "Laura Kester"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1293762",
+      "title": "Modernizing a 2M+ LOC Java Monolith with Agentic AI: What Worked, What Failed, and How We Recovered",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Marek Dominiak"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322845",
+      "title": "Level Up Your Java Streams with Gatherers",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Hinse ter Schuur"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1270399",
+      "title": "Java in 5 Microseconds: Inside a Crypto Trading Engine",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Oleg Lobanov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "06fcc598-1ede-4700-a704-0cdb078e1a16",
+      "title": "Opening",
+      "startsAt": "2026-11-12T08:00:00.0000000Z",
+      "endsAt": "2026-11-12T08:20:00.0000000Z",
+      "isServiceSession": true,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [],
+      "recordingUrl": null
+    },
+    {
+      "id": "1332805",
+      "title": "Why am I here?",
+      "startsAt": "2026-11-12T08:20:00.0000000Z",
+      "endsAt": "2026-11-12T08:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Jeroen van der Wal"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1311834",
+      "title": "From Specification to Production: Engineering in the Age of AI",
+      "startsAt": "2026-11-12T08:45:00.0000000Z",
+      "endsAt": "2026-11-12T09:10:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Venkat Subramaniam"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1291845",
+      "title": "👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Hands-on labs",
+      "speakers": [
+        "Stéphane Philippart",
+        "Matthieu Vincent"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1267847",
+      "title": "Hack Your Brain: Smarter Learning for Devs",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Simone de Gijt"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1321499",
+      "title": "Your coding agent is a while loop!",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Bruno Bossola"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1291821",
+      "title": "Evolving Language Defaults in Kotlin and Other Languages",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Michail Zarečenskij"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322810",
+      "title": "Back to the Future: Building a RAG-Powered VR Time Machine",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Susanne Pieterse",
+        "Marc Buma"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1291780",
+      "title": "Scotty I need Warp Speed - Ways to improve JVM startup",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Gerrit Grunwald"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1310321",
+      "title": "Four ways to serve a drink: Plain calls, RAG, agents and MCP in Quarkus",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Maarten Vandeperre",
+        "Lutske van der Meer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1333105",
+      "title": "6000 tests, 25 times a day, 365 days a year - All for quality",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Sven Haster"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1324155",
+      "title": "State of Confusion: Data Ownership in Event-Driven Systems",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Jeroen Rosenberg"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1312594",
+      "title": "Spring Cleaning: What Boot 4 Lets You Delete",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Dan Vega"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1274378",
+      "title": "Getting more out of Maven",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Marit van Dijk",
+        "Andres Almiray"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1303897",
+      "title": "Senior Engineer, Still Failing",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Sanne Noordzij"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1259601",
+      "title": "Context Is a Budget — Spend It Wisely",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Soham Dasgupta"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1307768",
+      "title": "Continuous Delivery: From fragmented pipelines to zero touch delivery",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Anand Shukla"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1289378",
+      "title": "Teaching a New Dog Old Tricks: Give the Agent a Debugger",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Anton Arhipov"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1304572",
+      "title": "How Can Java Applications Leverage Ahead-of-Time Caching",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Ana Maria Mihalceanu"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322225",
+      "title": "Don't drown in your connection pool",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T10:55:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Jos Roseboom"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1304500",
+      "title": "Java Citizens in the World of Mainframe",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Valeriya Komarnitskaya"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1311672",
+      "title": "Java over Markdown: Specs That Compile",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Adam Bien"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1295046",
+      "title": "Don't Let Your Architecture Drift",
+      "startsAt": "2026-11-12T11:00:00.0000000Z",
+      "endsAt": "2026-11-12T11:15:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Gunter Rotsaert"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1323767",
+      "title": "From Specs to Decks: A Tale of Bugs, DJs & the Importance of Hobbies",
+      "startsAt": "2026-11-12T11:15:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Lucía Conde-Moreno"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1324144",
+      "title": "Voice UI's, AI, and the future of usability",
+      "startsAt": "2026-11-12T11:30:00.0000000Z",
+      "endsAt": "2026-11-12T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Ramona Domen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322567",
+      "title": "5 vibe-coded games in 5 minutes",
+      "startsAt": "2026-11-12T11:35:00.0000000Z",
+      "endsAt": "2026-11-12T11:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Pim Tegelaar"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1306048",
+      "title": "JVM startup in the age of disposable infra",
+      "startsAt": "2026-11-12T11:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Erik Steenman"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1291294",
+      "title": "Why I ❤️ C#",
+      "startsAt": "2026-11-12T11:45:00.0000000Z",
+      "endsAt": "2026-11-12T11:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Maarten Mulders"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1321629",
+      "title": "AI-architecture speedrun: from Woolly Wonka to Spaghetti Mario",
+      "startsAt": "2026-11-12T11:50:00.0000000Z",
+      "endsAt": "2026-11-12T11:55:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Frederieke Scheper"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1317424",
+      "title": "How A Friend Convinced Me To Buy My Own Domain",
+      "startsAt": "2026-11-12T11:55:00.0000000Z",
+      "endsAt": "2026-11-12T12:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Rico Apon"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1312898",
+      "title": "Designing a Lego model, or how my relaxing hobby turned out to be a software project in disguise",
+      "startsAt": "2026-11-12T12:00:00.0000000Z",
+      "endsAt": "2026-11-12T12:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Jan Ouwens"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1340062",
+      "title": "Let's get Physical",
+      "startsAt": "2026-11-12T12:50:00.0000000Z",
+      "endsAt": "2026-11-12T13:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Iulia Feroli"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1269443",
+      "title": "Workshop: Designing Production-Ready Multi-Agent Systems with Spring AI",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Hands-on labs",
+      "speakers": [
+        "Raphael De Lio"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1321961",
+      "title": "7 Ways You Can Build an Amazing Dev Career in the AI Era",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Bruno Souza"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1277090",
+      "title": "Java 26 and 27 are boring, and that's a good thing",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Johannes Bechberger",
+        "Lutske van der Meer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1316109",
+      "title": "Emergent DevEx: The Good, the Bad, and the Legacy",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Makan Sepehrifar",
+        "Soroosh Khodami"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1368297",
+      "title": "Powering Personalization: How we built our Generic Decision Engine",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Rick Ossendrijver",
+        "Tijana Ninkovic"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1279891",
+      "title": "Java is Coming for Python’s Lunch: The Rise of JVM AI Agents",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Frederik Pietzko"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1317281",
+      "title": "Keeping data private in real-time pipelines",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Olena Kutsenko"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "15c53abe-8b90-412c-ad3b-3b83a13e5c6e",
+      "title": "NLJUG Modern IT Leadership Summit: Accountability, cost and control in the age of AI agents",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": true,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [],
+      "recordingUrl": null
+    },
+    {
+      "id": "1310669",
+      "title": "Apache Camel as integration framework",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Ferrie Bank"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1311845",
+      "title": "Finding and Fixing Issues with Legacy Code using AI",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Venkat Subramaniam"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322575",
+      "title": "Eval Driven Development: Why you need it to make your Agentic Application survive Production",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Urs Peter"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1323132",
+      "title": "Exploring Value Objects from Project Valhalla",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Balkrishna Rawool"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1320112",
+      "title": "Engineering the Harness: From Vibe Coding to Verified Code Generation",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Ario Afrashteh"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1313418",
+      "title": "We Put Minecraft in a Browser Tab, Here's How the JVM Got There",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Elisabeth Panholzer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1288731",
+      "title": "How to guard your AI agent without babysitting it?",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Jos Roseboom"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1320230",
+      "title": "4 years of Quarkus in production, what have we learned?",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Jago de Vreede"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322804",
+      "title": "Java, scripted?",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Johan Hutting"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1269356",
+      "title": "Practical MCP Security in Action",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Willem Jan Glerum"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1294562",
+      "title": "Cracking the Code Review",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Paco van Beckhoven"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1278307",
+      "title": "Generics – You Never Know What You’re Gonna Get",
+      "startsAt": "2026-11-12T15:10:00.0000000Z",
+      "endsAt": "2026-11-12T15:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Bram Janssens"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1301850",
+      "title": "Then vs Now: How Learning to Code Changed — And What It Means for All of Us",
+      "startsAt": "2026-11-12T15:25:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Manar Majdoubi"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1312765",
+      "title": "Conquest, time travel and explosions using Git",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Alexander Chatzizacharias"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1333159",
+      "title": "When agentic AI makes coding feel like a superpower",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Alexander Gomez"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1288685",
+      "title": "Physically virtual. How information technology obeys physical laws",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Marianne Hoornenborg"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1268434",
+      "title": "Beyond the Demo: Testing Strategies for Production AI Agents",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Elena van Engelen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1323546",
+      "title": "DevCulture - The Funny History Nobody Teaches You",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Jan-Hendrik Kuperus"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1286955",
+      "title": "Snake in 10 Lines: Learning More by Coding Less",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Guus de Wit"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1318155",
+      "title": "How playing the trombone makes me a better software engineer - and why you should make music too",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:10:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Marije de Heus"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1320350",
+      "title": "Analytical Java with DuckDB",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Geertjan Wielenga"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1319194",
+      "title": "Understanding Prompt Injection - Techniques, Challenges, and Advanced Escalation",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Brian Vermeer"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1322802",
+      "title": "Trick or Treat? The Surprising Link Between Accessibility and Green Software",
+      "startsAt": "2026-11-12T16:15:00.0000000Z",
+      "endsAt": "2026-11-12T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Ramona Domen"
+      ],
+      "recordingUrl": null
+    },
+    {
+      "id": "1292191",
+      "title": "Refactoring Your Brain: Working With ADHD in Engineering Teams",
+      "startsAt": "2026-11-12T16:30:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Myriam Jessier"
+      ],
+      "recordingUrl": null
+    }
+  ]
+}

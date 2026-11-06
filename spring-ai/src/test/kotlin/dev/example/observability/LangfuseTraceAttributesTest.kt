@@ -44,7 +44,7 @@ class LangfuseTraceAttributesTest {
                 Observation.createNotStarted("chat gpt-4.1", registry).observe {
                     Observation.createNotStarted("conference-session-search", registry).observe { }
                 }
-                "In Antwerp."
+                "In Ede."
             }
         }
 
@@ -59,7 +59,7 @@ class LangfuseTraceAttributesTest {
 
             listOf(root, chat).forEach {
                 it.attr(LangfuseAttributes.OBSERVATION_INPUT) shouldBe "Where is the venue?"
-                it.attr(LangfuseAttributes.OBSERVATION_OUTPUT) shouldBe "In Antwerp."
+                it.attr(LangfuseAttributes.OBSERVATION_OUTPUT) shouldBe "In Ede."
             }
             listOf(root, chat, generation, tool).forEach {
                 it.attr(LangfuseAttributes.SESSION_ID) shouldBe "session-1"

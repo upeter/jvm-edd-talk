@@ -57,15 +57,15 @@ fun App() {
         }
     }
 
-    DevoxxTheme {
+    JFallTheme {
         Column(
-            modifier = Modifier.fillMaxSize().background(DevoxxColors.Background)
+            modifier = Modifier.fillMaxSize().background(JFallColors.Background)
         ) {
-            // Header bar, styled after the devoxx.be navigation
+            // Header bar
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(DevoxxColors.Surface)
+                    .background(JFallColors.Surface)
                     .padding(horizontal = 12.dp, vertical = 10.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -74,14 +74,14 @@ fun App() {
                         Icon(
                             imageVector = Icons.Default.Menu,
                             contentDescription = "Menu",
-                            tint = DevoxxColors.Text
+                            tint = JFallColors.Text
                         )
                     }
 
                     DropdownMenu(
                         expanded = menuExpanded,
                         onDismissRequest = { menuExpanded = false },
-                        containerColor = DevoxxColors.SurfaceRaised
+                        containerColor = JFallColors.SurfaceRaised
                     ) {
                         DropdownMenuItem(
                             text = { Text("Text Chat") },
@@ -97,7 +97,7 @@ fun App() {
                                 menuExpanded = false
                             }
                         )
-                        HorizontalDivider(color = DevoxxColors.Border)
+                        HorizontalDivider(color = JFallColors.Border)
                         DropdownMenuItem(
                             text = { Text("Clear Conversation") },
                             onClick = {
@@ -115,8 +115,8 @@ fun App() {
                 Column {
                     Text(
                         text = buildAnnotatedString {
-                            withStyle(SpanStyle(color = DevoxxColors.Text)) { append("DEVOXX ") }
-                            withStyle(SpanStyle(color = DevoxxColors.Orange)) { append("BELGIUM") }
+                            withStyle(SpanStyle(color = JFallColors.Text)) { append("J-FALL ") }
+                            withStyle(SpanStyle(color = JFallColors.Orange)) { append("2026") }
                         },
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Black,
@@ -124,7 +124,7 @@ fun App() {
                     )
                     Text(
                         text = "FROM DEVELOPER TO BUILDER",
-                        color = DevoxxColors.TextMuted,
+                        color = JFallColors.TextMuted,
                         fontSize = 10.sp,
                         letterSpacing = 2.sp
                     )
@@ -136,15 +136,15 @@ fun App() {
                 Spacer(Modifier.width(8.dp))
                 ScreenTab("Audio Chat", currentScreen == Screen.AUDIO_CHAT) { currentScreen = Screen.AUDIO_CHAT }
             }
-            HorizontalDivider(color = DevoxxColors.Border)
+            HorizontalDivider(color = JFallColors.Border)
 
             Row(
                 modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 12.dp, end = 16.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                DevoxxPill("Attendee Assistant")
+                JFallPill("Attendee Assistant")
                 Spacer(Modifier.width(8.dp))
-                DevoxxPill("Antwerp 2026", color = DevoxxColors.Cyan)
+                JFallPill("Ede · 12 Nov 2026", color = JFallColors.Cyan)
             }
 
             Box(modifier = Modifier.fillMaxSize().padding(16.dp)) {
@@ -170,11 +170,11 @@ private fun ScreenTab(label: String, selected: Boolean, onClick: () -> Unit) {
     val interaction = remember { MutableInteractionSource() }
     val hovered by interaction.collectIsHoveredAsState()
     val background = when {
-        selected -> DevoxxColors.Orange
-        hovered -> DevoxxColors.Lime
+        selected -> JFallColors.Orange
+        hovered -> JFallColors.Lime
         else -> Color.Transparent
     }
-    val foreground = if (selected || hovered) DevoxxColors.OnAccent else DevoxxColors.Text
+    val foreground = if (selected || hovered) JFallColors.OnAccent else JFallColors.Text
     Text(
         text = label.uppercase(),
         color = foreground,
@@ -184,7 +184,7 @@ private fun ScreenTab(label: String, selected: Boolean, onClick: () -> Unit) {
         modifier = Modifier
             .clip(RoundedCornerShape(96.dp))
             .background(background)
-            .border(1.dp, if (selected) DevoxxColors.Orange else DevoxxColors.Border, RoundedCornerShape(96.dp))
+            .border(1.dp, if (selected) JFallColors.Orange else JFallColors.Border, RoundedCornerShape(96.dp))
             .hoverable(interaction)
             .clickable(interactionSource = interaction, indication = null, onClick = onClick)
             .padding(horizontal = 16.dp, vertical = 8.dp)
@@ -194,7 +194,7 @@ private fun ScreenTab(label: String, selected: Boolean, onClick: () -> Unit) {
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        title = "Devoxx Belgium 2026 · AI Assistant",
+        title = "J-Fall 2026 · AI Assistant",
         icon = painterResource("AgentIconDuke.png"),
         state = rememberWindowState(width = 960.dp, height = 720.dp)
     ) {

@@ -303,8 +303,8 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .size(120.dp * animatedSize)
                     .clip(CircleShape)
-                    .background(if (isRecording) DevoxxColors.Orange else DevoxxColors.SurfaceRaised)
-                    .border(2.dp, if (isRecording) DevoxxColors.Lime else DevoxxColors.Border, CircleShape)
+                    .background(if (isRecording) JFallColors.Orange else JFallColors.SurfaceRaised)
+                    .border(2.dp, if (isRecording) JFallColors.Lime else JFallColors.Border, CircleShape)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null
@@ -351,7 +351,7 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
             ) {
                 Text(
                     text = if (isRecording) "STOP" else "RECORD",
-                    color = if (isRecording) DevoxxColors.OnAccent else DevoxxColors.Text,
+                    color = if (isRecording) JFallColors.OnAccent else JFallColors.Text,
                     fontWeight = FontWeight.Bold,
                     letterSpacing = 2.sp
                 )
@@ -366,7 +366,7 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                     else -> "Tap and hold to record"
                 },
                 style = MaterialTheme.typography.bodyLarge,
-                color = DevoxxColors.TextMuted,
+                color = JFallColors.TextMuted,
                 letterSpacing = 1.sp
             )
 
@@ -374,8 +374,8 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
             if (isProcessing) {
                 CircularProgressIndicator(
                     modifier = Modifier.padding(16.dp),
-                    color = DevoxxColors.Orange,
-                    trackColor = DevoxxColors.Border
+                    color = JFallColors.Orange,
+                    trackColor = JFallColors.Border
                 )
             }
         }

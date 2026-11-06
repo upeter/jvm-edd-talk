@@ -46,8 +46,12 @@ The repo is organized around one closed loop. Understanding it requires reading 
 
 **1. The application under evaluation** (`spring-ai/src/main/kotlin/dev/example/`)
 
-A Spring AI chat app for a Devoxx Belgium 2026 attendee assistant (session and venue data in
-`src/main/resources/data/dataset-devoxx26-*.json`; the older `dataset-kotlinconf-*` files are unused). `AIController` exposes `/chat`,
+A Spring AI chat app for a J-Fall 2026 attendee assistant (Pathé Ede, Thursday 12 November 2026; session
+and venue data in `src/main/resources/data/dataset-jfall26-*.json`; the older `dataset-kotlinconf-*` files
+are unused). The session files are scraped from the Sessionize embed behind https://jfall.nl/timetable-2026/
+by `tools/scrape_jfall_sessions.py`. J-Fall publishes no tracks or levels, so `category` is empty. The venue
+file is hand-written from jfall.nl and deliberately omits parking, so the parking eval in `ChatEval` can
+catch hallucinations. `AIController` exposes `/chat`,
 `/audio-chat`, `/audio-in-text-out-chat`, `/feedback`. `AiConfig` wires the `ChatClient` with a
 `MessageChatMemoryAdvisor` (in-memory, keyed by `conversationId`) plus audio/image models.
 `ConferenceTools` holds the `@Tool` functions — venue info, `searchSessions` (RAG over pgvector via
@@ -57,8 +61,9 @@ A Spring AI chat app for a Devoxx Belgium 2026 attendee assistant (session and v
 Ingestion (`Ingestion.kt`): `ChunkingStrategy` maps each chunking approach to its own pgvector table
 (`WHOLE` → `talks`, `TOKEN_CHUNKS`, `PARAGRAPH_CHUNKS`, `MULTI_VECTOR` → `talks_multi_vector`).
 `spring.ai.vectorstore.pgvector.table-name` selects the strategy; `SessionIngestion` embeds that table on
-startup only when it is empty. Only `talks` is seeded from `talks.sql`; the other tables are embedded on
-first use. The app runs on `MULTI_VECTOR`, which won `RAGEval`. `SessionSearchRepository` over-fetches
+startup only when it is empty. `talks` and `talks_multi_vector` are seeded from `talks.sql` and
+`talks_multi_vector.sql`; the chunk tables are embedded on first use. The app runs on `MULTI_VECTOR`, which
+has the best MRR in `RAGEval`, though on the J-Fall corpus no strategy differs significantly. `SessionSearchRepository` over-fetches
 candidates and collapses chunk hits per session title, so any strategy returns distinct sessions.
 
 **2. Tool-call observability for evals** (`Tools.kt`)
@@ -140,8 +145,8 @@ without explicit direction.**
   regenerating (via `` `generate conversation goldens`() ``) once the bug is fixed.
 
 `` `generate conversation goldens`() `` is intentionally **enabled** at the moment (its `@Disabled` is
-commented out): it calls the model on every run and writes `datasets/devoxx26-goldens-2.json`, leaving
-the replayed `devoxx26-goldens.json` untouched. Don't re-disable it without being asked.
+commented out): it calls the model on every run and writes `datasets/jfall26-goldens-2.json`, leaving
+the replayed `jfall26-goldens.json` untouched. Don't re-disable it without being asked.
 
 **3c. Retrieval evals** (`RAGEval.kt`)
 

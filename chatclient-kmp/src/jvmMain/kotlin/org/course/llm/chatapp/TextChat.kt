@@ -94,24 +94,24 @@ sealed class ChatBubbleStyle {
 
     object User : ChatBubbleStyle() {
         override val alignment = Alignment.CenterEnd
-        override val backgroundColor = DevoxxColors.Orange
-        override val textColor = DevoxxColors.OnAccent
+        override val backgroundColor = JFallColors.Orange
+        override val textColor = JFallColors.OnAccent
     }
 
     object Agent : ChatBubbleStyle() {
         override val alignment = Alignment.CenterStart
-        override val backgroundColor = DevoxxColors.SurfaceRaised
-        override val textColor = DevoxxColors.Text
-        override val linkColor = DevoxxColors.Cyan
-        override val borderColor = DevoxxColors.Border
+        override val backgroundColor = JFallColors.SurfaceRaised
+        override val textColor = JFallColors.Text
+        override val linkColor = JFallColors.Cyan
+        override val borderColor = JFallColors.Border
     }
 
     // Outlined orange bubble for transcribed user input
     object Transcribed : ChatBubbleStyle() {
         override val alignment = Alignment.CenterEnd
-        override val backgroundColor = DevoxxColors.Surface
-        override val textColor = DevoxxColors.Orange
-        override val borderColor = DevoxxColors.Orange
+        override val backgroundColor = JFallColors.Surface
+        override val textColor = JFallColors.Orange
+        override val borderColor = JFallColors.Orange
     }
 }
 
@@ -143,7 +143,7 @@ fun MarkdownText(content: String, style: ChatBubbleStyle) {
     val markdownColors = MarkdownColors(
         text = style.textColor,
         link = style.linkColor,
-        code = if (style is ChatBubbleStyle.Agent) DevoxxColors.Lime else style.textColor.copy(alpha = 0.9f)
+        code = if (style is ChatBubbleStyle.Agent) JFallColors.Lime else style.textColor.copy(alpha = 0.9f)
     )
     val annotated = remember(content, style) { buildMarkdownAnnotatedString(content, markdownColors) }
     CompositionLocalProvider(LocalContentColor provides style.textColor) {
@@ -203,14 +203,14 @@ fun FeedbackRow(
     val sentUp = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == true
     val sentDown = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == false
     val upColor = when {
-        isSending -> DevoxxColors.TextMuted.copy(alpha = 0.5f)
-        sentUp -> DevoxxColors.Lime
-        else -> DevoxxColors.TextMuted
+        isSending -> JFallColors.TextMuted.copy(alpha = 0.5f)
+        sentUp -> JFallColors.Lime
+        else -> JFallColors.TextMuted
     }
     val downColor = when {
-        isSending -> DevoxxColors.TextMuted.copy(alpha = 0.5f)
-        sentDown -> DevoxxColors.Error
-        else -> DevoxxColors.TextMuted
+        isSending -> JFallColors.TextMuted.copy(alpha = 0.5f)
+        sentDown -> JFallColors.Error
+        else -> JFallColors.TextMuted
     }
 
     Row(
@@ -267,7 +267,7 @@ fun FeedbackRow(
                             placeholder = { Text("For example: These sessions already started.") },
                             minLines = 3,
                             maxLines = 5,
-                            colors = devoxxTextFieldColors(),
+                            colors = jfallTextFieldColors(),
                             modifier = Modifier.fillMaxWidth()
                         )
                     },
@@ -306,7 +306,7 @@ fun FeedbackRow(
             statusLabel?.let {
                 Text(
                     text = it,
-                    color = if (message.feedbackStatus == FeedbackStatus.ERROR) DevoxxColors.Error else DevoxxColors.TextMuted,
+                    color = if (message.feedbackStatus == FeedbackStatus.ERROR) JFallColors.Error else JFallColors.TextMuted,
                     style = MaterialTheme.typography.labelMedium
                 )
             }
@@ -449,20 +449,20 @@ private fun WelcomePanel(modifier: Modifier = Modifier) {
         DukeAvatar(height = 120.dp)
         Spacer(Modifier.height(24.dp))
         Text(
-            text = "HI, I'M YOUR DEVOXX ASSISTANT",
-            color = DevoxxColors.Text,
+            text = "HI, I'M YOUR J-FALL ASSISTANT",
+            color = JFallColors.Text,
             fontSize = 22.sp,
             fontWeight = FontWeight.Black,
             letterSpacing = 2.sp
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = "Find talks, plan your schedule and get around the venue in Antwerp.",
-            color = DevoxxColors.TextMuted,
+            text = "Find talks, plan your schedule and get around the venue in Ede.",
+            color = JFallColors.TextMuted,
             fontSize = 14.sp
         )
         Spacer(Modifier.height(16.dp))
-        DevoxxPill("Powered by Spring AI", color = DevoxxColors.Cyan)
+        JFallPill("Powered by Spring AI", color = JFallColors.Cyan)
     }
 }
 
@@ -552,8 +552,8 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
         if (isLoading) {
             LinearProgressIndicator(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp),
-                color = DevoxxColors.Orange,
-                trackColor = DevoxxColors.Border
+                color = JFallColors.Orange,
+                trackColor = JFallColors.Border
             )
         }
 
@@ -649,7 +649,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                     },
                 placeholder = { Text("Ask about talks, rooms, your schedule…") },
                 shape = RoundedCornerShape(24.dp),
-                colors = devoxxTextFieldColors(),
+                colors = jfallTextFieldColors(),
                 maxLines = 3
             )
 
@@ -664,7 +664,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         previous = inputFieldFocus
                     },
                 enabled = !isLoading && inputText.isNotBlank(),
-                colors = devoxxButtonColors()
+                colors = jfallButtonColors()
             ) {
                 Text("SEND", fontWeight = FontWeight.SemiBold, letterSpacing = 1.5.sp)
             }
@@ -685,10 +685,10 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                 enabled = !isLoading,
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
-                    contentColor = DevoxxColors.Lime,
-                    disabledContentColor = DevoxxColors.TextMuted
+                    contentColor = JFallColors.Lime,
+                    disabledContentColor = JFallColors.TextMuted
                 ),
-                border = BorderStroke(1.dp, if (isLoading) DevoxxColors.Border else DevoxxColors.Lime)
+                border = BorderStroke(1.dp, if (isLoading) JFallColors.Border else JFallColors.Lime)
             ) {
                 Icon(Icons.Filled.Mic, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(6.dp))
@@ -703,7 +703,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(DevoxxColors.Background.copy(alpha = 0.88f)),
+                    .background(JFallColors.Background.copy(alpha = 0.88f)),
                 contentAlignment = Alignment.Center
             ) {
                 Column(
@@ -714,7 +714,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         modifier = Modifier
                             .size(120.dp * recordScale)
                             .clip(CircleShape)
-                            .background(if (isRecording) DevoxxColors.Orange else DevoxxColors.SurfaceRaised)
+                            .background(if (isRecording) JFallColors.Orange else JFallColors.SurfaceRaised)
                             .clickable {
                                 if (!isRecording) {
                                     isRecording = true
@@ -763,7 +763,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                     ) {
                         Text(
                             if (isRecording) "STOP" else "RECORD",
-                            color = if (isRecording) DevoxxColors.OnAccent else DevoxxColors.Text,
+                            color = if (isRecording) JFallColors.OnAccent else JFallColors.Text,
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 2.sp
                         )
@@ -783,9 +783,9 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                             },
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = Color.Transparent,
-                                contentColor = DevoxxColors.Text
+                                contentColor = JFallColors.Text
                             ),
-                            border = BorderStroke(1.dp, DevoxxColors.Border)
+                            border = BorderStroke(1.dp, JFallColors.Border)
                         ) { Text("CANCEL", letterSpacing = 1.5.sp) }
                     }
                 }

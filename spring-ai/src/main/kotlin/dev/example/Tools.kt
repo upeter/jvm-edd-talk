@@ -16,15 +16,15 @@ class ConferenceTools(
 ) {
 
     @Tool(
-        name = TOOL_GENERAL_VENUE_INFORMATION_DEVOXX,
-        description = "You provide general venue information about the Devoxx Belgium 2026 conference like location, address, ticket prices, hotels, date, community drinks etc."
+        name = TOOL_GENERAL_VENUE_INFORMATION_JFALL,
+        description = "You provide general venue information about the J-Fall 2026 conference like location, address, ticket prices, hotels, date, community drinks etc."
     )
     fun getGeneralVenueInformation(): String = generalVenueInformation
 
 
     @Tool(
-        name = TOOL_GENERAL_SESSION_INFORMATION_DEVOXX,
-        description = "You provide general session information about the Devoxx Belgium 2026 conference like title, speaker, category, room, start- and endtime "
+        name = TOOL_GENERAL_SESSION_INFORMATION_JFALL,
+        description = "You provide general session information about the J-Fall 2026 conference like title, speaker, category, room, start- and endtime "
     )
     fun getVenueInformation(): String = generalSessionInformation
 
@@ -91,20 +91,20 @@ class ConferenceTools(
     companion object {
 
         // Centralized tool names (avoid string duplication across annotations/tests)
-        const val TOOL_GENERAL_VENUE_INFORMATION_DEVOXX = "general-venue-information-devoxx"
-        const val TOOL_GENERAL_SESSION_INFORMATION_DEVOXX = "general-session-information-devoxx"
+        const val TOOL_GENERAL_VENUE_INFORMATION_JFALL = "general-venue-information-jfall"
+        const val TOOL_GENERAL_SESSION_INFORMATION_JFALL = "general-session-information-jfall"
         const val TOOL_CONFERENCE_SESSION_SEARCH = "conference-session-search"
         const val TOOL_GET_PREFERRED_SESSIONS = "get-preferred-sessions"
         const val TOOL_ADD_PREFERRED_SESSIONS = "add-preferred-sessions"
         const val TOOL_REMOVE_PREFERRED_SESSIONS = "remove-preferred-sessions"
 
         val generalVenueInformation: String =
-            ConferenceTools::class.java.getResourceAsStream("/data/dataset-devoxx26-venue.json").bufferedReader()
+            ConferenceTools::class.java.getResourceAsStream("/data/dataset-jfall26-venue.json").bufferedReader()
                 .use {
                     it.readText()
                 }
         val generalSessionInformation: String =
-            ConferenceTools::class.java.getResourceAsStream("/data/dataset-devoxx26-sessions.json").bufferedReader()
+            ConferenceTools::class.java.getResourceAsStream("/data/dataset-jfall26-sessions.json").bufferedReader()
                 .use {
                     it.readText()
                 }

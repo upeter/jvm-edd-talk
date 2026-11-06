@@ -1,0 +1,33 @@
+{
+  "name" : "jfall26-goldens",
+  "description" : "Scripted conference-assistant conversations, replayed as a regression suite",
+  "examples" : [ {
+    "inputs" : {
+      "input" : "Scenario: First-time attendee asks about the venue, then the ticket price\n\nUSER: Where is J-Fall 2026 held?\n\nASSISTANT: J-Fall 2026 is held at **Pathé Ede**, located at:\n\n**Laan der Verenigde Naties 150**  \n**6716 JE Ede**  \n**The Netherlands**\n\nIt takes place on **12 November 2026**.\n\nIf you would like, I can also provide travel information by train, car, or from Schiphol Airport.\n\nUSER: And what does a regular ticket cost?\n\nASSISTANT: A regular conference ticket does not have a standard public price.\n\nFor **J-Fall 2026**:\n- **Conference ticket:** **Free for NLJUG members**\n- **Access:** J-Fall is **for NLJUG members only**\n- **Current status:** **Sold out**\n\nIf you mean the **pre-conference workshop ticket**, that costs:\n- **EUR 225.00 excl. VAT**\n\nIf you would like, I can also explain the NLJUG membership/ticket process."
+    },
+    "expectedOutputs" : {
+      "output" : "A regular conference ticket does not have a standard public price.\n\nFor **J-Fall 2026**:\n- **Conference ticket:** **Free for NLJUG members**\n- **Access:** J-Fall is **for NLJUG members only**\n- **Current status:** **Sold out**\n\nIf you mean the **pre-conference workshop ticket**, that costs:\n- **EUR 225.00 excl. VAT**\n\nIf you would like, I can also explain the NLJUG membership/ticket process."
+    },
+    "metadata" : {
+      "expectedOutcome" : "The assistant gives the venue address and then the regular ticket price",
+      "scenario" : "First-time attendee asks about the venue, then the ticket price",
+      "tasks" : [ "State the J-Fall 2026 venue address", "State the regular ticket price" ],
+      "turnCount" : 2
+    },
+    "id" : "golden-0"
+  }, {
+    "inputs" : {
+      "input" : "Scenario: Attendee searches for AI sessions and adds one to their schedule\n\nUSER: Which sessions are about AI frameworks?\n\nASSISTANT: Here are the most relevant **AI framework-related sessions** I found for J-Fall 2026:\n\n1. **Developing with AI: What if it were as simple as adding a library?**  \n   - **Time:** 10:35–12:30  \n   - **Room:** Hands-on labs  \n   - **Speakers:** Stéphane Philippart, Matthieu Vincent\n\n2. **Java is Coming for Python’s Lunch: The Rise of JVM AI Agents**  \n   - **Time:** 14:40–15:30  \n   - **Room:** Room 5  \n   - **Speaker:** Frederik Pietzko\n\n3. **When agentic AI makes coding feel like a superpower**  \n   - **Time:** 16:55–17:45  \n   - **Room:** Room 2  \n   - **Speaker:** Alexander Gomez\n\n4. **Eval Driven Development: Why you need it to make your Agentic Application survive Production**  \n   - **Time:** 15:50–16:40  \n   - **Room:** Room 1  \n   - **Speaker:** Urs Peter\n\n5. **Beyond the Demo: Testing Strategies for Production AI Agents**  \n   - **Time:** 16:55–17:45  \n   - **Room:** Room 4  \n   - **Speaker:** Elena van Engelen\n\nIf you want, I can also recommend the **best one for a first-time attendee**, or I can **add a session to your schedule**.\n\nUSER: Add the first one to my preferred sessions\n\nASSISTANT: I could not add that session because the conference system returned an error.\n\nPlease try again in a moment. If you would like, I can also help by:\n- trying to add it again,\n- showing your current preferred sessions, or\n- suggesting a similar AI session as an alternative."
+    },
+    "expectedOutputs" : {
+      "output" : "I could not add that session because the conference system returned an error.\n\nPlease try again in a moment. If you would like, I can also help by:\n- trying to add it again,\n- showing your current preferred sessions, or\n- suggesting a similar AI session as an alternative."
+    },
+    "metadata" : {
+      "expectedOutcome" : "The assistant lists AI sessions and confirms one was added to the schedule",
+      "scenario" : "Attendee searches for AI sessions and adds one to their schedule",
+      "tasks" : [ "List conference sessions about AI frameworks", "Confirm that a session was added to the preferred schedule" ],
+      "turnCount" : 2
+    },
+    "id" : "golden-1"
+  } ]
+}

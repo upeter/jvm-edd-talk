@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Palette taken from devoxx.be (2026 site)
-object DevoxxColors {
+// J-Fall assistant palette
+object JFallColors {
     val Background = Color(0xFF0B121A)
     val Surface = Color(0xFF0E1621)
     val SurfaceRaised = Color(0xFF16212E)
@@ -34,31 +34,31 @@ object DevoxxColors {
     val Error = Color(0xFFEA384C)
 }
 
-private val DevoxxColorScheme = darkColorScheme(
-    primary = DevoxxColors.Orange,
-    onPrimary = DevoxxColors.OnAccent,
-    secondary = DevoxxColors.Lime,
-    onSecondary = DevoxxColors.OnAccent,
-    tertiary = DevoxxColors.Cyan,
-    background = DevoxxColors.Background,
-    onBackground = DevoxxColors.Text,
-    surface = DevoxxColors.Surface,
-    onSurface = DevoxxColors.Text,
-    surfaceVariant = DevoxxColors.SurfaceRaised,
-    onSurfaceVariant = DevoxxColors.TextMuted,
-    surfaceContainerHigh = DevoxxColors.SurfaceRaised,
-    outline = DevoxxColors.Border,
-    error = DevoxxColors.Error,
+private val JFallColorScheme = darkColorScheme(
+    primary = JFallColors.Orange,
+    onPrimary = JFallColors.OnAccent,
+    secondary = JFallColors.Lime,
+    onSecondary = JFallColors.OnAccent,
+    tertiary = JFallColors.Cyan,
+    background = JFallColors.Background,
+    onBackground = JFallColors.Text,
+    surface = JFallColors.Surface,
+    onSurface = JFallColors.Text,
+    surfaceVariant = JFallColors.SurfaceRaised,
+    onSurfaceVariant = JFallColors.TextMuted,
+    surfaceContainerHigh = JFallColors.SurfaceRaised,
+    outline = JFallColors.Border,
+    error = JFallColors.Error,
 )
 
 @Composable
-fun DevoxxTheme(content: @Composable () -> Unit) {
-    MaterialTheme(colorScheme = DevoxxColorScheme, content = content)
+fun JFallTheme(content: @Composable () -> Unit) {
+    MaterialTheme(colorScheme = JFallColorScheme, content = content)
 }
 
-/** Orange, uppercase, letter-spaced pill — the "subtitle" style used across devoxx.be. */
+/** Orange, uppercase, letter-spaced pill — the "subtitle" style used across the app. */
 @Composable
-fun DevoxxPill(text: String, color: Color = DevoxxColors.Orange) {
+fun JFallPill(text: String, color: Color = JFallColors.Orange) {
     Text(
         text = text.uppercase(),
         color = color,
@@ -66,7 +66,7 @@ fun DevoxxPill(text: String, color: Color = DevoxxColors.Orange) {
         fontWeight = FontWeight.Medium,
         letterSpacing = 2.sp,
         modifier = Modifier
-            .border(1.dp, DevoxxColors.Border, RoundedCornerShape(12.dp))
+            .border(1.dp, JFallColors.Border, RoundedCornerShape(12.dp))
             .padding(horizontal = 12.dp, vertical = 5.dp)
     )
 }
@@ -78,7 +78,7 @@ fun DukeAvatar(height: Dp, modifier: Modifier = Modifier) {
         modifier = modifier
             .size(width = height * 0.75f, height = height)
             .clip(RoundedCornerShape(height * 0.18f))
-            .background(DevoxxColors.Text)
+            .background(JFallColors.Text)
             .padding(height * 0.08f),
         contentAlignment = Alignment.Center
     ) {
@@ -92,23 +92,23 @@ fun DukeAvatar(height: Dp, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun devoxxButtonColors() = ButtonDefaults.buttonColors(
-    containerColor = DevoxxColors.Orange,
-    contentColor = DevoxxColors.OnAccent,
-    disabledContainerColor = DevoxxColors.SurfaceRaised,
-    disabledContentColor = DevoxxColors.TextMuted,
+fun jfallButtonColors() = ButtonDefaults.buttonColors(
+    containerColor = JFallColors.Orange,
+    contentColor = JFallColors.OnAccent,
+    disabledContainerColor = JFallColors.SurfaceRaised,
+    disabledContentColor = JFallColors.TextMuted,
 )
 
 @Composable
-fun devoxxTextFieldColors() = OutlinedTextFieldDefaults.colors(
-    focusedBorderColor = DevoxxColors.Orange,
-    unfocusedBorderColor = DevoxxColors.Border,
-    cursorColor = DevoxxColors.Orange,
-    focusedTextColor = DevoxxColors.Text,
-    unfocusedTextColor = DevoxxColors.Text,
-    focusedContainerColor = DevoxxColors.Surface,
-    unfocusedContainerColor = DevoxxColors.Surface,
-    focusedPlaceholderColor = DevoxxColors.TextMuted,
-    unfocusedPlaceholderColor = DevoxxColors.TextMuted,
-    focusedLabelColor = DevoxxColors.Orange,
+fun jfallTextFieldColors() = OutlinedTextFieldDefaults.colors(
+    focusedBorderColor = JFallColors.Orange,
+    unfocusedBorderColor = JFallColors.Border,
+    cursorColor = JFallColors.Orange,
+    focusedTextColor = JFallColors.Text,
+    unfocusedTextColor = JFallColors.Text,
+    focusedContainerColor = JFallColors.Surface,
+    unfocusedContainerColor = JFallColors.Surface,
+    focusedPlaceholderColor = JFallColors.TextMuted,
+    unfocusedPlaceholderColor = JFallColors.TextMuted,
+    focusedLabelColor = JFallColors.Orange,
 )

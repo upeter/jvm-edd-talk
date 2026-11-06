@@ -1,0 +1,1073 @@
+{
+  "sessions": [
+    {
+      "id": "1265418",
+      "title": "The Spring Test Profiler: Cut Down Your Test Execution Time by 70%",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Philip Riecks"
+      ],
+      "recordingUrl": null,
+      "description": "AI writes your code in seconds. Then you wait twenty minutes for CI to tell you whether it works. The bottleneck has moved: writing code is cheap, but verifying it against a slow build is now what stands between you and fast feedback.\n\nThe biggest lever for faster Spring Boot builds is a hidden gem most teams barely use: Spring Test's context caching. Done right, your integration tests reuse expensive application contexts instead of starting fresh ones. Done wrong, every test class silently pays for a new context - and nobody notices until the pipeline takes an hour.\n\nThis talk introduces the Spring Test Profiler, an open-source tool that makes context caching visible. We'll start with the theory: how the cache works, what goes into the cache key, and why seemingly harmless choices - @MockitoBean, @DirtiesContext, dynamic properties, quietly multiply your build time. Then we get practical: using the profiler to spot cache misses and applying proven fixes, drawn from years of optimizing test suites across many teams, that cut build times by up to 70%.\n\nWe'll also cover the pitfalls: \"optimizations\" that break test isolation or hide flakiness. A fast build that lies to you is worse than a slow one.\n\nThis session assumes you already write tests and know your way around a CI pipeline. You'll leave with a concrete, prioritized checklist to reclaim hours of feedback time in your own project."
+    },
+    {
+      "id": "1318370",
+      "title": "On-premises AI: Frontier-level agentic engineering at the Dutch National Police",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Miel van Welzen"
+      ],
+      "recordingUrl": null,
+      "description": "Being a software engineer at a highly regulated organization can be frustrating. Especially last year, when new frontier models arrived almost weekly, while many of us were not allowed to use them at work (for good reasons). But nowadays, open-weight models are among the most capable models available and they are good enough to run full agentic workflows on your own datacenter hardware. All without sending a single byte to the big AI labs.\n\nIn this session I will share my personal experiences at the Dutch National Police where I have worked extensively with a pilot setup of these on-premises models. I will discuss:\n\n> Why AI sovereignty is becoming a concern for any organization, not just governments\n> Our current setup and how it fits into an existing Kubernetes architecture\n> How tools like LiteLLM, Opencode and OpenSpec can make agentic AI work in a regulated environment\n> Our measured results on open-weight model performance and running costs\n> An honest perspective on limitations and drawbacks\n\nYou will leave with a realistic picture of what it takes to run frontier-level agentic AI on your own hardware, and how it can enable development teams in highly regulated environments today."
+    },
+    {
+      "id": "1320003",
+      "title": "How AI Lost the Thread: The Strange Path from Neurons to LLMs",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Tineke Slotegraaf"
+      ],
+      "recordingUrl": null,
+      "description": "In 1943 a neurophysiologist and a logician sketched the “artificial neuron”, AI’s founding myth. Ever since we use the brain and our intelligence as a metaphor for machine learning. But real neurons are noisy and chemical. There is no biological mechanism for backpropagation or transformers. They were engineered for GPU’s, not cognition.\nThis talk follows the thread, coming from biology, through perceptrons, backpropagation, CNNs and transformers as it frays unevenly. Some mechanisms make the thread snap, others will bring it back up. But while the biology is disappearing to the background, the models become better and better.\nWe’ll write a perceptron in a few lines of code and look inside a modern LLM to find that same Perceptron still there, just bigger. At the end of this talk you will see why we should stop reasoning about LLMs like brains. Instead, reason about them like a very large weighted sum. This predicts the weird failures far better than any brain metaphor does."
+    },
+    {
+      "id": "1291015",
+      "title": "Don't fall in the metrics trap",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Maarten Mulders",
+        "Laura Kester"
+      ],
+      "recordingUrl": null,
+      "description": "Many of us have experience with organisations where teams are assessed based on the number of story points or stories they complete. We also know what usually happens next: teams focus on delivering the \"right\" number of points to avoid scrutiny from management. This approach diminishes the metric's value. When people optimise for the measurement rather than the underlying goal, the metric ceases to provide useful insights.\n\nIn this talk, we will provide insight into how to measure a value without rendering it meaningless. We will also share practical approaches for using metrics as a useful mechanism. Instead of steering teams toward higher numbers, we show how measurements can help start conversations, reveal bottlenecks, and support your hypotheses for improving your way of working.\n\nJoin us to learn how leaders can guide actual improvements rather than dashboards that only seem to suggest improvement."
+    },
+    {
+      "id": "1293762",
+      "title": "Modernizing a 2M+ LOC Java Monolith with Agentic AI: What Worked, What Failed, and How We Recovered",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Marek Dominiak"
+      ],
+      "recordingUrl": null,
+      "description": "Modernizing a 2M+ line Java monolith meant much more than upgrading Java, Spring, Hibernate, and Elasticsearch. We also had to deal with tightly coupled dependencies, abandoned libraries, outdated patterns, and features that had been too risky to change for years.\n\nThis talk focuses on one of them: a critical indexing feature that needed to be rewritten to improve performance, fairness, and maintainability.\n\nI'll show how we used agentic AI to analyse the legacy implementation, divide the work into manageable loops, and build a new version. It looked promising and passed our initial checks, but the first production release failed.\n\nI'll explain what went wrong, how we recovered, and how the lessons from versions one and two led to a third version that finally worked in production.\n\nYou'll also see the engineering safeguards that made this possible: controlled context, clear instructions, automated tests, review, monitoring, rollback, security checks, and an explicit definition of done.\n\nThis is not a story about AI magically fixing legacy code. It is a practical case study about where agents saved time, where they drifted, and how disciplined engineering turned a failed release into a successful modernization."
+    },
+    {
+      "id": "1322845",
+      "title": "Level Up Your Java Streams with Gatherers",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Hinse ter Schuur"
+      ],
+      "recordingUrl": null,
+      "description": "Since Java 8, the Stream API has been a valuable tool for Java developers. However, our hunt for better solutions has often left us wanting more. Until now, we could only use the standard provided intermediate operations on streams, like map, filter, and flatMap.\nEnter Java's Stream Gatherers, which allow for adding custom intermediate operations to our streams.\n\nIn this session you'll learn what Gatherers are, where they shine, and how you can implement your own.\nBy the end of the session, you'll be fully equipped to use this powerful new feature in your day-to-day work."
+    },
+    {
+      "id": "1270399",
+      "title": "Java in 5 Microseconds: Inside a Crypto Trading Engine",
+      "startsAt": "2026-11-12T07:00:00.0000000Z",
+      "endsAt": "2026-11-12T07:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Oleg Lobanov"
+      ],
+      "recordingUrl": null,
+      "description": "What does it take to rebuild the core of a crypto exchange while it is already operating 24/7?\n\nIn 2018, Bitvavo’s exchange ran on a familiar startup stack: Node.js, Go, Redis, MySQL, and Kafka. It helped the company move fast and grow, but as trading volume increased, the same architecture began to show its limits. Latency became harder to predict, shared infrastructure became a bottleneck, and proving correct order processing became just as important as making it fast.\n\nThis talk is the story of how we rebuilt the exchange core into a deterministic, replayable, low-latency trading platform. We moved away from database-centered processing and redesigned the system around an ordered log, a replicated state machine, Raft consensus, and a reliable UDP transport.\n\nI’ll share the engineering trade-offs behind that migration: where determinism helps, where it hurts, what changes when state lives in memory, and how far you can push the JVM when garbage collection, networking, and operating-system noise are all part of the latency budget.\n\nThe result is a production system with sub-millisecond end-to-end latency, around 5 microseconds of internal processing time, and capacity for 100,000 orders per second. But the real story is not just the numbers — it is what we had to unlearn, redesign, and operationalize to make a financial system both fast and correct."
+    },
+    {
+      "id": "06fcc598-1ede-4700-a704-0cdb078e1a16",
+      "title": "Opening",
+      "startsAt": "2026-11-12T08:00:00.0000000Z",
+      "endsAt": "2026-11-12T08:20:00.0000000Z",
+      "isServiceSession": true,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [],
+      "recordingUrl": null,
+      "description": "Opening of J-Fall 2026 by the NLJUG board."
+    },
+    {
+      "id": "1332805",
+      "title": "Why am I here?",
+      "startsAt": "2026-11-12T08:20:00.0000000Z",
+      "endsAt": "2026-11-12T08:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Jeroen van der Wal"
+      ],
+      "recordingUrl": null,
+      "description": "You've felt it too, right? You describe what you want, answer some questions and AI writes it, and it does a pretty good job! Sometimes better than I would do and at least a lot quicker. But then the question comes up; if this can be done just by describing what you want, then, why am I here...?\n\nI've been in IT for 20 years now. I've worked with AI for years now. And this question wouldn't leave me alone, so I started looking for an answer. Why am I here...?\n\nIn this keynote I will tell you about this search. What is our added value when the machine takes over our thinking? What sets us apart as developers? And what does that mean for the skills and character traits that will matter in the years to come?"
+    },
+    {
+      "id": "1311834",
+      "title": "From Specification to Production: Engineering in the Age of AI",
+      "startsAt": "2026-11-12T08:45:00.0000000Z",
+      "endsAt": "2026-11-12T09:10:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Venkat Subramaniam"
+      ],
+      "recordingUrl": null,
+      "description": "Now that AI can generate a lot of code, what does software engineering look like? What are the benefits of using AI and, more important, what are the risks and how to mitigate those?"
+    },
+    {
+      "id": "1291845",
+      "title": "👩‍💻 Developing with AI: What if it were as simple as adding a library? 🧑‍💻",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Hands-on labs",
+      "speakers": [
+        "Stéphane Philippart",
+        "Matthieu Vincent"
+      ],
+      "recordingUrl": null,
+      "description": "Integrating Artificial Intelligence (AI) into our applications can seem much more complex than simply using AI tools in our daily lives.\n\nDo I need to learn a new language or adopt an entirely new technology stack?\n\nIn this workshop, we'll give you everything you need to integrate AI into your applications without leaving your favorite language: Java 😍. It will also be an opportunity to discover some of today's most popular frameworks, including LangChain4j, Quarkus, and more.\n\nWe'll explore every aspect of building applications with generative AI: customizing prompts, enriching models with your own data (RAG), calling local or remote tools (MCP), and creating agents.\n\nBy the end of this workshop, you'll leave with a practical toolbox that will enable you to easily integrate the power of AI models into your everyday development projects.\n\nAnd to make things even easier, just bring your laptop and a web browser, we'll take care of the rest and provide a fully configured development environment through EasyLab 😍."
+    },
+    {
+      "id": "1267847",
+      "title": "Hack Your Brain: Smarter Learning for Devs",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Simone de Gijt"
+      ],
+      "recordingUrl": null,
+      "description": "This talk explores how developers can learn smarter, not harder, by applying insights from neuroscience to coding practice. You’ll discover why learning is more than storing information. We’ll dive into the difference between rate of learning and rate of retrieval, and why being a fast learner doesn’t always make you a fast retriever. You’ll learn practical strategies to make new concepts stick.\n\nWe’ll also cover how to structure your coding sessions using the primary–recency effect. Along the way, you’ll get actionable tips for boosting focus and leveraging downtime.\n\nWhether you’re learning a new Java framework or mastering advanced concepts, you’ll walk away with science-backed tips to learn smarter, code better, and stay ahead."
+    },
+    {
+      "id": "1321499",
+      "title": "Your coding agent is a while loop!",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Bruno Bossola"
+      ],
+      "recordingUrl": null,
+      "description": "Most of us let an agent write our code every day, but almost none of us have ever opened one. So we guess what is inside: a planner, an orchestrator, a state machine, something very clever...\n\nThere is nothing clever in there. There is a loop. A very simple one, also.\n\nI will build a coding agent on stage, in plain Java, from an empty file. No frameworks, just plain code. It runs against a model on my laptop through Ollama (a system to run LLMs locally) . So there is no API key and no bill, and nothing on stage breaks when the conference wifi does :)\n\nThere is instead a while loop, about fourteen lines of Java, and a few functions you could have written on your first day at work. Everything else is there to protect from the stupidity of the model. Yes, the loop and the model are stupid, and the harness is mostly an armour.\n\nWhat you will see\n1. An Java coding agent (I wrote) that already works. I ask it for a new HTTP endpoint and you watch it ship one.\n...and then we start coding from scratch\n2. Why a chatbot cannot touch your code, and the fourteen lines of Java that change that.\n3. How it decides what to do next, when there is no plan anywhere in the code.\n4. What happens the first time you let it write to your disk.\n5. What stops it when the model gets it wrong: broken tool calls, an edit that fits in two places, a loop that never ends, and a file it should not open.\n6. Why agents feel slow and cost what they cost. One number answers all three.\n\nA total of nine live demos, every one offline, every one from a git tag you can check out yourself.\n\nHey, remember this: you will not leave with a framework to adopt. You will leave knowing exactly how the thing on your machine works, and quietly certain that you could have built it yourself!"
+    },
+    {
+      "id": "1291821",
+      "title": "Evolving Language Defaults in Kotlin and Other Languages",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Michail Zarečenskij"
+      ],
+      "recordingUrl": null,
+      "description": "When designing a programming language, we decide what’s safe, what’s convenient, and what’s practical. These choices become our defaults, the way we believe most programs should be written in that language.\n\nHowever, defaults evolve over time. What once seemed like a good idea may later become a source of bugs and friction. In fact, wrong defaults are often one of the main reasons new programming languages emerge.\n\nIn this session, we’ll explore how programming languages deal with their defaults. What tools do they have at their disposal, and what are the costs of changing defaults? We’ll look at how languages transition from mutability to immutability, adopt null-safety, and add deeper analyses to track object locality and many more. Expect examples from C#, Java, Swift, Dart, and, of course, how we’re evolving defaults in Kotlin!"
+    },
+    {
+      "id": "1322810",
+      "title": "Back to the Future: Building a RAG-Powered VR Time Machine",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Susanne Pieterse",
+        "Marc Buma"
+      ],
+      "recordingUrl": null,
+      "description": "Step through a portal into Utrecht, 1528. Put on a VR headset and suddenly you're standing among monuments that no longer exist, with an all-knowing guide ready to answer any question you ask.\n\nWe built a browser-based VR time machine: a 360-degree reconstruction of the Utrecht City Hall that visitors can explore in a VR headset or on their phone. Visitors are guided by a streaming LLM whose real-time answers are grounded in the historical period, the visitor’s location and viewing direction, spatial annotations, and a RAG knowledge base built from historical sources written by archaeologists and building historians.\n\nIn this talk we open up the machine room and show how we combined Spring Boot, Ollama, Docling, LangChain4J, TypeScript and cloud LLMs to build an immersive AI experience. We'll focus on the engineering decisions that mattered most when building the RAG pipeline: grounding prompts using the visitor's location in a 3D world and measuring if responses are trustworthy. One of the biggest challenges, however, was making AI feel responsive inside VR. We'll show how we built a low-latency streaming architecture in the TypeScript frontend, using back channels to make conversations with the LLM feel natural inside immersive environment.\n\nWe'll finish with a live demo of our time machine that transports the audience back to Utrecht in 1528."
+    },
+    {
+      "id": "1291780",
+      "title": "Scotty I need Warp Speed - Ways to improve JVM startup",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Gerrit Grunwald"
+      ],
+      "recordingUrl": null,
+      "description": "When running Java in the cloud, the JVM startup time can become a limitation. Especially when you look at spinning up new instances of an app as response to changes in load, the warmup time can be a problem. A couple of years ago you only had CDS that could help you with the startup but meanwhile there are a couple of solutions that can help you to let you JVM start super fast. These days we have CRaC, Native Image, Leyden, InstantOn, Ready Now, JITServer and Cloud Native Compiler, which are all solutions that help to reduce the startup time of a JVM. Each of those is not a Silver Bullet, so you have to choose the right solution for your problem.\nThis session will give you a short overview of the different solutions to increase your JVM startup performance and will try to give you some hints on how to choose the right solution for your application."
+    },
+    {
+      "id": "1310321",
+      "title": "Four ways to serve a drink: Plain calls, RAG, agents and MCP in Quarkus",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Maarten Vandeperre",
+        "Lutske van der Meer"
+      ],
+      "recordingUrl": null,
+      "description": "At some point someone asks you to \"add a bit of AI\" to your application. It sounds easy. Then the buzzwords arrive: RAG, agents, tool calling, MCP. Every vendor tells you that you need all of them.\n\nYou don't. In this session we want to show you why, with running code instead of slides.\n\nWe take one bar-themed use case and implement it four times in a single Quarkus application (Java 27):\n- Plain model calling: the bartender mixes from memory. Simple, underrated, and often all you need.\n- RAG: the friend who knows nothing but can find almost anything. Answers from your own documents, with a source you can show your compliance team. Plus the ingestion work the quick demos conveniently skip.\n- Agentic AI: the friend who already talked to the kitchen. The model checks stock, refuses impossible orders and proposes alternatives. Along the way we clear up a common misunderstanding: the model never executes anything, your Java does.\n- MCP: not a fourth kind of intelligence, but a standardized service hatch between bar and kitchen. Same agentic loop, only the tools now live behind a protocol that any client can use.\n\nThe model provider is treated as an implementation detail. The audience picks a provider (OpenAI, Anthropic, Mistral, Kimi, Gemini or a local model served with Ollama), we change one property, and we rerun the exact same agentic request. Seeing one model politely substitute the out-of-stock vodka while another invents a bottle out of thin air tells you more about model selection than any leaderboard.\n\nYou leave with a simple decision framework for what to use when, an overkill checklist per pattern (if the workflow is deterministic, that is not an agent, that is a for loop), and a repo you can fork on Monday.\n\nAnyone can pour a drink once. Not everyone can keep serving when the rush hits."
+    },
+    {
+      "id": "1333105",
+      "title": "6000 tests, 25 times a day, 365 days a year - All for quality",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Sven Haster"
+      ],
+      "recordingUrl": null,
+      "description": "Topicus KeyHub is an on-premise Jakarta EE11 serverside web IAM-application that is used by (among others) Logius, several municipalities, and Voys. KeyHub has high standards for quality and aims to achieve these with, among other things, a large battery of automated tests.\nIn this session I will attempt to explain how this sense of quality is supported culturally, functionally and technically. From team best-practices to technical examples, everything will be shown."
+    },
+    {
+      "id": "1324155",
+      "title": "State of Confusion: Data Ownership in Event-Driven Systems",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Jeroen Rosenberg"
+      ],
+      "recordingUrl": null,
+      "description": "In event-driven systems you should not call another service's API but instead consume its events and maintain local state. However, how much state should you store? If you limit yourselves to the state that is needed at the moment you will find yourself having to rush to deal with changes in requirements over a number of sprints. If you store all the state then you end up being coupled to the other team's schema evolution.\n\nIn every architecture review, this decision comes up, gets discussed in a Slack thread, and is regretted six months later. However, most teams lack a systematic approach to considering it.\n\nIn this talk, I’ll walk you through the range of options, from making REST calls up to full event replication. I’ll share examples of teams that kept too little data and teams that kept too much, and I'll hand you a practical decision-making framework based on four criteria: topic retention, schema stability, requirements clarity, and query patterns.\n\nYou'll end up with a method that you can use to assess this trade-off in your own systems. It won't be a set of rules, but rather a structured approach that recognizes there is no one-size-fits-all solution.\n\nWhat we'll cover:\n- The spectrum: REST calls, thin projections, full event replication, raw event storage, and when each breaks down\n- Real examples of teams that stored too little and teams that stored too much, and what it cost them\n- A decision framework built on four axes and how to apply it in your next architecture review"
+    },
+    {
+      "id": "1312594",
+      "title": "Spring Cleaning: What Boot 4 Lets You Delete",
+      "startsAt": "2026-11-12T09:35:00.0000000Z",
+      "endsAt": "2026-11-12T10:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Dan Vega"
+      ],
+      "recordingUrl": null,
+      "description": "It is now more important than ever to stay up to date and patched on open source software. If you are upgrading to Spring Boot 4 there's a decent chance you're maintaining three or four things that are now unnecessary, and nobody on your team told you.\n\nThis is a tour of the release disguised as a demolition. Built-in resilience, so Spring Retry goes. HTTP interface clients, so Feign goes. First-class API versioning, so that filter someone wrote in 2021 goes. RestTestClient, so a pile of test scaffolding goes. Along the way we'll hit the additions you can't delete your way into: JSpecify null safety, Jackson 3, modular auto-configuration and the features it quietly turns off, plus the smaller changes that are easy to miss and quietly useful.\n\nYou'll leave with fewer dependencies to patch, less code to maintain, and a working plan for the upgrade."
+    },
+    {
+      "id": "1274378",
+      "title": "Getting more out of Maven",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Marit van Dijk",
+        "Andres Almiray"
+      ],
+      "recordingUrl": null,
+      "description": "Maven is an ubiquitous build tool in the Java ecosystem, some even claim it’s the de facto standard build tool. Configuring Maven is deceptively simple, after all it’s just a matter of writing XML, isn’t it? Things look differently when the rubber meets the road. One must know the intricacies of the build lifecycle; how plugins, goals (mojos), and phases come together; rules for dependency resolution; configuration inheritance between parent – child POM files; enhancing the build with profiles; and more. That’s a lot to keep track of. Fortunately modern IDEs like IntelliJ IDEA provide great support to configure and run Maven, with code completion, navigation, custom run configurations, and more.\n\nCome learn how both tools can be used together for better results in your daily work."
+    },
+    {
+      "id": "1303897",
+      "title": "Senior Engineer, Still Failing",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Sanne Noordzij"
+      ],
+      "recordingUrl": null,
+      "description": "Not every problem can or should be fixed by writing perfect code. I spent years believing it could and should. I had the title, the experience, and the track record to prove it. By every visible measure, I was a senior software engineer. It wasn't until I looked back that I saw the gaps I'd left behind and the mistakes I had made. In this talk, I'll share that personal journey and what it taught me about what it really means to be a senior software engineer. You'll walk away with a new, more honest way of looking at your own career and where you stand.\n\nAre you truly a senior software engineer, or just someone who writes amazing code?"
+    },
+    {
+      "id": "1259601",
+      "title": "Context Is a Budget — Spend It Wisely",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Soham Dasgupta"
+      ],
+      "recordingUrl": null,
+      "description": "AI coding assistants are now a daily tool, but most teams use them unstructured, i.e., pasting whole repos, leaving giant chats running for days, and reflexively reaching for the most expensive model. The result is slow responses, blown token or premium-request budgets, and counterintuitively, worse code, because models lose accuracy as their context fills up (\"context rot\").\n\nThis session is a practical guide to using AI assistants with discipline. I'll cover the eight levers that actually move the needle: context engineering, prompt caching, tool design, custom instructions and skills, model routing, output discipline, repo hygiene, and workflow patterns including the Ralph Wiggum loop, auto-compact, and agent handover. Live demos and a token-cost calculator will show the impact in real numbers. You'll leave with a checklist your team can apply this week."
+    },
+    {
+      "id": "1307768",
+      "title": "Continuous Delivery: From fragmented pipelines to zero touch delivery",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Anand Shukla"
+      ],
+      "recordingUrl": null,
+      "description": "This session outlines a strategic shift from fragmented, team-owned deployment scripts to standardized, platform-driven Continuous Delivery (CD). The goal is to eliminate manual bottlenecks and local heroics, replacing them with a secure, scalable, and observable path to production.Core TakeawaysThe Shift: Delivery must evolve from localized craftsmanship into a standardized, policy-aware platform capability.The Maturity Ladder: Organizations progress through six stages: from basic standardization and policy enforcement to progressive rollouts, release trains, and ultimate zero-touch operations.Ownership Split: Product teams retain ownership of feature intent and domain context, while the central platform owns the repeatable, automated safety guardrails.Policy Centralization: Express delivery policy once within the platform instead of copying manual approval and scan thresholds across fragmented team pipelines.Integrated Security: Supply chain security and artifact governance are embedded directly into the delivery flow to block unsafe packages by default.Why It Matters NowWith the rise of AI-assisted engineering, the volume of code changes is exploding. Relying on human-gated releases creates massive organizational bottlenecks, while automating without platform guardrails exponentially increases production risk."
+    },
+    {
+      "id": "1289378",
+      "title": "Teaching a New Dog Old Tricks: Give the Agent a Debugger",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Anton Arhipov"
+      ],
+      "recordingUrl": null,
+      "description": "When code misbehaves, coding agents often fall back on an old habit. They add print statements. The method works. It also changes the program before the agent understands the problem.\n\nThe debugger provides a cleaner way to find the evidence. Logpoints inspect application state while the program keeps running. They can write custom messages without changing the source. You can even place them inside compiled third-party libraries. Every output line links back to the code that produced it. This includes logpoints and regular loggers as well as print statements.\n\nIntelliJ IDEA makes its debugger tools available to coding agents. The debugger skill covers dozens of tools and settings. Few developers keep all of them in their heads. The complete playbook fits into the agent's context.\n\nThe agent combines that debugger knowledge with its understanding of the project code. It can choose useful locations for breakpoints and logpoints. It can start a debug run configuration and read actual values. As the evidence develops, it can move its observation points. The source stays untouched.\n\nWhat attendees will learn:\n\n- How Logpoints capture runtime state without suspending the program or modifying its source\n- How to investigate behavior inside compiled third-party libraries\n- How navigable debugger output connects runtime observations to their origin in code\n- How an agent combines code context with debugger knowledge to place useful breakpoints and logpoints"
+    },
+    {
+      "id": "1304572",
+      "title": "How Can Java Applications Leverage Ahead-of-Time Caching",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Ana Maria Mihalceanu"
+      ],
+      "recordingUrl": null,
+      "description": "Starting with JDK 24, Project Leyden features moved from OpenJDK innovations into mainstream Java frameworks. Spring Boot, Quarkus, Helidon, and others adopted ahead-of-time caching, integrated it into their lifecycle, and published benchmarks that demonstrate substantial improvements. But those numbers also raise an important question: how can your applications further benefit from these optimizations?\n\nThis session starts by exploring the building blocks provided by Project Leyden: what the JVM can move ahead of time, how AOT caches are created and consumed, and how cached class loading, linking, profiling, and application state can reduce startup and warmup work. We will then move up the stack to see how Java frameworks build on these capabilities with their own AOT processing, packaging models, training strategies, and developer tooling.\n\nBy the end of this session, you will understand how AOT caching can be applied effectively to real Java applications and what you need to consider when adopting it."
+    },
+    {
+      "id": "1322225",
+      "title": "Don't drown in your connection pool",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T10:55:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Jos Roseboom"
+      ],
+      "recordingUrl": null,
+      "description": "In this ByteSize talk, we'll start a Spring Boot application and use its connection pool log lines as our agenda. Instead of going through every setting, we'll pick the ones that are easy to misunderstand and the ones that can get you into serious trouble.\n\nNo exhaustive configuration reference. Just 16 minutes, one connection pool, and a few production scenarios that make those innocent-looking numbers suddenly matter."
+    },
+    {
+      "id": "1304500",
+      "title": "Java Citizens in the World of Mainframe",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Valeriya Komarnitskaya"
+      ],
+      "recordingUrl": null,
+      "description": "Every few years someone declares mainframe dead. And every few years, it's still running millions of transactions at heart of global banking, insurance and payments.\n\nThis talk makes the case that the mainframe isn't the obstacle to modernisation: it can be used to approach transformation. We will walk through what is a mainframe, why it is still used and how we can integrate Java applications to modernise legacy flows."
+    },
+    {
+      "id": "1311672",
+      "title": "Java over Markdown: Specs That Compile",
+      "startsAt": "2026-11-12T10:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Adam Bien"
+      ],
+      "recordingUrl": null,
+      "description": "The weights of every major LLM already incorporate Java conventions and best practices. A convention-over-configuration codebase requires no explanation because the structure itself serves as the prompt. This reduces token consumption, lowers inference costs, and accelerates development by requiring fewer agentic loops.\nWith SBCE (sbce.dev), each capability is expressed as a single specification in package-info.java and annotated with Requirements. The specification lives inside the code, is validated by javac, and is refactored by the IDE together with the implementation. There is one source of truth, so there is no drift, no external toolchain, and no dependencies.\nThe specifications are readable and executable, and they make excellent JavaDocs. A verification loop evaluates each requirement with parameterized tests, continuously checking every spec statement against the implementation. The LLM generates the code, and the tests verify the spec. Any deviation surfaces immediately as a failing build rather than as stale documentation.\nIn this session, I will demonstrate how to build a feature live from a compiling spec, run the verification loop, and compare token usage against Markdown-based approaches. I will also show how plain Java can be the most efficient LLM interface."
+    },
+    {
+      "id": "1295046",
+      "title": "Don't Let Your Architecture Drift",
+      "startsAt": "2026-11-12T11:00:00.0000000Z",
+      "endsAt": "2026-11-12T11:15:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Gunter Rotsaert"
+      ],
+      "recordingUrl": null,
+      "description": "As codebases grow, how do you ensure that architectural decisions remain intact? That’s where ArchUnit comes in. By expressing architectural rules as tests, ArchUnit lets you verify your architecture automatically with every build.\n\nTaikai takes this concept further. It builds on ArchUnit by providing a ready-to-use collection of architectural rules for popular technologies like Spring and Quarkus, helping teams enforce architectural consistency and best practices effortlessly.\n\nIn this session, you'll learn how Taikai can make your architecture more testable, maintainable, and resilient from day one."
+    },
+    {
+      "id": "1323767",
+      "title": "From Specs to Decks: A Tale of Bugs, DJs & the Importance of Hobbies",
+      "startsAt": "2026-11-12T11:15:00.0000000Z",
+      "endsAt": "2026-11-12T11:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Lucía Conde-Moreno"
+      ],
+      "recordingUrl": null,
+      "description": "Are you already feeling the conference information overload, but you feel guilty about taking a break? You definitely should join me for a few minutes of replacing SQL drops with EDM drops! (Wait, what?!)\n\nWe developers often think that, to be a rockstar engineer, we need to spend all our -working and free- time coding and improving our technical skills. Sometimes, however, what we need (be it to grow in our careers or just to solve that annoying bug) is precisely the opposite: taking our eyes off our screens, and doing something completely different.\n\nA few years ago, I started learning how to DJ. Although I did not have any other goal than doing it for fun, I have recently realized that DJing has significantly (and surprisingly) helped me in my software engineer role.\n\nThis talk is about free time, breaks, and personal interests. But it is mainly about the importance of hobbies, and the unexpected positive influence they can have in our work.\n\nHopefully, this little session will inspire you to pick up that forgotten hobby of yours, or to start a new one. And otherwise, at the very minimum, you will learn the very specific, quirky ways in which DJing can improve your software engineering skills."
+    },
+    {
+      "id": "1324144",
+      "title": "Voice UI's, AI, and the future of usability",
+      "startsAt": "2026-11-12T11:30:00.0000000Z",
+      "endsAt": "2026-11-12T11:35:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Ramona Domen"
+      ],
+      "recordingUrl": null,
+      "description": "When interacting with technology, most of it is done via a visual medium, yet for us humans, speech is the more native form of communication. With the AI evolution picking up speed, should we abandon our “old” ways of developing and look into designing applications and the way we interact with them from scratch?\n\nWhat would a world look like when every user has their own UI customized to their needs and preferences, and what would that mean for our work? Will we still have frontend developers? How will it change the way we create API's and handle information provision when the UX and UI are always different?\n\nJoin me on this thought experiment and discover what our work might look like in the future, now that we have AI not only as a coding companion, but also as a part of our user interface."
+    },
+    {
+      "id": "1322567",
+      "title": "5 vibe-coded games in 5 minutes",
+      "startsAt": "2026-11-12T11:35:00.0000000Z",
+      "endsAt": "2026-11-12T11:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Pim Tegelaar"
+      ],
+      "recordingUrl": null,
+      "description": "In this ignite session, I will showcase 5 vibe-coded games in 5 minutes. For each game I will show what I did wrong and how I solved it with the right prompts and the right models."
+    },
+    {
+      "id": "1306048",
+      "title": "JVM startup in the age of disposable infra",
+      "startsAt": "2026-11-12T11:40:00.0000000Z",
+      "endsAt": "2026-11-12T11:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Erik Steenman"
+      ],
+      "recordingUrl": null,
+      "description": "We used to name our servers and nurse them like pets for years. Now our apps may run on infra that's gone after a few minutes. In this environment, we can no longer rely on the JVM to optimize our app's performance over time, and how fast we can start new instances matters more than ever. We'll take a quick look at the near future of Java optimization: native images, CRaC and Project Leyden. Each of them solves this challenge in a completely different way. Five minutes is too short to explain any of them in depth, but it's plenty to give you an idea of each - and why they matter at all.\n\nThe days of warming up your JVM are over. Peak speed now has to be there at the first request, not after ten thousand."
+    },
+    {
+      "id": "1291294",
+      "title": "Why I ❤️ C#",
+      "startsAt": "2026-11-12T11:45:00.0000000Z",
+      "endsAt": "2026-11-12T11:50:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Maarten Mulders"
+      ],
+      "recordingUrl": null,
+      "description": "Of course, we are at this conference because we love the Java programming language and the Java ecosystem. But there are other worlds out there, ready for us to explore. Join me on this fast-paced exploration of one of them and see why I fell in love..."
+    },
+    {
+      "id": "1321629",
+      "title": "AI-architecture speedrun: from Woolly Wonka to Spaghetti Mario",
+      "startsAt": "2026-11-12T11:50:00.0000000Z",
+      "endsAt": "2026-11-12T11:55:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Frederieke Scheper"
+      ],
+      "recordingUrl": null,
+      "description": "Imagine a Scrum team with an overdue integration: combine external data with their own and get it into production next sprint. The pressure is real. Of course they reach for AI to move faster.\n\nTwenty slides. Fifteen seconds each. No pausing, no going back. Ignite is the perfect format for a speedrun. And for watching an architecture come apart in real time.\n\nAlthough coding agents are more than capable to write excellent code, they also make it cheap to turn reasonable local decisions into a system nobody can explain.\n\nIt starts with the design. The agent proposes something elaborate and confident, with no answer to \"where does the business rule live?\" Say hello to Woolly Wonka.\n\nThen the implementation. \"Make this generic, so we can support another provider.\" A few more requests and the initial woolliness allows Spaghetti Mario to strike again. No problem: the system still works, right? Yes, until it doesn’t...\n\nAI didn't invent anti-patterns; it removed the friction that used to prevent them from accumulating this fast. Five minutes, one cartoon disaster, one serious point: when code becomes cheap to produce, architectural judgment becomes the bottleneck."
+    },
+    {
+      "id": "1317424",
+      "title": "How A Friend Convinced Me To Buy My Own Domain",
+      "startsAt": "2026-11-12T11:55:00.0000000Z",
+      "endsAt": "2026-11-12T12:00:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Rico Apon"
+      ],
+      "recordingUrl": null,
+      "description": "For years I published my side projects on free hosting and just lived with the clunky greent13.github.io/elitefour links it generated for me. Buying a domain felt like a waste of money for what were, after all, just unfinished hobby projects that never felt professional enough to deserve one. Then a friend convinced me otherwise, and I've been hooked ever since: today dozens of my projects each have a proper name. Even the slides for this Ignite session use the domain. In this fast-paced talk I'll tell you how that one conversation changed my mind, and why setting it up was far easier than I ever expected. And the costs? It's one of the lowest bills I pay all year."
+    },
+    {
+      "id": "1312898",
+      "title": "Designing a Lego model, or how my relaxing hobby turned out to be a software project in disguise",
+      "startsAt": "2026-11-12T12:00:00.0000000Z",
+      "endsAt": "2026-11-12T12:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Jan Ouwens"
+      ],
+      "recordingUrl": null,
+      "description": "Last year I was featured in the local newspaper with my hobby project: a Lego skyline model I designed for my home town. In this session I will show you how I kept cost down while designing, prototyping and optimis—oh no, it's a software project now.\n\nThis is the story of a two-week project that took me nearly two years to complete. Somehow I will make everything fit in five minutes."
+    },
+    {
+      "id": "1340062",
+      "title": "Let's get Physical",
+      "startsAt": "2026-11-12T12:50:00.0000000Z",
+      "endsAt": "2026-11-12T13:20:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": true,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Iulia Feroli"
+      ],
+      "recordingUrl": null,
+      "description": "Surely LLMs didn’t peak at generating our emails and planning a trip itinerary. For those who want to see AI do something more meaningful, and let’s face it - way cooler, Physical AI is what you’ve secretly been needing.\n\nWe’re seeing exponential growth in the field of Robotics, and the use of new models and large data processing to give intelligence and autonomy to *physical*, real-world builds. With huge companies (and budgets!) behind this new exciting field, it’s a great time to take a closer look at that old Arduino board you may have in a hobby box somewhere.\n\nBut going from software to hardware can seem like a really intimidating leap. Or is it?\n\nFor almost a year now I've been running a YouTube channel about physical AI and robotics. I’m showing how I bring my AI and data science knowledge into a fun new field while learning the entire physical side from scratch. My house is now filled with microcontrollers, wires, sensors, 3D printed parts, soldering equipment, and new little friends I’ve built. I’m demystifying the learning path, and hoping to inspire more of you to take that leap.\n\nWarning: you may develop a really expensive new hobby after this talk."
+    },
+    {
+      "id": "1269443",
+      "title": "Workshop: Designing Production-Ready Multi-Agent Systems with Spring AI",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Hands-on labs",
+      "speakers": [
+        "Raphael De Lio"
+      ],
+      "recordingUrl": null,
+      "description": "In this workshop, we’re going to explore how to build a multi-agent system from the ground up using Spring AI. You’ll learn how to get multiple agents working together — each with its own role, memory, and context — all inside a clean, production-ready architecture.\n\nAGENDA\n\nThroughout this interactive session, you’ll explore practical patterns and real-world challenges as you:\n\n- Design and organize your agents: Learn how to structure a multi-agent system, define agent responsibilities, and establish clear communication flows.\n\n- Manage agent context and state: Explore techniques for maintaining contextual memory, ensuring each agent operates with relevant and up-to-date information.\n\n- Enable communication among sub-agents: Implement effective coordination strategies so agents can share insights, delegate tasks, and make collective decisions.\n\n- Make it production-ready: Learn best practices for monitoring, scaling, and securing your multi-agent system to ensure reliability and performance in real-world environments.\n\nThis workshop is highly interactive and iterative. You’ll be building, testing, and refining as you go.\n\nBring your laptop and get ready to code alongside us!"
+    },
+    {
+      "id": "1321961",
+      "title": "7 Ways You Can Build an Amazing Dev Career in the AI Era",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Bruno Souza"
+      ],
+      "recordingUrl": null,
+      "description": "Are you also wondering where you fit in all of this?\n\nEvery day, you are bombarded with claims that AI will transform software development. Is this an unprecedented opportunity or an existential threat?\n\nAfter more than 30 years in the software industry, I've seen technologies create opportunities, destroy opportunities, and completely reshape careers.\n\nYet... there are always professionals who seem to thrive regardless of the changes happening around them.\n\nWhy do some become more valuable... while others struggle?\n\nIn this presentation, you'll face the myths around AI head-on and explore why some developers create more opportunities for themselves in the age of AI... while others are left afraid and scrambling to keep up.\n\nYou'll look beyond the headlines and discover the skills, behaviors, and decisions that continue to create opportunities... even during times of massive technological change.\n\nBecause the future may belong to those who understand something deeper than technology itself..."
+    },
+    {
+      "id": "1277090",
+      "title": "Java 26 and 27 are boring, and that's a good thing",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Johannes Bechberger",
+        "Lutske van der Meer"
+      ],
+      "recordingUrl": null,
+      "description": "Java’s predictable release cycle avoids big surprises. This predictability is one of Java’s strengths. While some other platforms introduce dramatic changes or even break existing code, JDK 26 and 27 deliver a set of small, practical improvements. These enhancements are easy to adopt and beneficial in everyday development.\n\nThis talk covers key updates in JDK 26 and 27, including faster G1 garbage collector throughput; ahead-of-time class data sharing enhancements that work with any GC; and built-in HTTP/3 support in the standard HTTP client, as well as new JSON convenience methods and in-process JFR redaction. Furthermore, it covers ongoing previews of primitive patterns, lazy constants, structured concurrency, and the Vector API. None of these changes is headline material on its own, but together they make Java faster, cleaner, and more pleasant to use.\n\nYou will learn how this incremental approach keeps upgrades simple, allows new features to mature safely, and helps Java remain a reliable platform in production. By the end of the session, you will have a clear overview of what JDK 26 and 27 add and why its quiet improvements matter."
+    },
+    {
+      "id": "1316109",
+      "title": "Emergent DevEx: The Good, the Bad, and the Legacy",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Makan Sepehrifar",
+        "Soroosh Khodami"
+      ],
+      "recordingUrl": null,
+      "description": "What happens when an organization grows from a few co-founders into 10,000 people?\n\nIn a big organization, the developer experience isn't something you sit down and design. It's the sum of countless small changes, layered year after year. It emerges slowly, pulled in different directions by three forces:\n\nthe dead weight of history, baked into bureaucratic processes and controls;\nthe endless transformation projects that promise heaven but just swap one mess for another;\nand the developers stuck in the middle, bearing the pressure.\n\nThrough real-life scenarios, we'll show how small changes to implementation, not grand top-down strategy, are often what make a developer's life easier.\n\nKey Takeaways:\n\nHow developer experience grows alongside an organization, from a team of 5 to 10,000+.\nHow history, transformation efforts, and developers themselves each leave their mark.\nWhat internal developer communities can do to shift things and how, even as one developer, you can change the details for the greater good."
+    },
+    {
+      "id": "1368297",
+      "title": "Powering Personalization: How we built our Generic Decision Engine",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Rick Ossendrijver",
+        "Tijana Ninkovic"
+      ],
+      "recordingUrl": null,
+      "description": "Generalization and personalization are at the core of how we build software at Picnic. Whether we are tailoring a customer's app experience, evaluating A/B tests, or resolving complex backend rules for stock and delivery slots, the underlying engineering challenge is exactly the same: orchestrating a decision based on context.\n\nOver the last few years, we have been solving these problems in multiple places, making it increasingly difficult to manage them as the number and complexity of use cases grew. To address this, we built the Campaign Manager: a platform that orchestrates decisions, actions, and experiences.\n\nIn this talk, we'll explore the journey of building such a platform, from identifying common concepts across use cases to evolving its domain model as new requirements emerge. Through concrete examples, we'll examine the technical challenges and trade-offs of designing for multiple teams. We'll also share where our abstractions fell short, how unclear boundaries between the platform and its consumers created challenges, and what we learned about balancing flexibility with simplicity without creating abstractions that are hard to reason about."
+    },
+    {
+      "id": "1279891",
+      "title": "Java is Coming for Python’s Lunch: The Rise of JVM AI Agents",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Frederik Pietzko"
+      ],
+      "recordingUrl": null,
+      "description": "Unfortunately, for the past couple of years, Java developers have felt like second-class citizens in the AI space.\nWhile Python has dominated the headlines, we’ve been left wondering if we’ll need to rewrite our entire stack to create even a mediocre autonomous agent.\n\nHowever, there is good news: the ‘experimental phase' is coming to an end and soon we will enter into ‘production phase’.\nThis is when the JVM typically takes over and eats everyone’s lunch.\n\nIn this session, we’ll be skipping over the fluff and diving into how Java is finally making its move.\nWe are going to take a top-level look at three libraries that are changing the rules of the game — each offering a different ‘vibe’:\n- Spring AI: for when you want enterprise-grade sleep-at-night stability while leveraging the Spring ecosystem you already know.\n- Koog (JetBrains): a Kotlin-native powerhouse that helps agent logic feel clean, reactive, and — dare I say it — fun to write.\n- Embabel: a clever newcomer that is helping to simplify prompt engineering by focusing on ‘intent’ rather than simply producing a bunch of messy prompts.\n\nWe will give a brief \"vibe check\" to demonstrate how each handles some of the more complex aspects of memory and calling tools without getting lost in 500-page slides.\nIf you are tired of \"python envy\" and want to start creating actual AI agents using a stack that doesn't fail under load, this presentation is for you!"
+    },
+    {
+      "id": "1317281",
+      "title": "Keeping data private in real-time pipelines",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Olena Kutsenko"
+      ],
+      "recordingUrl": null,
+      "description": "We all love real-time data — clicks, payments, rides, messages — but most of it comes with a catch: it contains personal information we’re not supposed to leak, such as names, emails, locations, or even small clues that can identify someone. The challenge: how do we keep streaming data useful and safe at the same time?\n\nIn this talk, we’ll explore practical ways to protect privacy in streaming systems using Apache Kafka, Apache Flink, and Apache Iceberg. We’ll cover:\n- simple tricks like masking and tokenizing PII;\n- why “anonymous” data often isn’t anonymous (the re-identification problem);\n- techniques like bucketing, k-anonymity, and adding noise;\n- how to balance privacy with data utility (too much hiding makes data useless).\n\nAlong the way, we’ll look at real-world stories: from public data leaks to surprising deanonymization attacks, and show how to anonymize data before it’s written to storage.\nIf you’ve ever wondered how to build privacy-aware pipelines, this talk will give you practical patterns you can use right away."
+    },
+    {
+      "id": "15c53abe-8b90-412c-ad3b-3b83a13e5c6e",
+      "title": "NLJUG Modern IT Leadership Summit: Accountability, cost and control in the age of AI agents",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": true,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [],
+      "recordingUrl": null,
+      "description": "A year ago, the question was sovereignty: where does our data live, and who can reach it? This year, agents reach into that data on their own: they plan, call tools, change production, run up the bill. That is not a tooling question: it is a management question.\nWe scaled generation, not verification. The bottleneck moved from writing code to reviewing, testing and deciding what \"good\" means. Measured end to end, gains are modest. On narrow tasks, they look spectacular.\n\nAt the Modern IT Leadership Summit, technology leaders discuss what agentic systems demand of your organisation:\n•\tWhere the bottleneck moved, and which number reached the board\n•\tMore code, not better software: debt, complexity, the bar leaders set\n•\tCheap tokens, expensive verification: where the money goes\n•\tSecurity at machine speed: who controls agent access, and what happens when a model is switched off?\n•\tAccountability: who owns the consequences when nobody can explain the change\n\nThere is no best practice here yet: expect disagreement, a show of hands, and a microphone to ask your questions to our panel."
+    },
+    {
+      "id": "1310669",
+      "title": "Apache Camel as integration framework",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Ferrie Bank"
+      ],
+      "recordingUrl": null,
+      "description": "For years Apache Camel has been popular with integration specialists. Camel offers practical solutions for connecting Java clients to endpoints, for setting up rule-based routing of data, and for implementing enterprise integration patterns. As such it can be a very powerful tool and certainly deserves a place in any developer's kit. This talk gives an overview of which aspects in particular, make Camel so effective."
+    },
+    {
+      "id": "1311845",
+      "title": "Finding and Fixing Issues with Legacy Code using AI",
+      "startsAt": "2026-11-12T13:40:00.0000000Z",
+      "endsAt": "2026-11-12T14:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Venkat Subramaniam"
+      ],
+      "recordingUrl": null,
+      "description": "AI is a great tool to generate ideas more and one area where we need a broad range of ideas is in identifying and fixing issues with code. The reality is that we all have to deal with legacy code, stuff written by someone who has left the company or those written in a hurry before that vacation. Humans are creating but we have a hard time dealing with cognitive load. AI is not creative like the way Humans are, but they also do not have some of our limitations. In this presentation we will see how we can leverage AI to deal with legacy code, how to find issues in complex code, and how to reason about and document those gnarly pieces of s...software."
+    },
+    {
+      "id": "1322575",
+      "title": "Eval Driven Development: Why you need it to make your Agentic Application survive Production",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Urs Peter"
+      ],
+      "recordingUrl": null,
+      "description": "Agentic systems unlock capabilities that traditional “deterministic” applications simply can’t deliver. But there’s a catch: their probabilistic nature introduces real and often unexpected risks—hallucinations, context drift, prompt degradation, and multi-step workflows that evolve in surprising ways. And you definitely don’t want to discover those in production.\n\nThe good news: there is a remedy. We can borrow the most reliable practice from deterministic software—test-driven development—and adapt it to the agentic world. The result is Eval-Driven Development (EDD): a systematic, engineering-first approach to bringing reliability into inherently probabilistic systems.\n\nIn this talk, we explore Eval-Driven Agentic Development and how it can transform your agents from unpredictable to reliable - using the (only?) full-fledged Java/Kotlin Eval framework: Dokimos. We’ll dive into techniques, tools, and patterns needed to make evals a first-class citizen of your development process—demonstrating all of these in a real-world application built with AI frameworks like Spring-AI, LanchChain4J, and Koog.\n\nAlong the way, you will learn how to:\n\n- Design layered eval suites\n- Create golden datasets\n- Define rubrics and scoring criteria\n- Extract eval signals from agent traces\n- Use regression gates to detect degraded behavior after changes\n- Build a continuous eval loop\n\nEvaluation-Driven Development is the only path forward for reliable, smart next-generation applications. Let's learn how to walk it - together!"
+    },
+    {
+      "id": "1323132",
+      "title": "Exploring Value Objects from Project Valhalla",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Balkrishna Rawool"
+      ],
+      "recordingUrl": null,
+      "description": "Project Valhalla is an important project at OpenJDK. The main features of the project are value objects, null-restricted types, parametric JVM and unification of primitives and classes. Together, they represent a fundamental shift in how the JVM manages memory and data.\n\nThe work on Valhalla has been going on for over a decade and pre-requisites for some features have already been delivered through various JEPs. Value objects will be previewed with JDK 28. This gives us a glimpse into Valhalla’s API, allows us to check the improvements, and helps us see the direction for the implementation of other upcoming features.\n\nThe value objects feature itself is a crucial change and it has implications across the Java type system. So it’d be fun to see how it works, how it interacts with collections and how it affects generics and nullability. By exploring these interactions, we will learn where value objects fit within Java's architecture and understand how they will influence the way we design scalable Java applications.\n\nThe goal of this talk is to explore value objects API and other features of Valhalla through numerous examples. We will experiment with value objects, nullability, generics and types in general. These examples will unveil the intricate design choices made, giving a clear view of what to expect from Project Valhalla so we can be ready for when these features actually land in future versions of JDK!"
+    },
+    {
+      "id": "1320112",
+      "title": "Engineering the Harness: From Vibe Coding to Verified Code Generation",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Ario Afrashteh"
+      ],
+      "recordingUrl": null,
+      "description": "An AI agent writes good code when it knows what good means in your codebase. Usually it does not. It cannot see the helper class you already have, or how you separate controllers from services, so it writes logic that already exists and returns a response shaped differently from every other endpoint in the same service. And it starts each session with no memory, so yesterday’s correction is gone today.\n\nThat is not the model being bad. It is the model working without what a new colleague gets on day one.\n\nIn this talk I show how I combine quality gates and engineering practices into a harness around the agent, so these problems get caught by the build instead of by your users. We build it up on a Spring Boot API, and I am honest about where each practice stops working. At the end, how to tell whether it actually helped, with numbers instead of impressions."
+    },
+    {
+      "id": "1313418",
+      "title": "We Put Minecraft in a Browser Tab, Here's How the JVM Got There",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Elisabeth Panholzer"
+      ],
+      "recordingUrl": null,
+      "description": "Java was never meant to run inside a modern browser tab. In this session, we’ll show you how it does anyway, and just how far that idea can be pushed.\n\nThis is CheerpJ: a full Java Platform for the browser, composed of a Java Virtual Machine, a Java Runtime Environment, and a system virtualisation layer, implemented in WebAssembly and JavaScript and built on OpenJDK. CheerpJ already runs Java 8, 11, and 17 in production, with Java 21 in preview and Java 25 arriving soon. We open up the engineering behind it. Java bytecode starts in an interpreter, while frequently used code is profiled and compiled Just-in-Time into optimised code for performance. CheerpJ offers full Java language compatibility, including multithreading, reflection, proxy classes, dynamic constructs, and custom class loaders, without requiring access to the original source code.\n\nWe will look closely at how Swing and AWT applications are rendered pixel-perfectly through a virtualised window manager that maps Java windows onto HTML elements and canvases, how networking and the filesystem are virtualised to support real-world applications, and what it takes to run unmodified JARs and Java applets without needing source code access.\n\nThrough live demos, we will run an unmodified JAR and boot up Browsercraft, an unmodified build of Minecraft, both running without a local Java installation. You will leave this session understanding what a browser-native JVM actually requires under the hood, and just how far a browser tab can be pushed before it stops looking like a browser tab at all."
+    },
+    {
+      "id": "1288731",
+      "title": "How to guard your AI agent without babysitting it?",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Jos Roseboom"
+      ],
+      "recordingUrl": null,
+      "description": "Your AI coding agent is impressive, but checking every permission request and hitting ‘Yes’ is annoying. Dangerously skip permissions solves that right away, but something like ‘rm -rf’ might give you other headaches…\n\nWill instructions to the agent prevent that? Is a local sandbox enough? Do we need to delegate execution to a separate machine? How thoroughly do we need to review the results?\n\nThis is an Unconference session, not a presentation. I’ll kick things off by presenting an approach that combines isolated execution, automated quality checks (PMD, Checkstyle and Sonar), an AI reviewer and iterative feedback. Everyone is welcome to praise it, roast it, or share a different approach.\n\nThe goal is to learn from each other. Bring your successes, horror stories, security concerns, and crazy ideas. Let’s figure out how to guard our AI agent without babysitting it!"
+    },
+    {
+      "id": "1320230",
+      "title": "4 years of Quarkus in production, what have we learned?",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Jago de Vreede"
+      ],
+      "recordingUrl": null,
+      "description": "Quarkus has rapidly gained popularity, but what's it really like to use it in an enterprise environment? This talk moves past the \"Hello World\" demos to share hard-earned lessons from over three years of building and maintaining enterprise-level applications with Quarkus.\nIn this talk we will set up a multi-module project, incorporating integration tests and addressing the challenges with build times, while maintaining a high development velocity. Next, we’ll tackle an upgrade scenario and splitting the application into multiple microservices. Along the way, we’ll share hard-earned lessons, including what to avoid.\nBy the end of this session, you'll walk away with the practical knowledge and confidence to successfully build a \"big\" enterprise project with Quarkus. This is a must-attend for anyone considering or currently using Quarkus."
+    },
+    {
+      "id": "1322804",
+      "title": "Java, scripted?",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:05:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Johan Hutting"
+      ],
+      "recordingUrl": null,
+      "description": "Java 25 delivered a simplified approach to building software with JEP-512, primarily aimed at making the language more accessible. Yet this also offers experienced engineers the opportunity for simplified scripting using the power of the JVM along with their knowledge and skills in the language.\n\nIn this talk we'll cover several examples where an engineer no longer has to use a scripting language, but builds scripts using Java 25 and beyond. We'll look at ease of use, performance and perform live coding to learn how fast and easy it is to start scripting with the language many only consider applicable for archaic enterprise systems.\n\nAfter this session you'll have a clear understanding how to write your own powerful scripts using Java."
+    },
+    {
+      "id": "1269356",
+      "title": "Practical MCP Security in Action",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Willem Jan Glerum"
+      ],
+      "recordingUrl": null,
+      "description": "AI Assistants need to securely authorize and access Model Context Protocol (MCP) servers to safely use imported tools, prompts and resources.\n\nIn this session, we will discuss what it takes to create a secure MCP server, explain how MCP Authorization works, and cover important security considerations. We'll demonstrate how an MCP client running as a Single Page Application can seamlessly use OAuth2 authorization code flow and dynamic client registration to import and access MCP servers securely.\nWe will also look at how MCP Clients can run in scope of a larger enterprise AI application and propagate user authentication tokens to secured MCP servers.\n\nThroughout the session, we will work with popular MCP clients as well as the Quarkus MCP Server and Client. No prior experience of Quarkus is required."
+    },
+    {
+      "id": "1294562",
+      "title": "Cracking the Code Review",
+      "startsAt": "2026-11-12T14:50:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Paco van Beckhoven"
+      ],
+      "recordingUrl": null,
+      "description": "Code reviews are vital for ensuring good code quality and fostering teamwork. They serve as one of our last lines of defense against bugs and subpar code reaching production. Yet, they often turn into annoying tasks riddled with frustration, hostility, unclear feedback and lack of standard practices. How can we improve this crucial process? And with AI now entering the review loop, the stakes and the opportunities are higher than ever.\n\nIn this session, we will cover:\n\n- Streamlining the Review Process: How to create the most review-friendly pull requests\n- The Art of Effective Code Reviews: Learn how you should approach a review, how to provide constructive feedback, and how to improve collaboration.\n- Elevating Reviews with Automated Tools: Explore tools that reinforce code consistency and quality, from automated style fixes to architecture checks. Let's cut through the noise of bikeshedding and focus on the essence of the changes!\n- AI in the review process: Strengths, pitfalls, context management, and a practical agent workflow. Everything you need to start using AI as a part of your review process.\n\nThis session will leave you with practical tactics for improving pull requests, performing better code reviews, and a suite of tools (including tips for AI) to simplify the review process and boost code quality."
+    },
+    {
+      "id": "1278307",
+      "title": "Generics – You Never Know What You’re Gonna Get",
+      "startsAt": "2026-11-12T15:10:00.0000000Z",
+      "endsAt": "2026-11-12T15:25:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Bram Janssens"
+      ],
+      "recordingUrl": null,
+      "description": "Many Java developers—even seasoned ones—struggle with generics and variance, often relying on guesswork when facing wildcards like ? extends or ? super. I know the feeling: I’ve been there myself, and now, as a teacher, I’ve seen how common and frustrating this knowledge gap is.\n\nIn this talk, I’ll break down the core concepts of variance with clarity, energy, and real-world examples—showing that actually, it’s quite simple.\n\nAttendees will walk away with not just understanding, but confidence—and a new ability to write safer, more expressive code."
+    },
+    {
+      "id": "1301850",
+      "title": "Then vs Now: How Learning to Code Changed — And What It Means for All of Us",
+      "startsAt": "2026-11-12T15:25:00.0000000Z",
+      "endsAt": "2026-11-12T15:40:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Manar Majdoubi"
+      ],
+      "recordingUrl": null,
+      "description": "Traditional coding education relied on friction: getting stuck, digging through documentation, and building problem‑solving instincts through trial and error. Today’s learners grow up in an environment shaped by instant answers, AI‑assisted debugging, and interactive guidance.\n\nAs an 18‑year‑old AI student learning to code in this new ecosystem, I’ll share a direct, inside‑the‑shift perspective on how modern developers are being trained and how that differs from the experience many senior engineers remember.\n\nThis session outlines what’s been lost, what’s been gained, and what these changes mean for the developers entering your teams. You’ll leave with a clearer understanding of evolving skill sets, realistic expectations for onboarding, and practical steps to ensure your organization is ready for the next generation of engineers."
+    },
+    {
+      "id": "1312765",
+      "title": "Conquest, time travel and explosions using Git",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 1",
+      "speakers": [
+        "Alexander Chatzizacharias"
+      ],
+      "recordingUrl": null,
+      "description": "A talk on git? In this day and age?! Yes. Especially in this day and age. AI agents are running increasingly obscure git commands in our terminals, and most of us just nod along, pretending we know what rerere does. If the machines get to have fun with git, so do we.\n\nSo to understand git better, Alexander built an RTS game with git at its core, and in this session you will see it in action! Expect jumps between alternate timelines using branches, time travel back and forth through history, and a front row seat to what happens when a merge conflict occurs between two buildings.\n\nSomewhere between the conquests and the explosions, the weird parts of git start to make sense. Detached heads, rebases, the plumbing underneath, all of it becomes a lot less mysterious once you have seen it blow up an energy plant. Beginners will leave with a solid feel for how git actually works, veterans with a fresh look at a tool they use every day. Come for the explosions, stay for the fun and giggles!"
+    },
+    {
+      "id": "1333159",
+      "title": "When agentic AI makes coding feel like a superpower",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 2",
+      "speakers": [
+        "Alexander Gomez"
+      ],
+      "recordingUrl": null,
+      "description": "Some time ago I was just typing prompts into a chat window. Last February, I shipped working code from the back of a rollercoaster queue, building with an AI agent on my phone while my kids waited for the ride.\n\nThis is a talk about that shift, and what it means for those of us who build for the web. Live on stage, you'll watch AI turn a single sentence into a real, working frontend. Single-file HTML/CSS/JS apps that deploy to a live URL in minutes, including real-time multi-user UIs synced over WebSockets that the whole room can open on their phones at once. You'll also meet a few other AI tools I built and some I use every day: a browser app that reads emotion from a photo and generates music, and agents that turn a video, or a meal, into something useful in moments. Plus the cinematic song my eight-year-old and I wrote with AI, now on Spotify.\n\nNo slides full of theory, just real things running live. It closes on one idea worth taking home: the gap between you and your next idea isn't skill, it's the first prompt."
+    },
+    {
+      "id": "1288685",
+      "title": "Physically virtual. How information technology obeys physical laws",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 3",
+      "speakers": [
+        "Marianne Hoornenborg"
+      ],
+      "recordingUrl": null,
+      "description": "What we call virtual is actually physical. Every bit of data we store, move, or erase is represented by a physical state, and every physical system obeys the laws of nature.\n\nSo let’s look beneath the abstractions of our digital world. What are the physical properties of the systems we handle? Does data have weight? How much energy does it take to store or delete information? What really travels through our networks, at what speed, and can information ever truly disappear?\n\nCuriosity drives us beyond binary computation into the quantum realm. How do superposition, uncertainty, and measurement challenge our understanding of state and information? How do stable, observable states emerge from a world governed by quantum rules?\n\nMarianne helps you explore the physical foundations of computation. Without a formal background in physics, you can follow the path of curiosity into the depths of our digital systems. You'll resurface with what is hidden beneath the abstractions."
+    },
+    {
+      "id": "1268434",
+      "title": "Beyond the Demo: Testing Strategies for Production AI Agents",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 4",
+      "speakers": [
+        "Elena van Engelen"
+      ],
+      "recordingUrl": null,
+      "description": "AI agents are typically easy to demo but are more difficult to trust on production than traditional software. Not only can they return different results for the same prompt and context, a small prompt change, model switch, or tool response can change the behaviour of the whole application. So are there techniques that help us test a real system that has an AI agent(s) integrated in it?\n\nThis session does not replace the unit and integration tests you would already write for a JVM application. Instead, it focuses on the additional testing strategies that will help you test AI agents.\n\nWith a live demo, we will demonstrate a practical testing strategy. First, we will test the agent graph: verifying flow, decisions and tool calls without paying for model inference on every test run. This gives fast, deterministic feedback about the orchestration of the agent without incurring any model costs.\n\nThen, we will use eval-driven development and \"remocal\" tests. We will update a prompt live, run evaluation tests, compare the results, and discuss how this approach helps ensure prompt and context quality, as well as help with switching/choosing models or preventing regressions.\n\nAttendees will leave with a good understanding of how to test AI agents: graph tests for deterministic orchestration and evals for model-dependent behaviour and prompt quality."
+    },
+    {
+      "id": "1323546",
+      "title": "DevCulture - The Funny History Nobody Teaches You",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 5",
+      "speakers": [
+        "Jan-Hendrik Kuperus"
+      ],
+      "recordingUrl": null,
+      "description": "The world wide web turned 35 this year. Java has crossed the magical 30 years. A lot of digital culture stems from the early days when everybody just hacked their wild idea together and put it online because it was fun! Today's web and development work is way too serious.\n\nDo you sometimes not \"get\" a joke from some of the more senior members of your team? Do you have no idea why some people are always triggered when the time is 13:37? This session will give you the history lesson you never knew you needed: learn the jokes and funny culture references from the early days of software development. If you do know all these things, come to this session and enjoy the nostalgia!"
+    },
+    {
+      "id": "1286955",
+      "title": "Snake in 10 Lines: Learning More by Coding Less",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 6",
+      "speakers": [
+        "Guus de Wit"
+      ],
+      "recordingUrl": null,
+      "description": "Can you create a complete game with just 10 lines of code? That was the quest I set myself when recreating the classic game Snake in as few lines as possible. Let me tell you: I was not ready for the types of challenges I would face. For example, just registering button presses was not as straightforward as I had hoped.\n\nThrough live coding, I will show you how I overcame these obstacles and distilled Snake to its absolute essence. What key elements make this game instantly recognizable? By only using tools from the JDK, we will end up with a minimal code base and if not award-winning, at least a playable version of Snake.\n\nStriving for conciseness led me to a deeper understanding of the code. I will show how constraints push us to think outside the box and lead to more creative solutions. Moreover, my approach can be applied to any problem. Sometimes the best way to understand code is by seeing how little of it you actually need!"
+    },
+    {
+      "id": "1318155",
+      "title": "How playing the trombone makes me a better software engineer - and why you should make music too",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:10:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Marije de Heus"
+      ],
+      "recordingUrl": null,
+      "description": "Two years ago, I started playing the trombone and immediately fell in love with it. I could never have imagined what an impact it would have on my life and how much it would influence the way I work as a software engineer.\n\nIn this talk, I’ll share my experience of how making music, both individually and as part of a group, has changed the way I learn, practice, collaborate and perform at work. I’ll connect these experiences to scientific research on the effects of making music on the brain, learning and performance, including insights from neuroscientist Erik Scherder.\n\nWe’ll explore what software engineers can learn from practicing an instrument, performing under pressure, listening to others and working together as an ensemble.\n\nAnd yes, some live Star Wars music may be included!"
+    },
+    {
+      "id": "1320350",
+      "title": "Analytical Java with DuckDB",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 8",
+      "speakers": [
+        "Geertjan Wielenga"
+      ],
+      "recordingUrl": null,
+      "description": "Your Java service just needs to answer a few analytical questions: top products this month, p95 latency per region, a quick join between a CSV export and a Parquet dump from the data team. The usual answers are to hammer your transactional database with GROUP BYs it was never designed for, ship the data off to a warehouse and wait, or write the aggregation by hand in streams. But did you know that there’s another option that runs inside your JVM…\n\nDuckDB is a free open source in-process analytical database: columnar, vectorized, zero infrastructure, and available to Java through a plain JDBC driver.\n\nIn this session, we’ll use it to query Parquet, CSV, and JSON files directly, run analytical SQL over in-memory data, and push results straight into Java records and Apache Arrow.\n\nAlong the way, we’ll look at where it beats a traditional RDBMS, where it doesn’t, and how it fits into your services, batch jobs, tests and CLIs… without any new operational setup or infrastructure."
+    },
+    {
+      "id": "1319194",
+      "title": "Understanding Prompt Injection - Techniques, Challenges, and Advanced Escalation",
+      "startsAt": "2026-11-12T15:55:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 9",
+      "speakers": [
+        "Brian Vermeer"
+      ],
+      "recordingUrl": null,
+      "description": "As developers, we’re embracing AI and large language models (LLMs) in our applications more than ever. However, there’s an increasing concern we need to be aware of: prompt injection. This sneaky attack can undermine our AI systems by manipulating the input to produce unintended outputs.\n\nIn this session, we’ll explain prompt injection and examine some common techniques attackers use, such as instruction overrides and hidden prompts. But we won't stop there; we’ll also explore advanced challenges, including escalation techniques that can exacerbate the risks.\n\nMost importantly, we won’t just identify the problem. We’ll dive into practical steps you can take to mitigate these risks and keep your AI interactions secure. Join us to gain insights that will help you stay ahead in AI security and ensure your applications remain robust against these emerging threats."
+    },
+    {
+      "id": "1322802",
+      "title": "Trick or Treat? The Surprising Link Between Accessibility and Green Software",
+      "startsAt": "2026-11-12T16:15:00.0000000Z",
+      "endsAt": "2026-11-12T16:30:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Ramona Domen"
+      ],
+      "recordingUrl": null,
+      "description": "What if some of the best practices in frontend development came with a double reward?\n\nMany of the techniques we use to make applications more accessible, such as faster loading times, simpler interfaces, and efficient use of resources, can also help reduce their environmental impact. It's a surprising connection that often goes unnoticed, hidden beneath the surface like a wonderful Halloween treat.\n\nLet's explore the overlap between accessibility and green software, uncovering where these two disciplines reinforce each other and where they sometimes diverge. Through practical examples and real-world frontend techniques, you'll gain a deeper understanding of the principles they share and the trade-offs you may encounter along the way.\n\nNo tricks but hopefully some treats in the shape of actionable insights you can apply immediately to build software that's better for your users, better for the planet, and a little less scary to maintain."
+    },
+    {
+      "id": "1292191",
+      "title": "Refactoring Your Brain: Working With ADHD in Engineering Teams",
+      "startsAt": "2026-11-12T16:30:00.0000000Z",
+      "endsAt": "2026-11-12T16:45:00.0000000Z",
+      "isServiceSession": false,
+      "isPlenumSession": false,
+      "category": [],
+      "room": "Room 7",
+      "speakers": [
+        "Myriam Jessier"
+      ],
+      "recordingUrl": null,
+      "description": "My brain doesn't have a to-do list, it has eleventeen open tabs and vibes, yet, somehow (most of) the work still gets done. I built an expertise and career off of hyperfocus, lateral thinking, and pattern obsession. This talk does two jobs at once. For the ADHD (or ADHD-curious) developer, it is a field guide: the tricks, guardrails, and workflows that let a nonlinear brain ship consistently. For the neurotypical teammate or lead, it is a collaboration manual: how to structure work, feedback, and communication so your ADHD colleagues do their best work"
+    }
+  ]
+}

@@ -22,8 +22,8 @@ import dev.example.ChatMessage
 import dev.example.ConferenceTools
 import dev.example.ConferenceTools.Companion.TOOL_ADD_PREFERRED_SESSIONS
 import dev.example.ConferenceTools.Companion.TOOL_CONFERENCE_SESSION_SEARCH
-import dev.example.ConferenceTools.Companion.TOOL_GENERAL_SESSION_INFORMATION_DEVOXX
-import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_DEVOXX
+import dev.example.ConferenceTools.Companion.TOOL_GENERAL_SESSION_INFORMATION_JFALL
+import dev.example.ConferenceTools.Companion.TOOL_GENERAL_VENUE_INFORMATION_JFALL
 import dev.example.ConferenceTools.Companion.TOOL_GET_PREFERRED_SESSIONS
 import dev.example.SessionPreferenceRepository
 import dev.example.ToolCallRecorder
@@ -62,12 +62,12 @@ class ChatEval
     @Test
         fun `should retrieve basic conference information`() {
             experiment {
-                name = "Devoxx Conference Venue data Evals"
+                name = "J-Fall Conference Venue data Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
-                        input = "Where is Devoxx Belgium 2026 held?"
-                        expected = "Groenendaallaan 394, 2030 Antwerp"
+                        input = "Where is J-Fall 2026 held?"
+                        expected = "Laan der Verenigde Naties 150, Ede"
                     }
                 }
                 task { example ->
@@ -90,13 +90,13 @@ class ChatEval
         @Test
         fun `should retrieve basic conference information and evaluate tone`() {
             experiment {
-                name = "Devoxx Tone Evals"
+                name = "J-Fall Tone Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
                         input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
-                            "Wherrrre is Devoxx Belgium 2026 held and what'ssss the venue location?"
-                        expected = "Kinepolis Antwerp"
+                            "Wherrrre is J-Fall 2026 held and what'ssss the venue location?"
+                        expected = "Pathé Ede"
                     }
                 }
                 task { example ->
@@ -124,13 +124,13 @@ class ChatEval
         @Test
         fun `regression should retrieve basic conference information and evaluate tone`() {
             experiment {
-                name = "Devoxx Tone Evals"
+                name = "J-Fall Tone Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
                         input = "Harrr, I'm a pirrate developerrr talking pirate speech. " +
-                            "Wherrrre is Devoxx Belgium 2026 held and what'ssss the venue location?"
-                        expected = "Kinepolis Antwerp"
+                            "Wherrrre is J-Fall 2026 held and what'ssss the venue location?"
+                        expected = "Pathé Ede"
                     }
                 }
                 task { example ->
@@ -152,6 +152,7 @@ class ChatEval
                 }
 
 
+
         }
 
 
@@ -161,13 +162,13 @@ class ChatEval
     @Test
         fun `should retrieve accurate general venue information`() {
             experiment {
-                name = "Devoxx Venue Evals"
+                name = "J-Fall Venue Evals"
                 dataset {
                     name = "first-time-attendee"
                     example {
                         input = "Where can I park my car at the venue, and what does it cost?"
                         expected = "The venue information does not mention parking"
-                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_DEVOXX))
+                        expected("toolCalls", expectedToolCalls(TOOL_GENERAL_VENUE_INFORMATION_JFALL))
                     }
                 }
                 task { example ->
@@ -275,20 +276,20 @@ class ChatEval
     @Test
         fun `should not add already started sessions to preferences`() {
             experiment {
-                name = "Devoxx Started Session Preference Evals"
+                name = "J-Fall Started Session Preference Evals"
                 dataset {
                     name = "schedule-after-sessions-started"
                     example {
                         input =
                             """
-                            It is Wednesday October 7, 2026 at 13:30.  
-                            I am interested in concurrency talks for my preferences that I can attend.
+                            It is Thursday November 12, 2026 at 15:00.
+                            I am interested in AI agent talks for my preferences that I can attend.
                             Add suitable sessions to my preferred schedule.
                             """.trimIndent()
                         expected =
                             "Preferred sessions should not include any session that already started before " +
-                                "Wednesday October 7, 2026 at 13:30 conference-local time."
-                        metadata("currentTime", conferenceLocalTime("2026-10-07T13:30"))
+                                "Thursday November 12, 2026 at 15:00 conference-local time."
+                        metadata("currentTime", conferenceLocalTime("2026-11-12T15:00"))
                         expected("toolCalls", expectedToolCalls(TOOL_ADD_PREFERRED_SESSIONS, TOOL_CONFERENCE_SESSION_SEARCH))
                     }
                 }

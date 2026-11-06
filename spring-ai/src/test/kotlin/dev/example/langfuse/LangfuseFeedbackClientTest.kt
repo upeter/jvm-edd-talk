@@ -59,7 +59,7 @@ class LangfuseFeedbackClientTest {
                 traceId shouldBe "trace-a"
                 sessionId shouldBe "session-a"
                 request shouldBe "Where is the venue?"
-                answer shouldBe "In Antwerp."
+                answer shouldBe "In Ede."
                 rating shouldBe 0.0
                 reason shouldBe "wrong city"
                 timestamp shouldBe Instant.parse("2026-10-02T18:00:00Z")
@@ -96,7 +96,7 @@ class LangfuseFeedbackClientTest {
     companion object {
         private val FEEDBACK_PAGE_1 = """
             {"data": [{"id": "obs-1", "traceId": "trace-a", "startTime": "2026-10-02T18:00:00.000Z", "type": "SPAN",
-              "name": "feedback", "sessionId": "session-a", "input": "Where is the venue?", "output": "In Antwerp.",
+              "name": "feedback", "sessionId": "session-a", "input": "Where is the venue?", "output": "In Ede.",
               "metadata": {"feedback_rating": "DOWN", "feedback_reason": "wrong city"}}],
              "meta": {"cursor": "page-2"}}
         """.trimIndent()
@@ -116,7 +116,7 @@ class LangfuseFeedbackClientTest {
                "startTime": "2026-10-02T17:59:59.500Z", "type": "GENERATION", "name": "chat gpt-4.1", "totalCost": 0.00172},
               {"id": "root-1", "traceId": "trace-a", "projectId": "project-1", "parentObservationId": null,
                "startTime": "2026-10-02T17:59:59.000Z", "type": "SPAN", "name": "http post /chat",
-               "input": "Where is the venue?", "output": "In Antwerp."}],
+               "input": "Where is the venue?", "output": "In Ede."}],
              "meta": {}}
         """.trimIndent()
     }

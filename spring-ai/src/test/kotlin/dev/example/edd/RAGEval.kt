@@ -297,7 +297,7 @@ class RAGEval
         companion object {
             val DATASET_PATH: Path = Path.of("src/test/resources/datasets/rag-retrieval.json")
 
-            /** Sessions like "Welcome to Devoxx" have too little text to write a meaningful query for. */
+            /** Sessions like "Opening" have too little text to write a meaningful query for. */
             const val MIN_DESCRIPTION_CHARS = 300
 
             private fun curated(query: String, title: String) = RetrievalCase(query, title, QueryType.CURATED)
@@ -308,98 +308,64 @@ class RAGEval
                     "Eval Driven Development: Why you need it to make your Agentic Application survive Production",
                 ),
                 curated(
-                    "LLM-as-a-judge in an evaluator-optimizer loop with Spring AI",
-                    "Agent Loops, Decoded: Fundamentals to Agentic Patterns in Spring AI",
+                    "reusing the application context across integration tests to speed up CI",
+                    "The Spring Test Profiler: Cut Down Your Test Execution Time by 70%",
                 ),
                 curated(
-                    "clean and filter data with a Java DataFrame library",
-                    "Java is for Data Science, Too: Building an End-to-End ML Pipeline Without Leaving the JVM",
+                    "custom intermediate operations beyond map, filter and flatMap",
+                    "Level Up Your Java Streams with Gatherers",
                 ),
                 curated(
-                    "implementing a MicroProfile spec live on stage with an AI agent",
-                    "Can AI Build a Jakarta EE Runtime? The Vidocq Experiment",
+                    "build a coding agent from an empty file in plain Java without frameworks",
+                    "Your coding agent is a while loop!",
                 ),
                 curated(
-                    "pass sensitive information between modules without method parameters",
-                    "Using Structured Concurrency and Scoped Values to Create a Virtual Threads Based Asynchronous Application",
+                    "logpoints instead of print statements for AI coding assistants",
+                    "Teaching a New Dog Old Tricks: Give the Agent a Debugger",
                 ),
                 curated(
-                    "indirect prompt injection and tool allowlists in LangChain4j",
-                    "Your AI Agent Trusts Strangers. Let Me Show You.",
+                    "Project Leyden startup improvements in Spring Boot, Quarkus and Helidon",
+                    "How Can Java Applications Leverage Ahead-of-Time Caching",
                 ),
                 curated(
-                    "profiling Java code on the GPU with Nsight Systems",
-                    "From Install to Insight: A Hands-On GPU Lab for Java Developers",
+                    "plugins, goals, phases and dependency resolution in the build lifecycle",
+                    "Getting more out of Maven",
                 ),
                 curated(
-                    "skills, hooks, git worktrees and sub-agents for agent loops",
-                    "Loop Engineering, beyond prompt, context, and harness engineering",
+                    "how much of another service's state to keep when consuming its events",
+                    "State of Confusion: Data Ownership in Event-Driven Systems",
                 ),
                 curated(
-                    "alternate reality game website with clues hidden in a book",
-                    "From Developer to Story Builder: Engineering a Novel, an ARG, and a Transmedia World with AI",
+                    "null-restricted types and the unification of primitives and classes",
+                    "Exploring Value Objects from Project Valhalla",
                 ),
                 curated(
-                    "translating Scala case classes and for-comprehensions into Java records",
-                    "Legacy JVM modernization with agentic AI: Quarkus vs Spring Boot",
+                    "running a JVM in WebAssembly with CheerpJ",
+                    "We Put Minecraft in a Browser Tab, Here's How the JVM Got There",
                 ),
                 curated(
-                    "call cuBLAS and cuFFT from Java without JNI",
-                    "Tap into the NVIDIA Ecosystem from Java with TornadoVM's Hybrid API",
+                    "OAuth2 authorization code flow for a single page app calling tool servers",
+                    "Practical MCP Security in Action",
                 ),
                 curated(
-                    "query files on S3 in place and build a lakehouse",
-                    "From Laptop to Lakehouse: Analytical SQL with DuckDB",
+                    "p95 latency per region and joining a CSV with a Parquet dump from Java",
+                    "Analytical Java with DuckDB",
                 ),
                 curated(
-                    "EU regulation requiring human oversight of AI systems",
-                    "The Importance of HITL to Avoid Chaos and EU Regulations for AI",
+                    "instruction overrides and other attacks that manipulate LLM input",
+                    "Understanding Prompt Injection - Techniques, Challenges, and Advanced Escalation",
                 ),
                 curated(
-                    "KV-cache compression and quantization on long-context workloads",
-                    "Run Frontier Open Models on consumer hardware",
+                    "recreating a classic game in as few lines of code as possible",
+                    "Snake in 10 Lines: Learning More by Coding Less",
                 ),
                 curated(
-                    "two-pizza teams, Team Topologies and T-shaped professionals",
-                    "The pizza party of the future 🍕 software teams and product value in the age of coding agents",
+                    "pool settings that get you into trouble in production, explained from the startup log",
+                    "Don't drown in your connection pool",
                 ),
                 curated(
-                    "building CLIs with picocli and terminal UIs with TamboUI",
-                    "A Deserter Returns: What the Java community helped me rediscover",
-                ),
-                curated(
-                    "containerd runtime v2 and OCI bundles to run WebAssembly on Kubernetes",
-                    "Java on Kubernetes Without Container Images: The WebAssembly Way",
-                ),
-                curated(
-                    "the software that beat the world chess champion",
-                    "Software Monuments - Architectural Lessons from the Systems That Shaped Computing",
-                ),
-                curated(
-                    "coaching skills: listening and asking the right questions",
-                    "Coder, Coach, Catalyst - using questions to make people grow",
-                ),
-                curated(
-                    "hibernate idle AI agents with gVisor on shared Kubernetes pods",
-                    "Beyond the Pod: Architecting and Scaling AI Agents on Kubernetes",
-                ),
-                curated(
-                    "find parser bottlenecks with JDK Flight Recorder",
-                    "Hardwood: Building a Parquet Parser From Scratch (With a Little Help From AI)",
-                ),
-                curated(
-                    "turn natural language requests into JPA filter objects with structured output",
-                    "From User Prompt to JPA Query: Comparing Tool Calling, Structured Output & Hybrid Approach",
-                ),
-                curated("a colleague on my team is a bully", "Help! I hate my team mate!"),
-                curated(
-                    "sovereignty and self-hosting models versus hosted APIs",
-                    "Owning the inference layer: When and how to run your own models",
-                ),
-                curated("Project Leyden with Quarkus", "Quarkus Meets Leyden at the JVM Performance Edge"),
-                curated(
-                    "Kotlin backend doing pose estimation, raced against the browser",
-                    "Beyond the Chatbox: Ship On-Device AI in Your Browser",
+                    "Java developers as second-class citizens in AI compared to Python",
+                    "Java is Coming for Python’s Lunch: The Rise of JVM AI Agents",
                 ),
             )
         }

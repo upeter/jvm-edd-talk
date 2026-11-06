@@ -1,0 +1,77 @@
+{
+  "name": "J-Fall 2026",
+  "organizer": "NLJUG (Dutch Java User Group)",
+  "address": "Pathé Ede, Laan der Verenigde Naties 150, 6716 JE Ede, The Netherlands",
+  "venueName": "Pathé Ede",
+  "venueDescription": "Pathé Ede is a large congress center and cinema in the center of the Netherlands. The largest room (Room 9) has 1027 seats; the foyers serve as the exhibition floor (Market floor).",
+  "dateFrom": "2026-11-12",
+  "dateTo": "2026-11-12",
+  "startTime": "08:00",
+  "endTime": "18:45",
+  "timezone": "Europe/Amsterdam",
+  "programme": [
+    { "time": "09:00 - 09:20", "item": "Opening", "location": "Room 9" },
+    { "time": "10:10 - 10:35", "item": "Coffee break", "location": "Market floor" },
+    { "time": "12:30 - 13:30", "item": "Lunch", "location": "Market floor" },
+    { "time": "13:30 - 13:50", "item": "NLJUG Update and Masters of Java Award Ceremony", "location": "Room 9" },
+    { "time": "15:30 - 15:50", "item": "Coffee break", "location": "Market floor" },
+    { "time": "17:45 - 18:45", "item": "Network & Drinks", "location": "Market floor" }
+  ],
+  "nearestPublicTransport": "Train station Ede-Wageningen; from there bus 1, 2 or C3 (stop Stadspoort) or bus 6 (stop Gelderhorst), or the free J-Fall shuttle bus",
+  "travelFromCentralStation": "From Ede-Wageningen railway station take the stairs or escalator up to Platform 1, turn right immediately and follow the 'Route Ede Centrum' signs. At the end of the path the J-Fall shuttle buses (J-Fall logo in the front window) wait on your right-hand side.",
+  "travelByCar": "Take the A12 (direction Utrecht or Arnhem), exit 24 Wageningen/Ede/Bennekom, turn right at the traffic lights and follow the signs to Pathé Ede.",
+  "travelFromAirport": "From Amsterdam Schiphol Airport take the train to Ede-Wageningen (via Utrecht Centraal), then the J-Fall shuttle bus or bus 1, 2, C3 or 6 to the venue",
+  "wifi": "Free Wi-Fi for light use such as browsing and social media; not suitable for streaming or other high-bandwidth use",
+  "rooms": [
+    { "name": "Market floor", "sort": 0 },
+    { "name": "Room 1", "sort": 1 },
+    { "name": "Room 2", "sort": 2 },
+    { "name": "Room 3", "sort": 3 },
+    { "name": "Room 4", "sort": 4 },
+    { "name": "Room 5", "sort": 5 },
+    { "name": "Room 6", "sort": 6 },
+    { "name": "Room 7", "sort": 7 },
+    { "name": "Room 8", "sort": 8 },
+    { "name": "Room 9", "sort": 9 },
+    { "name": "Hands-on labs", "sort": 10 }
+  ],
+  "price": {
+    "conference": "Free for NLJUG members (J-Fall is for NLJUG members only); the conference is sold out",
+    "ticketSales": "First batch opened September 24 at 12:00, second batch October 8 at 12:00. Key and Core NLJUG members receive a personal registration link on their date.",
+    "preconference": "EUR 225.00 excl. VAT: pre-conference workshops on Wednesday November 11, 2026, 13:00-17:00 at Van der Valk Hotel Veenendaal",
+    "academiaDiscount": "No student or academic discount is listed"
+  },
+  "preconference": {
+    "date": "2026-11-11",
+    "time": "13:00 - 17:00",
+    "location": "Van der Valk Hotel Veenendaal",
+    "description": "Expert-level 4-hour workshops ahead of the main event",
+    "workshops": [
+      { "title": "Asynchronous Programming in Java: From Callbacks, to Completable Futures, to Virtual Threads", "speakers": ["Venkat Subramaniam"] },
+      { "title": "Crafting your Agentic Harness: Hands-On Harness Engineering for AI Coding Agents", "speakers": ["Maik Kingma"] },
+      { "title": "Taming Non-Determinism: From Probabilistic Testing to Resilience Patterns", "speakers": ["Iryna Dohndorf", "Mike Mannion"] }
+    ]
+  },
+  "inclusion": "Name stickers show your preferred form of address, and there is a quiet, sensory-friendly silence room. D&I mentors are available via the Mentorship Hub.",
+  "officialWebsite": "https://jfall.nl/",
+  "timetableWebsite": "https://jfall.nl/timetable-2026/",
+  "venueWebsite": "https://www.pathe.nl/nl/bioscopen/pathe-ede",
+  "travelInformationWebsite": "https://jfall.nl/locatie/",
+  "accommodationWebsite": "https://www.vandervalk.nl/",
+  "nearbyAccommodationOptions": [
+    {
+      "name": "Van der Valk Hotel Veenendaal (pre-conference location, a short drive from Ede)",
+      "website": "https://www.vandervalk.nl/"
+    }
+  ],
+  "communityDrinks": {
+    "name": "J-Fall Network & Drinks",
+    "date": "2026-11-12",
+    "startTime": "17:45",
+    "endTime": "18:45",
+    "location": "Market floor, Pathé Ede",
+    "price": "Included with your conference ticket",
+    "registration": "No separate registration needed",
+    "description": "The conference day closes with networking and drinks on the Market floor."
+  }
+}

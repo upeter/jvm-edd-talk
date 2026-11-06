@@ -85,7 +85,7 @@ object SessionDocuments {
     @JsonIgnoreProperties(ignoreUnknown = true)
     private data class SessionsFile(val sessions: List<SessionRecord>)
 
-    fun load(resource: Resource = ClassPathResource("data/dataset-devoxx26.json")): List<SessionRecord> =
+    fun load(resource: Resource = ClassPathResource("data/dataset-jfall26.json")): List<SessionRecord> =
         resource.inputStream.use { jacksonObjectMapper().readValue<SessionsFile>(it).sessions }
 
     fun documentsFor(strategy: ChunkingStrategy, sessions: List<SessionRecord>): List<Document> {

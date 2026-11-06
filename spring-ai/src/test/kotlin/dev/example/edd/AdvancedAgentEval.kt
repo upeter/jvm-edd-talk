@@ -102,7 +102,7 @@ class AdvancedAgentEval @Autowired constructor(
      * reviewed artifact. Remove @Disabled, run it once, review the diff, commit.
      */
     @Test
-    //@Disabled("Run manually to regenerate src/test/resources/datasets/devoxx26-goldens.json")
+    //@Disabled("Run manually to regenerate src/test/resources/datasets/jfall26-goldens.json")
     fun `generate conversation goldens`() {
         val conversationId = UUID.randomUUID().toString()
         val chatApp = ConversationalApplication { trajectory: ConversationTrajectory ->
@@ -111,14 +111,14 @@ class AdvancedAgentEval @Autowired constructor(
 
         val generator = goldenGenerator {
             application = chatApp
-            name = "devoxx26-goldens"
+            name = "jfall26-goldens"
             description = "Scripted conference-assistant conversations, replayed as a regression suite"
 
             seed {
                 scenario = "First-time attendee asks about the venue, then the ticket price"
                 userTurns(
                     listOf(
-                        "Where is Devoxx Belgium 2026 held?",
+                        "Where is J-Fall 2026 held?",
                         "And what does a regular ticket cost?"
                     )
                 )
@@ -128,7 +128,7 @@ class AdvancedAgentEval @Autowired constructor(
                 metadata(
                     "tasks",
                     listOf(
-                        "State the Devoxx Belgium 2026 venue address",
+                        "State the J-Fall 2026 venue address",
                         "State the regular ticket price"
                     )
                 )
@@ -153,15 +153,15 @@ class AdvancedAgentEval @Autowired constructor(
             }
         }
 
-        generator.write(Path.of("src/test/resources/datasets/devoxx26-goldens-2.json"))
+        generator.write(Path.of("src/test/resources/datasets/jfall26-goldens-2.json"))
     }
 
     @Test
     fun `replay conversation goldens against their expected outcome`() {
-        val goldens = Dataset.fromJson(Path.of("src/test/resources/datasets/devoxx26-goldens.json"))
+        val goldens = Dataset.fromJson(Path.of("src/test/resources/datasets/jfall26-goldens.json"))
 
         experiment {
-            name = "Devoxx Conversation Goldens"
+            name = "J-Fall Conversation Goldens"
             dataset(goldens)
             task { example -> mapOf("output" to example.input()) }
             evaluators {
