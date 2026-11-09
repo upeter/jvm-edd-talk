@@ -47,10 +47,11 @@ class AdvancedAgentEval @Autowired constructor(
     @Test
     fun `multiturn trajectory carries the tool calls the agent made`() {
         val user: SimulatedUser = llmUser(judge) {
-            persona = "Java backend developer planning a conference schedule"
+            persona = "Java backend developer who came to J-Fall mainly for the hands-on LangChain4j lab"
             behaviorGuidelines = """
-                - Asks about backend and AI sessions, then asks to add them to the schedule.
-                - Keeps going until a few sessions are on the schedule.
+                - Asks for the hands-on LangChain4j lab first; getting it on the schedule is the main goal.
+                - Then asks to add a few more AI sessions to the schedule.
+                - Refers to sessions by the short name the assistant used, never the exact title, emoji or punctuation.
             """
         }
         val conversationId = UUID.randomUUID().toString()
