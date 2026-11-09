@@ -128,17 +128,21 @@ stage-reveal sequence for the live talk.
 
 **Permanently red tests:** two evals in this file are deliberately failing because of the same
 underlying app bug in `ConferenceTools.addPreferenceSessions` →
-`SessionPreferenceRepository.findBySessionTitle`'s title-matching logic (confirmed deterministic
-across multiple LLM models — this is not flakiness). The product owner explicitly chose to keep
+`SessionPreferenceRepository.findBySessionTitle`'s title-matching logic: a case-insensitive
+`startsWith`, so any title the agent rewrites (e.g. dropping the emoji from
+"👩‍💻 Developing with AI…") is not found and the add fails. The product owner explicitly chose to keep
 both red as talk material demonstrating EDD catching a real bug, from two angles. **Do not "fix"
 either test by editing goldens, adjusting thresholds, weakening assertions, or patching the bug
 without explicit direction.**
 
-- `` `multiturn trajectory carries the tool calls the agent made`() `` — the simulated user's persona
-  pushes toward adding sessions to the schedule; when the agent hits the bug, Goal Completion scores
-  ~0.5 and the trajectory's overall score falls below the 0.7 threshold. The `trajectory.toolCalls()`
-  assertion earlier in the test still passes (it only checks that tool calls were captured, not that
-  they succeeded) — only the final `result.success()` check fails, and only because of this bug.
+- `` `multiturn trajectory carries the tool calls the agent made`() `` — **usually red, sometimes
+  green** (accepted by the product owner). On the J-Fall data only the LangChain4j lab
+  ("👩‍💻 Developing with AI…") reliably triggers the bug, so the persona is an attendee who came mainly
+  for that lab. When the agent drops the emoji, the lab is never added and the trajectory falls below
+  the 0.7 threshold. It stays green when the agent sends the exact emoji title (about 1 run in 3), or
+  when the judge's tone and helpfulness scores average away the missed goal. The
+  `trajectory.toolCalls()` assertion earlier in the test always passes; only the final
+  `result.success()` check fails.
 - `` `replay conversation goldens against their expected outcome`() `` — re-grades a frozen golden
   transcript (`mapOf("output" to example.input())`) rather than re-running the app, so fixing
   `findBySessionTitle` elsewhere will **not** turn it green on its own; the golden would need
@@ -164,7 +168,10 @@ Domain evaluators are written as a triple: an `Evaluator` class, a `...Dsl` buil
 `ToolPresenceEvaluator` (was a specific tool called, tolerant of extra calls; fills the gap where
 `toolCorrectness` set-matches the entire call list and penalizes any extra),
 `ContainsEvaluator` (substring/expected match), `StartedSessionOverlapEvaluator` (domain rule: never
-schedule a session that already started), `RetrievalRankEvaluator` (Hit@k/MRR for `RAGEval`).
+schedule a session that already started; `ChatEval`'s started-sessions eval is meant to fail on it: at
+15:00 the attendee asks for Spring AI and AI agent sessions, and the agent tends to book the Spring AI
+workshop that started at 14:40 and runs until 17:45. That happens in about 2 runs in 3),
+`RetrievalRankEvaluator` (Hit@k/MRR for `RAGEval`).
 `ResponseLengthEvaluator` (min/max output length) is the exception: a bare class with no DSL wrapper.
 
 **5. Production feedback → new eval cases** (`langfuse/`, `src/notebooks/`)

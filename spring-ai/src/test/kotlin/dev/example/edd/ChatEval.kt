@@ -283,7 +283,7 @@ class ChatEval
                         input =
                             """
                             It is Thursday November 12, 2026 at 15:00.
-                            I am interested in AI agent talks for my preferences that I can attend.
+                            I am interested in Spring AI and AI agent sessions for my preferences that I can attend.
                             Add suitable sessions to my preferred schedule.
                             """.trimIndent()
                         expected =
