@@ -15,7 +15,7 @@
     <description>Simple AI Application using OpenAPI Service</description>
     <properties>
         <java.version>25</java.version>
-        <dokimos.version>0.27.0</dokimos.version>
+        <dokimos.version>0.30.0</dokimos.version>
         <otel.version>2.25.0</otel.version>
         <!-- Align Kotlin compiler with dependencies using newer Kotlin metadata -->
         <kotlin.version>2.4.20</kotlin.version>
@@ -233,6 +233,18 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <!-- Surefire's default includes (*Test, *Tests, *TestCase) skip the *Eval classes. Tiers are
+                     JUnit tags select stages: ./mvnw test -Dgroups=block  or  -Dgroups=guard,block (pipeline sets EVAL_RUNS=N); see EvalTier. -->
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
+                        <include>**/*Eval.java</include>
+                    </includes>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>

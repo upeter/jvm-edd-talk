@@ -2,8 +2,10 @@ package dev.example.edd
 
 import dev.dokimos.kotlin.core.EvalTestCase
 import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 
+@Tag(EvalTier.BLOCK)
 class ContainsEvaluatorTest {
 
     @Test

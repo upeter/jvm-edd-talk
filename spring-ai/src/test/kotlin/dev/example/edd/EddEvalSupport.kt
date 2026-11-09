@@ -128,3 +128,31 @@ fun ExperimentResult.print()  = apply{   // 6. Display results
     println()
     println("=".repeat(60))
 }
+
+/**
+ * JUnit tags that say how early an eval may stop someone. An eval climbs by earning more checks,
+ * sooner; nothing is ever dropped on the way up. The stage is earned from the run history on the
+ * Dokimos server (see `tools/EvalStabilityReport`), never assigned by taste.
+ *
+ *  - [WATCH]: `.print()` and the dashboard only. Nothing blocks. Every new eval starts here, and known-red
+ *    evals stay here until the agent is fixed.
+ *  - [GUARD]: every pipeline run: `runs = evalRuns()` and `assertNoRegression()` against the committed
+ *    baseline, which is fair only on N-run means. Can stop the pipeline on drift.
+ *  - [BLOCK]: every pipeline run, `.assert()` on top of `assertNoRegression()`: any red item in any run fails.
+ *    Earned after >= 30 consecutive fully green runs while passing GUARD, which is what shows the eval meets
+ *    the bar every time. Nothing is dropped on the way up.
+ *
+ * Select stages with `./mvnw test -Dgroups=block`, `-Dgroups=guard,block`, or run everything (watch evals
+ * report, guard and block evals assert) with `EVAL_RUNS` set for the pipeline.
+ */
+object EvalTier {
+    const val WATCH = "watch"
+    const val GUARD = "guard"
+    const val BLOCK = "block"
+}
+
+/**
+ * How often each example runs in this job: `EVAL_RUNS` (nightly sets e.g. 10), default 1. The regression
+ * gate averages per item across runs, so N turns one noisy run into a mean the baseline can be compared with.
+ */
+fun evalRuns(): Int = System.getenv("EVAL_RUNS")?.trim()?.toIntOrNull()?.coerceAtLeast(1) ?: 1

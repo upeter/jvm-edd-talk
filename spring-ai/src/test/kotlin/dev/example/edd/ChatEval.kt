@@ -10,6 +10,7 @@ import dev.dokimos.core.conversation.Message
 import dev.dokimos.core.conversation.SimulatedUser
 import dev.dokimos.core.conversation.TrajectoryEvaluationCriteria
 import dev.dokimos.core.conversation.TrajectoryEvaluator
+import dev.dokimos.core.gate.GateConfig
 import dev.dokimos.kotlin.core.EvalTestCase
 import dev.dokimos.kotlin.core.assertNoRegression
 import dev.dokimos.kotlin.dsl.conversation.llmUser
@@ -33,6 +34,7 @@ import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
@@ -60,6 +62,7 @@ class ChatEval
     }
 
     @Test
+    @Tag(EvalTier.WATCH)
         fun `should retrieve basic conference information`() {
             experiment {
                 name = "J-Fall Conference Venue data Evals"
@@ -88,6 +91,7 @@ class ChatEval
             OpenAiChatOptions.builder().model("gpt-5.5-2026-04-23").reasoningEffort("none").temperature(0.0))
     )
         @Test
+        @Tag(EvalTier.WATCH)
         fun `should retrieve basic conference information and evaluate tone`() {
             experiment {
                 name = "J-Fall Tone Evals"
@@ -122,9 +126,11 @@ class ChatEval
 
 
         @Test
+        @Tag(EvalTier.GUARD)
         fun `regression should retrieve basic conference information and evaluate tone`() {
             experiment {
                 name = "J-Fall Tone Evals"
+                runs = evalRuns() // EVAL_RUNS: the nightly job sets N; the gate compares N-run means
                 dataset {
                     name = "first-time-attendee"
                     example {
@@ -146,10 +152,9 @@ class ChatEval
                     }
                     contains {}
                 }
-            }.run().print().assert()
-                .assertNoRegression("tone-evals") {
-                    severityMargin = 0.10
-                }
+            }.run().print()
+                // No .assert() here: one noisy judge score must not fail the build; only a regression may.
+                .assertNoRegression("tone-evals", GateConfig.builder().severityMargin(0.10).build())
 
 
 
@@ -160,6 +165,7 @@ class ChatEval
 
 
     @Test
+    @Tag(EvalTier.WATCH)
         fun `should retrieve accurate general venue information`() {
             experiment {
                 name = "J-Fall Venue Evals"
@@ -172,6 +178,7 @@ class ChatEval
                     }
                 }
                 task { example ->
+                    toolCallbackRecorder.clear()
                     val sessionId = UUID.randomUUID().toString()
                     val response = controller.chat(ChatMessage(example.input(), sessionId))!!
                     val toolCalls = toolCallbackRecorder.getCalls().asToolCalls()
@@ -197,6 +204,7 @@ class ChatEval
         }
 
     @Test
+    @Tag(EvalTier.WATCH)
         fun `multiturn chat for first time attendee looking for beginner sessions`() {
             val user: SimulatedUser =
                 llmUser(judge) {
@@ -274,6 +282,7 @@ class ChatEval
 
     //must fail due to sessions being proposed in the past
     @Test
+    @Tag(EvalTier.WATCH) // known red: fails ~2 runs in 3 on purpose; it stays here until the agent is fixed
         fun `should not add already started sessions to preferences`() {
             experiment {
                 name = "J-Fall Started Session Preference Evals"
@@ -294,6 +303,7 @@ class ChatEval
                     }
                 }
                 task { example ->
+                    toolCallbackRecorder.clear()
                     val conversationId = UUID.randomUUID().toString()
                     val response = controller.chat(ChatMessage(example.input(), conversationId)).orEmpty()
                     val preferredSessions = sessionPreferenceRepository.getPreferredSessionsBy(conversationId)

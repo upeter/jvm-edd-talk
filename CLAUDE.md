@@ -10,8 +10,8 @@ the *evals* are the point. Changes should keep the eval story legible for a live
 `@Test` methods in `ChatEval.kt` are deliberately separated by blank-line gaps so they can be
 revealed one at a time on stage. Preserve that spacing.
 
-This repo pins `dokimos.version = 0.27.0`. The Dokimos Claude Code skills enabled in
-`.claude/settings.json` track upstream `main`, so check generated code against the 0.27 API.
+This repo pins `dokimos.version = 0.30.0`. The Dokimos Claude Code skills enabled in
+`.claude/settings.json` track upstream `main`, so check generated code against the 0.30 API.
 
 ## Commands
 
@@ -112,6 +112,16 @@ Terminal operations differ in meaning and are not interchangeable:
   intended change with `DOKIMOS_UPDATE_BASELINE=true ./mvnw test` (the `-D` property is unreliable
   through the IntelliJ runner).
 - `.print()` — the human-readable console report in `EddEvalSupport.kt`, used for the live demo.
+
+**Stages (JUnit tags, `EvalTier` in `EddEvalSupport.kt`):** an eval earns checks, it never loses them, and
+every stage runs on every pipeline run. `watch` = `.print()` and the dashboard only (every new eval, and
+known-red ones until the agent is fixed); `guard` = `runs = evalRuns()` (`EVAL_RUNS`) + `assertNoRegression()`
+against the committed baseline; `block` = `.assert()` on top of that, earned after ≥ 30 consecutive fully green
+runs. Select subsets with `./mvnw test -Dgroups=block` or `-Dgroups=guard,block`. Promotion is decided from the
+Dokimos server's run history: `tools/EvalStabilityReport.kt` (run from IntelliJ or
+`exec:java -Dexec.classpathScope=test`) prints per experiment the fully-green fraction, clean streak and
+suggested stage. A low green% with a calibrated judge is a bug in the agent, not in the test; fix the agent,
+then measure again. Tasks that read `toolCallbackRecorder` must `clear()` it first, or `runs > 1` sees earlier calls.
 
 `ChatEval` also demonstrates multi-turn agent evaluation: `llmUser` (a persona-driven `SimulatedUser`)
 + `simulator { ... }.simulate()` produces a trajectory, scored by a `trajectoryEvaluator` with

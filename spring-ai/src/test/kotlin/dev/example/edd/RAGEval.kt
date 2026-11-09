@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import dev.dokimos.core.Dataset
 import dev.dokimos.core.ExperimentResult
+import dev.dokimos.core.gate.GateConfig
 import dev.dokimos.kotlin.core.assertNoRegression
 import dev.dokimos.kotlin.dsl.experiment
 import dev.example.ChunkingStrategy
@@ -51,9 +52,10 @@ class RAGEval
                 .also { printMisses(strategy, it) }
                 // Hit@k flips 0↔1 on a single near-tie, so the per-item severity guard would flake on a
                 // dataset this size. Leave regressions to the significance test (McNemar / permutation).
-                .assertNoRegression("rag-${strategy.name.lowercase().replace('_', '-')}") {
-                    severityMargin = 1.0
-                }
+                .assertNoRegression(
+                    "rag-${strategy.name.lowercase().replace('_', '-')}",
+                    GateConfig.builder().severityMargin(1.0).build(),
+                )
         }
 
         @Test

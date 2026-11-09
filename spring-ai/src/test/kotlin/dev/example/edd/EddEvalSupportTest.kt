@@ -3,8 +3,10 @@ package dev.example.edd
 import dev.example.CapturedToolCall
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 
+@Tag(EvalTier.BLOCK)
 class EddEvalSupportTest {
 
     @Test

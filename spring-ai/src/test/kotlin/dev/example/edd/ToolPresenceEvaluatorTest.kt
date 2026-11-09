@@ -3,8 +3,10 @@ package dev.example.edd
 import dev.dokimos.core.agents.ToolCall
 import dev.dokimos.kotlin.core.EvalTestCase
 import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 
+@Tag(EvalTier.BLOCK)
 class ToolPresenceEvaluatorTest {
 
     private fun toolCall(name: String, result: String = "ok"): ToolCall =
