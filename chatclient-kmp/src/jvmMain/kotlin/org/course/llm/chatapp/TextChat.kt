@@ -33,6 +33,9 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -100,18 +103,17 @@ sealed class ChatBubbleStyle {
 
     object Agent : ChatBubbleStyle() {
         override val alignment = Alignment.CenterStart
-        override val backgroundColor = JFallColors.SurfaceRaised
+        override val backgroundColor = JFallColors.Surface
         override val textColor = JFallColors.Text
-        override val linkColor = JFallColors.Cyan
+        override val linkColor = JFallColors.OrangeDark
         override val borderColor = JFallColors.Border
     }
 
-    // Outlined orange bubble for transcribed user input
+    // Darker orange, like the plenary sessions on the timetable, for transcribed user input
     object Transcribed : ChatBubbleStyle() {
         override val alignment = Alignment.CenterEnd
-        override val backgroundColor = JFallColors.Surface
-        override val textColor = JFallColors.Orange
-        override val borderColor = JFallColors.Orange
+        override val backgroundColor = JFallColors.OrangeDark
+        override val textColor = JFallColors.OnAccent
     }
 }
 
@@ -143,7 +145,7 @@ fun MarkdownText(content: String, style: ChatBubbleStyle) {
     val markdownColors = MarkdownColors(
         text = style.textColor,
         link = style.linkColor,
-        code = if (style is ChatBubbleStyle.Agent) JFallColors.Lime else style.textColor.copy(alpha = 0.9f)
+        code = if (style is ChatBubbleStyle.Agent) JFallColors.OrangeDark else style.textColor.copy(alpha = 0.9f)
     )
     val annotated = remember(content, style) { buildMarkdownAnnotatedString(content, markdownColors) }
     CompositionLocalProvider(LocalContentColor provides style.textColor) {
@@ -152,7 +154,7 @@ fun MarkdownText(content: String, style: ChatBubbleStyle) {
                 text = annotated,
                 modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp),
                 color = style.textColor,
-                style = TextStyle.Default.copy(lineHeight = 20.sp)
+                style = LocalTextStyle.current.copy(lineHeight = 20.sp)
             )
         }
     }
@@ -175,16 +177,15 @@ fun ChatBubbleWithStyle(content: String, style: ChatBubbleStyle) {
             }
 
             val isAgent = style is ChatBubbleStyle.Agent
+            // Timetable session cards: 2px corners. User messages are orange cards,
+            // agent replies are white cards with an orange top stripe.
             Surface(
-                shape = RoundedCornerShape(
-                    topStart = if (isAgent) 2.dp else 16.dp,
-                    topEnd = if (isAgent) 16.dp else 2.dp,
-                    bottomStart = 16.dp,
-                    bottomEnd = 16.dp
-                ),
+                shape = RoundedCornerShape(2.dp),
                 color = style.backgroundColor,
                 border = style.borderColor?.let { BorderStroke(1.dp, it) },
-                modifier = Modifier.widthIn(max = 520.dp)
+                modifier = Modifier
+                    .widthIn(max = 520.dp)
+                    .then(if (isAgent) Modifier.topStripe() else Modifier)
             ) {
                 MarkdownText(content, style)
             }
@@ -204,7 +205,7 @@ fun FeedbackRow(
     val sentDown = message.feedbackStatus == FeedbackStatus.SENT && message.lastFeedbackThumbsUp == false
     val upColor = when {
         isSending -> JFallColors.TextMuted.copy(alpha = 0.5f)
-        sentUp -> JFallColors.Lime
+        sentUp -> JFallColors.Orange
         else -> JFallColors.TextMuted
     }
     val downColor = when {
@@ -448,12 +449,13 @@ private fun WelcomePanel(modifier: Modifier = Modifier) {
     ) {
         DukeAvatar(height = 120.dp)
         Spacer(Modifier.height(24.dp))
+        // Orange bold heading, like "Thursday, 12 November 2026" on the timetable
         Text(
-            text = "HI, I'M YOUR J-FALL ASSISTANT",
-            color = JFallColors.Text,
-            fontSize = 22.sp,
-            fontWeight = FontWeight.Black,
-            letterSpacing = 2.sp
+            text = "Hi, I'm your J-Fall assistant",
+            color = JFallColors.Orange,
+            fontSize = 28.sp,
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Bold
         )
         Spacer(Modifier.height(8.dp))
         Text(
@@ -462,7 +464,7 @@ private fun WelcomePanel(modifier: Modifier = Modifier) {
             fontSize = 14.sp
         )
         Spacer(Modifier.height(16.dp))
-        JFallPill("Powered by Spring AI", color = JFallColors.Cyan)
+        RoomTag("Powered by Spring AI", bordered = true)
     }
 }
 
@@ -647,8 +649,8 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                             else -> false // Don't consume other key events
                         }
                     },
-                placeholder = { Text("Ask about talks, rooms, your schedule…") },
-                shape = RoundedCornerShape(24.dp),
+                placeholder = { Text("Ask about talks, rooms, your schedule…", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                shape = RoundedCornerShape(28.dp),
                 colors = jfallTextFieldColors(),
                 maxLines = 3
             )
@@ -664,9 +666,11 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         previous = inputFieldFocus
                     },
                 enabled = !isLoading && inputText.isNotBlank(),
-                colors = jfallButtonColors()
+                colors = jfallButtonColors(),
+                shape = JFallButtonShape,
+                contentPadding = JFallButtonPadding
             ) {
-                Text("SEND", fontWeight = FontWeight.SemiBold, letterSpacing = 1.5.sp)
+                JFallButtonLabel("Send")
             }
 
             Button(
@@ -683,16 +687,14 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .padding(end = 8.dp, bottom = 8.dp),
                 enabled = !isLoading,
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Transparent,
-                    contentColor = JFallColors.Lime,
-                    disabledContentColor = JFallColors.TextMuted
-                ),
-                border = BorderStroke(1.dp, if (isLoading) JFallColors.Border else JFallColors.Lime)
+                colors = jfallSecondaryButtonColors(),
+                border = jfallSecondaryButtonBorder(enabled = !isLoading),
+                shape = JFallButtonShape,
+                contentPadding = JFallButtonPadding
             ) {
                 Icon(Icons.Filled.Mic, contentDescription = null, modifier = Modifier.size(18.dp))
                 Spacer(Modifier.width(6.dp))
-                Text("REC", fontWeight = FontWeight.SemiBold, letterSpacing = 1.5.sp)
+                JFallButtonLabel("Rec")
             }
         }
 
@@ -703,7 +705,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(JFallColors.Background.copy(alpha = 0.88f)),
+                    .background(JFallColors.Background.copy(alpha = 0.94f)),
                 contentAlignment = Alignment.Center
             ) {
                 Column(
@@ -714,7 +716,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                         modifier = Modifier
                             .size(120.dp * recordScale)
                             .clip(CircleShape)
-                            .background(if (isRecording) JFallColors.Orange else JFallColors.SurfaceRaised)
+                            .background(if (isRecording) JFallColors.OrangeDark else JFallColors.Orange)
                             .clickable {
                                 if (!isRecording) {
                                     isRecording = true
@@ -763,7 +765,7 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                     ) {
                         Text(
                             if (isRecording) "STOP" else "RECORD",
-                            color = if (isRecording) JFallColors.OnAccent else JFallColors.Text,
+                            color = JFallColors.OnAccent,
                             fontWeight = FontWeight.Bold,
                             letterSpacing = 2.sp
                         )
@@ -781,12 +783,11 @@ fun TextChatScreen(httpClient: HttpClient, conversationId: String) {
                                 }
                                 showRecordOverlay = false
                             },
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = Color.Transparent,
-                                contentColor = JFallColors.Text
-                            ),
-                            border = BorderStroke(1.dp, JFallColors.Border)
-                        ) { Text("CANCEL", letterSpacing = 1.5.sp) }
+                            colors = jfallSecondaryButtonColors(),
+                            border = jfallSecondaryButtonBorder(),
+                            shape = JFallButtonShape,
+                            contentPadding = JFallButtonPadding
+                        ) { JFallButtonLabel("Cancel") }
                     }
                 }
             }

@@ -303,8 +303,8 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
                 modifier = Modifier
                     .size(120.dp * animatedSize)
                     .clip(CircleShape)
-                    .background(if (isRecording) JFallColors.Orange else JFallColors.SurfaceRaised)
-                    .border(2.dp, if (isRecording) JFallColors.Lime else JFallColors.Border, CircleShape)
+                    .background(if (isRecording) JFallColors.OrangeDark else JFallColors.Orange)
+                    .border(3.dp, if (isRecording) JFallColors.Red else JFallColors.Orange, CircleShape)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null
@@ -351,7 +351,7 @@ fun AudioChatScreen(httpClient: HttpClient, conversationId: String) {
             ) {
                 Text(
                     text = if (isRecording) "STOP" else "RECORD",
-                    color = if (isRecording) JFallColors.OnAccent else JFallColors.Text,
+                    color = JFallColors.OnAccent,
                     fontWeight = FontWeight.Bold,
                     letterSpacing = 2.sp
                 )

@@ -1,6 +1,7 @@
 package org.course.llm.chatapp
 
 import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -21,6 +22,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
@@ -65,7 +67,7 @@ fun App() {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(JFallColors.Surface)
+                    .background(JFallColors.Background)
                     .padding(horizontal = 12.dp, vertical = 10.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -81,7 +83,7 @@ fun App() {
                     DropdownMenu(
                         expanded = menuExpanded,
                         onDismissRequest = { menuExpanded = false },
-                        containerColor = JFallColors.SurfaceRaised
+                        containerColor = JFallColors.Surface
                     ) {
                         DropdownMenuItem(
                             text = { Text("Text Chat") },
@@ -108,46 +110,48 @@ fun App() {
                     }
                 }
 
-                Spacer(Modifier.width(4.dp))
-                DukeAvatar(height = 36.dp)
-                Spacer(Modifier.width(12.dp))
-
-                Column {
-                    Text(
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(color = JFallColors.Text)) { append("J-FALL ") }
-                            withStyle(SpanStyle(color = JFallColors.Orange)) { append("2026") }
-                        },
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Black,
-                        letterSpacing = 3.sp
-                    )
-                    Text(
-                        text = "FROM DEVELOPER TO BUILDER",
-                        color = JFallColors.TextMuted,
-                        fontSize = 10.sp,
-                        letterSpacing = 2.sp
-                    )
-                }
+                Spacer(Modifier.width(8.dp))
+                Image(
+                    painter = painterResource("JFall2026Logo.png"),
+                    contentDescription = "J-Fall 2026",
+                    modifier = Modifier.height(52.dp)
+                )
 
                 Spacer(Modifier.weight(1f))
 
-                ScreenTab("Text Chat", currentScreen == Screen.TEXT_CHAT) { currentScreen = Screen.TEXT_CHAT }
-                Spacer(Modifier.width(8.dp))
-                ScreenTab("Audio Chat", currentScreen == Screen.AUDIO_CHAT) { currentScreen = Screen.AUDIO_CHAT }
+                // Nav like jfall.nl: uppercase bold black links, the current page in orange
+                NavItem("Text Chat", currentScreen == Screen.TEXT_CHAT) { currentScreen = Screen.TEXT_CHAT }
+                Spacer(Modifier.width(24.dp))
+                NavItem("Audio Chat", currentScreen == Screen.AUDIO_CHAT) { currentScreen = Screen.AUDIO_CHAT }
+                Spacer(Modifier.width(16.dp))
             }
-            HorizontalDivider(color = JFallColors.Border)
 
-            Row(
-                modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 12.dp, end = 16.dp),
-                verticalAlignment = Alignment.CenterVertically
+            // Red -> orange banner with a white title, like "J-Fall 2026 Timetable"
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(JFallColors.Gradient)
+                    .padding(horizontal = 24.dp, vertical = 20.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                JFallPill("Attendee Assistant")
-                Spacer(Modifier.width(8.dp))
-                JFallPill("Ede · 12 Nov 2026", color = JFallColors.Cyan)
+                Text(
+                    text = "J-Fall 2026 Assistant",
+                    color = Color.White,
+                    fontSize = 30.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = "Thursday 12 November 2026 · Pathé Ede",
+                    color = Color.White,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Medium,
+                    textAlign = TextAlign.Center
+                )
             }
 
-            Box(modifier = Modifier.fillMaxSize().padding(16.dp)) {
+            Box(modifier = Modifier.fillMaxSize().padding(horizontal = 24.dp, vertical = 16.dp)) {
                 // Screen content based on current screen
                 when (currentScreen) {
                     Screen.TEXT_CHAT -> {
@@ -166,28 +170,18 @@ fun App() {
 }
 
 @Composable
-private fun ScreenTab(label: String, selected: Boolean, onClick: () -> Unit) {
+private fun NavItem(label: String, selected: Boolean, onClick: () -> Unit) {
     val interaction = remember { MutableInteractionSource() }
     val hovered by interaction.collectIsHoveredAsState()
-    val background = when {
-        selected -> JFallColors.Orange
-        hovered -> JFallColors.Lime
-        else -> Color.Transparent
-    }
-    val foreground = if (selected || hovered) JFallColors.OnAccent else JFallColors.Text
     Text(
         text = label.uppercase(),
-        color = foreground,
-        fontSize = 12.sp,
-        fontWeight = FontWeight.SemiBold,
-        letterSpacing = 1.5.sp,
+        color = if (selected || hovered) JFallColors.Orange else JFallColors.Text,
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
         modifier = Modifier
-            .clip(RoundedCornerShape(96.dp))
-            .background(background)
-            .border(1.dp, if (selected) JFallColors.Orange else JFallColors.Border, RoundedCornerShape(96.dp))
             .hoverable(interaction)
             .clickable(interactionSource = interaction, indication = null, onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(vertical = 8.dp)
     )
 }
 
