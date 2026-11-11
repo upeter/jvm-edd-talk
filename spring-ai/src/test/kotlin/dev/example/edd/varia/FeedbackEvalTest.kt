@@ -5,8 +5,6 @@ import dev.dokimos.core.JudgeLM
 import dev.dokimos.kotlin.dsl.experiment
 import dev.example.langfuse.LangfuseFeedbackClient
 import io.kotest.matchers.collections.shouldNotBeEmpty
-import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.Assumptions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import org.springframework.ai.chat.client.ChatClient
